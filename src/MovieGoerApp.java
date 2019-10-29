@@ -2,6 +2,7 @@ package src;
 
 import java.util.Scanner;
 
+// none of the logic shld actually b here
 public class MovieGoerApp {
 	
 	public void run() {
@@ -21,46 +22,48 @@ public class MovieGoerApp {
 		System.out.println("(6) List top five movies");
 		System.out.println("(7) Leave a rating and review on a movie");
 		System.out.println("(8) Exit");
+		// List pricing details?
 		System.out.println("=======================================================");
 		
 		do {
 			System.out.print("\nChoose an option: ");
 			choice = sc.nextInt();
 			switch (choice) {
-			case 1:
-				bookTicket();
-				break;
-			case 2:
-				listMovies();
-				break;
-			case 3:
-				viewMovieDetails();
-				break;
-			case 4:
-				checkSeatAvailabilities();
-				break;
-			case 5:
-				viewBookingHistory();
-				break;
-			case 6:
-				listTop5Movies();
-				break;
-			case 7:
-				rateMovie();
-				break;
-			case 8:
-				System.out.println("Exited from the movie-goer menu.");
-				break;
-			default:
-				System.out.println("Please input a valid option.");
-				break;
-			}
+				case 1:
+					bookTicket();
+					break;
+				case 2:
+					listMovies();
+					break;
+				case 3:
+					viewMovieDetails();
+					break;
+				case 4:
+					checkSeatAvailabilities();
+					break;
+				case 5:
+					viewBookingHistory();
+					break;
+				case 6:
+					listTop5Movies();
+					break;
+				case 7:
+					rateMovie();
+					break;
+				case 8:
+					System.out.println("Exited from the movie-goer menu.");
+					break;
+				default:
+					System.out.println("Please input a valid option.");
+					break;
+				}
 		} while (choice != 8);
 		
 		sc.close();
 	}
 	
 	// (1) Book and purchase a movie ticket
+	// should create like some TicketManager etc
 	private void bookTicket() {
 		// Which movie? (Show the total list of movies)
 		// Which cineplex? (Show list of cineplexes showing that movie that day)
