@@ -1,6 +1,9 @@
-package src;
-
+package main;
 import java.util.Scanner;
+
+import org.json.simple.JSONObject;
+
+import handlers.DatabaseHandler;
 
 public class CinemaStaffApp {
 	
@@ -40,10 +43,13 @@ public class CinemaStaffApp {
 				break;
 			case 5:
 				updateMovieShowtime();
+				break;
 			case 6:
 				removeMovieShowtime();
+				break;
 			case 7:
 				configureSettings();
+				break;
 			case 8:
 				break;
 			case 9:
@@ -54,11 +60,11 @@ public class CinemaStaffApp {
 				break;
 			}
 		} while (choice != 9);
-		
-		sc.close();
 	}
 	
 	private void createMovieListing() {
+		JSONObject t = DatabaseHandler.getObject("movieData");
+
 		// ask them to enter movie details - title, etc, etc.
 		// will write to movie list csv file
 	}

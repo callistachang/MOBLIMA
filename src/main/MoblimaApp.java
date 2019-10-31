@@ -1,4 +1,4 @@
-package src;
+package main;
 import java.util.Scanner;
 
 public class MoblimaApp {
@@ -10,10 +10,10 @@ public class MoblimaApp {
 		// add a function to create/load initial data.
 		System.out.println("Data loading successful.");
 		
-		System.out.println("\nWelcome to MOBLIMA! What would you like to do today?\n");
+		System.out.println("\nWelcome to MOBLIMA! What would you like to do today?");
 		
 		do {
-			System.out.println("====================== Main Menu ======================");
+			System.out.println("\n====================== Main Menu ======================");
 			System.out.println("(1) Log in as movie-goer");
 			System.out.println("(2) Log in as cinema staff");
 			System.out.println("(3) Exit");
@@ -28,8 +28,8 @@ public class MoblimaApp {
 					mgApp.run();
 					break;
 				case 2:
-					// CinemaStaffApp csApp = new CinemaStaffApp();
-					// csApp.run();
+					CinemaStaffApp csApp = new CinemaStaffApp();
+					csApp.run();
 					break;
 				case 3:
 					System.out.println("Thank you for using MOBLIMA!");
@@ -40,7 +40,5 @@ public class MoblimaApp {
 					break;
 			}
 		} while (choice != 3);
-		
-		sc.close();
 	}
 }

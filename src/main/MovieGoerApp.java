@@ -1,5 +1,4 @@
-package src;
-
+package main;
 import java.util.Scanner;
 
 // none of the logic shld actually b here
@@ -52,14 +51,13 @@ public class MovieGoerApp {
 					break;
 				case 8:
 					System.out.println("Exited from the movie-goer menu.");
+					sc.nextLine();
 					break;
 				default:
 					System.out.println("Please input a valid option.");
 					break;
 				}
 		} while (choice != 8);
-		
-		sc.close();
 	}
 	
 	// (1) Book and purchase a movie ticket
