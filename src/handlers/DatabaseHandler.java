@@ -7,29 +7,32 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class DatabaseHandler {
 	
-	// testing lol
+//	// testing lol
 //	public static void main(String[] args) {
 //		ArrayList<String> dataToAdd = new ArrayList<String>();
-//		dataToAdd.add("hi,yes,yeet");
-//		dataToAdd.add("hi,more yeet");
+////		dataToAdd.add("hi,yes,yeet");
+////		dataToAdd.add("hi,more yeet");
 //		addDataToDatabase("moviedata", dataToAdd);
-//		System.out.println(readDatabase("moviedata"));
+//		ArrayList<String> d = readDatabase("moviedata");
+//		System.out.println(Arrays.toString(d.get(1).split(",")));
+//		
 //	}
 	
-	public static boolean addDataToDatabase(String databaseName, ArrayList<String> dataToAdd) {
-		// reads database into an array
-		ArrayList<String> dataArray = new ArrayList<String>();
-		dataArray = readDatabase(databaseName);
-		
-		// appends the data we wish to add into that array
-		dataArray.addAll(dataToAdd);
-		
-		// write the array back into the database
-		return writeToDatabase(databaseName, dataArray);
-	}
+//	public static boolean addDataToDatabase(String databaseName, ArrayList<String> dataToAdd) {
+//		// reads database into an array
+//		ArrayList<String> dataArray = new ArrayList<String>();
+//		dataArray = readDatabase(databaseName);
+//		
+//		// appends the data we wish to add into that array
+//		dataArray.addAll(dataToAdd);
+//		
+//		// write the array back into the database
+//		return writeToDatabase(databaseName, dataArray);
+//	}
 	
 	public static ArrayList<String> readDatabase(String databaseName) {
 		try {
@@ -42,7 +45,10 @@ public class DatabaseHandler {
             Scanner sc = new Scanner(f);
             ArrayList<String> dataArray = new ArrayList<String>();
             while (sc.hasNextLine()) {
-            	dataArray.add(sc.nextLine());
+            	String row = sc.nextLine();
+            	if (row.charAt(0) != '#') { // I use this symbol to signify column names
+            		dataArray.add(row);
+            	}
             }
             sc.close();
             
@@ -61,7 +67,7 @@ public class DatabaseHandler {
         }
 	}
 	
-	private static boolean writeToDatabase(String databaseName, ArrayList<String> dataArray) {
+	public static boolean writeToDatabase(String databaseName, ArrayList<String> dataArray) {
 		
 		PrintWriter out = null;
 		
