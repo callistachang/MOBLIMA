@@ -1,61 +1,88 @@
 package handlers;
 
 import java.io.File;
-import java.io.FileReader;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.HashMap;
-
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
 
 public class DatabaseHandler {
-	public static JSONObject getObject(String databaseName){
-		JSONParser parser = new JSONParser();
-		File f = new File("database/"+databaseName+".json");
-		try {
-			Object obj = parser.parse(new FileReader(f.getAbsolutePath()));
-			JSONObject database = (JSONObject) obj;
-			return database;
-		} catch (IOException | ParseException e) {
-			System.err.println("Database file: "+databaseName+" was not found.");
-			e.printStackTrace();
-		}
-		return null;
+	
+	// testing lol
+//	public static void main(String[] args) {
+//		ArrayList<String> dataToAdd = new ArrayList<String>();
+//		dataToAdd.add("hi,yes,yeet");
+//		dataToAdd.add("hi,more yeet");
+//		addDataToDatabase("moviedata", dataToAdd);
+//		System.out.println(readDatabase("moviedata"));
+//	}
+	
+	public static boolean addDataToDatabase(String databaseName, ArrayList<String> dataToAdd) {
+		// reads database into an array
+		ArrayList<String> dataArray = new ArrayList<String>();
+		dataArray = readDatabase(databaseName);
+		
+		// appends the data we wish to add into that array
+		dataArray.addAll(dataToAdd);
+		
+		// write the array back into the database
+		return writeToDatabase(databaseName, dataArray);
 	}
 	
-	public static JSONArray getArray(String databaseName){
-		JSONParser parser = new JSONParser();
-		File f = new File("data/"+databaseName+".json");
+	public static ArrayList<String> readDatabase(String databaseName) {
 		try {
-			Object obj = parser.parse(new FileReader(f.getAbsolutePath()));
-			JSONArray database = (JSONArray) obj;
-			return database;
-		} catch (IOException | ParseException e) {
-			// TODO Auto-generated catch block
-			System.err.println("Database file: "+databaseName+" was not found.");
-			e.printStackTrace();
+			File f = new File("database/" + databaseName + ".csv");
+			if (!f.canRead()) {
+				throw new FileNotFoundException();
+			}
+			
+			// scan CSV file into an array
+            Scanner sc = new Scanner(f);
+            ArrayList<String> dataArray = new ArrayList<String>();
+            while (sc.hasNextLine()) {
+            	dataArray.add(sc.nextLine());
+            }
+            sc.close();
+            
+            // nothing read from the CSV file
+            if (dataArray.size() == 0) {
+            	System.out.println("The database " + databaseName + " currently has no data.");
+            	return null;
+            }
+            
+            return dataArray;
 		}
-		return null;
+		catch (FileNotFoundException e) {
+			e.printStackTrace();
+            System.out.println("File could not be found. Error message: " + e.getMessage());
+            return null;
+        }
 	}
 	
-	public static boolean save(String databaseName, HashMap m){
-		JSONObject j = new JSONObject();
-		j.putAll(m);
-		File f = new File("data/"+databaseName+".json");
-		FileWriter file;
+	private static boolean writeToDatabase(String databaseName, ArrayList<String> dataArray) {
+		
+		PrintWriter out = null;
+		
 		try {
-			file = new FileWriter(f.getAbsolutePath());
-			file.write(j.toJSONString());
-            file.flush();
-            file.close();
+			// create a new file if it doesn't exist yet
+			File file = new File("database/" + databaseName + ".csv");
+			file.createNewFile();
+			
+			out = new PrintWriter(new FileWriter("database/" + databaseName + ".csv"));
+			
+			for (int i = 0; i < dataArray.size(); i++) {
+				out.println(dataArray.get(i));
+			}
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return false;
+		} finally {
+			if (out != null)
+				out.close();
 		}
+		
 		return true;
 	}
 }
