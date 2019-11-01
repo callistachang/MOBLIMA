@@ -58,6 +58,7 @@ public class MovieGoerApp {
 					break;
 				}
 		} while (choice != 8);
+		sc.close();
 	}
 	
 	// (1) Book and purchase a movie ticket
