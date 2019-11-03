@@ -37,8 +37,6 @@ public class MovieManager {
 		if (records == null) {
 			initializeDatabase();
 		}
-		
-		
 	}
 	
 	public int listAll() {
