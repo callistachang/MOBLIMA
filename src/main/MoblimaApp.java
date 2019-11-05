@@ -14,24 +14,29 @@ public class MoblimaApp {
 		
 		do {
 			System.out.println("\n====================== Main Menu ======================");
-			System.out.println("(1) Log in as movie-goer");
-			System.out.println("(2) Log in as cinema staff");
-			System.out.println("(3) Exit");
+			System.out.println("(1) Log in");
+			System.out.println("(2) Continue as guest");
+			System.out.println("(3) Create an account");
+			System.out.println("(4) Exit");
 			System.out.println("=======================================================");
-			
 			System.out.print("\nChoose an option: ");
 			choice = sc.nextInt();
 			System.out.println();
 			switch (choice) {
 				case 1:
-					MovieGoerApp mgApp = new MovieGoerApp();
-					mgApp.run();
+					LogIn lg = new LogIn();
+					lg.userLogin();
 					break;
 				case 2:
-					CinemaStaffApp csApp = new CinemaStaffApp();
-					csApp.run();
+					GuestApp gApp = new GuestApp();
+					gApp.run();
 					break;
 				case 3:
+					CreateAccount cAcc = new CreateAccount();
+					cAcc.newAccount();
+					break;
+					
+				case 4:
 					System.out.println("Thank you for using MOBLIMA!");
 					System.out.println("Program exiting...");
 					break;
@@ -39,6 +44,6 @@ public class MoblimaApp {
 					System.out.println("<Warning> Please input a valid option.");
 					break;
 			}
-		} while (choice != 3);
+		} while (choice != 4);
 	}
 }

@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import managers.MovieManager;
 
-public class CinemaStaffApp {
+public class CinemaStaffApp extends GuestApp {
 	
 	public void run() {
 		int choice = -1;
@@ -13,15 +13,19 @@ public class CinemaStaffApp {
 		// Add a function to run the login as admin thingy
 		
 		System.out.println("================== Cinema Staff Menu ==================");
-		System.out.println("(1) Create movie listing");
-		System.out.println("(2) Update movie listing");
-		System.out.println("(3) Remove movie listing");
-		System.out.println("(4) Create movie showtime");
-		System.out.println("(5) Update movie showtime");
-		System.out.println("(6) Remove movie showtime");
-		System.out.println("(7) Configure system settings");
-		System.out.println("(8) ???"); // Some 2013 group did "Print sale revenue report by movie, cinema and period", lmao
-		System.out.println("(9) Exit");
+		System.out.println("(1) List movies");
+		System.out.println("(2) View movie details (including reviews and ratings)");
+		System.out.println("(3) Check seat availabilities");
+		System.out.println("(4) List top five movies");
+		System.out.println("(5) Create movie listing");
+		System.out.println("(6) Update movie listing");
+		System.out.println("(7) Remove movie listing");
+		System.out.println("(8) Create movie showtime");
+		System.out.println("(9) Update movie showtime");
+		System.out.println("(10) Remove movie showtime");
+		System.out.println("(11) Configure system settings");
+		System.out.println("(12) ???"); // Some 2013 group did "Print sale revenue report by movie, cinema and period", lmao
+		System.out.println("(13) Exit");
 		System.out.println("=======================================================");
 		
 		do {
@@ -29,36 +33,48 @@ public class CinemaStaffApp {
 			choice = sc.nextInt();
 			switch (choice) {
 			case 1:
-				createMovieListing();
+				listMovies();
 				break;
 			case 2:
-				updateMovieListing();
+				viewMovieDetails();
 				break;
 			case 3:
-				removeMovieListing();
+				checkSeatAvailabilities();
 				break;
 			case 4:
-				createMovieShowtime();
+				listTop5Movies();
 				break;
 			case 5:
-				updateMovieShowtime();
+				createMovieListing();
 				break;
 			case 6:
-				removeMovieShowtime();
+				updateMovieListing();
 				break;
 			case 7:
-				configureSettings();
+				removeMovieListing();
 				break;
 			case 8:
+				createMovieShowtime();
 				break;
 			case 9:
+				updateMovieShowtime();
+				break;
+			case 10:
+				removeMovieShowtime();
+				break;
+			case 11:
+				configureSettings();
+				break;
+			case 12:
+				break;
+			case 13:
 				System.out.println("Exited from the cinema staff menu.");
 				break;
 			default:
 				System.out.println("Please input a valid option.");
 				break;
 			}
-		} while (choice != 9);
+		} while (choice != 13);
 	}
 	
 	private void createMovieListing() {

@@ -2,7 +2,7 @@ package main;
 import java.util.Scanner;
 
 // none of the logic shld actually b here
-public class MovieGoerApp {
+public class MovieGoerApp extends GuestApp {
 	
 	public void run() {
 		int choice = -1;
@@ -72,44 +72,11 @@ public class MovieGoerApp {
 		// If user confirms, show the booking receipt, save it to receipt CSV file.
 	}
 	
-	// (2) List movies
-	private void listMovies() {
-		// Ask the user if they want to 1. list ALL movies, or 2. just movies playing in a certain cineplex
-		// If option 2, ask them to pick the cineplex then show movies playing only in that cineplex.
-		
-		// Read from an external CSV file containing movie information, filter as necessary
-	}
-	
-	// (3) View movie details (including reviews and ratings)
-	private void viewMovieDetails() {
-		// Ask user which movie they want to query.
-		
-		// Read from an external CSV file containing movie information, but find only the specific movie
-		// Read from an external CSV file containing review information, but find it for that movie only
-		// Read from an external CSV file containing ratings information, but find it for that movie only
-	}
-	
-	// (4) Check seat availabilities
-	private void checkSeatAvailabilities() {
-		// ask user to pick cineplex
-		// then pick movie
-		// then show the number of available seats per showtime for that movie remaining in the day.
-		// maybe can do that 'selling fast' 'available' 'fully booked' stuff.
-	}
-	
 	// (5) View booking history
 	private void viewBookingHistory() {
 		// Read from an external CSV file for all the past booking histories for the USER who's logged in.
 	}
 	
-	// (6) List top five movies
-	private void listTop5Movies() {
-		// Ask user if they want to filter by 1. ticket sales, or 2. reviewer ratings.
-		
-		// If 1, look at the booking receipts database and do the math.
-		
-		// If 2, look at the ratings database and do the math.
-	}
 	
 	// (7) Leave a review or rating on a movie
 	private void rateMovie() {

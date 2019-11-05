@@ -1,5 +1,6 @@
 /handlers/
-/serializers/
-/models/
 /main/
 /managers/
+/models/
+/moviedata.csv
+/serializers/
