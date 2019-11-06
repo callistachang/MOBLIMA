@@ -1,5 +1,11 @@
 package models;
 
-public class Cinema {
+import java.util.ArrayList;
+
+public class Cinema implements ISerializable {
+
+	public ArrayList<Object> getSerializableData() {
+		return null;
+	}
 
 }

@@ -3,8 +3,9 @@ package models;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 
-public class Showtime {
+public class Showtime implements ISerializable {
 	public Movie movie;
 	public Cinema cinema;
 	// NOT SURE if we should do the conversion of date string to LocalDate in the constructor OR in the ShowtimeManager
@@ -58,5 +59,9 @@ public class Showtime {
 
 	public void setTime(LocalTime time) {
 		this.time = time;
+	}
+
+	public ArrayList<Object> getSerializableData() {
+		return null;
 	}
 }
