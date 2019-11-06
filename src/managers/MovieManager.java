@@ -53,6 +53,13 @@ public class MovieManager {
 		return records.size();
 	}
 	
+	public void createMovieRating(int movie_chosen, int rating) {
+		
+	}
+	
+	public void createMovieReview(int movie_chosen, String review) {
+		
+	}
 	public void listByTitle() {
 		
 	}

@@ -143,7 +143,7 @@ public class CinemaStaffApp extends GuestApp {
 		
 		
 		
-		// mm.updateMovie(option);
+		// mm.update(option);
 		
 //		String title = sc.nextLine();
 		
