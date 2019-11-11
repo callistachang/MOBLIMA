@@ -79,4 +79,7 @@ public class MovieManager {
 	public void listByTitle() {
 		
 	}
+	public void getReviews(Movie movie) {
+		movie.printReview();
+	}
 }

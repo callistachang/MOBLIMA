@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Movie implements ISerializable {
+	protected ArrayList<Integer> reviewID;
 	protected String title;
 	protected String showingStatus;
 	protected String synopsis;
@@ -101,5 +102,21 @@ public class Movie implements ISerializable {
 
 	public void setDuration(int duration) {
 		this.duration = duration;
+	}
+
+	public ArrayList<Integer> getReviewID() {
+		return reviewID;
+	}
+
+	public void setReviewID(ArrayList<Integer> reviewID) {
+		this.reviewID = reviewID;
+	}
+	public void printReview() {
+		ArrayList<Integer> id;
+		int i;
+		id = getReviewID();
+		for(i=0; i<id.size(); i++) {
+			
+		}
 	}
 }
