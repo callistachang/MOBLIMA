@@ -1,8 +1,14 @@
 package main;
 import java.util.Scanner;
+import models.Account;
 
 // none of the logic shld actually b here
 public class MovieGoerApp extends GuestApp {
+	private Account account;
+	
+	public MovieGoerApp(Account account) {
+		this.account = account;
+	}
 	
 	public void run() {
 		int choice = -1;

@@ -8,10 +8,6 @@ public class GuestApp {
 		int choice = -1;
 		Scanner sc = new Scanner(System.in);
 		
-		// Should add a function to let moviegoer create account or login to their account.
-		// Name, age, mobile number, email address.
-		// Hence we create a new MovieGoer object here.
-		
 		System.out.println("===================== Guest Menu ======================");
 		System.out.println("(1) List movies");
 		System.out.println("(2) View movie details (including reviews and ratings)");

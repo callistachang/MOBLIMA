@@ -25,8 +25,24 @@ public class MoblimaApp {
 			switch (choice) {
 				case 1:
 					LogIn lg = new LogIn();
-					lg.userLogin();
+					while (true) {
+						System.out.println("Enter Username:");
+						String username = sc.next();
+						System.out.println("Enter Password:");
+						String password = sc.next();
+						if (lg.userLogin(username,password) != -1) {
+							break;
+						}
+						else {
+							System.out.println("Press (Y) to retry, any other key to quit");
+							if (!sc.next().equalsIgnoreCase("y")) {
+								break;
+							}
+						}
+					
+					}
 					break;
+					
 				case 2:
 					GuestApp gApp = new GuestApp();
 					gApp.run();

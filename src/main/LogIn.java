@@ -1,34 +1,32 @@
 package main;
-import java.util.Scanner;
+import managers.AccountManager;
 
 public class LogIn {
-	public void userLogin() {
-		Scanner sc = new Scanner(System.in);
-		String username, password;
-		System.out.println("Enter Username:");
-		username = sc.nextLine();
-		//if username is not in the database
-		if (username.compareTo(" ") != 0)
-		{
-			System.out.println("Username not found!");
+	public int userLogin(String username, String password) {
+
+		AccountManager am = new AccountManager();
+		
+		if(!am.checkUsernameExist(username)) {
+			System.out.println("Please enter a valid username!");
+			return -1;
 		}
-		System.out.println("Enter Password:");
-		password = sc.nextLine();
-		//Admin login
-		//need compare to database
-		if(username.compareTo(" ") == 0 && password.compareTo(" ") == 0) {
+		
+
+		if(!am.checkPasswordMatch(username, password)) {
+			System.out.println("Please enter a valid password!");
+			return -1;
+		}
+		
+		if(username.equalsIgnoreCase("Admin")) {
+			
 			CinemaStaffApp csApp = new CinemaStaffApp();
 			csApp.run();
 		}
-		//user login
-		//need compare to database
-		else if(username.compareTo(" ") == 0 && password.compareTo(" ") == 0) {
-			MovieGoerApp mgApp = new MovieGoerApp();
-			mgApp.run();
-		}
 		
 		else {
-			System.out.println("Please enter a valid username");
+			MovieGoerApp mgApp = new MovieGoerApp(am.getAccount(username));
+			mgApp.run();
 		}
+		return 0;
 	}
 }
