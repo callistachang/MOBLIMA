@@ -23,12 +23,13 @@ public class MoblimaApp {
 			System.out.print("\nChoose an option: ");
 			choice = sc.nextInt();
 			System.out.println();
+			
 			switch (choice) {
 				case 1:
 					ma.login();
 					break;
 					
-				case 2:
+				case 2:					
 					GuestApp gApp = new GuestApp();
 					gApp.run();
 					break;
