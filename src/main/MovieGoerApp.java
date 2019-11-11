@@ -1,6 +1,18 @@
 package main;
 import java.util.Scanner;
+<<<<<<< HEAD
 import models.Account;
+=======
+import java.util.ArrayList;
+
+import managers.*;
+//import managers.CineplexManager;
+//import managers.ShowtimeManager;
+//import managers.CinemaManager;
+//import managers.PriceManager;
+//import managers.TicketManager;
+//import managers
+>>>>>>> 407b950c1bdc2862675a093de899b400a77ba509
 
 // none of the logic shld actually b here
 public class MovieGoerApp extends GuestApp {
@@ -70,26 +82,109 @@ public class MovieGoerApp extends GuestApp {
 	// (1) Book and purchase a movie ticket
 	// should create like some TicketManager etc
 	private void bookTicket() {
-		// Which movie? (Show the total list of movies)
-		// Which cineplex? (Show list of cineplexes showing that movie that day)
-		// Which showtime? (Show list of showtimes)
-		// Choose a seat (Show the seat arrangements)
-		// Show ticket price according to our pricing rules, allow user to confirm or not
-		// If user confirms, show the booking receipt, save it to receipt CSV file.
+		Scanner sc= new Scanner(System.in);
+		
+		MovieManager mm = new MovieManager();
+		CineplexManager cm = new CineplexManager();
+		ShowtimeManager sm = new ShowtimeManager();
+		CinemaManager cinema = new CinemaManager();
+		PriceManager pm = new PriceManager();
+		TicketManager tm  = new TicketManager();
+		
+		System.out.println("Which movie would you like to watch?");
+		mm.listAll();
+		System.out.println("Choose a number option:");
+		int movie_chosen = sc.nextInt();
+		
+		System.out.println("Which cineplex would you like to watch the movie from?");
+		cm.listAll();
+		System.out.println("Choose a number option:");
+		int cineplex_chosen = sc.nextInt();
+		
+		System.out.println("Which showtime would you like to watch?");
+		sm.listAll();
+		System.out.println("Choose a number option:");
+		int showtime_chosen = sc.nextInt();
+		
+		int noOfTickets;
+		do {
+		System.out.println("How many tickets would you like to purchase?");
+		noOfTickets = sc.nextInt();
+		} while (noOfTickets > cinema.seatsAvailable());
+		
+		cinema.showSeating();
+		System.out.println("Please select your seat numbers");
+		ArrayList <String> seatsChosen =new ArrayList <String>();
+		for (int i=0; i<noOfTickets;i++)
+		{
+			seatsChosen.add(sc.nextLine());
+		}
+		
+		cinema.acceptSeat(seatsChosen, noOfTickets); //  to take in the seatNumbers and change the seating arrangement accordingly 
+		
+		
+		System.out.println("The total price is: ");
+		pm.calculatePrice(movie_chosen,cineplex_chosen,showtime_chosen,noOfTickets);
+		System.out.println("/n");
+		
+		System.out.println("Can your booking be confirmed?(Y/N");
+		char booking_confirm = sc.next().charAt(0);
+		do {
+		if (booking_confirm =='Y') {
+			tm.addReceipt();
+			tm.printReceipt();
+		}
+		else if (booking_confirm == 'N'){ //
+			return;
+		}
+		}while (booking_confirm != 'Y' || booking_confirm != 'N');
+		
+		
 	}
 	
 	// (5) View booking history
 	private void viewBookingHistory() {
-		// Read from an external CSV file for all the past booking histories for the USER who's logged in.
+		CustomerManager cust_manager = new CustomerManager();
+
+		System.out.println("Your booking history is as follows:\n");
+		cust_manager.printBookingHistory();
+		
 	}
 	
 	
 	// (7) Leave a review or rating on a movie
 	private void rateMovie() {
-		// Ask user which movie they want to leave a rating on.
+		Scanner sc= new Scanner(System.in);
 		
-		// Ask them to give their rating (1-5).
-		// Ask them to give a review (not necessary).
-		// Must rmb the rating/review is given by the user who's logged in.
+		MovieManager mm = new MovieManager();
+		
+		System.out.println("Which movie would you like to watch?");
+		mm.listAll();
+		System.out.println("Choose a number option:");
+		int movie_chosen = sc.nextInt();
+		
+		int rating;
+		do {
+			System.out.println("Please give your rating (between 1-5): ");
+			rating = sc.nextInt();
+		}while (rating <0 || rating >5);
+		
+		mm.createMovieRating(movie_chosen, rating);
+		
+		System.out.println("Would you like to give a review?(Y/N)");
+		char review_option = sc.next().charAt(0);
+		do {
+			if (review_option=='Y') {
+				System.out.println("Please enter your review");
+				String review_input = sc.next();
+				mm.createMovieReview(movie_chosen, review_input);
+			}
+			else if (review_option=='N') {
+				break;
+			}
+			
+		} while (review_option !='Y'|| review_option != 'N');
+		
+		
 	}
 }
