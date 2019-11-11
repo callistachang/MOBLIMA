@@ -133,9 +133,10 @@ public class CinemaStaffApp extends GuestApp {
 //		int noOfMovies = mm.listAll();
 //		System.out.println("Choose a number option:");
 //		int movieRow = sc.nextInt();
+//		int movieID = mm.returnMovieID(movieRow);
 //		
 //		System.out.println("Which attribute would you like to change about the movie?");
-//		mm.showAttributes();
+//		mm.showAttributes(movieID);
 //		System.out.println("Choose a number option:");
 //		int attr = sc.nextInt();
 		
@@ -143,7 +144,7 @@ public class CinemaStaffApp extends GuestApp {
 		
 		
 		
-		// mm.updateMovie(option);
+		// mm.update(option);
 		
 //		String title = sc.nextLine();
 		
@@ -155,12 +156,84 @@ public class CinemaStaffApp extends GuestApp {
 	}
 	
 	private void removeMovieListing() {
+//		Scanner sc = new Scanner(System.in);
+//		
+//		MovieManager mm = new MovieManager();
+//		
+//		System.out.println("Which movie would you like to remove?");
+//		int noOfMovies = mm.listAll();
+//		System.out.println("Choose a number option:");
+//		int movieRow = sc.nextInt();
+//		int movieID = mm.returnMovieID(movieRow);
+//		
+//		
+//		do {
+//		System.out.println("Confirm? Y/N");
+//		choice = sc.next().charAt(0);
+//		switch (choice) {
+//		case 'Y':
+//			mm.remove(movieID);
+//			System.out.println("Movie has been removed.");
+//			break;
+//		case 'N':
+//			System.out.println("Transaction cancelled. No movies removed.");
+//			break;
+//		default:
+//			System.out.println("Please input a valid option.");
+//			break;
+//			}
+//		} while (true);	
+		
 		// ask staff which movie they want to delete (show list of movies)
 		// confirm?
 		// will delete from movie list csv file.
 	}
 	
 	private void createMovieShowtime() {
+//		Scanner sc = new Scanner(System.in);
+		
+//		MovieManager mm = new MovieManager();
+//		CineplexManager cxm = new CineplexManager();
+//		CinemaManager cam = new CinemaManager();
+//
+
+//		System.out.println("Which movie would you like to view?");
+//		int noOfMovies = mm.listAll();
+//		System.out.println("Choose a number option:");
+//		int movieRow = sc.nextInt();
+//		int movieID = mm.returnMovieID(movieRow);
+
+
+//		System.out.println("Which cineplex?");
+//		int noOfCineplexes = cxm.listAll();
+//		System.out.println("Choose a number option:");
+//		int cineplexRow = sc.nextInt();
+//		int cineplexID = cxm.returnCineplexID(cineplexRow);
+
+		
+//		System.out.println("Which cinema?");
+//		int noOfCinemas = cam.listAll();
+//		System.out.println("Choose a number option:");
+//		int cinemaRow = sc.nextInt();
+//		int cinemaID = cm.returnCinemaID(cinemaRow);
+
+		
+////		System.out.println("Enter the date. Which year?");
+////		int showtimeYear = sc.nextInt();
+////		System.out.println("Which month?");
+////		int showtimeMonth = sc.nextInt();
+////		System.out.println("Which day?");
+////		int showtimeDay = sc.nextInt();
+
+//		System.out.println("Enter the date in DDMMYYYY format.");
+//		int showtimeDate = sc.nextInt();
+//		System.out.println("Enter the time in 24-hour format.");
+//		int showtimeTime = sc.nextInt();
+		
+//		sm.create(movieID, cineplexID, cinemaID, showtimeDate, showtimeTime, mm.getduration(movieRow));
+// error checking handled by sm? return different error messages
+// logic linking no. option to movie should be same for cineplex, cinema, showtime		
+		
 		// ask for movie (show list of movies)
 		// ask for cineplex (show list of cineplexes)
 		// create showtime. will return error if all halls already occupied.
@@ -169,6 +242,40 @@ public class CinemaStaffApp extends GuestApp {
 	}
 	
 	private void updateMovieShowtime() {
+//		MovieManager mm = new MovieManager();
+//		CineplexManager cxm = new CineplexManager();
+//		CinemaManager cam = new CinemaManager();
+//		ShowtimeManager sm = new ShowtimeManager();
+		
+//		System.out.println("Which movie would you like to view?");
+//		int noOfMovies = mm.listAll();
+//		System.out.println("Choose a number option:");
+//		int movieRow = sc.nextInt();
+//		int movieID = mm.returnMovieID(movieRow);
+
+
+//		System.out.println("Which cineplex?");
+//		int noOfCineplexes = cxm.listAll();
+//		System.out.println("Choose a number option:");
+//		int cineplexRow = sc.nextInt();
+//		int cineplexID = cxm.returnCineplexID(cineplexRow);
+		
+		
+//		System.out.println("Which showtime would you like to update?");
+//		int noOfShowtimes = cam.listAll();
+//		System.out.println("Choose a number option:");
+//		int showtimeRow = sc.nextInt();
+//		int showtimeID = sm.returnShowtimeID(showtimeRow);
+
+		
+//		System.out.println("Which attribute would you like to change about the movie?");
+//		sm.showAttributes(showtimeID);
+//		System.out.println("Choose a number option:");
+//		int attr = sc.nextInt();
+
+		//sm.update(option);
+		
+		
 		// ask for movie (show list of movies)
 		// ask for cineplex (show list of cineplexes)
 		// program will list out all the showtimes for that movie in that cineplex. 
@@ -177,6 +284,51 @@ public class CinemaStaffApp extends GuestApp {
 	}
 	
 	private void removeMovieShowtime() {
+//		Scanner sc = new Scanner(System.in);
+//		
+//		MovieManager mm = new MovieManager();
+//		CineplexManager cxm = new CineplexManager();
+//		CinemaManager cm = new CinemaManager();
+//		
+//		System.out.println("Which movie would you like to view?");
+//		int noOfMovies = mm.listAll();
+//		System.out.println("Choose a number option:");
+//		int movieRow = sc.nextInt();
+//		int movieID = mm.returnMovieID(movieRow);
+
+
+//		System.out.println("Which cineplex?");
+//		int noOfCineplexes = cxm.listAll();
+//		System.out.println("Choose a number option:");
+//		int cineplexRow = sc.nextInt();
+//		int cineplexID = cxm.returnCineplexID(cineplexRow);
+
+		
+//		System.out.println("Which showtime would you like to remove?");
+//		int noOfShowtimes = cm.listAll();
+//		System.out.println("Choose a number option:");
+//		int showtimeRow = sc.nextInt();
+//		int showtimeID = sm.returnShowtimeID(showtimeRow);
+
+	
+//		do {
+//		System.out.println("Confirm? Y/N");
+//		choice = sc.next().charAt(0);
+//		switch (choice) {
+//		case 'Y':
+//			mm.remove(showtimeID);
+//			System.out.println("Showtime has been removed.");
+//			break;
+//		case 'N':
+//			System.out.println("Transaction cancelled. No showtimes removed.");
+//			break;
+//		default:
+//			System.out.println("Please input a valid option.");
+//			break;
+//			}
+//		} while (true);	
+		
+
 		// ask for movie (show list of movies)
 		// ask for cineplex (show list of cineplexes)
 		// program will list out all the showtimes for that movie in that cineplex. 
