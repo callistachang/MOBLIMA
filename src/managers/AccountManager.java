@@ -1,11 +1,14 @@
 package managers;
+import java.util.ArrayList;
 import main.CinemaStaffApp;
 import main.MovieGoerApp;
-import models.Account;;
+import models.Account;
+import models.Movie;;
 
 public class AccountManager {
 	
-	Account[] accountList = new Account()[];
+	private static final String DATABASE_NAME = "accountdata";
+	private static ArrayList<Account> records = null;
 	public boolean checkUsernameExist(String username) {
 		
 		//check the username in the database
@@ -77,7 +80,8 @@ public class AccountManager {
 			return 2;
 		}
 		
-		if(password.equals(confirmPassword)) {
+		if(!password.equals(confirmPassword)) {
+			System.out.println("The passwords do not match!");
 			return 3;
 		}
 		else {

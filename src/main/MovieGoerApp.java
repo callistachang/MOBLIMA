@@ -1,8 +1,6 @@
 package main;
 import java.util.Scanner;
-<<<<<<< HEAD
 import models.Account;
-=======
 import java.util.ArrayList;
 
 import managers.*;
@@ -12,7 +10,6 @@ import managers.*;
 //import managers.PriceManager;
 //import managers.TicketManager;
 //import managers
->>>>>>> 407b950c1bdc2862675a093de899b400a77ba509
 
 // none of the logic shld actually b here
 public class MovieGoerApp extends GuestApp {
