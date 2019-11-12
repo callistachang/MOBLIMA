@@ -1,3 +1,4 @@
-#id,title,showingStatus,synopsis,director,casts,duration,reviews,type
-1,Joker,COMING_SOON,asdf,tom,jane;harry,230,1;2;3,TwoD
-2,Wonder Woman,NO_LONGER_SHOWING,qwerty,yh,penny;darsh,200,2;3,ThreeD
+0,Joker,Coming Soon,asdf,tom,jane;harry;,230,null,2D,
+0,Wonder Woman,No Longer Showing,qwerty,yh,penny;darsh;,200,null,3D,
+0,a,No Longer Showing,sfd,asdf,a;a;a;,123,null,3D,
+4,sup,Now Showing,asdf,asdf,a;,2345,null,2D,

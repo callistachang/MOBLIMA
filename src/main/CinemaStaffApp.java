@@ -1,6 +1,8 @@
 package main;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
 
 import managers.CineplexManager;
 import managers.MovieManager;
@@ -137,6 +139,41 @@ public class CinemaStaffApp extends GuestApp {
 	}
 	
 	private void updateMovieListing() {
+		Scanner sc = new Scanner(System.in);
+		MovieManager mm = new MovieManager();
+		
+		System.out.println("Which movie would you like to update? Type the movie ID:");
+		mm.listAll();	// list of all movies with their IDs
+		int movieID = sc.nextInt();
+		
+		// show movie info after choosing the movie
+		mm.showMovieInfo(movieID);
+		
+		ArrayList<Integer> attrNums = new ArrayList<Integer>();
+		System.out.println("Which attributes would you like to change about the movie? Press 0 when finished:");
+		mm.listAttributes();
+		int attrNum;
+		while (true) {
+			attrNum = sc.nextInt();
+			if (attrNum == 0) 
+				break;
+			else {
+				attrNums.add(attrNum);
+			}
+		}
+		
+		ArrayList<String> attrChanges = new ArrayList<String>();
+		for (int a: attrNums) {
+			System.out.println("Insert change for attribute" + a + ":");
+			sc.next();
+			attrChanges.add(sc.nextLine());
+		}
+		System.out.println(movieID + " " + attrNums + " " + attrChanges);
+		mm.update(movieID, attrNums, attrChanges);
+		System.out.println("Successfully updated");
+		
+		
+		
 //		Scanner sc = new Scanner(System.in);
 //		
 //		MovieManager mm = new MovieManager();

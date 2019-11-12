@@ -29,6 +29,17 @@ public class Movie implements ISerializable {
 		this.type = type;
 	}
 	
+	public static ArrayList<String> getChangeableAttributes() {
+		ArrayList<String> attributes = new ArrayList<String>();
+		attributes.add("title");
+		attributes.add("status");
+		attributes.add("synopsis");
+		attributes.add("director");
+		attributes.add("duration");
+		attributes.add("type");
+		return attributes;
+	}
+	
 	public ArrayList<Object> getSerializableData() {
 		ArrayList<Object> data =  new ArrayList<Object>();
 		data.add(getId());
@@ -153,22 +164,6 @@ public class Movie implements ISerializable {
 				}
 			}
 			return null;
-		}
-	}
-
-	public ArrayList<Integer> getReviewID() {
-		return reviewID;
-	}
-
-	public void setReviewID(ArrayList<Integer> reviewID) {
-		this.reviewID = reviewID;
-	}
-	public void printReview() {
-		ArrayList<Integer> id;
-		int i;
-		id = getReviewID();
-		for(i=0; i<id.size(); i++) {
-			
 		}
 	}
 }
