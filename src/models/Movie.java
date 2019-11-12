@@ -155,4 +155,20 @@ public class Movie implements ISerializable {
 			return null;
 		}
 	}
+
+	public ArrayList<Integer> getReviewID() {
+		return reviewID;
+	}
+
+	public void setReviewID(ArrayList<Integer> reviewID) {
+		this.reviewID = reviewID;
+	}
+	public void printReview() {
+		ArrayList<Integer> id;
+		int i;
+		id = getReviewID();
+		for(i=0; i<id.size(); i++) {
+			
+		}
+	}
 }

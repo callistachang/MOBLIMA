@@ -56,4 +56,7 @@ public class MovieManager {
 		ArrayList<String> updatedRecords = serializer.serialize(records);
 		DatabaseHandler.writeToDatabase(DATABASE_NAME, updatedRecords);
 	}
+	public void getReviews(Movie movie) {
+		movie.printReview();
+	}
 }

@@ -27,6 +27,7 @@ public class MoblimaApp {
 			System.out.print("\nChoose an option: ");
 			choice = sc.nextInt();
 			System.out.println();
+			
 			switch (choice) {
 				case 1:
 					login();
