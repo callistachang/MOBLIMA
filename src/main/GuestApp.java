@@ -112,32 +112,27 @@ public class GuestApp {
 		Scanner sc = new Scanner(System.in);
 		
 		MovieManager mm = new MovieManager();
-		AccountManager am = new AccountManager();
 		
 		System.out.println("Which movie would you like to query?");
 		mm.listAll();
 		System.out.println("Type ID of movie:");
 		int movieID = sc.nextInt();
 		
-		System.out.println("Please select from the options below:");
-		System.out.println("(1) Movie Information");
-		System.out.println("(2) Movie Ratings and Reviews");
-		System.out.println("(3) Exit");
-		System.out.println("Choose a number option:");
-		int movieinfoRow = sc.nextInt();
-		
 		int choice;
 		do {
+			System.out.println("Please select from the options below:");
+			System.out.println("(1) Movie Information");
+			System.out.println("(2) Movie Ratings and Reviews");
+			System.out.println("(3) Exit");
+			
 			System.out.println("Choose an option");
 			choice = sc.nextInt();
 			switch (choice) {
 				case 1:
-					int movieID = mm.returnMovieID(movieRow);
-					mm.movieInformation(movieID);
+					mm.printMovieInfo(movieID);
 					break;
 				case 2:
-					int movieID = mm.returnMovieID(movieRow);
-					mm.movieRatings(movieID);
+					mm.printMovieRatings(movieID);
 					break;
 				case 3:
 					System.out.println("Exited from Movie Details Menu.");

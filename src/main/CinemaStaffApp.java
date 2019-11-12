@@ -133,7 +133,6 @@ public class CinemaStaffApp extends GuestApp {
 			type = sc.next();
 		} while (!(type.equals("2D") || type.equals("3D")));
 		
-		
 		mm.create(title, status, director, synopsis, casts, duration, type);
 	}
 	
@@ -147,29 +146,18 @@ public class CinemaStaffApp extends GuestApp {
 		int movieID = sc.nextInt();
 		
 		// show movie info after choosing the movie
-		mm.showMovieInfo(movieID);
+		mm.printMovieInfo(movieID);
 		
-		ArrayList<Integer> attrNums = new ArrayList<Integer>();
-		System.out.println("Which attributes would you like to change about the movie? Press 0 when finished:");
+		System.out.println("What attribute would you like to change about the movie? Choose number option:");
 		mm.listAttributes();
-		int attrNum;
-		while (true) {
-			attrNum = sc.nextInt();
-			if (attrNum == 0) 
-				break;
-			else {
-				attrNums.add(attrNum);
-			}
-		}
+		int attrNum = sc.nextInt();
 		sc.nextLine();
 		
-		ArrayList<String> attrChanges = new ArrayList<String>();
-		for (int a: attrNums) {
-			System.out.println("Insert change for attribute" + a + ":");
-			attrChanges.add(sc.nextLine());
-		}
-		System.out.println(movieID + " " + attrNums + " " + attrChanges);
-		mm.update(movieID, attrNums, attrChanges);
+		System.out.println("Insert new value for that attribute:");
+		String attrVal = sc.nextLine();
+		
+//		System.out.println(movieID + " " + attrNums + " " + attrChanges);
+		mm.update(movieID, attrNum, attrVal);
 		System.out.println("Successfully updated");
 	}
 	

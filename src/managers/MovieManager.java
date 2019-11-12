@@ -28,16 +28,12 @@ public class MovieManager {
 		updateDatabase();
 	}
 	
-	private void create(Movie movie) {
-		records.add(movie); // add to records
-		updateDatabase();
-	}
-	
-	public void update(int movieID, ArrayList<Integer> attrNums, ArrayList<String> attrChanges) {
-		Movie updatedMovie = getUpdatedMovie(movieID, attrNums, attrChanges);
+	public void update(int movieID, int attrNum, String attrVal) {
+		Movie movie = getMovieByID(movieID);
+		movie.setAttr(attrNum, attrVal);
 		remove(movieID);
-		create(updatedMovie);
-		showMovieInfo(movieID);
+		records.add(movie);
+		updateDatabase();
 	}
 	
 	public void remove(int movieID) {
@@ -61,26 +57,14 @@ public class MovieManager {
 		return null;
 	}
 	
-	// should i put this under movie
-	public void showMovieInfo(int movieID) {
-		for (Movie m: records) {
-			if (m.getId() == movieID) {
-				System.out.println("Title: " + m.getTitle());
-				System.out.println("Showing Status: " + m.getStatus().toString());
-				System.out.println("Synopsis: " + m.getSynopsis());
-				System.out.println("Duration: " + m.getDuration() + " minutes");
-				System.out.println("Movie Type: " + m.getType().toString());
-				System.out.println("Director: " + m.getDirector());
-				System.out.print("Cast Members: ");
-				ArrayList<String> casts = m.getCasts();
-				int i;
-				for (i = 0; i < casts.size()-1; i++) {
-					System.out.printf(casts.get(i) + ", ");
-				}
-				System.out.println(casts.get(i));
-				break;
-			}
-		}
+	public void printMovieInfo(int movieID) {
+		Movie movie = getMovieByID(movieID);
+		movie.printInfo();
+	}
+	
+	public void printMovieRatings(int movieID) {
+		Movie movie = getMovieByID(movieID);
+		movie.printReviews();
 	}
 	
 	public void listAllByCineplex(int cineplexID) {
@@ -94,10 +78,7 @@ public class MovieManager {
 	}
 	
 	public void listAttributes() {
-		ArrayList<String> attributes = Movie.getChangeableAttributes();
-		for (int i = 1; i <= attributes.size(); i++) {
-			System.out.printf("(%d) %s \n", i, attributes.get(i-1));
-		}
+		Movie.printAttributes();
 	}
 	
 	private static void initializeDatabase() {
@@ -110,36 +91,5 @@ public class MovieManager {
 		AbstractSerializer serializer = new MovieSerializer();
 		ArrayList<String> updatedRecords = serializer.serialize(records);
 		DatabaseHandler.writeToDatabase(DATABASE_NAME, updatedRecords);
-	}
-	
-	private Movie getUpdatedMovie(int movieID, ArrayList<Integer> attrNums, ArrayList<String> attrChanges) {
-		Movie movie = getMovieByID(movieID);
-		int i = 0;
-		
-		if (attrNums.get(i) == 1) {
-			movie.setTitle(attrChanges.get(i));
-			if (++i >= attrNums.size()) return movie;
-		}
-		if (attrNums.get(i) == 2) {
-			movie.setStatus(ShowingStatus.getByValue(attrChanges.get(i)));
-			if (++i >= attrNums.size()) return movie;
-		}
-		if (attrNums.get(i) == 3) {
-			movie.setSynopsis(attrChanges.get(i));
-			if (++i >= attrNums.size()) return movie;
-		}
-		if (attrNums.get(i) == 4) {
-			movie.setDirector(attrChanges.get(i));
-			if (++i >= attrNums.size()) return movie;
-		}
-		if (attrNums.get(i) == 5) {
-			movie.setDuration(Integer.parseInt(attrChanges.get(i)));
-			if (++i >= attrNums.size()) return movie;
-		}
-		if (attrNums.get(i) == 6) {
-			movie.setType(MovieType.getByValue(attrChanges.get(i)));
-			if (++i >= attrNums.size()) return movie;
-		}
-		return movie;
 	}
 }

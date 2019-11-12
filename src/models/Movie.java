@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.EnumSet;
 
 import managers.MovieManager;
+import models.Movie.MovieType;
+import models.Movie.ShowingStatus;
 
 public class Movie implements ISerializable {
 	private int id;
@@ -29,15 +31,43 @@ public class Movie implements ISerializable {
 		this.type = type;
 	}
 	
-	public static ArrayList<String> getChangeableAttributes() {
-		ArrayList<String> attributes = new ArrayList<String>();
-		attributes.add("title");
-		attributes.add("status");
-		attributes.add("synopsis");
-		attributes.add("director");
-		attributes.add("duration");
-		attributes.add("type");
-		return attributes;
+	public static void printAttributes() {
+		System.out.println("(1) Title");
+		System.out.println("(2) Showing Status");
+		System.out.println("(3) Synopsis");
+		System.out.println("(4) Director");
+		System.out.println("(5) Duration");
+		System.out.println("(6) Type");
+	}
+	
+	public void printInfo() {
+		System.out.println("ID: " + id);
+		System.out.println("Title: " + title);
+		System.out.println("Showing Status: " + status.toString());
+		System.out.println("Synopsis: " + synopsis);
+		System.out.println("Duration: " + duration + " minutes");
+		System.out.println("Movie Type: " + type.toString());
+		System.out.println("Director: " + director);
+		System.out.print("Cast Members: ");
+		
+		int i;
+		for (i = 0; i < casts.size()-1; i++) {
+			System.out.printf(casts.get(i) + ", ");
+		}
+		System.out.println(casts.get(i));
+	}
+	
+	public void printReviews() {
+		int i;
+		for (i = 0; i < reviews.size(); i++) {
+			Review review = reviews.get(i);
+			System.out.printf("(%d)\n", i+1);
+			System.out.println("User: " + review.getUser());
+			System.out.println("Rating: " + review.getRating());
+			if (review.getContent() != null) {
+				System.out.println("Review: " + review.getContent());
+			}
+		}
 	}
 	
 	public ArrayList<Object> getSerializableData() {
@@ -52,6 +82,23 @@ public class Movie implements ISerializable {
 		data.add(getReviews());
 		data.add(getType());
 		return data;
+	}
+	
+	public void setAttr(int attrNum, String attrVal) {
+		switch (attrNum) {
+			case 1:
+				title = attrVal;
+			case 2:
+				status = ShowingStatus.getByValue(attrVal);
+			case 3:
+				synopsis = attrVal;
+			case 4:
+				director = attrVal;
+			case 5:
+				duration = Integer.parseInt(attrVal);
+			case 6:
+				type = MovieType.getByValue(attrVal);
+		}
 	}
 	
 	public int getId() {
