@@ -161,77 +161,46 @@ public class CinemaStaffApp extends GuestApp {
 				attrNums.add(attrNum);
 			}
 		}
+		sc.nextLine();
 		
 		ArrayList<String> attrChanges = new ArrayList<String>();
 		for (int a: attrNums) {
 			System.out.println("Insert change for attribute" + a + ":");
-			sc.next();
 			attrChanges.add(sc.nextLine());
 		}
 		System.out.println(movieID + " " + attrNums + " " + attrChanges);
 		mm.update(movieID, attrNums, attrChanges);
 		System.out.println("Successfully updated");
-		
-		
-		
-//		Scanner sc = new Scanner(System.in);
-//		
-//		MovieManager mm = new MovieManager();
-//		
-//		System.out.println("Which movie would you like to update?");
-//		int noOfMovies = mm.listAll();
-//		System.out.println("Choose a number option:");
-//		int movieRow = sc.nextInt();
-//		int movieID = mm.returnMovieID(movieRow);
-//		
-//		System.out.println("Which attribute would you like to change about the movie?");
-//		mm.showAttributes(movieID);
-//		System.out.println("Choose a number option:");
-//		int attr = sc.nextInt();
-		
-		
-		
-		
-		
-		// mm.update(option);
-		
-//		String title = sc.nextLine();
-		
-		
-		// ask staff which movie they want to update (show list of movies)
-		// ask staff which detail they want to update.
-		// they can update as many as they wish. when they're done.
-		// will update to movie list csv file.
 	}
 	
 	private void removeMovieListing() {
-//		Scanner sc = new Scanner(System.in);
-//		
-//		MovieManager mm = new MovieManager();
-//		
-//		System.out.println("Which movie would you like to remove?");
-//		int noOfMovies = mm.listAll();
-//		System.out.println("Choose a number option:");
-//		int movieRow = sc.nextInt();
-//		int movieID = mm.returnMovieID(movieRow);
-//		
-//		
-//		do {
-//		System.out.println("Confirm? Y/N");
-//		choice = sc.next().charAt(0);
-//		switch (choice) {
-//		case 'Y':
-//			mm.remove(movieID);
-//			System.out.println("Movie has been removed.");
-//			break;
-//		case 'N':
-//			System.out.println("Transaction cancelled. No movies removed.");
-//			break;
-//		default:
-//			System.out.println("Please input a valid option.");
-//			break;
-//			}
-//		} while (true);	
+		Scanner sc = new Scanner(System.in);
+		
+		MovieManager mm = new MovieManager();
+		
+		System.out.println("Which movie would you like to update? Type the movie ID:");
+		mm.listAll();	// list of all movies with their IDs
+		int movieID = sc.nextInt();
+		
+		char choice;
+		do {
+		System.out.println("Confirm? Y/N");
+		choice = sc.next().charAt(0);
+		switch (choice) {
+		case 'y':
+		case 'Y':
+			mm.remove(movieID);
+			System.out.println("Movie has been removed.");
+			break;
+		case 'n':
+		case 'N':
+			System.out.println("Transaction cancelled. No movies removed.");
+			break;
+		default:
+			System.out.println("Please input a valid option.");
+			break;
+			}
+		} while (!(choice == 'Y' || choice == 'N'));	
 		
 		// ask staff which movie they want to delete (show list of movies)
 		// confirm?
