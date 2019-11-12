@@ -23,9 +23,9 @@ public class AccountManager {
 		return true;
 	}
 	
-	public boolean checkPasswordValid (String password) {
-		
-		if (password.length() < 6 || password.length() > 20){
+	public boolean checkPasswordValid(String password) {
+		if (password.length() < 6 || password.length() > 20) {
+			System.out.println("Your password must be between 6-20 characters long.");
 			return false;
 		}
 		else {
@@ -42,18 +42,18 @@ public class AccountManager {
 	public int login(String username, String password) {
 
 			
-			if(!checkUsernameExist(username)) {
+			if (!checkUsernameExist(username)) {
 				System.out.println("Please enter a valid username!");
 				return -1;
 			}
 			
 
-			if(!checkPasswordMatch(username, password)) {
+			if (!checkPasswordMatch(username, password)) {
 				System.out.println("Please enter a valid password!");
 				return -1;
 			}
 			
-			if(username.equalsIgnoreCase("Admin")) {
+			if (username.equalsIgnoreCase("Admin")) {
 				
 				CinemaStaffApp csApp = new CinemaStaffApp();
 				csApp.run();
@@ -66,9 +66,7 @@ public class AccountManager {
 			return 0;
 	}
 	
-	public int createAccount(String username, String password, String confirmPassword, int age) {
-
-		
+	public int create(String username, String password, String confirmPassword, int age) {
 		if (!checkUsernameExist(username)) {
 			System.out.println("Username is taken!");
 			return 1;

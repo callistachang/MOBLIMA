@@ -89,8 +89,7 @@ public class CinemaStaffApp extends GuestApp {
 		String title, status, synopsis, director, cast, type;
 		ArrayList<String> casts = new ArrayList<String>();
 		int duration;
-		
-		System.out.println("???");
+
 		MovieManager mm = new MovieManager();
 		
 		// Prompt the user for inputs
@@ -142,8 +141,9 @@ public class CinemaStaffApp extends GuestApp {
 		Scanner sc = new Scanner(System.in);
 		MovieManager mm = new MovieManager();
 		
-		System.out.println("Which movie would you like to update? Type the movie ID:");
+		System.out.println("");
 		mm.listAll();	// list of all movies with their IDs
+		System.out.println("Which movie would you like to update? Type the movie ID:");
 		int movieID = sc.nextInt();
 		
 		// show movie info after choosing the movie

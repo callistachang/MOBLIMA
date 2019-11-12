@@ -32,7 +32,7 @@ public class CreateAccount {
 			default:
 				break;
 			}	
-			control = am.createAccount(username, password, confirmPassword, age);
+			control = am.create(username, password, confirmPassword, age);
 			System.out.println("Press (Y) to retry, any other key to exit");
 			if(sc.next().compareToIgnoreCase("y") != 0){
 				break;

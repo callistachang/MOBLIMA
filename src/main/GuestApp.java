@@ -21,16 +21,16 @@ public class GuestApp {
 	public void run() {
 		int choice = -1;
 		Scanner sc = new Scanner(System.in);
-
-		System.out.println("===================== Guest Menu ======================");
-		int i;
-		for (i = 1; i <= options.length; i++) {
-			System.out.printf("(%d) %s \n", i, options[i-1]);
-		}
-		System.out.printf("(%d) %s \n", i, "Exit");
-		System.out.println("=======================================================");
-
+		
 		do {
+			System.out.println("===================== Guest Menu ======================");
+			int i;
+			for (i = 1; i <= options.length; i++) {
+				System.out.printf("(%d) %s \n", i, options[i-1]);
+			}
+			System.out.printf("(%d) %s \n", i, "Exit");
+			System.out.println("=======================================================");
+			
 			System.out.print("\nChoose an option: ");
 			choice = sc.nextInt();
 			switch (choice) {

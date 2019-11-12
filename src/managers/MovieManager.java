@@ -28,40 +28,9 @@ public class MovieManager {
 		updateDatabase();
 	}
 	
-	public void create(Movie movie) {
+	private void create(Movie movie) {
 		records.add(movie); // add to records
 		updateDatabase();
-	}
-	
-	public Movie getUpdatedMovie(int movieID, ArrayList<Integer> attrNums, ArrayList<String> attrChanges) {
-		Movie movie = getMovieByID(movieID);
-		int i = 0;
-		
-		if (attrNums.get(i) == 1) {
-			movie.setTitle(attrChanges.get(i));
-			if (++i >= attrNums.size()) return movie;
-		}
-		if (attrNums.get(i) == 2) {
-			movie.setStatus(ShowingStatus.getByValue(attrChanges.get(i)));
-			if (++i >= attrNums.size()) return movie;
-		}
-		if (attrNums.get(i) == 3) {
-			movie.setSynopsis(attrChanges.get(i));
-			if (++i >= attrNums.size()) return movie;
-		}
-		if (attrNums.get(i) == 4) {
-			movie.setDirector(attrChanges.get(i));
-			if (++i >= attrNums.size()) return movie;
-		}
-		if (attrNums.get(i) == 5) {
-			movie.setDuration(Integer.parseInt(attrChanges.get(i)));
-			if (++i >= attrNums.size()) return movie;
-		}
-		if (attrNums.get(i) == 6) {
-			movie.setType(MovieType.getByValue(attrChanges.get(i)));
-			if (++i >= attrNums.size()) return movie;
-		}
-		return movie;
 	}
 	
 	public void update(int movieID, ArrayList<Integer> attrNums, ArrayList<String> attrChanges) {
@@ -131,16 +100,46 @@ public class MovieManager {
 		}
 	}
 	
-	protected static void initializeDatabase() {
+	private static void initializeDatabase() {
 		ArrayList<String> movieData = DatabaseHandler.readDatabase(DATABASE_NAME);
-		System.out.println(movieData);
 		AbstractSerializer serializer = new MovieSerializer();
 		records = serializer.deserialize(movieData);
 	}
 	
-	protected void updateDatabase() {
+	private void updateDatabase() {
 		AbstractSerializer serializer = new MovieSerializer();
 		ArrayList<String> updatedRecords = serializer.serialize(records);
 		DatabaseHandler.writeToDatabase(DATABASE_NAME, updatedRecords);
+	}
+	
+	private Movie getUpdatedMovie(int movieID, ArrayList<Integer> attrNums, ArrayList<String> attrChanges) {
+		Movie movie = getMovieByID(movieID);
+		int i = 0;
+		
+		if (attrNums.get(i) == 1) {
+			movie.setTitle(attrChanges.get(i));
+			if (++i >= attrNums.size()) return movie;
+		}
+		if (attrNums.get(i) == 2) {
+			movie.setStatus(ShowingStatus.getByValue(attrChanges.get(i)));
+			if (++i >= attrNums.size()) return movie;
+		}
+		if (attrNums.get(i) == 3) {
+			movie.setSynopsis(attrChanges.get(i));
+			if (++i >= attrNums.size()) return movie;
+		}
+		if (attrNums.get(i) == 4) {
+			movie.setDirector(attrChanges.get(i));
+			if (++i >= attrNums.size()) return movie;
+		}
+		if (attrNums.get(i) == 5) {
+			movie.setDuration(Integer.parseInt(attrChanges.get(i)));
+			if (++i >= attrNums.size()) return movie;
+		}
+		if (attrNums.get(i) == 6) {
+			movie.setType(MovieType.getByValue(attrChanges.get(i)));
+			if (++i >= attrNums.size()) return movie;
+		}
+		return movie;
 	}
 }
