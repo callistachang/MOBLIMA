@@ -6,9 +6,9 @@ import models.Account;
 import models.Movie;;
 
 public class AccountManager {
-	
 	private static final String DATABASE_NAME = "accountdata";
 	private static ArrayList<Account> records = null;
+	
 	public boolean checkUsernameExist(String username) {
 		
 		//check the username in the database
@@ -69,26 +69,27 @@ public class AccountManager {
 	public int createAccount(String username, String password, String confirmPassword, int age) {
 
 		
-		if(!checkUsernameExist(username)) {
+		if (!checkUsernameExist(username)) {
 			System.out.println("Username is taken!");
 			return 1;
 		}
 		
 
-		if(!checkPasswordValid(password)) {
+		if (!checkPasswordValid(password)) {
 			System.out.println("Please enter a password between 6-20 characters!");
 			return 2;
 		}
 		
-		if(!password.equals(confirmPassword)) {
+		if (!password.equals(confirmPassword)) {
 			System.out.println("The passwords do not match!");
 			return 3;
 		}
+		
 		else {
 			Account acc = new Account();
 			//create new account and store it into the database
+			return 0;
 		}
-		return 0;
 	}
 	
 }

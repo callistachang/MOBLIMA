@@ -3,22 +3,39 @@ package managers;
 import java.util.ArrayList;
 
 import handlers.DatabaseHandler;
+import models.Cineplex;
 import models.Movie;
 import serializers.MovieSerializer;
 
 public class CineplexManager {
-
-	public int listAll() {
-		return 0; //to change code accordingly  
+	private static final String DATABASE_NAME = "cineplexdata";
+	private static ArrayList<Cineplex> records = null;
+	
+	// lists all cineplexes by ID
+	public void listAllCineplexes() {
+		for (Cineplex cx: records) {
+			System.out.println("(ID: " + cx.getId() + ") " + cx.getName());
+		}
 	}
 	
-	public int addCineplex() {
-		return 0; //similar to create
+	// returns cineplex object by cineplex ID
+	public Cineplex getCineplexByID(int cineplexID) {
+		for (Cineplex cx: records) {
+			if (cx.getId() == cineplexID)
+				return cx;
+		}
+		return null;
 	}
 	
-	public int removeCineplex() {
-		return 0; //how to choose correct cineplex?
+	// gets movies by cineplex
+	public ArrayList<Movie> getAllMovies(int cineplexID) {
+		Cineplex cineplex = getCineplexByID(cineplexID);
+		return cineplex.getMovies();
 	}
 	
-	
+	// gets showing movies by cineplex
+	public ArrayList<Movie> getShowingMovies(int cineplexID) {
+		Cineplex cineplex = getCineplexByID(cineplexID);
+		return cineplex.getShowingMovies();
+	}
 }

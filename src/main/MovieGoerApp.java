@@ -98,6 +98,8 @@ public class MovieGoerApp extends GuestApp {
 		System.out.println("Choose a number option:");
 		int cineplex_chosen = sc.nextInt();
 		
+		// which movie type?
+		
 		System.out.println("Which showtime would you like to watch?");
 		sm.listAll();
 		System.out.println("Choose a number option:");

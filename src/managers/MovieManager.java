@@ -4,79 +4,56 @@ import java.util.ArrayList;
 
 import handlers.DatabaseHandler;
 import models.Movie;
+import models.Movie.MovieType;
+import models.Movie.ShowingStatus;
 import serializers.MovieSerializer;
 import serializers.AbstractSerializer;
 
 public class MovieManager {
-	private static final String DATABASE_NAME = "moviedata";
+	private final static String DATABASE_NAME = "moviedata";
 	private static ArrayList<Movie> records = null;
 	
-//	public static void main(String[] args) {
-//		MovieManager mm = new MovieManager();
-//		mm.initializeDatabase();
-//	}
-	
-	// Initialize database into static variable, records
-	public void initializeDatabase() {
-		records = new ArrayList<Movie>();
-		ArrayList<String> movieData = DatabaseHandler.readDatabase(DATABASE_NAME);
-		AbstractSerializer serializer = new MovieSerializer();
-		records = serializer.deserialize(movieData);
-	}
-	
-	public void create(String title, String showingStatus, String director, String synopsis, ArrayList<String> casts, int duration) {
+	public MovieManager() {
 		if (records == null) {
 			initializeDatabase();
 		}
-				
-		// create new movie
-		Movie movie = new Movie(title, showingStatus, synopsis, director, casts, duration);
-		
-		// add movie to records
-		records.add(movie);
-		
+	}
+
+	public void create(String title, String status, String director, String synopsis, 
+			ArrayList<String> casts, int duration, String type) {
+		Movie movie = new Movie(records.size()+1, title, ShowingStatus.getByValue(status), director, 
+				synopsis, casts, duration, null, MovieType.getByValue(type));
+		records.add(movie); // add to records
 		updateDatabase();
 	}
 	
-	public void updateDatabase() {
+	public void listAll() {
+		for (Movie m: records) {
+			System.out.println("(ID: " + m.getId() + ") " + m.getTitle());
+		}
+	}
+	
+	public void listAllByCineplex(int cineplexID) {
+		CineplexManager cxm = new CineplexManager();
+		cxm.getAllMovies(cineplexID);
+	}
+	
+	public void listShowingByCineplex(int cineplexID) {
+		CineplexManager cxm = new CineplexManager();
+		cxm.getShowingMovies(cineplexID);
+	}
+	
+	protected static void initializeDatabase() {
+		ArrayList<String> movieData = DatabaseHandler.readDatabase(DATABASE_NAME);
+		System.out.println(movieData);
+		AbstractSerializer serializer = new MovieSerializer();
+		System.out.println("hi");
+		records = serializer.deserialize(movieData);
+	}
+	
+	protected void updateDatabase() {
 		AbstractSerializer serializer = new MovieSerializer();
 		ArrayList<String> updatedRecords = serializer.serialize(records);
 		DatabaseHandler.writeToDatabase(DATABASE_NAME, updatedRecords);
-	}
-	
-	public void update(int rowNumber) {
-		if (records == null) {
-			initializeDatabase();
-		}
-	}
-	
-	public int listAll() {
-		if (records == null) {
-			initializeDatabase();
-		}
-		int i = 1;
-		// List all movie titles in the database
-		
-		for (int j = 0; i < records.size(); i++) {
-			((Movie) records.get(j)).getTitle();
-		}
-		
-		for (Movie m: records) {
-			System.out.println("(" + i + ") " + m.getTitle());
-			i++;
-		}
-		// Return the number of movies there are
-		return records.size();
-	}
-	
-	public void createMovieRating(int movie_chosen, int rating) {
-		
-	}
-	
-	public void createMovieReview(int movie_chosen, String review) {
-		
-	}
-	public void listByTitle() {
-		
 	}
 }

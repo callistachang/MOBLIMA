@@ -1,3 +1,3 @@
-hi,null,hi,hi,hi;lol;,32,
-hi,null,kdjf,asdf,asdf;weroiu;oiusoxjc;,32,
-hi,COMING_SOON,a,a,a;a;a;,32,
+#id,title,showingStatus,synopsis,director,casts,duration,reviews,type
+1,Joker,COMING_SOON,asdf,tom,jane;harry,230,1;2;3,TwoD
+2,Wonder Woman,NO_LONGER_SHOWING,qwerty,yh,penny;darsh,200,2;3,ThreeD

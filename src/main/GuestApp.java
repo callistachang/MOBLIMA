@@ -2,19 +2,32 @@ package main;
 
 import java.util.Scanner;
 
+import managers.AccountManager;
+import managers.CineplexManager;
+import managers.CustomerManager;
+import managers.MovieManager;
+import managers.ShowtimeManager;
+import models.Cineplex;
+
 public class GuestApp {
+	private String options[] = {
+		"List movies",
+		"View movie details and reviews",
+		"Check seat availabilities",
+		"List top five movies"
+	};
+	// List pricing details?
 	
 	public void run() {
 		int choice = -1;
 		Scanner sc = new Scanner(System.in);
 		
 		System.out.println("===================== Guest Menu ======================");
-		System.out.println("(1) List movies");
-		System.out.println("(2) View movie details (including reviews and ratings)");
-		System.out.println("(3) Check seat availabilities");
-		System.out.println("(4) List top five movies");
-		System.out.println("(5) Exit");
-		// List pricing details?
+		int i;
+		for (i = 1; i <= options.length; i++) {
+			System.out.printf("(%d) %s \n", i, options[i-1]);
+		}
+		System.out.printf("(%d) %s \n", i, "Exit");
 		System.out.println("=======================================================");
 		
 		do {
@@ -44,84 +57,96 @@ public class GuestApp {
 		} while (choice != 5);
 		sc.close();
 	}
-	
-
-	// (2) List movies
-	protected void listMovies() {
-//		Scanner sc = new Scanner(System.in);
-//		
-//		MovieManager mm = new MovieManager();
-//		
-//		System.out.println("(1) List All Movies");
-//		System.out.println("(2) Choose Specific Cineplex");
-//		System.out.println("(3) Exit");
-//		System.out.println("Choose a number option:");
-//		
-//		
-//		do {
-//		System.out.println("Choose an option");
-//		choice = sc.nextInt();
-//		switch (choice) {
-//		case 1:
-//			int noOfMovies = mm.listAll();
-//			break;
-//		case 2:
-//			int noOfFilteredMoview = mm.filterByCineplex();
-//			break;
-//		case 3:
-//			System.out.println("Exited from List Cinema Menu.");
-//			break;
-//		default:
-//			System.out.println("Please input a valid option.");
-//			break;
-//			}
-//		} while (choice != 3);	
-
-		// Ask the user if they want to 1. list ALL movies, or 2. just movies playing in a certain cineplex
-		// If option 2, ask them to pick the cineplex then show movies playing only in that cineplex.
 		
-		// Read from an external CSV file containing movie information, filter as necessary
+	protected void listMovies() {
+		Scanner sc = new Scanner(System.in);
+		
+		MovieManager mm = new MovieManager();
+		CineplexManager cxm = new CineplexManager();
+		
+		System.out.println("(1) List all movies");
+		System.out.println("(2) Filter by cineplex");
+		System.out.println("(3) Exit");
+		
+		int choice;
+		do {
+			System.out.println("Choose a number option:");
+			choice = sc.nextInt();
+			switch (choice) {
+				case 1:
+					mm.listAll();
+					break;
+				case 2:
+					System.out.println("Choose a cineplex:");
+					cxm.listAllCineplexes();		// prints out all the cineplexes
+					int cineplexID = sc.nextInt();	// user inputs chosen cineplex
+					
+					System.out.println("(1) Get all movies from the cineplex");
+					System.out.println("(2) Get only showing movies from the cineplex");
+					
+					int allOrShowingChoice;
+					do {
+						System.out.println("Choose a number option:");
+						allOrShowingChoice = sc.nextInt();
+					} while (allOrShowingChoice != 1 || allOrShowingChoice != 2);
+					
+					switch (allOrShowingChoice) {
+						case 1:
+							mm.listAllByCineplex(cineplexID);
+						case 2:
+							mm.listShowingByCineplex(cineplexID);
+					}
+					break;
+				case 3:
+					System.out.println("Exited from List Movies Menu.");
+					break;
+				default:
+					System.out.println("Please input a valid option.");
+					break;
+			}
+		} while (choice != 3);
 	}
 	
 // (3) View movie details (including reviews and ratings)
 	protected void viewMovieDetails() {
-//		Scanner sc = new Scanner(System.in);
-//		
-//		MovieManager mm = new MovieManager();
-//		CustomerManager cm = new CustomerManager();
+		Scanner sc = new Scanner(System.in);
 		
-//		System.out.println("Which movie would you like to query?");
-//		int noOfMovies = mm.listAll();
-//		System.out.println("Choose a number option:");
-//		int movieRow = sc.nextInt();
+		MovieManager mm = new MovieManager();
+		AccountManager am = new AccountManager();
 		
-//		System.out.println("Please select from the options below:");
-//		System.out.println("(1) Movie Information");
-//		System.out.println("(2) Movie Ratings and Reviews");
-//		System.out.println("(3) Exit");
-//		System.out.println("Choose a number option:");
-//		int movieinfoRow = sc.nextInt();	
-//		
-//		do {
-//		System.out.println("Choose an option");
-//		choice = sc.nextInt();
-//		switch (choice) {
-//		case 1:
-//			int movieID = mm.returnMovieID(movieRow);
-//			mm.movieInformation(movieID);
-//			break;
-//		case 2:
-//			int movieID = mm.returnMovieID(movieRow);
-//			cm.movieRatings(movieID);
-//			break;
-//		case 3:
-//			System.out.println("Exited from Movie Details Menu.");
-//			break;
-//		default:
-//			System.out.println("Please input a valid option.");
-//			break;
-//			}
-//		} while (choice != 3);
+		System.out.println("Which movie would you like to query?");
+		mm.listAll();
+		System.out.println("Type ID of movie:");
+		int movieID = sc.nextInt();
+		
+		System.out.println("Please select from the options below:");
+		System.out.println("(1) Movie Information");
+		System.out.println("(2) Movie Ratings and Reviews");
+		System.out.println("(3) Exit");
+		System.out.println("Choose a number option:");
+		int movieinfoRow = sc.nextInt();
+		
+		int choice;
+		do {
+			System.out.println("Choose an option");
+			choice = sc.nextInt();
+			switch (choice) {
+				case 1:
+					int movieID = mm.returnMovieID(movieRow);
+					mm.movieInformation(movieID);
+					break;
+				case 2:
+					int movieID = mm.returnMovieID(movieRow);
+					mm.movieRatings(movieID);
+					break;
+				case 3:
+					System.out.println("Exited from Movie Details Menu.");
+					break;
+				default:
+					System.out.println("Please input a valid option.");
+					break;
+			}
+		} while (choice != 3);
 		
 		// Ask user which movie they want to query.
 		
@@ -132,26 +157,27 @@ public class GuestApp {
 
 // (4) Check seat availabilities
 	protected void checkSeatAvailabilities() {
-//		Scanner sc = new Scanner(System.in);
-//		
-//		MovieManager mm = new MovieManager();
-//		CineplexManager cxm = new CineplexManager();
-//		
-//		System.out.println("Which movie would you like to view?");
-//		int noOfMovies = mm.listAll();
-//		System.out.println("Choose a number option:");
-//		int movieRow = sc.nextInt();
-//		int movieID = mm.returnMovieID(movieRow);
+		Scanner sc = new Scanner(System.in);
+		
+		MovieManager mm = new MovieManager();
+		CineplexManager cxm = new CineplexManager();
+		ShowtimeManager sm = new ShowtimeManager();
+		
+		System.out.println("Which movie would you like to view?");
+		int noOfMovies = mm.listAll();
+		System.out.println("Choose a number option:");
+		int movieRow = sc.nextInt();
+		int movieID = mm.returnMovieID(movieRow);
 
 
-//		System.out.println("Which cineplex?");
-//		int noOfCineplexes = cxm.listAll();
-//		System.out.println("Choose a number option:");
-//		int cineplexRow = sc.nextInt();
-//		int cineplexID = cxm.returnCineplexID(cineplexRow);
+		System.out.println("Which cineplex?");
+		int noOfCineplexes = cxm.listAll();
+		System.out.println("Choose a number option:");
+		int cineplexRow = sc.nextInt();
+		int cineplexID = cxm.returnCineplexID(cineplexRow);
 
-//		System.out.println("Showtimes Available:");
-//		int noOfShowtimes = cm.listAll();
+		System.out.println("Showtimes Available:");
+		int noOfShowtimes = sm.listAll();
 		
 		
 	// ask user to pick cineplex
@@ -200,6 +226,10 @@ public class GuestApp {
 	// If 1, look at the booking receipts database and do the math.
 	
 	// If 2, look at the ratings database and do the math.
+	}
+
+	public String[] getOptions() {
+		return options;
 	}
 
 }

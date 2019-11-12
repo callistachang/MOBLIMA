@@ -2,87 +2,93 @@ package main;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import managers.CineplexManager;
 import managers.MovieManager;
+import models.Movie.MovieType;
+import models.Movie.ShowingStatus;
 
 public class CinemaStaffApp extends GuestApp {
+	private String options[] = {
+		"Create movie listing",
+		"Update movie listing",
+		"Remove movie listing",
+		"Create movie showtime",
+		"Update movie showtime",
+		"Remove movie showtime",
+		"Configure system settings"
+	};
 	
 	public void run() {
 		int choice = -1;
 		Scanner sc = new Scanner(System.in);
-		
-		// Add a function to run the login as admin thingy
-		
+				
 		System.out.println("================== Cinema Staff Menu ==================");
-		System.out.println("(1) List movies");
-		System.out.println("(2) View movie details (including reviews and ratings)");
-		System.out.println("(3) Check seat availabilities");
-		System.out.println("(4) List top five movies");
-		System.out.println("(5) Create movie listing");
-		System.out.println("(6) Update movie listing");
-		System.out.println("(7) Remove movie listing");
-		System.out.println("(8) Create movie showtime");
-		System.out.println("(9) Update movie showtime");
-		System.out.println("(10) Remove movie showtime");
-		System.out.println("(11) Configure system settings");
-		System.out.println("(12) ???"); // Some 2013 group did "Print sale revenue report by movie, cinema and period", lmao
-		System.out.println("(13) Exit");
+		int i;
+		for (i = 1; i <= options.length; i++) {
+			System.out.printf("(%d) %s \n", i, options[i-1]);
+		}
+		System.out.println("=======================================================");
+		String[] guestOptions = super.getOptions();
+		for (int j = 1; j <= guestOptions.length; i++, j++) {
+			System.out.printf("(%d) %s \n", i, guestOptions[j-1]);
+		}
+		System.out.printf("(%d) %s \n", i, "Exit");
 		System.out.println("=======================================================");
 		
 		do {
 			System.out.print("\nChoose an option: ");
 			choice = sc.nextInt();
 			switch (choice) {
-			case 1:
-				listMovies();
-				break;
-			case 2:
-				viewMovieDetails();
-				break;
-			case 3:
-				checkSeatAvailabilities();
-				break;
-			case 4:
-				listTop5Movies();
-				break;
-			case 5:
-				createMovieListing();
-				break;
-			case 6:
-				updateMovieListing();
-				break;
-			case 7:
-				removeMovieListing();
-				break;
-			case 8:
-				createMovieShowtime();
-				break;
-			case 9:
-				updateMovieShowtime();
-				break;
-			case 10:
-				removeMovieShowtime();
-				break;
-			case 11:
-				configureSettings();
-				break;
-			case 12:
-				break;
-			case 13:
-				System.out.println("Exited from the cinema staff menu.");
-				break;
-			default:
-				System.out.println("Please input a valid option.");
-				break;
+				case 1:
+					createMovieListing();
+					break;
+				case 2:
+					updateMovieListing();
+					break;
+				case 3:
+					removeMovieListing();
+					break;
+				case 4:
+					createMovieShowtime();
+					break;
+				case 5:
+					updateMovieShowtime();
+					break;
+				case 6:
+					removeMovieShowtime();
+					break;
+				case 7:
+					configureSettings();
+					break;
+				case 8:
+					listMovies();
+					break;
+				case 9:
+					viewMovieDetails();
+					break;
+				case 10:
+					checkSeatAvailabilities();
+					break;
+				case 11:
+					listTop5Movies();
+					break;
+				case 12:
+					System.out.println("Exited from the cinema staff menu.");
+					break;
+				default:
+					System.out.println("Please input a valid option.");
+					break;
 			}
-		} while (choice != 13);
+		} while (choice != 12);
 	}
 	
 	private void createMovieListing() {
 		Scanner sc = new Scanner(System.in);
-		String title, showingStatus, synopsis, director, cast;
+		String title, status, synopsis, director, cast, type;
 		ArrayList<String> casts = new ArrayList<String>();
 		int duration;
 		
+		System.out.println("???");
 		MovieManager mm = new MovieManager();
 		
 		// Prompt the user for inputs
@@ -93,8 +99,8 @@ public class CinemaStaffApp extends GuestApp {
 		
 		do {
 			System.out.println("\nInsert movie showing status (Coming Soon, Now Showing, No Longer Showing): ");
-			showingStatus = sc.nextLine();
-		} while (!(showingStatus.equals("Coming Soon") || showingStatus.equals("Now Showing") || showingStatus.equals("No Longer Showing")));
+			status = sc.nextLine();
+		} while (!(status.equals("Coming Soon") || status.equals("Now Showing") || status.equals("No Longer Showing")));
 		
 		do {
 			System.out.print("\nInsert movie synopsis: ");
@@ -120,8 +126,14 @@ public class CinemaStaffApp extends GuestApp {
 			System.out.print("\nInsert duration of movie: ");
 			duration = sc.nextInt();
 		} while (duration == 0);
-
-		mm.create(title, showingStatus, synopsis, director, casts, duration);
+		
+		do {
+			System.out.println("\nInsert movie type (2D, 3D): ");
+			type = sc.next();
+		} while (!(type.equals("2D") || type.equals("3D")));
+		
+		
+		mm.create(title, status, director, synopsis, casts, duration, type);
 	}
 	
 	private void updateMovieListing() {
@@ -239,6 +251,8 @@ public class CinemaStaffApp extends GuestApp {
 		// create showtime. will return error if all halls already occupied.
 		// must make sure it don't overlap with other movies. MUST STORE MOVIE DURATION.
 		// update to movie showtime database
+		
+		//update database twice.
 	}
 	
 	private void updateMovieShowtime() {
@@ -287,7 +301,7 @@ public class CinemaStaffApp extends GuestApp {
 //		Scanner sc = new Scanner(System.in);
 //		
 //		MovieManager mm = new MovieManager();
-//		CineplexManager cxm = new CineplexManager();
+		CineplexManager cxm = new CineplexManager();
 //		CinemaManager cm = new CinemaManager();
 //		
 //		System.out.println("Which movie would you like to view?");
