@@ -4,13 +4,16 @@ import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
 
+import managers.CinemaManager;
 import managers.CineplexManager;
 import managers.MovieManager;
+import managers.ShowtimeManager;
 import models.Movie.MovieType;
 import models.Movie.ShowingStatus;
+import models.Showtime;
 
-public class CinemaStaffApp extends GuestApp {
-	private String options[] = {
+public class CinemaStaffApp extends UserApp {
+	private final String options[] = {
 		"Create movie listing",
 		"Update movie listing",
 		"Remove movie listing",
@@ -196,57 +199,59 @@ public class CinemaStaffApp extends GuestApp {
 	}
 	
 	private void createMovieShowtime() {
-//		Scanner sc = new Scanner(System.in);
 		
-//		MovieManager mm = new MovieManager();
-//		CineplexManager cxm = new CineplexManager();
-//		CinemaManager cam = new CinemaManager();
-//
-
-//		System.out.println("Which movie would you like to view?");
-//		int noOfMovies = mm.listAll();
-//		System.out.println("Choose a number option:");
-//		int movieRow = sc.nextInt();
-//		int movieID = mm.returnMovieID(movieRow);
-
-
-//		System.out.println("Which cineplex?");
-//		int noOfCineplexes = cxm.listAll();
-//		System.out.println("Choose a number option:");
-//		int cineplexRow = sc.nextInt();
-//		int cineplexID = cxm.returnCineplexID(cineplexRow);
-
+		Scanner sc = new Scanner(System.in);
 		
-//		System.out.println("Which cinema?");
-//		int noOfCinemas = cam.listAll();
-//		System.out.println("Choose a number option:");
-//		int cinemaRow = sc.nextInt();
-//		int cinemaID = cm.returnCinemaID(cinemaRow);
+		MovieManager mm = new MovieManager();
+		CineplexManager cxm = new CineplexManager();
+		CinemaManager cm = new CinemaManager();
+		ShowtimeManager sm = new ShowtimeManager();
 
+		System.out.println("Choose a movie:");
+		mm.listAll();
+		System.out.println("Choose a number option:");
+		int movieID = sc.nextInt();
+
+		System.out.println("Which cineplex?");
+		cxm.listAll();
+		System.out.println("Choose a number option:");
+		int cineplexID = sc.nextInt();
 		
-////		System.out.println("Enter the date. Which year?");
-////		int showtimeYear = sc.nextInt();
-////		System.out.println("Which month?");
-////		int showtimeMonth = sc.nextInt();
-////		System.out.println("Which day?");
-////		int showtimeDay = sc.nextInt();
+		System.out.println("Which cinema?");
+		cxm.listAllByCineplex(cineplexID);
+		System.out.println("Choose a number option:");
+		int cinemaID = sc.nextInt();
+		
+		System.out.println("Enter the date. Which year?");
+		int showtimeYear = sc.nextInt();
+		System.out.println("Which month?");
+		int showtimeMonth = sc.nextInt();
+		System.out.println("Which day?");
+		int showtimeDay = sc.nextInt();
 
-//		System.out.println("Enter the date in DDMMYYYY format.");
-//		int showtimeDate = sc.nextInt();
-//		System.out.println("Enter the time in 24-hour format.");
-//		int showtimeTime = sc.nextInt();
+		System.out.println("Enter the date in DDMMYYYY format.");
+		int showtimeDate = sc.nextInt();
+		System.out.println("Enter the time in 24-hour format.");
+		int showtimeTime = sc.nextInt();
+		
+		// ask for date
+		// ask for time
+		
+		Showtime showtime = sm.create(cinemaID, date, time, movieID);
+		cm.addShowtime(cinemaID, showtime);
+
 		
 //		sm.create(movieID, cineplexID, cinemaID, showtimeDate, showtimeTime, mm.getduration(movieRow));
 // error checking handled by sm? return different error messages
 // logic linking no. option to movie should be same for cineplex, cinema, showtime		
-		
-		// ask for movie (show list of movies)
-		// ask for cineplex (show list of cineplexes)
-		// create showtime. will return error if all halls already occupied.
-		// must make sure it don't overlap with other movies. MUST STORE MOVIE DURATION.
-		// update to movie showtime database
-		
-		//update database twice.
+//		
+//		 ask for movie (show list of movies)
+//		 ask for cineplex (show list of cineplexes)
+//		 create showtime. will return error if all halls already occupied.
+//		 must make sure it don't overlap with other movies. MUST STORE MOVIE DURATION.
+//		 update to movie showtime database
+//		
+//		update database twice.
 	}
 	
 	private void updateMovieShowtime() {
@@ -260,13 +265,26 @@ public class CinemaStaffApp extends GuestApp {
 //		System.out.println("Choose a number option:");
 //		int movieRow = sc.nextInt();
 //		int movieID = mm.returnMovieID(movieRow);
+		
+		Scanner sc = new Scanner(System.in);
 
 
-//		System.out.println("Which cineplex?");
-//		int noOfCineplexes = cxm.listAll();
-//		System.out.println("Choose a number option:");
-//		int cineplexRow = sc.nextInt();
-//		int cineplexID = cxm.returnCineplexID(cineplexRow);
+		System.out.println("Which cineplex?");
+		cxm.listAll();
+		System.out.println("Choose a number option:");
+		int cineplexID = sc.nextInt();		
+		
+		System.out.println("Which cinema?");
+		cxm.listAllByCineplex(cineplexID);
+		System.out.println("Choose a number option:");
+		int cinemaID = sc.nextInt();
+		
+		System.out.println("List of showtimes in cinema:");
+		cm.getShowtimes(cinemaID);
+		int showtimeID = sc.nextInt();
+		
+		int attrNum = sm.chooseAttributes(showtimeID); //??
+		sm.updateShowtime(showtimeID, attrNum, attrVal);
 		
 		
 //		System.out.println("Which showtime would you like to update?");
@@ -292,10 +310,36 @@ public class CinemaStaffApp extends GuestApp {
 	}
 	
 	private void removeMovieShowtime() {
+		Scanner sc = new Scanner(System.in);
+		
+		CineplexManager cxm = new CineplexManager();
+		CinemaManager cm = new CinemaManager();
+		ShowtimeManager sm = new ShowtimeManager();
+
+		System.out.println("Which cineplex?");
+		cxm.listAll();
+		System.out.println("Choose a number option:");
+		int cineplexID = sc.nextInt();		
+		
+		System.out.println("Which cinema?");
+		cxm.listAllByCineplex(cineplexID);
+		System.out.println("Choose a number option:");
+		int cinemaID = sc.nextInt();
+		
+		System.out.println("List of showtimes in cinema:");
+		cm.getShowtimes(cinemaID);
+		int showtimeID = sc.nextInt();
+		
+		sm.removeShowtime(showtimeID);
+		
+		
+		
+		
+		
 //		Scanner sc = new Scanner(System.in);
 //		
 //		MovieManager mm = new MovieManager();
-		CineplexManager cxm = new CineplexManager();
+//		CineplexManager cxm = new CineplexManager();
 //		CinemaManager cm = new CinemaManager();
 //		
 //		System.out.println("Which movie would you like to view?");

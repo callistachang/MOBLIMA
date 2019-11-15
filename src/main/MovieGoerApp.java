@@ -12,8 +12,13 @@ import managers.*;
 //import managers
 
 // none of the logic shld actually b here
-public class MovieGoerApp extends GuestApp {
+public class MovieGoerApp extends UserApp {
 	private Account account;
+	private final String options[] = {
+		"Book and purchase a movie ticket",
+		"Leave a rating and review on a movie",
+		"View booking history"
+	};
 	
 	public MovieGoerApp(Account account) {
 		this.account = account;
@@ -28,16 +33,17 @@ public class MovieGoerApp extends GuestApp {
 		// Hence we create a new MovieGoer object here.
 		
 		System.out.println("=================== Movie-Goer Menu ===================");
-		System.out.println("(1) Book and purchase a movie ticket");
-		System.out.println("(2) List movies");
-		System.out.println("(3) View movie details (including reviews and ratings)");
-		System.out.println("(4) Check seat availabilities");
-		System.out.println("(5) View booking history");
-		System.out.println("(6) List top five movies");
-		System.out.println("(7) Leave a rating and review on a movie");
-		System.out.println("(8) Exit");
-		// List pricing details?
-		System.out.println("=======================================================");
+		int i;
+		for (i = 1; i <= options.length; i++) {
+			System.out.printf("(%d) %s \n", i, options[i-1]);
+		}
+		System.out.println("======================================================");
+		String[] guestOptions = super.getOptions();
+		for (int j = 1; j <= guestOptions.length; i++, j++) {
+			System.out.printf("(%d) %s \n", i, guestOptions[j-1]);
+		}
+		System.out.printf("(%d) %s \n", i, "Exit");
+		System.out.println("======================================================");
 		
 		do {
 			System.out.print("\nChoose an option: ");
@@ -47,22 +53,21 @@ public class MovieGoerApp extends GuestApp {
 					bookTicket();
 					break;
 				case 2:
-					listMovies();
-					break;
+					rateMovie();
 				case 3:
-					viewMovieDetails();
-					break;
-				case 4:
-					checkSeatAvailabilities();
-					break;
-				case 5:
 					viewBookingHistory();
 					break;
+				case 4:
+					listMovies();
+					break;
+				case 5:
+					viewMovieDetails();
+					break;
 				case 6:
-					listTop5Movies();
+					checkSeatAvailabilities();
 					break;
 				case 7:
-					rateMovie();
+					listTop5Movies();
 					break;
 				case 8:
 					System.out.println("Exited from the movie-goer menu.");
@@ -85,8 +90,7 @@ public class MovieGoerApp extends GuestApp {
 		CineplexManager cm = new CineplexManager();
 		ShowtimeManager sm = new ShowtimeManager();
 		CinemaManager cinema = new CinemaManager();
-		PriceManager pm = new PriceManager();
-		TicketManager tm  = new TicketManager();
+		BookingManager tm  = new BookingManager();
 		
 		System.out.println("Which movie would you like to watch?");
 		mm.listAll();

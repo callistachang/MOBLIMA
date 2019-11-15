@@ -3,6 +3,7 @@ package managers;
 import java.util.ArrayList;
 
 import handlers.DatabaseHandler;
+import models.Cinema;
 import models.Cineplex;
 import models.Movie;
 import serializers.MovieSerializer;
@@ -38,4 +39,29 @@ public class CineplexManager {
 		Cineplex cineplex = getCineplexByID(cineplexID);
 		return cineplex.getShowingMovies();
 	}
+	
+//	public void listAllShowtimesInCineplexByMovie(int cineplexID, int movieID) {
+//		Cineplex cineplex = getCineplexByID(cineplexID);
+//		ArrayList<Cinema> cinemas = cineplex.getCinemas();
+//		CinemaManager cm = new CinemaManager();
+//		
+//		for (Cinema cinema: cinemas) {
+//			cm.getShowtimes(cinema, movieID);
+//		}
+//	}
+	
+	public void listAllSeatAvailabilitiesInCineplexByMovie(int cineplexID, int movieID) {
+		Cineplex cineplex = getCineplexByID(cineplexID);
+		ArrayList<Cinema> cinemas = cineplex.getCinemas();
+		CinemaManager cm = new CinemaManager();
+		
+		for (Cinema cinema: cinemas) {
+			cm.listAvailabilitiesForMovie(cinema, movieID);
+	}
 }
+
+
+
+
+
+

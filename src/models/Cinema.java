@@ -9,5 +9,25 @@ public class Cinema implements ISerializable {
 
 	public ArrayList<Object> getSerializableData() {
 		return null;
+	}
 
+
+	public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
+	public ArrayList<Showtime> getShowtimes() {
+		return showtimes;
+	}
+
+
+	public void setShowtimes(ArrayList<Showtime> showtimes) {
+		this.showtimes = showtimes;
+	}
 }

@@ -1,6 +1,6 @@
 package managers;
 
-public class TicketManager {
+public class BookingManager {
 
 	public void addReceipt() {
 		

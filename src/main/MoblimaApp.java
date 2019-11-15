@@ -33,7 +33,7 @@ public class MoblimaApp {
 					login();
 					break;
 				case 2:
-					GuestApp gApp = new GuestApp();
+					UserApp gApp = new UserApp();
 					gApp.run();
 					break;
 				case 3:
