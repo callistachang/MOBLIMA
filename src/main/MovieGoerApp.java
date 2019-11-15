@@ -178,11 +178,11 @@ public class MovieGoerApp extends UserApp {
 			if (review_option.compareToIgnoreCase("y") == 0) {
 				System.out.println("Please enter your review");
 				String review_input = sc.next();
-				mm.createReview(movieId,rating, account, review_input);
+				mm.createReview(movieId, rating, account, review_input);
 				break;
 			}
 			else if (review_option.compareToIgnoreCase("n") == 0) {
-				mm.createReview(movieId,rating, account, null);
+				mm.createReview(movieId, rating, account, null);
 				break;
 			}
 			

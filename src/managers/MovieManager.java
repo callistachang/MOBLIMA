@@ -101,7 +101,7 @@ public class MovieManager {
 		// TODO Auto-generated method stub
 		
 	}
-	public void createReview(int rating,Account user, String content, int movieId) {
+	public void createReview(int movieId, int rating,Account user, String content) {
 		Movie movie = getMovieByID(movieId);
 		movie.createReview(rating, user, content);
 	}
