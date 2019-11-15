@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import handlers.DatabaseHandler;
 import models.Cinema;
 import models.ISerializable;
+import models.Movie.MovieType;
 import models.Pricing;
 import models.Showtime;
 import serializers.AbstractSerializer;
@@ -18,7 +19,7 @@ public class PricingCalculator {
 	private static final String DATABASE_NAME = "pricingdata";
 	private static Pricing pricing = null;
 	
-	public double calculatePrice (Boolean isStudent, int age, int showtimeID) {
+	public double calculatePrice (int discountType, int showtimeID) {
 		Pricing pricing = new Pricing();
 		ShowtimeManager sm = new ShowtimeManager();
 		HolidayManager hm = new HolidayManager();
@@ -26,27 +27,23 @@ public class PricingCalculator {
 		MovieManager mm = new MovieManager();
 		double ticketPrice = pricing.getBasePrice();
 		
-		Showtime s = sm.getShowtime(showtimeID);
-		MovieType m = s.movie.getMovieType();
-		Cinema c = cm.getCinema(s.cinemaId);
+		Showtime s = sm.getShowtimeByID(showtimeID);
+		MovieType m = s.movie.getType();
+		Cinema c = cm.getCinemaByID(s.cinemaId);
 		DayOfWeek day = DayOfWeek.of(s.date.get(ChronoField.DAY_OF_WEEK));
 		if(day == DayOfWeek.SATURDAY || day == DayOfWeek.SUNDAY || hm.isHoliday(s.date)) {
 			ticketPrice += pricing.getWeekendPremium();
 		}
-		if(isStudent) {
-			ticketPrice -= pricing.getStudentDiscount();
-		}
-		if(age < 65) {
-			ticketPrice -= pricing.getSeniorCitizenDiscount();
-		}
-		switch(c.getCinemaClass()) {
-			case "Gold":
-				ticketPrice += pricing.getGoldCinemaPremium();
-				break;
-			case "Platinum":
-				ticketPrice += pricing.getPlatinumCinemaPremium();
-				break;
-		}
+		switch(discountType) {
+		case 0:
+			break;
+		case 1:
+			ticketPrice += pricing.getStudentDiscount();
+			break;
+		case 2:
+			ticketPrice += pricing.getSeniorCitizenDiscount();
+	}
+		
 		if(m == 3D) {
 			ticketPrice += pricing.getMovieTypePremium();
 		}
