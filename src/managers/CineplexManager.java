@@ -6,6 +6,7 @@ import handlers.DatabaseHandler;
 import models.Cinema;
 import models.Cineplex;
 import models.Movie;
+import models.Showtime;
 import serializers.AbstractSerializer;
 import serializers.CinemaSerializer;
 import serializers.MovieSerializer;
@@ -30,18 +31,39 @@ public class CineplexManager {
 		}
 	}
 	
-	// gets movies by cineplex
-	public ArrayList<Movie> getAllMovies(int cineplexID) {
-		Cineplex cineplex = getCineplexByID(cineplexID);
-		return cineplex.getMovies();
+	public void listCineplexByMovie(int movieID) {
+		MovieManager mm = new MovieManager();
+		Movie m = mm.getMovieByID(movieID);
+		Boolean printed = false;
+		
+		for(Cineplex cx: records) {
+			printed = false;
+			ArrayList<Cinema> cinemas = cx.getCinemas();
+			for(Cinema c: cinemas) {
+				ArrayList<Showtime> showtimes = c.getShowtimes();
+				for(Showtime s: showtimes) {
+					if(m == s.getMovie()&!printed) {
+						System.out.println();
+						printed = true;
+					}
+				}
+			}
+		}
 	}
 	
-	// gets showing movies by cineplex
-	public ArrayList<Movie> getShowingMovies(int cineplexID) {
-		Cineplex cineplex = getCineplexByID(cineplexID);
-		return cineplex.getShowingMovies();
-	}
-	
+//	// gets movies by cineplex
+//	public ArrayList<Movie> getAllMovies(int cineplexID) {
+//		Cineplex cineplex = getCineplexByID(cineplexID);
+//		return cineplex.getMovies();
+//	}
+//	
+//	// gets showing movies by cineplex
+//	public ArrayList<Movie> getShowingMovies(int cineplexID) {
+//		Cineplex cineplex = getCineplexByID(cineplexID);
+//		return cineplex.getShowingMovies();
+//	}
+//
+//	
 //	public void listAllShowtimesInCineplexByMovie(int cineplexID, int movieID) {
 //		Cineplex cineplex = getCineplexByID(cineplexID);
 //		ArrayList<Cinema> cinemas = cineplex.getCinemas();
