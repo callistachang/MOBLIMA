@@ -8,25 +8,17 @@ import models.Showtime;
 
 public class CinemaManager {
 	private static ArrayList<Cinema> records = null;
-
-	public int showSeating() {
-		return 1;
-		
-	}
 	
-	public int seatsAvailable() {
-		int noOfSeatsAvailable = 1;
-		return noOfSeatsAvailable;
-	}
-	public void acceptSeat(ArrayList<String> seatsChosen, int noOfSeats) {
+	public void listAllByCineplex(int cineplexID) {
 		
-	}
+	}	
 	
-	public ArrayList<Showtime> getShowtimesInCinema(Cinema cinema) {
-		for (Cinema c: records) {
-			
-		}
-	}
+	
+//	public ArrayList<Showtime> getShowtimesInCinema(Cinema cinema) {
+//		for (Cinema c: records) {
+//			
+//		}
+//	}
 	
 	public void listAvailabilitiesForMovie(Cinema cinema, int movieID) {
 		ShowtimeManager sm = new ShowtimeManager();

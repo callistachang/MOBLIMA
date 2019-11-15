@@ -60,6 +60,16 @@ public class CineplexManager {
 	}
 }
 
+	public void listAll() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void listAllCinemasByCineplex(int cineplexID) {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 
 

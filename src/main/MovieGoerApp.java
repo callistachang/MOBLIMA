@@ -14,7 +14,7 @@ import managers.*;
 // none of the logic shld actually b here
 public class MovieGoerApp extends UserApp {
 	private Account account;
-	private final String options[] = {
+	private final String menuOptions[] = {
 		"Book and purchase a movie ticket",
 		"Leave a rating and review on a movie",
 		"View booking history"
@@ -34,11 +34,11 @@ public class MovieGoerApp extends UserApp {
 		
 		System.out.println("=================== Movie-Goer Menu ===================");
 		int i;
-		for (i = 1; i <= options.length; i++) {
-			System.out.printf("(%d) %s \n", i, options[i-1]);
+		for (i = 1; i <= menuOptions.length; i++) {
+			System.out.printf("(%d) %s \n", i, menuOptions[i-1]);
 		}
 		System.out.println("======================================================");
-		String[] guestOptions = super.getOptions();
+		String[] guestOptions = super.getMenuOptions();
 		for (int j = 1; j <= guestOptions.length; i++, j++) {
 			System.out.printf("(%d) %s \n", i, guestOptions[j-1]);
 		}

@@ -7,4 +7,8 @@ public class Booking {
 	private Showtime showtime;
 	private Cinema cinema;
 	private double price;
+	public int getId() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

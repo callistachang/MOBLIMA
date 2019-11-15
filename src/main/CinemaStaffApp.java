@@ -13,7 +13,7 @@ import models.Movie.ShowingStatus;
 import models.Showtime;
 
 public class CinemaStaffApp extends UserApp {
-	private final String options[] = {
+	private final String menuOptions[] = {
 		"Create movie listing",
 		"Update movie listing",
 		"Remove movie listing",
@@ -29,11 +29,11 @@ public class CinemaStaffApp extends UserApp {
 				
 		System.out.println("================== Cinema Staff Menu ==================");
 		int i;
-		for (i = 1; i <= options.length; i++) {
-			System.out.printf("(%d) %s \n", i, options[i-1]);
+		for (i = 1; i <= menuOptions.length; i++) {
+			System.out.printf("(%d) %s \n", i, menuOptions[i-1]);
 		}
 		System.out.println("=======================================================");
-		String[] guestOptions = super.getOptions();
+		String[] guestOptions = super.getMenuOptions();
 		for (int j = 1; j <= guestOptions.length; i++, j++) {
 			System.out.printf("(%d) %s \n", i, guestOptions[j-1]);
 		}

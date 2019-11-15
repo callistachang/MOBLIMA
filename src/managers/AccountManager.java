@@ -9,6 +9,15 @@ public class AccountManager {
 	private static final String DATABASE_NAME = "accountdata";
 	private static ArrayList<Account> records = null;
 	
+	public Account getAccountByID(int accountID) {
+		for (Account a: records) {
+			if (a.getId() == accountID) {
+				return a;
+			}
+		}
+		return null;
+	}
+	
 	public boolean checkUsernameExist(String username) {
 		
 		//check the username in the database
@@ -31,12 +40,6 @@ public class AccountManager {
 		else {
 			return true;
 		}
-	}
-	
-	public Account getAccount(String username) {
-		//get the account from the array
-		Account acc = new Account();
-		return acc;
 	}
 	
 	public int login(String username, String password) {

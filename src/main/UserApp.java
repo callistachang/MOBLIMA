@@ -10,7 +10,7 @@ import managers.ShowtimeManager;
 import models.Cineplex;
 
 public class UserApp {
-	private final String options[] = {
+	private final String menuOptions[] = {
 		"List movies",
 		"View movie details and reviews",
 		"Check seat availabilities",
@@ -24,8 +24,8 @@ public class UserApp {
 		do {
 			System.out.println("===================== Guest Menu ======================");
 			int i;
-			for (i = 1; i <= options.length; i++) {
-				System.out.printf("(%d) %s \n", i, options[i-1]);
+			for (i = 1; i <= menuOptions.length; i++) {
+				System.out.printf("(%d) %s \n", i, menuOptions[i-1]);
 			}
 			System.out.printf("(%d) %s \n", i, "Exit");
 			System.out.println("=======================================================");
@@ -46,7 +46,7 @@ public class UserApp {
 				listTop5Movies();
 				break;
 			case 5:
-				System.out.println("Exited from the movie-goer menu.");
+				System.out.println("Exited from the Guest menu.");
 				sc.nextLine();
 				break;
 			default:
@@ -239,8 +239,7 @@ public class UserApp {
 		// If 2, look at the ratings database and do the math.
 	}
 
-	public String[] getOptions() {
-		return options;
+	public String[] getMenuOptions() {
+		return menuOptions;
 	}
-
 }

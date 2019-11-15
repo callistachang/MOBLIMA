@@ -11,6 +11,8 @@ public class Account {
 	private String password;
 	private ArrayList<Booking> bookings;
 	
+
+	
 	public Account(int id, String name, int age, String mobileNumber, String emailAddress, String password,
 			ArrayList<Booking> bookings) {
 		this.id = id;

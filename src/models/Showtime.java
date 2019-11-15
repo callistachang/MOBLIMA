@@ -11,7 +11,7 @@ public class Showtime implements ISerializable {
 	public LocalDate date;
 	public LocalTime time;
 	public Movie movie;
-	public HashMap<Character, Integer> seatsTaken;
+	public HashMap<Character, Integer> seatsTaken; // HOW should i serialize this.
 
 	//	public Cinema cinema;
 	// NOT SURE if we should do the conversion of date string to LocalDate in the constructor OR in the ShowtimeManager
