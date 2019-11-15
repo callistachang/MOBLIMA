@@ -8,14 +8,7 @@ import models.Showtime;
 import java.util.ArrayList;
 
 import managers.*;
-//import managers.CineplexManager;
-//import managers.ShowtimeManager;
-//import managers.CinemaManager;
-//import managers.PriceManager;
-//import managers.TicketManager;
-//import managers
 
-// none of the logic shld actually b here
 public class MovieGoerApp extends UserApp {
 	private Account account;
 	private final String menuOptions[] = {
@@ -35,6 +28,8 @@ public class MovieGoerApp extends UserApp {
 		// Should add a function to let moviegoer create account or login to their account.
 		// Name, age, mobile number, email address.
 		// Hence we create a new MovieGoer object here.
+		
+		System.out.println("Welcome to MOBLIMA, " + account.getUsername() + "!");
 		
 		System.out.println("=================== Movie-Goer Menu ===================");
 		int i;

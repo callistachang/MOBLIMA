@@ -5,7 +5,6 @@ import managers.AccountManager;
 import models.Account;
 
 public class MoblimaApp {
-	String adminPassword = "adminpassword";
 	
 	public static void main(String[] args) {
 		MoblimaApp mApp = new MoblimaApp();
@@ -34,8 +33,8 @@ public class MoblimaApp {
 					login();
 					break;
 				case 2:
-					UserApp gApp = new UserApp();
-					gApp.run();
+					UserApp uApp = new UserApp();
+					uApp.run();
 					break;
 				case 3:
 					createNewAccount();
@@ -54,8 +53,11 @@ public class MoblimaApp {
 	// TODO
 	public void login() {
 		Scanner sc = new Scanner(System.in);
+		UserApp app = null;
+		int retry;
 		
-		while (true) {
+		do {
+			retry = 0;
 			System.out.println("Enter username:");
 			String username = sc.next();
 			
@@ -64,31 +66,28 @@ public class MoblimaApp {
 			
 			AccountManager am = new AccountManager();
 			
-			if (username.equals("admin")) {
-				if (password.equals(adminPassword)) {
-					CinemaStaffApp csApp = new CinemaStaffApp();
-					csApp.run();
-				}
-				else {
-					System.out.println("Invalid password!");
-				}
-			}
+			int userType = am.login(username, password);
 			
-			
-			else if (am.loginSuccessful(username, password)) {
-				System.out.println("Login as admin successful.");
-				Account acc = am.getAccountByUsername(username);
-				MovieGoerApp mgApp = new MovieGoerApp(acc);
-				mgApp.run();
-			}
-
-			else {
-				System.out.println("Press (Y) to retry, and any other key to exit:");
-				if (sc.next().compareToIgnoreCase("y") != 0)
+			switch (userType) {
+				case 1:
+					app = new CinemaStaffApp();
 					break;
+				case 2:
+					Account account = am.getAccountByUsername(username);
+					app = new MovieGoerApp(account);
+					break;
+				default:
+					System.out.println("Press (Y) to retry, and any other key to exit:");
+					if (sc.next().compareToIgnoreCase("y") == 0) // if y chosen
+						retry = 1;
+					else
+						return;
 			}
-		}
+		} while (retry == 1);
+		
+		app.run();
 	}
+	
 	
 	public void createNewAccount() {
 		Scanner sc = new Scanner(System.in);
@@ -97,7 +96,7 @@ public class MoblimaApp {
 
 		AccountManager am = new AccountManager();
 
-		while (control != 0){
+		while (control != 0) {
 			switch (control) {
 				case 1:
 					System.out.println("Enter Username:");
