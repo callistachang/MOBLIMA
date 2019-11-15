@@ -2,7 +2,7 @@ package models;
 
 import java.util.ArrayList;
 
-public class Account {
+public class Account implements ISerializable {
 	private String username;
 	private int age;
 	private String mobileNumber;
@@ -10,16 +10,26 @@ public class Account {
 	private String password;
 	private ArrayList<Booking> bookings;
 	
-
-	
-	public Account(String name, String password, int age, String mobileNumber, String emailAddress,
+	public Account(String username, int age, String mobileNumber, String emailAddress, String password,
 			ArrayList<Booking> bookings) {
-		this.username = name;
+		this.username = username;
 		this.age = age;
 		this.mobileNumber = mobileNumber;
 		this.emailAddress = emailAddress;
 		this.password = password;
 		this.bookings = bookings;
+	}
+	
+	@Override
+	public ArrayList<Object> getSerializableData() {
+		ArrayList<Object> data =  new ArrayList<Object>();
+		data.add(getUsername());
+		data.add(getPassword());
+		data.add(getAge());
+		data.add(getMobileNumber());
+		data.add(getEmailAddress());
+		data.add(getBookings());
+		return data;
 	}
 
 	public String getUsername() {
@@ -58,4 +68,6 @@ public class Account {
 	public void setBookings(ArrayList<Booking> bookings) {
 		this.bookings = bookings;
 	}
+
+
 }

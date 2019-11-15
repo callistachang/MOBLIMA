@@ -32,45 +32,6 @@ public class Movie implements ISerializable {
 		this.type = type;
 	}
 	
-	public static void printAttributes() {
-		System.out.println("(1) Title");
-		System.out.println("(2) Showing Status");
-		System.out.println("(3) Synopsis");
-		System.out.println("(4) Director");
-		System.out.println("(5) Duration");
-		System.out.println("(6) Type");
-	}
-	
-	public void printInfo() {
-		System.out.println("ID: " + id);
-		System.out.println("Title: " + title);
-		System.out.println("Showing Status: " + status.toString());
-		System.out.println("Synopsis: " + synopsis);
-		System.out.println("Duration: " + duration + " minutes");
-		System.out.println("Movie Type: " + type.toString());
-		System.out.println("Director: " + director);
-		System.out.print("Cast Members: ");
-		
-		int i;
-		for (i = 0; i < casts.size()-1; i++) {
-			System.out.printf(casts.get(i) + ", ");
-		}
-		System.out.println(casts.get(i));
-	}
-	
-	public void printReviews() {
-		int i;
-		for (i = 0; i < reviews.size(); i++) {
-			Review review = reviews.get(i);
-			System.out.printf("(%d)\n", i+1);
-			System.out.println("User: " + review.getUser());
-			System.out.println("Rating: " + review.getRating());
-			if (review.getContent() != null) {
-				System.out.println("Review: " + review.getContent());
-			}
-		}
-	}
-	
 	public ArrayList<Object> getSerializableData() {
 		ArrayList<Object> data =  new ArrayList<Object>();
 		data.add(getId());

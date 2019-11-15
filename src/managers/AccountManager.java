@@ -2,6 +2,7 @@ package managers;
 import java.util.ArrayList;
 
 import handlers.DatabaseHandler;
+import main.CinemaStaffApp;
 import models.Account;
 import serializers.AbstractSerializer;
 import serializers.AccountSerializer;
@@ -10,7 +11,15 @@ import serializers.ShowtimeSerializer;
 public class AccountManager {
 	private static final String DATABASE_NAME = "accountdata";
 	private static ArrayList<Account> records = null;
+	private final String adminUsername = "adminuser";
+	private final String adminPassword = "adminpassword";
 	
+	public AccountManager() {
+		if (records == null) {
+			initializeDatabase();
+		}
+	}
+
 	public Account getAccountByUsername(String username) {
 		for (Account a: records) {
 			if (a.getUsername().equals(username)) {
@@ -20,21 +29,25 @@ public class AccountManager {
 		return null;
 	}
 	
-	public boolean checkUsernameExist(String username) {
-		
-		//check the username in the database
-		//if exist return true else return false
-		return true;
+	public boolean isExistingUsername(String username) {
+		for (Account a: records) {
+			if (a.getUsername().equals(username)) {
+				return true;
+			}
+		}
+		return false;
 	}
 	
-	public boolean checkPasswordMatch(String username, String password) {
-		
-		//check the password in the database match the username
-		//if exist return true else return false
-		return true;
+	public boolean isMatchingPassword(String username, String password) {
+		Account account = getAccountByUsername(username);
+		if (account.getPassword().equals(password)) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 	
-	public boolean checkPasswordValid(String password) {
+	public boolean isValidPassword(String password) {
 		if (password.length() < 6 || password.length() > 20) {
 			System.out.println("Your password must be between 6-20 characters long.");
 			return false;
@@ -44,32 +57,35 @@ public class AccountManager {
 		}
 	}
 	
-	public boolean loginSuccessful(String username, String password) {
-
-			
-			if (!checkUsernameExist(username)) {
-				System.out.println("Please enter a valid username!");
-				return false;
+	public int login(String username, String password) {
+		
+		if (username.equals(adminUsername)) {
+			if (password.equals(adminPassword)) {
+				return 1;
 			}
-			
-
-			if (!checkPasswordMatch(username, password)) {
-				System.out.println("Please enter a valid password!");
-				return false;
-			}
-			
-			
-			return true;
+		}
+		
+		if (!isExistingUsername(username)) {
+			System.out.println("Please enter a valid username!");
+			return 0;
+		}
+		
+		if (!isMatchingPassword(username, password)) {
+			System.out.println("Please enter a valid password!");
+			return 0;
+		}
+		
+		return 2;
 	}
 	
 	public int create(String username, String password, String confirmPassword, int age, String mobileNumber, String emailAddress) {
-		if (!checkUsernameExist(username)) {
+		if (!isExistingUsername(username)) {
 			System.out.println("Username is taken!");
 			return 1;
 		}
 		
 
-		if (!checkPasswordValid(password)) {
+		if (!isValidPassword(password)) {
 			System.out.println("Please enter a password between 6-20 characters!");
 			return 2;
 		}
@@ -109,7 +125,7 @@ public class AccountManager {
 		
 		
 		else {
-			Account acc = new Account(username, password, age, mobileNumber, emailAddress, null);
+			Account acc = new Account(username, age, mobileNumber, emailAddress, password, null);
 			//create new account and store it into the database
 			return 0;
 		}
