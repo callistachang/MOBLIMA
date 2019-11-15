@@ -8,6 +8,7 @@ import java.util.HashMap;
 
 public class Showtime implements ISerializable {
 	public int id;
+	public int cinemaId;
 	public LocalDate date;
 	public LocalTime time;
 	public Movie movie;

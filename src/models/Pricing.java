@@ -8,6 +8,10 @@ public class Pricing {
 	private double movieTypePremium;
 	private double platinumCinemaPremium;
 	private double goldCinemaPremium;
+	
+	public Pricing() {
+		this.basePrice = basePrice;
+	}
 	public double getBasePrice() {
 		return basePrice;
 	}
