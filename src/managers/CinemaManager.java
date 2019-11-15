@@ -42,8 +42,9 @@ public class CinemaManager {
 		for (Showtime showtime: showtimes) {
 			Movie movie = showtime.getMovie();
 			if (movie.getId() == movieID) {
-				System.out.println(cinema);
-				System.out.println(showtime);
+				System.out.println("CinemaId = " + cinema.getId());
+				System.out.println("Class: " + cinema.getCinemaClass());
+				System.out.println("ShowtimeId: " + showtime.getId());
 				cinema.getTotalNumSeats() - showtime.getTotalNumSeatsTaken();
 			}
 		}
