@@ -5,7 +5,8 @@ import managers.AccountManager;
 import models.Account;
 
 public class MoblimaApp {
-
+	String adminPassword = "adminpassword";
+	
 	public static void main(String[] args) {
 		MoblimaApp mApp = new MoblimaApp();
 		mApp.run();
@@ -55,34 +56,32 @@ public class MoblimaApp {
 		Scanner sc = new Scanner(System.in);
 		
 		while (true) {
-//			System.out.println("Enter username:");
-//			String username = sc.next();
-//			
-//			System.out.println("Enter password:");
-//			String password = sc.next();
-//			
-//			AccountManager am = new AccountManager();
-//			
-//			// i think this could possibly return account instead
-//			int loginCode = am.login(username, password);
+			System.out.println("Enter username:");
+			String username = sc.next();
 			
-			System.out.println("[TEMP] Enter 1 to go to cinemastaffapp, 2 to go to moviegoerapp:");
+			System.out.println("Enter password:");
+			String password = sc.next();
 			
-			int loginCode = sc.nextInt();
+			AccountManager am = new AccountManager();
 			
-			// userapp; use polymorphism
-			
-			if (loginCode == 1) {
-				System.out.println("Login as admin successful.");
-				CinemaStaffApp csApp = new CinemaStaffApp();
-				csApp.run();
+			if (username.equals("admin")) {
+				if (password.equals(adminPassword)) {
+					CinemaStaffApp csApp = new CinemaStaffApp();
+					csApp.run();
+				}
+				else {
+					System.out.println("Invalid password!");
+				}
 			}
-			else if (loginCode == 2) {
-				// how should we get account...?
-				Account acc = null;
+			
+			
+			else if (am.loginSuccessful(username, password)) {
+				System.out.println("Login as admin successful.");
+				Account acc = am.getAccountByUsername(username);
 				MovieGoerApp mgApp = new MovieGoerApp(acc);
 				mgApp.run();
 			}
+
 			else {
 				System.out.println("Press (Y) to retry, and any other key to exit:");
 				if (sc.next().compareToIgnoreCase("y") != 0)
@@ -93,7 +92,7 @@ public class MoblimaApp {
 	
 	public void createNewAccount() {
 		Scanner sc = new Scanner(System.in);
-		String username = null, password = null, confirmPassword = null;
+		String username = null, password = null, confirmPassword = null, mobileNumber = null, emailAddress = null;
 		int control = 1, age = 0;
 
 		AccountManager am = new AccountManager();
@@ -112,12 +111,17 @@ public class MoblimaApp {
 				case 4:
 					System.out.println("Enter Age:");
 					age = sc.nextInt();
-					break;
+				case 5:
+					System.out.println("Enter mobile number:");
+					mobileNumber = sc.next();
+				case 6:
+					System.out.println("Enter email address:");
+					emailAddress = sc.nextLine();
 				default:
 					break;
 			}	
 			
-			control = am.createAccount(username, password, confirmPassword, age);
+			control = am.create(username, password, confirmPassword, age, mobileNumber, emailAddress);
 			if (control == 0) {
 				System.out.println("Account successfully created.");
 				break;

@@ -12,7 +12,7 @@ public class Account {
 	
 
 	
-	public Account(int id, String name, int age, String mobileNumber, String emailAddress, String password,
+	public Account(String name, String password, int age, String mobileNumber, String emailAddress,
 			ArrayList<Booking> bookings) {
 		this.username = name;
 		this.age = age;
@@ -22,7 +22,7 @@ public class Account {
 		this.bookings = bookings;
 	}
 
-	public String getUserame() {
+	public String getUsername() {
 		return username;
 	}
 	public void setUsername(String username) {
