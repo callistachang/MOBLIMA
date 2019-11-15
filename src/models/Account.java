@@ -3,8 +3,7 @@ package models;
 import java.util.ArrayList;
 
 public class Account {
-	private int id;
-	private String name;
+	private String username;
 	private int age;
 	private String mobileNumber;
 	private String emailAddress;
@@ -13,28 +12,21 @@ public class Account {
 	
 
 	
-	public Account(int id, String name, int age, String mobileNumber, String emailAddress, String password,
+	public Account(String name, String password, int age, String mobileNumber, String emailAddress,
 			ArrayList<Booking> bookings) {
-		this.id = id;
-		this.name = name;
+		this.username = name;
 		this.age = age;
 		this.mobileNumber = mobileNumber;
 		this.emailAddress = emailAddress;
 		this.password = password;
 		this.bookings = bookings;
 	}
-	
-	public int getId() {
-		return id;
+
+	public String getUsername() {
+		return username;
 	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 	public int getAge() {
 		return age;
