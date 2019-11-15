@@ -79,7 +79,7 @@ public class AccountManager {
 	}
 	
 	public int create(String username, String password, String confirmPassword, int age, String mobileNumber, String emailAddress) {
-		if (!isExistingUsername(username)) {
+		if (isExistingUsername(username)) {
 			System.out.println("Username is taken!");
 			return 1;
 		}
@@ -123,10 +123,10 @@ public class AccountManager {
 			return 6;
 		}
 		
-		
 		else {
-			Account acc = new Account(username, age, mobileNumber, emailAddress, password, null);
-			//create new account and store it into the database
+			Account account = new Account(username, age, mobileNumber, emailAddress, password, null);
+			records.add(account); // add to records
+			updateDatabase();
 			return 0;
 		}
 	}

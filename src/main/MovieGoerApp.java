@@ -142,9 +142,9 @@ public class MovieGoerApp extends UserApp {
 	
 	// (5) View booking history
 	private void viewBookingHistory() {
-		AccountManager am = new AccountManager();
+//		AccountManager am = new AccountManager();
 
-		ArrayList<Booking> BookingHistory = am.getBookingHistory();
+		ArrayList<Booking> BookingHistory = account.getBookings();
 		System.out.println("Your booking history is as follows:"+ BookingHistory);		
 	}
 	
