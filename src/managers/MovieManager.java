@@ -67,6 +67,9 @@ public class MovieManager {
 		movie.printReviews();
 	}
 	
+	// think should go to cineplex.
+	// it should call on mm to get the movies.
+	// FIND movie by id.
 	public void listAllByCineplex(int cineplexID) {
 		CineplexManager cxm = new CineplexManager();
 		cxm.getAllMovies(cineplexID);
