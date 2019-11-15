@@ -54,7 +54,7 @@ public class MovieManager {
 	
 	public void listAll() {
 		for (Movie m: records) {
-			System.out.println("(ID: " + m.getId() + ") " + m.getTitle());
+			System.out.printf("(ID: %d) %s (%s)\n", m.getId(), m.getTitle(), m.getType().toString());
 		}
 	}
 	

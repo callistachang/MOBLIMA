@@ -68,6 +68,4 @@ public class Account implements ISerializable {
 	public void setBookings(ArrayList<Booking> bookings) {
 		this.bookings = bookings;
 	}
-
-
 }

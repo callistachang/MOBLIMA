@@ -66,12 +66,12 @@ public class AccountManager {
 		}
 		
 		if (!isExistingUsername(username)) {
-			System.out.println("Please enter a valid username!");
+			System.out.println("Username doesn't exist!");
 			return 0;
 		}
 		
 		if (!isMatchingPassword(username, password)) {
-			System.out.println("Please enter a valid password!");
+			System.out.println("Password doesn't match!");
 			return 0;
 		}
 		

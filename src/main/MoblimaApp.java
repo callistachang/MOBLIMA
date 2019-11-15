@@ -88,7 +88,6 @@ public class MoblimaApp {
 		app.run();
 	}
 	
-	
 	public void createNewAccount() {
 		Scanner sc = new Scanner(System.in);
 		String username = null, password = null, confirmPassword = null, mobileNumber = null, emailAddress = null;
