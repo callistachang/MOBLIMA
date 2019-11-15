@@ -111,8 +111,7 @@ public class MovieGoerApp extends UserApp {
 		
 		int noOfTickets;
 		
-		Showtime showtime = sm.getShowtimeByID(showtimeID);
-		Cinema c = showtime.getCinema();
+		Cinema c = cm.getCinemaByShowtimeID(showtimeID);
 		do {
 		System.out.println("How many tickets would you like to purchase?");
 		noOfTickets = sc.nextInt();
@@ -131,7 +130,7 @@ public class MovieGoerApp extends UserApp {
 		System.out.println("1: Student");
 		System.out.println("2: Senior Citizen");
 		int discountType = sc.nextInt();
-		price+=pm.calculatePrice(discountType,showtimeID);
+		price+=pm.calculatePrice(discountType, c.getId(), showtimeID);
 		}
 				
 		

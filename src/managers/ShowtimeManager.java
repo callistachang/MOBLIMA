@@ -25,6 +25,9 @@ public class ShowtimeManager {
 		return null;
 	}
 	
+	public int chooseAttributes(int showtimeID) {
+		// TODO Auto-generated method stub
+	}
 	private static void initializeDatabase() {
 		ArrayList<String> data = DatabaseHandler.readDatabase(DATABASE_NAME);
 		AbstractSerializer serializer = new ShowtimeSerializer();
@@ -35,5 +38,15 @@ public class ShowtimeManager {
 		AbstractSerializer serializer = new ShowtimeSerializer();
 		ArrayList<String> updatedRecords = serializer.serialize(records);
 		DatabaseHandler.writeToDatabase(DATABASE_NAME, updatedRecords);
+	}
+
+	public void updateShowtime(int showtimeID, int attrNum) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void remove(int showtimeID) {
+		// TODO Auto-generated method stub
+		
 	}
 }

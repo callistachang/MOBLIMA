@@ -12,8 +12,11 @@ public class HolidayManager {
 	private static final String DATABASE_NAME = "holidaydata";
 	protected static ArrayList<Holiday> records = null;
 
-	public int listAll() {
-		return 0; //to change the code accordingly 
+	public void listAll() {
+		for (Holiday h: records) {
+			System.out.println("Name: " + h.getHolidayName() + " Date: " + h.getHolidayDate());
+		}
+		
 	}
 	
 	public Boolean isHoliday(LocalDate movieDate) {

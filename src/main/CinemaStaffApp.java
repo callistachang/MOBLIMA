@@ -9,6 +9,7 @@ import managers.CineplexManager;
 import managers.MovieManager;
 import managers.Printer;
 import managers.ShowtimeManager;
+import models.Cinema;
 import models.Movie.MovieType;
 import models.Movie.ShowingStatus;
 import models.Showtime;
@@ -219,7 +220,7 @@ public class CinemaStaffApp extends UserApp {
 		int cineplexID = sc.nextInt();
 		
 		System.out.println("Which cinema?");
-		cxm.listAllByCineplex(cineplexID);
+		cxm.listAllCinemasByCineplex(cineplexID);
 		System.out.println("Choose a number option:");
 		int cinemaID = sc.nextInt();
 		
@@ -238,12 +239,12 @@ public class CinemaStaffApp extends UserApp {
 		// ask for date
 		// ask for time
 		
-		Showtime showtime = sm.create(cinemaID, date, time, movieID);
-		cm.addShowtime(cinemaID, showtime);
+		Showtime showtime = sm.create(date, time, movieID);
+		cm.addShowtime(cinemaID, showtime); //error checking?
 
 		
 //		sm.create(movieID, cineplexID, cinemaID, showtimeDate, showtimeTime, mm.getduration(movieRow));
-// error checking handled by sm? return different error messages
+// error checking handled by cinema manager? return different error messages
 // logic linking no. option to movie should be same for cineplex, cinema, showtime		
 //		
 //		 ask for movie (show list of movies)
@@ -257,9 +258,9 @@ public class CinemaStaffApp extends UserApp {
 	
 	private void updateMovieShowtime() {
 //		MovieManager mm = new MovieManager();
-//		CineplexManager cxm = new CineplexManager();
-//		CinemaManager cam = new CinemaManager();
-//		ShowtimeManager sm = new ShowtimeManager();
+		CineplexManager cxm = new CineplexManager();
+		CinemaManager cm = new CinemaManager();
+		ShowtimeManager sm = new ShowtimeManager();
 		
 //		System.out.println("Which movie would you like to view?");
 //		int noOfMovies = mm.listAll();
@@ -276,16 +277,19 @@ public class CinemaStaffApp extends UserApp {
 		int cineplexID = sc.nextInt();		
 		
 		System.out.println("Which cinema?");
-		cxm.listAllByCineplex(cineplexID);
+		cxm.listAllCinemasByCineplex(cineplexID);
 		System.out.println("Choose a number option:");
 		int cinemaID = sc.nextInt();
 		
 		System.out.println("List of showtimes in cinema:");
-		cm.getShowtimes(cinemaID);
+		Cinema c = cm.getCinemaByID(cinemaID);
+		ArrayList<Showtime> showtimes = c.getShowtimes(); 
+		System.out.println(showtimes);
+		System.out.println("Enter a showtimeID:");
 		int showtimeID = sc.nextInt();
 		
 		int attrNum = sm.chooseAttributes(showtimeID); //??
-		sm.updateShowtime(showtimeID, attrNum, attrVal);
+		sm.updateShowtime(showtimeID, attrNum);
 		
 		
 //		System.out.println("Which showtime would you like to update?");
@@ -323,17 +327,18 @@ public class CinemaStaffApp extends UserApp {
 		int cineplexID = sc.nextInt();		
 		
 		System.out.println("Which cinema?");
-		cxm.listAllByCineplex(cineplexID);
+		cxm.listAllCinemasByCineplex(cineplexID);
 		System.out.println("Choose a number option:");
 		int cinemaID = sc.nextInt();
 		
 		System.out.println("List of showtimes in cinema:");
-		cm.getShowtimes(cinemaID);
+		Cinema c = cm.getCinemaByID(cinemaID);
+		System.out.println(c.getShowtimes());
+		System.out.println("Enter a cinemaID:");
 		int showtimeID = sc.nextInt();
 		
-		sm.removeShowtime(showtimeID);
-		
-		
+		sm.remove(showtimeID);
+		cm.removeShowtime(cinemaID, showtimeID);
 		
 		
 		
