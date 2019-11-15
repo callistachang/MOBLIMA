@@ -6,7 +6,6 @@ import handlers.DatabaseHandler;
 import models.Account;
 import models.Booking;
 import models.Cinema;
-import models.Cineplex;
 import models.Movie;
 import models.Showtime;
 import serializers.AbstractSerializer;
@@ -26,12 +25,7 @@ public class CinemaManager {
 	}
 	
 	public void listAllByCineplex(int cineplexID) {
-		CineplexManager cxm = new CineplexManager();
-		Cineplex cineplex = cxm.getCineplexByID(cineplexID);
-		ArrayList<Cinema> listOfCinemas =  cineplex.getCinemas();
-		for (Cinema c: listOfCinemas) {
-			System.out.println("(ID: " + c.getId() + ")");
-		}
+		
 	}	
 	
 	
@@ -50,11 +44,26 @@ public class CinemaManager {
 			if (movie.getId() == movieID) {
 				System.out.println(cinema);
 				System.out.println(showtime);
-				//cinema.getTotalNumSeats() - showtime.getTotalNumSeatsTaken();
+				cinema.getTotalNumSeats() - showtime.getTotalNumSeatsTaken();
 			}
 		}
 	}
-
+	
+	public void listShowtimesInCinemaForMovie(Cinema cinema, int movieID) {
+		ShowtimeManager sm = new ShowtimeManager();
+		ArrayList<Showtime> showtimes = cinema.getShowtimes();
+		
+		for (Showtime showtime: showtimes) {
+			Movie movie = showtime.getMovie();
+			if (movie.getId() == movieID) {
+				System.out.println(cinema);
+				System.out.println(showtime);
+				}
+			}
+//			sm.getShowtimeMovie(showtime,movie)
+//			
+//			sm.getShowtimes(movieID);
+	}
 
 	private static void initializeDatabase() {
 		ArrayList<String> data = DatabaseHandler.readDatabase(DATABASE_NAME);

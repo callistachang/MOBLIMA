@@ -1,6 +1,10 @@
 package main;
 import java.util.Scanner;
 import models.Account;
+import models.Booking;
+import models.Cinema;
+import models.Showtime;
+
 import java.util.ArrayList;
 
 import managers.*;
@@ -82,71 +86,66 @@ public class MovieGoerApp extends UserApp {
 		Scanner sc= new Scanner(System.in);
 		
 		MovieManager mm = new MovieManager();
-		CineplexManager cm = new CineplexManager();
+		CineplexManager cxm = new CineplexManager();
 		ShowtimeManager sm = new ShowtimeManager();
-		CinemaManager cinema = new CinemaManager();
-		BookingManager tm  = new BookingManager();
+		CinemaManager cm = new CinemaManager();
+		BookingManager bm  = new BookingManager();
+		PricingCalculator pm = new PricingCalculator();
 		
 		System.out.println("Which movie would you like to watch?");
 		mm.listAll();
 		System.out.println("Choose a number option:");
-		int movie_chosen = sc.nextInt();
+		int movieID = sc.nextInt();
 		
 		System.out.println("Which cineplex would you like to watch the movie from?");
-		cm.listAll();
+		cxm.listCineplexByMovie(movieID);
 		System.out.println("Choose a number option:");
-		int cineplex_chosen = sc.nextInt();
+		int cineplexID = sc.nextInt();
 		
 		// which movie type?
 		
 		System.out.println("Which showtime would you like to watch?");
-		sm.listAll();
+		cxm.listAllSeatAvailabilitiesInCineplexByMovie(cineplexID, movieID);
 		System.out.println("Choose a number option:");
-		int showtime_chosen = sc.nextInt();
+		int showtimeID = sc.nextInt();
 		
 		int noOfTickets;
+		
+		Showtime showtime = sm.getShowtimeByID(showtimeID);
+		Cinema c = showtime.getCinema();
 		do {
 		System.out.println("How many tickets would you like to purchase?");
 		noOfTickets = sc.nextInt();
-		} while (noOfTickets > cinema.seatsAvailable());
+		} while (noOfTickets > c.getAvailableSeats());
 		
-		cinema.showSeating();
-		System.out.println("Please select your seat numbers");
-		ArrayList <String> seatsChosen =new ArrayList <String>();
-		for (int i=0; i<noOfTickets;i++)
+		
+		cm.showSeating(showtimeID);
+		double price = 0;
+		for(int i=0;i<noOfTickets;i++)
 		{
-			seatsChosen.add(sc.nextLine());
+		System.out.println("Please select your seat number");
+		String seatChosen =sc.next();
+		sm.addSeat(showtimeID,seatChosen);
+		System.out.println("Any discounts applicable?");
+		System.out.println("0: None");
+		System.out.println("1: Student");
+		System.out.println("2: Senior Citizen");
+		int discountType = sc.nextInt();
+		price+=pm.calculatePrice(discountType,showtimeID);
 		}
+				
 		
-		cinema.acceptSeat(seatsChosen, noOfTickets); //  to take in the seatNumbers and change the seating arrangement accordingly 
+		System.out.println("The total price is: " + price);
 		
-		
-		System.out.println("The total price is: ");
-		pm.calculatePrice(movie_chosen,cineplex_chosen,showtime_chosen,noOfTickets);
-		System.out.println("/n");
-		
-		System.out.println("Can your booking be confirmed?(Y/N");
-		char booking_confirm = sc.next().charAt(0);
-		do {
-		if (booking_confirm =='Y') {
-			tm.addReceipt();
-			tm.printReceipt();
-		}
-		else if (booking_confirm == 'N'){ //
-			return;
-		}
-		}while (booking_confirm != 'Y' || booking_confirm != 'N');
-		
-		
+		bm.addReceipt(showtimeID, price);
 	}
 	
 	// (5) View booking history
 	private void viewBookingHistory() {
 		AccountManager am = new AccountManager();
 
-		System.out.println("Your booking history is as follows:\n");
-		am.printBookingHistory();
-		
+		ArrayList<Booking> BookingHistory = am.getBookingHistory();
+		System.out.println("Your booking history is as follows:"+ BookingHistory);		
 	}
 	
 	

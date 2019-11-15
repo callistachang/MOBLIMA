@@ -26,7 +26,7 @@ public class BookingManager {
 		return null;
 	}
 
-	public void addReceipt() {
+	public void addReceipt(int showtimeID, double price) {
 		
 	}
 	
