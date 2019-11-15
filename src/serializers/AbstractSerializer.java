@@ -27,7 +27,7 @@ public abstract class AbstractSerializer {
 	}
 	
 	@SuppressWarnings("unchecked")
-	protected String serialize(ISerializable object) {
+	public String serialize(ISerializable object) {
 		ArrayList<Object> objectData = object.getSerializableData();
 		
 		String serializedData = "";

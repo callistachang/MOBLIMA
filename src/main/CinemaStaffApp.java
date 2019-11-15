@@ -7,6 +7,7 @@ import java.util.Set;
 import managers.CinemaManager;
 import managers.CineplexManager;
 import managers.MovieManager;
+import managers.Printer;
 import managers.ShowtimeManager;
 import models.Movie.MovieType;
 import models.Movie.ShowingStatus;
@@ -144,22 +145,22 @@ public class CinemaStaffApp extends UserApp {
 		MovieManager mm = new MovieManager();
 		
 		System.out.println("");
-		mm.listAll();	// list of all movies with their IDs
+		mm.listAll();
 		System.out.println("Which movie would you like to update? Type the movie ID:");
 		int movieID = sc.nextInt();
 		
-		// show movie info after choosing the movie
+		// Print movie info after choosing the movie
 		mm.printMovieInfo(movieID);
 		
 		System.out.println("What attribute would you like to change about the movie? Choose number option:");
-		mm.listAttributes();
+		Printer.printMovieAttributes();
+		
 		int attrNum = sc.nextInt();
 		sc.nextLine();
 		
 		System.out.println("Insert new value for that attribute:");
 		String attrVal = sc.nextLine();
 		
-//		System.out.println(movieID + " " + attrNums + " " + attrChanges);
 		mm.update(movieID, attrNum, attrVal);
 		System.out.println("Successfully updated");
 	}

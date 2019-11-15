@@ -1,10 +1,12 @@
 package managers;
 import java.util.ArrayList;
-import main.CinemaStaffApp;
-import main.MovieGoerApp;
+
+import handlers.DatabaseHandler;
 import models.Account;
-import models.Booking;
-import models.Movie;
+import serializers.AbstractSerializer;
+import serializers.AccountSerializer;
+import serializers.ShowtimeSerializer;
+
 public class AccountManager {
 	private static final String DATABASE_NAME = "accountdata";
 	private static ArrayList<Account> records = null;
@@ -111,6 +113,18 @@ public class AccountManager {
 			//create new account and store it into the database
 			return 0;
 		}
+	}
+	
+	private static void initializeDatabase() {
+		ArrayList<String> data = DatabaseHandler.readDatabase(DATABASE_NAME);
+		AbstractSerializer serializer = new AccountSerializer();
+		records = serializer.deserialize(data);
+	}
+	
+	private void updateDatabase() {
+		AbstractSerializer serializer = new AccountSerializer();
+		ArrayList<String> updatedRecords = serializer.serialize(records);
+		DatabaseHandler.writeToDatabase(DATABASE_NAME, updatedRecords);
 	}
 	
 }

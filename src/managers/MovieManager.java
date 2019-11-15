@@ -19,6 +19,15 @@ public class MovieManager {
 			initializeDatabase();
 		}
 	}
+	
+	public Movie getMovieByID(int movieID) {
+		for (Movie m: records) {
+			if (m.getId() == movieID) {
+				return m;
+			}
+		}
+		return null;
+	}
 
 	public void create(String title, String status, String director, String synopsis, 
 			ArrayList<String> casts, int duration, String type) {
@@ -46,15 +55,6 @@ public class MovieManager {
 		for (Movie m: records) {
 			System.out.println("(ID: " + m.getId() + ") " + m.getTitle());
 		}
-	}
-	
-	public Movie getMovieByID(int movieID) {
-		for (Movie m: records) {
-			if (m.getId() == movieID) {
-				return m;
-			}
-		}
-		return null;
 	}
 	
 	public void printMovieInfo(int movieID) {
@@ -85,9 +85,9 @@ public class MovieManager {
 	}
 	
 	private static void initializeDatabase() {
-		ArrayList<String> movieData = DatabaseHandler.readDatabase(DATABASE_NAME);
+		ArrayList<String> data = DatabaseHandler.readDatabase(DATABASE_NAME);
 		AbstractSerializer serializer = new MovieSerializer();
-		records = serializer.deserialize(movieData);
+		records = serializer.deserialize(data);
 	}
 	
 	private void updateDatabase() {
