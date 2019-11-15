@@ -10,7 +10,8 @@ public class Showtime implements ISerializable {
 	public LocalDate date;
 	public LocalTime time;
 	public Movie movie;
-//	public Cinema cinema;
+
+	//	public Cinema cinema;
 	// NOT SURE if we should do the conversion of date string to LocalDate in the constructor OR in the ShowtimeManager
 	// Since this is technically like the 'weak entity' between Movie and Cinema, should we include transactional details
 	// E.g. Whether the movie is 3D or something, lol

@@ -8,7 +8,7 @@ public class Cineplex {
 	private int id;
 	private String name;
 	private ArrayList<Cinema> cinemas;
-	private ArrayList<Movie> movies;
+	private ArrayList<Integer> movieIDs;
 	
 	public int getId() {
 		return id;

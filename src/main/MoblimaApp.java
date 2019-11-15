@@ -70,6 +70,8 @@ public class MoblimaApp {
 			
 			int loginCode = sc.nextInt();
 			
+			// userapp; use polymorphism
+			
 			if (loginCode == 1) {
 				System.out.println("Login as admin successful.");
 				CinemaStaffApp csApp = new CinemaStaffApp();
