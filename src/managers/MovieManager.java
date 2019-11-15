@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 
 import handlers.DatabaseHandler;
+import models.Account;
 import models.Movie;
 import models.Movie.MovieType;
 import models.Movie.ShowingStatus;
@@ -99,5 +100,9 @@ public class MovieManager {
 	public void listTop5ByRatings() {
 		// TODO Auto-generated method stub
 		
+	}
+	public void createReview(int movieId, int rating,Account user, String content) {
+		Movie movie = getMovieByID(movieId);
+		movie.createReview(rating, user, content);
 	}
 }

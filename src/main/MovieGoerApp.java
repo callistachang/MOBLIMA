@@ -147,10 +147,10 @@ public class MovieGoerApp extends UserApp {
 	
 	// (5) View booking history
 	private void viewBookingHistory() {
-		CustomerManager cust_manager = new CustomerManager();
+		AccountManager am = new AccountManager();
 
 		System.out.println("Your booking history is as follows:\n");
-		cust_manager.printBookingHistory();
+		am.printBookingHistory();
 		
 	}
 	
@@ -164,29 +164,29 @@ public class MovieGoerApp extends UserApp {
 		System.out.println("Which movie would you like to watch?");
 		mm.listAll();
 		System.out.println("Choose a number option:");
-		int movie_chosen = sc.nextInt();
+		int movieId = sc.nextInt();
 		
 		int rating;
 		do {
 			System.out.println("Please give your rating (between 1-5): ");
 			rating = sc.nextInt();
 		}while (rating <0 || rating >5);
-		
-		mm.createMovieRating(movie_chosen, rating);
-		
+
 		System.out.println("Would you like to give a review?(Y/N)");
-		char review_option = sc.next().charAt(0);
+		String review_option = sc.next();
 		do {
-			if (review_option=='Y') {
+			if (review_option.compareToIgnoreCase("y") == 0) {
 				System.out.println("Please enter your review");
 				String review_input = sc.next();
-				mm.createMovieReview(movie_chosen, review_input);
+				mm.createReview(movieId, rating, account, review_input);
+				break;
 			}
-			else if (review_option=='N') {
+			else if (review_option.compareToIgnoreCase("n") == 0) {
+				mm.createReview(movieId, rating, account, null);
 				break;
 			}
 			
-		} while (review_option !='Y'|| review_option != 'N');
+		} while (true);
 		
 		
 	}

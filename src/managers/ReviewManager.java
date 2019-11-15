@@ -2,6 +2,7 @@ package managers;
 import java.util.ArrayList;
 
 import handlers.DatabaseHandler;
+import models.Account;
 import models.Movie;
 import models.Review;
 import serializers.AbstractSerializer;
@@ -30,6 +31,7 @@ public class ReviewManager {
 		return null;
 	}
 	
+	
 	public ArrayList<Review> getReviews(ArrayList<Integer> id){
 		int i;
 		for (i=0; i<id.size();i++) {
@@ -48,5 +50,12 @@ public class ReviewManager {
 		AbstractSerializer serializer = new ReviewSerializer();
 		ArrayList<String> updatedRecords = serializer.serialize(records);
 		DatabaseHandler.writeToDatabase(DATABASE_NAME, updatedRecords);
+	}
+	
+	public Review createReview(int ratings,Account user, String content) {
+		int reviewId = records.size();
+		Review review = new Review(reviewId, ratings, user, content);
+		//Store review into the database
+		return review;
 	}
 }

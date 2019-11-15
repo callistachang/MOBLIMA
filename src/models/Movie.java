@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.EnumSet;
 
 import managers.MovieManager;
+import managers.ReviewManager;
 import models.Movie.MovieType;
 import models.Movie.ShowingStatus;
 
@@ -212,5 +213,11 @@ public class Movie implements ISerializable {
 			}
 			return null;
 		}
+	}
+	public void createReview(int rating, Account user, String content) {
+		ReviewManager rm = new ReviewManager();
+		Review review = rm.createReview(rating, user, content);
+		//add review into reviews
+			
 	}
 }
