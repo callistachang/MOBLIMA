@@ -28,7 +28,7 @@ public class PricingCalculator {
 		double ticketPrice = pricing.getBasePrice();
 		
 		Showtime s = sm.getShowtimeByID(showtimeID);
-		MovieType mt = s.movie.getType();
+		String mt = s.movie.getType().toString();
 		Cinema c = cm.getCinemaByID(cinemaID);
 		DayOfWeek day = DayOfWeek.of(s.date.get(ChronoField.DAY_OF_WEEK));
 		if(day == DayOfWeek.SATURDAY || day == DayOfWeek.SUNDAY || hm.isHoliday(s.date)) {
@@ -44,9 +44,10 @@ public class PricingCalculator {
 			ticketPrice += pricing.getSeniorCitizenDiscount();
 	}
 		
-		if(mt == "3D" ) {
+		if(mt.equals("3D")) {
 			ticketPrice += pricing.getMovieTypePremium();
 		}
+		return ticketPrice;
 	}
 	
 	private static void initializeDatabase() {

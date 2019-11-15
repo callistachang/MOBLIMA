@@ -58,15 +58,15 @@ public class MovieManager {
 		}
 	}
 	
-	public void printMovieInfo(int movieID) {
-		Movie movie = getMovieByID(movieID);
-		movie.printInfo();
-	}
-	
-	public void printMovieRatings(int movieID) {
-		Movie movie = getMovieByID(movieID);
-		movie.printReviews();
-	}
+//	public void printMovieInfo(int movieID) {
+//		Movie movie = getMovieByID(movieID);
+//		movie.printInfo();
+//	}
+//	
+//	public void printMovieRatings(int movieID) {
+//		Movie movie = getMovieByID(movieID);
+//		movie.printReviews();
+//	}
 	
 	// think should go to cineplex.
 	// it should call on mm to get the movies.
