@@ -72,8 +72,11 @@ public class ShowtimeManager {
 		if (id == 0){
 			id = records.size() + 1;
 		}
-		Showtime showtime = new Showtime(id, date, time, movie);
+		Showtime showtime = new Showtime(id, date, time, movie, null);
 		records.add(showtime);
 		return showtime;
+	}
+	public void removeShowtime(Showtime showtime) {
+		records.remove(showtime);
 	}
 }

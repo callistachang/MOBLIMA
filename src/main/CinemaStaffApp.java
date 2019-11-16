@@ -14,6 +14,7 @@ import managers.MovieManager;
 import managers.Printer;
 import managers.ShowtimeManager;
 import models.Cinema;
+import models.Cineplex;
 import models.Movie;
 import models.Movie.MovieType;
 import models.Movie.ShowingStatus;
@@ -255,61 +256,68 @@ public class CinemaStaffApp extends UserApp {
 	}
 	
 	private void updateMovieShowtime() {
-//		MovieManager mm = new MovieManager();
+		Scanner sc = new Scanner(System.in);
+		
+		MovieManager mm = new MovieManager();
 		CineplexManager cxm = new CineplexManager();
 		CinemaManager cm = new CinemaManager();
 		ShowtimeManager sm = new ShowtimeManager();
-		
-//		System.out.println("Which movie would you like to view?");
-//		int noOfMovies = mm.listAll();
-//		System.out.println("Choose a number option:");
-//		int movieRow = sc.nextInt();
-//		int movieID = mm.returnMovieID(movieRow);
-		
-		Scanner sc = new Scanner(System.in);
 
-
+		System.out.println("Choose a movie:");
+		mm.listAll();
+		System.out.println("Choose a number option:");
+		int movieID = sc.nextInt();
+		Movie movie = mm.getMovieByID(movieID);
 		System.out.println("Which cineplex?");
 		cxm.listAll();
 		System.out.println("Choose a number option:");
-		String cineplexID = sc.next();		
-		
+		String cineplexID = sc.next();
+		Cineplex cineplex = cxm.getCineplexByID(cineplexID);
 		System.out.println("Which cinema?");
-		cxm.listAllCinemasByCineplex(cineplexID);
+		cxm.listAllCinemasByCineplex(cineplex);
 		System.out.println("Choose a number option:");
 		String cinemaID = sc.next();
+		Cinema cinema = cm.getCinemaByID(cinemaID);
 		
-		System.out.println("List of showtimes in cinema:");
-		Cinema c = cm.getCinemaByID(cinemaID);
-		ArrayList<Showtime> showtimes = c.getShowtimes(); 
-		System.out.println(showtimes);
-		System.out.println("Enter a showtimeID:");
-		int showtimeID = sc.nextInt();
-		
-		int attrNum = sm.chooseAttributes(showtimeID); //??
-		sm.updateShowtime(showtimeID, attrNum);
+		System.out.println("Which showtime would you like to update?");
+		Printer.printShowtimes(cinema);
+		System.out.println("Choose a number option:"); // int showtimeRow =
+		int showtimeId = sc.nextInt();
+		Showtime showtime = sm.getShowtimeByID(showtimeId);
 		
 		
-//		System.out.println("Which showtime would you like to update?");
-//		int noOfShowtimes = cam.listAll();
-//		System.out.println("Choose a number option:");
-//		int showtimeRow = sc.nextInt();
-//		int showtimeID = sm.returnShowtimeID(showtimeRow);
+		
+		System.out.println("Enter the new date in DDMMYYYY format.");
+		String dateInput = sc.next();
+		LocalDate date = dateInput(dateInput);
+		System.out.println("Enter the new time in 24-hour format.");
+		String timeInput = sc.next();
+		LocalTime time = timeInput(timeInput);
+		Showtime showtime = sm.createShowtime(date, time, movie);
 
-		
-//		System.out.println("Which attribute would you like to change about the movie?");
-//		sm.showAttributes(showtimeID);
-//		System.out.println("Choose a number option:");
-//		int attr = sc.nextInt();
-
-		//sm.update(option);
+		println("Which attribute would you like to change about the movie?"); //
+		Printer.showShowtimeAttributes(showtime); //
+		  System.out.println("Choose a number option:");
 		
 		
-		// ask for movie (show list of movies)
-		// ask for cineplex (show list of cineplexes)
-		// program will list out all the showtimes for that movie in that cineplex. 
-		// choose to update the timings.
-		// update to movie showtime database
+		  System.out.println("Which showtime would you like to update?"); // int
+		  noOfShowtimes = cam.listAll(); //
+		  System.out.println("Choose a number option:"); // int showtimeRow =
+		  sc.nextInt(); // int showtimeID = sm.returnShowtimeID(showtimeRow);
+		  
+		  
+		  // System.out.
+		  println("Which attribute would you like to change about the movie?"); //
+		  sm.showAttributes(showtimeID); //
+		  System.out.println("Choose a number option:"); // int attr = sc.nextInt();
+		  
+		  //sm.update(option);
+		  
+		  
+		  // ask for movie (show list of movies) // ask for cineplex (show list of
+		  cineplexes) // program will list out all the showtimes for that movie in that
+		  cineplex. // choose to update the timings. // update to movie showtime
+		  database
 	}
 	
 	private void removeMovieShowtime() {
