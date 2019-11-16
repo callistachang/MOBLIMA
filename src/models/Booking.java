@@ -4,6 +4,15 @@ public class Booking {
 	private String TID;
 	private String bookingDate;
 	private String bookingTime;
+	
+	public Booking(String TID, String bookingDate, String bookingTime, Showtime showtime, Cinema cinema, double price) {
+		this.TID = TID ;
+		this.bookingDate = bookingDate;
+		this.bookingTime = bookingTime;
+		this.showtime = showtime;
+		this.cinema = cinema;
+		this.price = price;
+	}
 	public String getTID() {
 		return TID;
 	}
@@ -37,8 +46,5 @@ public class Booking {
 	private Showtime showtime;
 	private Cinema cinema;
 	private double price;
-	public int getId() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+
 }
