@@ -71,13 +71,6 @@ public class Showtime implements ISerializable {
 	}
 
 
-	public Showtime(int movieID, Cinema cinema, LocalDate date, LocalTime time) {
-		this.movieID = movieID;
-//		this.cinema = cinema;
-		this.date = date;
-		this.time = time;
-	}
-
 	public String getDateAsString() {
 		return this.date.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 	}

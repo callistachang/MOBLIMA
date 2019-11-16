@@ -40,6 +40,7 @@ public class CineplexManager {
 	public void listCineplexByMovie(int movieID) {
 		Boolean printed = false;
 		MovieManager mm = new MovieManager();
+		System.out.println("Cineplex that contain the movie:");
 		for (Cineplex cx: records) {
 			printed = false;
 			ArrayList<Cinema> cinemas = cx.getCinemas();
@@ -48,7 +49,7 @@ public class CineplexManager {
 				for (Showtime s: showtimes) {
 					if (movieID == s.getMovieID() & !printed) {
 						Movie movie = mm.getMovieByID(movieID);
-						Printer.printMovieInfo(movie);
+						System.out.println("CineplexID: " + cx.getId());;
 						printed = true;
 					}
 				}
