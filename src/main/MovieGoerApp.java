@@ -168,7 +168,7 @@ public class MovieGoerApp extends UserApp {
 		do {
 			System.out.println("Please give your rating (between 1-5): ");
 			rating = sc.nextInt();
-		} while (rating <0 || rating >5);
+		} while (rating < 0 || rating > 5);
 
 		System.out.println("Would you like to give a review?(Y/N)");
 		String reviewOption = sc.next();
@@ -179,5 +179,6 @@ public class MovieGoerApp extends UserApp {
 			reviewInput = sc.nextLine();
 		}
 		mm.addReviewToMovie(movieId, rating, account, reviewInput);
+		System.out.println("Review Added.");
 	}
 }

@@ -53,11 +53,4 @@ public class ReviewManager {
 		ArrayList<String> updatedRecords = serializer.serialize(records);
 		DatabaseHandler.writeToDatabase(DATABASE_NAME, updatedRecords);
 	}
-	
-	public Review createReview(int ratings,Account user, String content) {
-		int reviewId = records.size();
-		Review review = new Review(reviewId, ratings, user, content);
-		//Store review into the database
-		return review;
-	}
 }

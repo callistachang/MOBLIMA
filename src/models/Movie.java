@@ -41,7 +41,7 @@ public class Movie implements ISerializable {
 		data.add(getDirector());
 		data.add(getCasts());
 		data.add(getDuration());
-		data.add(getReviews());
+		data.add(getReviewIDs()); // i need to get this as an arraylist of strings
 		data.add(getType());
 		return data;
 	}
@@ -113,6 +113,19 @@ public class Movie implements ISerializable {
 
 	public void setDuration(int duration) {
 		this.duration = duration;
+	}
+	
+	public ArrayList<String> getReviewIDs() {
+		ArrayList<String> reviewIDs = new ArrayList<String>();
+		ArrayList<Review> reviews = getReviews();
+		
+		if (reviews.get(0) != null) {
+			for (Review r: reviews) {
+				String id = r.toString();
+				reviewIDs.add(r.toString());
+			}
+		}
+		return reviewIDs;
 	}
 
 	public ArrayList<Review> getReviews() {
