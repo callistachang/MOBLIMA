@@ -6,6 +6,9 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 import managers.Formatter;
+import managers.MovieManager;
+import models.Movie.MovieType;
+import models.Movie.ShowingStatus;
 
 public class Showtime implements ISerializable {
 	private int id;
@@ -115,4 +118,19 @@ public class Showtime implements ISerializable {
 	public void bookSeat(int seatNo) {
 		seatsTaken.add(seatNo);
 	}
+	
+	public void setAttr(int attrNum, String attrVal) {
+		switch (attrNum) {
+			case 1:
+				movieID = Integer.parseInt(attrVal);
+				break;
+			case 2:
+				date = Formatter.getLocalDateFromString(attrVal);
+				break;
+			case 3:
+				time = Formatter.getLocalTimeFromString(attrVal);
+				break;
+			
+		}
+	}	
 }

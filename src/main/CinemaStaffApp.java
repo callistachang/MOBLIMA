@@ -240,11 +240,11 @@ public class CinemaStaffApp extends UserApp {
 		
 		// TODO MOmentarily deleted
 		
-		System.out.println("Enter the date in yyyy-mm-dd format.");
+		System.out.println("Enter the date in yyyy-MM-dd format.");
 		String dateInput = sc.next();
 		LocalDate date = Formatter.getLocalDateFromString(dateInput);
 		
-		System.out.println("Enter the time in hh:mm:ss format.");
+		System.out.println("Enter the new time in HH:mm:ss format");
 		String timeInput = sc.next();
 		LocalTime time = Formatter.getLocalTimeFromString(timeInput);
 		
@@ -290,26 +290,19 @@ public class CinemaStaffApp extends UserApp {
 		case(1):{
 			mm.listAll();
 			System.out.println("Enter the new movie id:");
-			int movieIdInput = sc.nextInt();
-			showtime.setMovieID(movieIdInput);
 			break;
 		}
 		case(2):{
-			System.out.println("Enter the new date in DDMMYYYY format.");
-			String dateInput = sc.next();
-			LocalDate newDate = dateInput(dateInput);
-			showtime.setDate(newDate);
+			System.out.println("Enter the new date in yyyy-MM-dd format.");
 			break;
 		}
 		case(3):{
-			System.out.println("Enter the new time in 24-hour format.");
-			String timeInput = sc.next();
-			LocalTime newTime = timeInput(timeInput);
-			showtime.setTime(newTime);
+			System.out.println("Enter the new time in HH:mm:ss format.");
 			break;
 		}
-		
 		}
+		String updateInput = sc.next();
+		sm.update(showtime, choice, updateInput);
 		
 		
 		  
@@ -415,23 +408,3 @@ Scanner sc = new Scanner(System.in);
 		// then update the prices in the prices csv file.
 	}
 	
-	public static LocalDate dateInput(String userInput) {
-
-	    DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-	    LocalDate date = LocalDate.parse(userInput, dateFormat);
-
-
-	    System.out.println(date);
-	    return date ;
-	}
-	
-	public static LocalTime timeInput(String userInput) {
-
-	    DateTimeFormatter timeFormat = DateTimeFormatter.ofPattern("HH-mm");
-	    LocalTime time = LocalTime.parse(userInput, timeFormat);
-
-
-	    System.out.println(time);
-	    return time;
-	}
-}
