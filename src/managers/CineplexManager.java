@@ -32,18 +32,16 @@ public class CineplexManager {
 		}
 	}
 	
-	public void listCineplexByMovie(int movieID) {
+	public void listCineplexByMovie(Movie movie) {
 		MovieManager mm = new MovieManager();
-		Movie m = mm.getMovieByID(movieID);
 		Boolean printed = false;
-		
 		for(Cineplex cx: records) {
 			printed = false;
 			ArrayList<Cinema> cinemas = cx.getCinemas();
 			for(Cinema c: cinemas) {
 				ArrayList<Showtime> showtimes = c.getShowtimes();
 				for(Showtime s: showtimes) {
-					if(m == s.getMovie()&!printed) {
+					if(movie == s.getMovie()&!printed) {
 						System.out.println();
 						printed = true;
 					}
