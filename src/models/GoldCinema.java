@@ -18,4 +18,13 @@ public class GoldCinema extends Cinema {
 	public String getCinemaClass() {
 		return "Gold";
 	}
+	
+	public int getRows() {
+		return NUM_ROWS;
+	}
+	
+	public int getCols() {
+		return NUM_COLS;
+	}
+	
 }

@@ -21,4 +21,12 @@ public class PlatinumCinema extends Cinema {
 	public String getCinemaClass() {
 		return "Platinum";
 	}
+	
+	public int getRows() {
+		return NUM_ROWS;
+	}
+	
+	public int getCols() {
+		return NUM_COLS;
+	}
 }

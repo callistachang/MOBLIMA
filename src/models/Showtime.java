@@ -4,7 +4,6 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class Showtime implements ISerializable {
 	public int id;
@@ -22,14 +21,14 @@ public class Showtime implements ISerializable {
 		return id;
 	}
 
+	public ArrayList<Integer> getSeatsTaken() {
+		return seatsTaken;
+	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
 
-
-	public int getCinemaId() {
-		return cinemaId;
-	}
 
 	public void setSeatsTaken(ArrayList<Integer> seatsTaken) {
 		this.seatsTaken = seatsTaken;
@@ -59,13 +58,6 @@ public class Showtime implements ISerializable {
 		this.movie = movie;
 	}
 
-//	public Cinema getCinema() {
-//		return cinema;
-//	}
-//
-//	public void setCinema(Cinema cinema) {
-//		this.cinema = cinema;
-//	}
 
 	public LocalDate getDate() {
 		return date;
@@ -85,5 +77,9 @@ public class Showtime implements ISerializable {
 
 	public ArrayList<Object> getSerializableData() {
 		return null;
+	}
+	
+	public int getNoSeatsTaken() {
+		return seatsTaken.size();
 	}
 }

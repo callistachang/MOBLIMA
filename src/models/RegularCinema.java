@@ -19,4 +19,12 @@ public class RegularCinema extends Cinema {
 	public String getCinemaClass() {
 		return "Regular";
 	}
+	
+	public int getRows() {
+		return NUM_ROWS;
+	}
+	
+	public int getCols() {
+		return NUM_COLS;
+	}
 }
