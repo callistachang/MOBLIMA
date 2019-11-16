@@ -12,7 +12,7 @@ public class Showtime implements ISerializable {
 	public LocalDate date;
 	public LocalTime time;
 	public Movie movie;
-	public HashMap<Character, Integer> seatsTaken; // HOW should i serialize this.
+	public ArrayList <Integer> seatsTaken; // HOW should i serialize this.
 
 	//	public Cinema cinema;
 	// NOT SURE if we should do the conversion of date string to LocalDate in the constructor OR in the ShowtimeManager
@@ -27,13 +27,15 @@ public class Showtime implements ISerializable {
 		this.id = id;
 	}
 
-	public HashMap<Character, Integer> getSeatsTaken() {
-		return seatsTaken;
+
+	public int getCinemaId() {
+		return cinemaId;
 	}
 
-	public void setSeatsTaken(HashMap<Character, Integer> seatsTaken) {
+	public void setSeatsTaken(ArrayList<Integer> seatsTaken) {
 		this.seatsTaken = seatsTaken;
 	}
+
 
 	public Showtime(Movie movie, Cinema cinema, LocalDate date, LocalTime time) {
 		this.movie = movie;
