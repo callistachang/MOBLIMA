@@ -65,6 +65,7 @@ public class UserApp {
 		
 		int choice;
 		do {
+			System.out.println("==========Movie Listing Menu==========");
 			System.out.println("(1) List all movies");
 			System.out.println("(2) Filter by cineplex");
 			System.out.println("(3) Exit");
@@ -78,22 +79,24 @@ public class UserApp {
 				case 2:
 					System.out.println("Choose a cineplex:");
 					cxm.listAllCineplexes();		// prints out all the cineplexes
-					int cineplexID = sc.nextInt();	// user inputs chosen cineplex
+					String cineplexID = sc.next();	// user inputs chosen cineplex
 					
 					System.out.println("(1) Get all movies from the cineplex");
 					System.out.println("(2) Get only showing movies from the cineplex");
 					
-					int allOrShowingChoice;
+					int allOrShowingChoice = 0;
 					do {
 						System.out.println("Choose a number option:");
 						allOrShowingChoice = sc.nextInt();
-					} while (allOrShowingChoice != 1 || allOrShowingChoice != 2);
+					} while (allOrShowingChoice != 1 && allOrShowingChoice != 2);
 					
 					switch (allOrShowingChoice) {
 						case 1:
-							mm.listAllByCineplex(cineplexID);
+							cxm.listAllMovies(cineplexID);
+							System.out.println("Success!");
+							break;
 						case 2:
-							mm.listShowingByCineplex(cineplexID);
+//							cxm.listAllShowingMovies(cineplexID);
 					}
 					break;
 				case 3:

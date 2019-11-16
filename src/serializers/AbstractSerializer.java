@@ -60,6 +60,9 @@ public abstract class AbstractSerializer {
 	
 	protected ArrayList<String> parseArrayToStrings(String[] data, int index) {
 		String[] splitData = data[index].split(";");
+		for (String str: splitData) {
+			System.out.println(str);
+		}
 		return new ArrayList<String>(Arrays.asList(splitData));
 	}
 	

@@ -11,8 +11,11 @@ public class GoldCinema extends Cinema {
 	}
 
 	public ArrayList<Object> getSerializableData() {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<Object> data = new ArrayList<Object>();
+		data.add(getId());
+		data.add(getShowtimes());
+		data.add(getCinemaClass());
+		return data;
 	}
 	
 	public String getCinemaClass() {

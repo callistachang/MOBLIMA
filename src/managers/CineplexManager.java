@@ -16,6 +16,11 @@ public class CineplexManager {
 	private static final String DATABASE_NAME = "cineplexdata";
 	private static ArrayList<Cineplex> records = null;
 	
+	public CineplexManager() {
+		if (records == null)
+			initializeDatabase();
+	}
+	
 	public Cineplex getCineplexByID(String cineplexID) {
 		for (Cineplex cx: records) {
 			if (cx.getId().equals(cineplexID)) {
@@ -32,23 +37,43 @@ public class CineplexManager {
 		}
 	}
 	
-	public void listCineplexByMovie(Movie movie) {
+	public void listCineplexByMovie(int movieID) {
 		MovieManager mm = new MovieManager();
+		Movie movie = mm.getMovieByID(movieID);
+
 		Boolean printed = false;
-		for(Cineplex cx: records) {
+		for (Cineplex cx: records) {
 			printed = false;
 			ArrayList<Cinema> cinemas = cx.getCinemas();
-			for(Cinema c: cinemas) {
+			for (Cinema c: cinemas) {
 				ArrayList<Showtime> showtimes = c.getShowtimes();
-				for(Showtime s: showtimes) {
-					if(movie == s.getMovie()&!printed) {
-						System.out.println();
+				for (Showtime s: showtimes) {
+					if (movie == s.getMovie() & !printed) {
+						Printer.printMovieInfo(movie);
 						printed = true;
 					}
 				}
 			}
 		}
 	}
+	
+	public void listAllMovies(String cineplexID) {
+		Cineplex cx = getCineplexByID(cineplexID);
+		
+		Boolean printed = false;
+		
+		ArrayList<Cinema> cinemas = cx.getCinemas();
+		System.out.println("Cinemas: " + cinemas);
+		for (Cinema c: cinemas) {
+			ArrayList<Showtime> showtimes = c.getShowtimes();
+			for (Showtime s: showtimes) {
+				Printer.printMovieInfo(s.getMovie());
+				printed = true;
+			}
+		}
+	}
+	
+	
 	
 //	// gets movies by cineplex
 //	public ArrayList<Movie> getAllMovies(int cineplexID) {
@@ -96,6 +121,7 @@ public class CineplexManager {
 		ArrayList<String> data = DatabaseHandler.readDatabase(DATABASE_NAME);
 		AbstractSerializer serializer = new CineplexSerializer();
 		records = serializer.deserialize(data);
+		System.out.println("CineplexManager " + records.get(0).getCinemas());
 	}
 	
 	private void updateDatabase() {

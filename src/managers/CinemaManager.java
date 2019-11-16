@@ -15,6 +15,11 @@ public class CinemaManager {
 	private static final String DATABASE_NAME = "cinemadata";
 	private static ArrayList<Cinema> records = null;
 	
+	public CinemaManager() {
+		if (records == null)
+			initializeDatabase();
+	}
+	
 	public Cinema getCinemaByID(String cinemaID) {
 		for (Cinema c: records) {
 			if (c.getId().equals(cinemaID)) {
