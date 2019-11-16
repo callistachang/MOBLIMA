@@ -64,4 +64,8 @@ public abstract class Cinema implements ISerializable {
 			System.out.println();
 		}
 	}
+	
+	public void addShowtime(Showtime showtime) {
+		showtimes.add(showtime);
+	}
 }

@@ -55,7 +55,7 @@ public class ShowtimeManager {
 		showtime.bookSeat(seatNo);
 	}
 	
-	public void createShowtime(LocalDate date, LocalTime time, Movie movie, ArrayList<Integer> seatsTaken) {
+	public Showtime createShowtime(LocalDate date, LocalTime time, Movie movie) {
 		int i, id = 0;
 		Showtime showtimeCheck = records.get(0);
 		for(i=0; i<records.size(); i++) {
@@ -67,7 +67,8 @@ public class ShowtimeManager {
 		if (id == 0){
 			id = records.size() + 1;
 		}
-		Showtime showtime = new Showtime(id, date, time, movie, seatsTaken);
+		Showtime showtime = new Showtime(id, date, time, movie);
 		records.add(showtime);
+		return showtime;
 	}
 }

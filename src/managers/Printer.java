@@ -2,8 +2,10 @@ package managers;
 
 import java.util.ArrayList;
 
+import models.Cinema;
 import models.Movie;
 import models.Review;
+import models.Showtime;
 
 public class Printer {
 	
@@ -48,10 +50,18 @@ public class Printer {
 		}
 	}
 	
-	public static void printShowtimeAttributes() {
-		System.out.println("(1) MovieID");
-		System.out.println("(2) CinemaID");
-		System.out.println("(3) Date");
-		System.out.println("(4) Time");
+	public static void printShowtimeAttributes(Showtime showtime) {
+		System.out.println("ShowtimeID: " + showtime.getId());
+		System.out.println("(1) Movie: " + showtime.getMovie().getTitle());
+		System.out.println("(2) Date: ");
+		System.out.println("(3) Time: ");
+	}
+	
+
+	public static void printShowtimes(Cinema cinema) {
+		System.out.println("Cinema ID: " + cinema.getId());
+		for(Showtime showtime : cinema.getShowtimes()) {
+			printShowtimeAttributes(showtime);
+		}
 	}
 }

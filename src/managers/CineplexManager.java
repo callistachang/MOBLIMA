@@ -87,9 +87,12 @@ public class CineplexManager {
 		
 	}
 
-	public void listAllCinemasByCineplex(String cineplexID) {
-		// TODO Auto-generated method stub
-		
+	public void listAllCinemasByCineplex(Cineplex cineplex) {
+		ArrayList<Cinema> cinemas = cineplex.getCinemas();
+		CinemaManager cm = new CinemaManager();
+		for (Cinema cinema: cinemas) {
+			cm.listAllAvailabilities(cinema);
+		}
 	}
 	
 	private static void initializeDatabase() {

@@ -6,17 +6,25 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class Showtime implements ISerializable {
-	public int id;
-	public LocalDate date;
-	public LocalTime time;
-	public Movie movie;
-	public ArrayList <Integer> seatsTaken; // HOW should i serialize this.
-
+	private int id;
+	private LocalDate date;
+	private LocalTime time;
+	private Movie movie;
+	private ArrayList <Integer> seatsTaken; // HOW should i serialize this.
+	
 	//	public Cinema cinema;
 	// NOT SURE if we should do the conversion of date string to LocalDate in the constructor OR in the ShowtimeManager
 	// Since this is technically like the 'weak entity' between Movie and Cinema, should we include transactional details
 	// E.g. Whether the movie is 3D or something, lol
 	
+	public Showtime(int id, LocalDate date, LocalTime time, Movie movie) {
+		super();
+		this.id = id;
+		this.date = date;
+		this.time = time;
+		this.movie = movie;
+		this.seatsTaken = null;
+	}
 	public int getId() {
 		return id;
 	}

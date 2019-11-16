@@ -1,4 +1,8 @@
 package main;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.Temporal;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Scanner;
@@ -10,6 +14,7 @@ import managers.MovieManager;
 import managers.Printer;
 import managers.ShowtimeManager;
 import models.Cinema;
+import models.Movie;
 import models.Movie.MovieType;
 import models.Movie.ShowingStatus;
 import models.Showtime;
@@ -214,7 +219,7 @@ public class CinemaStaffApp extends UserApp {
 		mm.listAll();
 		System.out.println("Choose a number option:");
 		int movieID = sc.nextInt();
-
+		Movie movie = mm.getMovieByID(movieID);
 		System.out.println("Which cineplex?");
 		cxm.listAll();
 		System.out.println("Choose a number option:");
@@ -224,24 +229,16 @@ public class CinemaStaffApp extends UserApp {
 		cxm.listAllCinemasByCineplex(cineplexID);
 		System.out.println("Choose a number option:");
 		String cinemaID = sc.next();
-		
-		System.out.println("Enter the date. Which year?");
-		int showtimeYear = sc.nextInt();
-		System.out.println("Which month?");
-		int showtimeMonth = sc.nextInt();
-		System.out.println("Which day?");
-		int showtimeDay = sc.nextInt();
+		Cinema cinema = cm.getCinemaByID(cinemaID);
 
 		System.out.println("Enter the date in DDMMYYYY format.");
-		int showtimeDate = sc.nextInt();
+		String dateInput = sc.next();
+		LocalDate date = dateInput(dateInput);
 		System.out.println("Enter the time in 24-hour format.");
-		int showtimeTime = sc.nextInt();
-		
-		// ask for date
-		// ask for time
-		
-		Showtime showtime = sm.create(date, time, movieID);
-		cm.addShowtime(cinemaID, showtime); //error checking?
+		String timeInput = sc.next();
+		LocalTime time = timeInput(timeInput);
+		Showtime showtime = sm.createShowtime(date, time, movie);
+		cinema.addShowtime(showtime); //error checking?
 
 		
 //		sm.create(movieID, cineplexID, cinemaID, showtimeDate, showtimeTime, mm.getduration(movieRow));
@@ -409,5 +406,25 @@ public class CinemaStaffApp extends UserApp {
 		// 2.
 		// choose which type of pricing they wanna change. e.g. senior citizen wanna change from 6 to 7.
 		// then update the prices in the prices csv file.
+	}
+	
+	public static LocalDate dateInput(String userInput) {
+
+	    DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+	    LocalDate date = LocalDate.parse(userInput, dateFormat);
+
+
+	    System.out.println(date);
+	    return date ;
+	}
+	
+	public static LocalTime timeInput(String userInput) {
+
+	    DateTimeFormatter timeFormat = DateTimeFormatter.ofPattern("HH-mm");
+	    LocalTime time = LocalTime.parse(userInput, timeFormat);
+
+
+	    System.out.println(time);
+	    return time;
 	}
 }

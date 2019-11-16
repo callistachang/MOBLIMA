@@ -51,6 +51,19 @@ public class CinemaManager {
 		}
 	}
 	
+	public void listAllAvailabilities(Cinema cinema) {
+		ShowtimeManager sm = new ShowtimeManager();
+		ArrayList<Showtime> showtimes = cinema.getShowtimes();
+		
+		for (Showtime showtime: showtimes) {
+			System.out.println("CinemaID = " + cinema.getId());
+			System.out.println("Class: " + cinema.getCinemaClass());
+			System.out.println("ShowtimeId: " + showtime.getId());
+			int availableSeats = cinema.getTotalNoSeats() - showtime.getNoSeatsTaken();
+			System.out.println(availableSeats + "are currently available");
+			}
+		}
+	
 
 
 	private static void initializeDatabase() {
@@ -65,12 +78,10 @@ public class CinemaManager {
 		DatabaseHandler.writeToDatabase(DATABASE_NAME, updatedRecords);
 	}
 
-	public void addShowtime(String cinemaID, Showtime showtime) {
+	public void addShowtime(Cinema cinema, Showtime showtime) {
 		// TODO Auto-generated method stub
 		//error checking for collisions
-		CinemaManager cm = new CinemaManager();
-		Cinema cinema = cm.getCinemaByID(cinemaID);
-		cinema.getShowtimes().add(showtime);
+		cinema.addShowtime(showtime);
 		
 	}
 

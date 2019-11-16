@@ -6,8 +6,10 @@ import managers.AccountManager;
 import managers.BookingManager;
 import managers.CineplexManager;
 import managers.MovieManager;
+import managers.Printer;
 import managers.ShowtimeManager;
 import models.Cineplex;
+import models.Movie;
 
 public class UserApp {
 	private final String menuOptions[] = {
@@ -78,8 +80,8 @@ public class UserApp {
 				case 2:
 					System.out.println("Choose a cineplex:");
 					cxm.listAllCineplexes();		// prints out all the cineplexes
-					int cineplexID = sc.nextInt();	// user inputs chosen cineplex
-					
+					String cineplexID = sc.next();	// user inputs chosen cineplex
+					Cineplex cineplex = cxm.getCineplexByID(cineplexID);
 					System.out.println("(1) Get all movies from the cineplex");
 					System.out.println("(2) Get only showing movies from the cineplex");
 					
@@ -91,9 +93,9 @@ public class UserApp {
 					
 					switch (allOrShowingChoice) {
 						case 1:
-							mm.listAllByCineplex(cineplexID);
+							cxm.listAllByCineplex(cineplex);
 						case 2:
-							mm.listShowingByCineplex(cineplexID);
+							cxm.listShowingByCineplex(cineplex);
 					}
 					break;
 				case 3:
@@ -116,7 +118,7 @@ public class UserApp {
 		mm.listAll();
 		System.out.println("Type ID of movie:");
 		int movieID = sc.nextInt();
-		
+		Movie movie = mm.getMovieByID(movieID);
 		int choice;
 		do {
 			System.out.println("Please select from the options below:");
@@ -128,10 +130,10 @@ public class UserApp {
 			choice = sc.nextInt();
 			switch (choice) {
 				case 1:
-					mm.printMovieInfo(movieID);
+					Printer.printMovieInfo(movie);
 					break;
 				case 2:
-					mm.printMovieRatings(movieID);
+					Printer.printMovieRatings(movie);
 					break;
 				case 3:
 					System.out.println("Exited from Movie Details Menu.");
@@ -163,9 +165,9 @@ public class UserApp {
 		mm.listAll();
 		System.out.println("Choose a number option:");
 		int movieID = sc.nextInt();
-
+		Movie movie = mm.getMovieByID(movieID)
 		System.out.println("Which cineplex?");
-		cxm.listAllByMovie(movieID);
+		cxm.listAllByMovie(movie);
 		
 		System.out.println("Choose a number option:");
 		int cineplexID = sc.nextInt();
