@@ -56,7 +56,7 @@ public abstract class AbstractSerializer {
 		return data.split(",");
 	}
 	
-	protected ArrayList<String> parseArray(String[] data, int index) {
+	protected ArrayList<String> parseArrayToString(String[] data, int index) {
 		String[] splitData = data[index].split(";");
 		return new ArrayList<String>(Arrays.asList(splitData));
 	}
