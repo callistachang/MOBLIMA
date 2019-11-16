@@ -34,6 +34,7 @@ public class PricingCalculator {
 		if(day == DayOfWeek.SATURDAY || day == DayOfWeek.SUNDAY || hm.isHoliday(s.date)) {
 			ticketPrice += pricing.getWeekendPremium();
 		}
+		//cinema class?
 		switch(discountType) {
 		case 0:
 			break;

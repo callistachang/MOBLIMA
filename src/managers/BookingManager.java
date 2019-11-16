@@ -1,14 +1,20 @@
 package managers;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;   
 
 
 import handlers.DatabaseHandler;
 import models.Booking;
+import models.Cinema;
 import models.Cineplex;
 import models.Movie;
 import models.Showtime;
+import models.Movie.MovieType;
+import models.Movie.ShowingStatus;
 import serializers.AbstractSerializer;
 import serializers.AccountSerializer;
 import serializers.BookingSerializer;
@@ -17,18 +23,31 @@ public class BookingManager {
 	private static final String DATABASE_NAME = "bookingdata";
 	private static ArrayList<Booking> records = null;
 	
-	public Booking getBookingByID(int bookingID) {
+	public Booking getBookingByID(String bookingTID) {
 		for (Booking b: records) {
-			if (b.getId() == bookingID) {
+			if (b.getTID().equals(bookingTID)) {
 				return b;
 			}
 		}
 		return null;
 	}
 
-	public void addReceipt(int showtimeID, double price) {
+	public void addReceipt(int cinemaID, int showtimeID, double price) {
+		ShowtimeManager sm = new ShowtimeManager();
+		CinemaManager cm = new CinemaManager();
+		LocalDate today = LocalDate.now();
+	    LocalTime now = LocalTime.now();
+
+		String bookingDate = today.format(DateTimeFormatter.ofPattern("YYYYMMDD"));
+		String bookingTime = now.format(DateTimeFormatter.ofPattern("hhmm"));
+		Showtime s = sm.getShowtimeByID(showtimeID);
+		Cinema c = cm.getCinemaByID(cinemaID);
+		String TID = "XXX" + bookingDate + bookingTime;
+		Booking booking = new Booking(TID, bookingDate, bookingTime, s, c, price);
+		records.add(booking); // add to records
+		updateDatabase();
 		
-	}
+	} 
 	
 	public void printReceipt() {
 		

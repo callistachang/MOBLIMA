@@ -121,7 +121,7 @@ public class UserApp {
 		do {
 			System.out.println("Please select from the options below:");
 			System.out.println("(1) Movie Information");
-			System.out.println("(2) Movie Ratings and Reviews");
+			System.out.println("(2) Movie Ratings and Reviews");	
 			System.out.println("(3) Exit");
 			
 			System.out.println("Choose an option");

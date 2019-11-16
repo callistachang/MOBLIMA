@@ -8,6 +8,7 @@ import models.Account;
 import models.Movie;
 import models.Movie.MovieType;
 import models.Movie.ShowingStatus;
+import models.Review;
 import serializers.MovieSerializer;
 import serializers.AbstractSerializer;
 
@@ -101,8 +102,20 @@ public class MovieManager {
 		// TODO Auto-generated method stub
 		
 	}
-	public void createReview(int movieId, int rating,Account user, String content) {
+	
+	public void addReviewToMovie(int movieId, int rating, Account account, String content) {
 		Movie movie = getMovieByID(movieId);
-		movie.createReview(rating, user, content);
+		ReviewManager rm = new ReviewManager();
+		// create review in the review manager side
+		Review newReview = rm.create(rating, account, content);
+		
+		// append the review to the current movie
+		ArrayList<Review> reviews = movie.getReviews();
+		reviews.add(newReview);
+		movie.setReviews(reviews);
+		int movieIndex = records.indexOf(movie);
+		records.set(movieIndex, movie);
+		
+		updateDatabase();
 	}
 }

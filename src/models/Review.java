@@ -1,6 +1,8 @@
 package models;
 
-public class Review {
+import java.util.ArrayList;
+
+public class Review implements ISerializable {
 	private int id;
 	private int rating;
 	private Account user;
@@ -11,6 +13,15 @@ public class Review {
 		this.rating = rating;
 		this.user = user;
 		this.content = content;
+	}
+	
+	public ArrayList<Object> getSerializableData() {
+		ArrayList<Object> data = new ArrayList<Object>();
+		data.add(getId());
+		data.add(getRating());
+		data.add(getUser());
+		data.add(getContent());
+		return data;
 	}
 	
 	public int getId() {
