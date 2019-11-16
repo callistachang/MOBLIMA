@@ -271,9 +271,8 @@ public class CinemaStaffApp extends UserApp {
 		cxm.listAll();
 		System.out.println("Choose a number option:");
 		String cineplexID = sc.next();
-		Cineplex cineplex = cxm.getCineplexByID(cineplexID);
 		System.out.println("Which cinema?");
-		cxm.listAllCinemasByCineplex(cineplex);
+		cxm.listAllCinemasByCineplex(cineplexID);
 		System.out.println("Choose a number option:");
 		String cinemaID = sc.next();
 		Cinema cinema = cm.getCinemaByID(cinemaID);
@@ -292,8 +291,7 @@ public class CinemaStaffApp extends UserApp {
 			mm.listAll();
 			System.out.println("Enter the new movie id:");
 			int movieIdInput = sc.nextInt();
-			Movie newMovie = mm.getMovieByID(movieIdInput);
-			showtime.setMovie(newMovie);
+			showtime.setMovieID(movieIdInput);
 			break;
 		}
 		case(2):{
@@ -334,9 +332,8 @@ Scanner sc = new Scanner(System.in);
 		cxm.listAll();
 		System.out.println("Choose a number option:");
 		String cineplexID = sc.next();
-		Cineplex cineplex = cxm.getCineplexByID(cineplexID);
 		System.out.println("Which cinema?");
-		cxm.listAllCinemasByCineplex(cineplex);
+		cxm.listAllCinemasByCineplex(cineplexID);
 		System.out.println("Choose a number option:");
 		String cinemaID = sc.next();
 		Cinema cinema = cm.getCinemaByID(cinemaID);
