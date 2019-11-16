@@ -82,4 +82,7 @@ public class Showtime implements ISerializable {
 	public int getNoSeatsTaken() {
 		return seatsTaken.size();
 	}
+	public void bookSeat(int seatNo) {
+		seatsTaken.add(seatNo);
+	}
 }

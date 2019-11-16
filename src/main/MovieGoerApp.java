@@ -3,6 +3,8 @@ import java.util.Scanner;
 import models.Account;
 import models.Booking;
 import models.Cinema;
+import models.Cineplex;
+import models.Movie;
 import models.Showtime;
 
 import java.util.ArrayList;
@@ -96,35 +98,36 @@ public class MovieGoerApp extends UserApp {
 		mm.listAll();
 		System.out.println("Choose a number option:");
 		int movieID = sc.nextInt();
+		Movie movie = mm.getMovieByID(movieID);
 		
 		System.out.println("Which cineplex would you like to watch the movie from?");
 		cxm.listCineplexByMovie(movieID);
 		System.out.println("Choose a number option:");
-		int cineplexID = sc.nextInt();
 		
+		String cineplexID = sc.next();
+		Cineplex cineplex = cxm.getCineplexByID(cineplexID);
 		// which movie type?
 		
 		System.out.println("Which showtime would you like to watch?");
-		cxm.listAllSeatAvailabilitiesInCineplexByMovie(cineplexID, movieID);
+		cxm.listAllSeatAvailabilitiesInCineplexByMovie(cineplex, movie);
 		System.out.println("Choose a number option:");
 		int showtimeID = sc.nextInt();
 		
 		int noOfTickets;
-		
+		Showtime showtime = sm.getShowtimeByID(showtimeID);
 		Cinema c = cm.getCinemaByShowtimeID(showtimeID);
 		do {
 		System.out.println("How many tickets would you like to purchase?");
 		noOfTickets = sc.nextInt();
-		} while (noOfTickets > c.getAvailableSeats());
+		} while (noOfTickets > c.getNoSeatsAvailable(showtime));
 		
-		
-		cm.showSeating(showtimeID);
+		c.printSeatingPlan(showtime);
 		double price = 0;
 		for(int i=0;i<noOfTickets;i++)
 		{
 		System.out.println("Please select your seat number");
-		String seatChosen =sc.next();
-		sm.addSeat(showtimeID,seatChosen);
+		int seatChosen =sc.nextInt();
+		sm.bookSeat(showtime,seatChosen);
 		System.out.println("Any discounts applicable?");
 		System.out.println("0: None");
 		System.out.println("1: Student");

@@ -35,37 +35,23 @@ public class CinemaManager {
 //		}
 //	}
 	
-	public void listAvailabilitiesForMovie(Cinema cinema, int movieID) {
+	public void listAvailabilitiesForMovie(Cinema cinema, Movie movie) {
 		ShowtimeManager sm = new ShowtimeManager();
 		ArrayList<Showtime> showtimes = cinema.getShowtimes();
 		
 		for (Showtime showtime: showtimes) {
-			Movie movie = showtime.getMovie();
-			if (movie.getId() == movieID) {
+			Movie movie2 = showtime.getMovie();
+			if (movie2.getId() == movie.getId()) {
 				System.out.println("CinemaID = " + cinema.getId());
 				System.out.println("Class: " + cinema.getCinemaClass());
 				System.out.println("ShowtimeId: " + showtime.getId());
-				int availableSeats = cinema.getTotalNoSeats() - showtime.getTotalNumSeatsTaken();
+				int availableSeats = cinema.getTotalNoSeats() - showtime.getNoSeatsTaken();
 				System.out.println(availableSeats + "are currently available");
 			}
 		}
 	}
 	
-	public void listShowtimesInCinemaForMovie(Cinema cinema, int movieID) {
-		ShowtimeManager sm = new ShowtimeManager();
-		ArrayList<Showtime> showtimes = cinema.getShowtimes();
-		
-		for (Showtime showtime: showtimes) {
-			Movie movie = showtime.getMovie();
-			if (movie.getId() == movieID) {
-				System.out.println(cinema);
-				System.out.println(showtime);
-				}
-			}
-//			sm.getShowtimeMovie(showtime,movie)
-//			
-//			sm.getShowtimes(movieID);
-	}
+
 
 	private static void initializeDatabase() {
 		ArrayList<String> data = DatabaseHandler.readDatabase(DATABASE_NAME);

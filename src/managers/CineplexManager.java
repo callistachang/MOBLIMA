@@ -75,13 +75,12 @@ public class CineplexManager {
 //		}
 //	}
 	
-	public void listAllSeatAvailabilitiesInCineplexByMovie(String cineplexID, int movieID) {
-		Cineplex cineplex = getCineplexByID(cineplexID);
+	public void listAllSeatAvailabilitiesInCineplexByMovie(Cineplex cineplex, Movie movie) {
 		ArrayList<Cinema> cinemas = cineplex.getCinemas();
 		CinemaManager cm = new CinemaManager();
 		
 		for (Cinema cinema: cinemas) {
-			cm.listAvailabilitiesForMovie(cinema, movieID);
+			cm.listAvailabilitiesForMovie(cinema, movie);
 	}
 }
 

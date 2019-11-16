@@ -49,4 +49,7 @@ public class ShowtimeManager {
 		// TODO Auto-generated method stub
 		
 	}
+	public void bookSeat(Showtime showtime, int seatNo) {
+		showtime.bookSeat(seatNo);
+	}
 }
