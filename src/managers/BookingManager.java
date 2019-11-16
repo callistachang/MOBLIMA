@@ -4,8 +4,10 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Collections;   
-
+import java.util.Collections;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.TreeMap;
 
 import handlers.DatabaseHandler;
 import models.Booking;
@@ -82,9 +84,17 @@ public class BookingManager {
 			int listMovieIndex = listOfMovie.indexOf(s.getMovieID());
 			ticketSale.set(listMovieIndex, ticketSale.get(listMovieIndex)+1);
 		}
-		Collections.sort(ticketSale, Collections.reverseOrder()); 
-		for (int i=0; i<5; i++) {
-		System.out.println("(ID: " + ticketSale.get(i) + ") " + mm.getMovieByID(ticketSale.get(i)));//pern will fix um
+	    TreeMap<Integer,Integer> map = new TreeMap<Integer,Integer>();  
+	    for (int i=0; i<listOfMovie.size(); i++) {
+	        map.put(ticketSale.get(i), listOfMovie.get(i));    
+	      }
+	    Collections.sort(ticketSale, Collections.reverseOrder());
+
+	    for (int i=0; i<5; i++) {
+	    int sale = ticketSale.get(i);
+	    int movieID = map.get(sale);
+	    Movie m = mm.getMovieByID(movieID);
+		System.out.println( "Title: " + m.getTitle() + ", Ticket Sales: "+ sale);
 		}
 		
 		
