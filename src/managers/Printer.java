@@ -56,8 +56,9 @@ public class Printer {
 	}
 	
 	public static void printShowtimeAttributes(Showtime showtime) {
-		System.out.println("ShowtimeID: " + showtime.getId());
-		System.out.println("(1) Movie: " + showtime.getMovie().getTitle());
+//		System.out.println("ShowtimeID: " + showtime.getId());
+//		System.out.println("(1) Movie: " + showtime.getMovie().getTitle());
+		System.out.println("(1) Movie: ");
 		System.out.println("(2) Date: ");
 		System.out.println("(3) Time: ");
 	}
