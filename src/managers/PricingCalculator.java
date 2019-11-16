@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import handlers.DatabaseHandler;
 import models.Cinema;
 import models.ISerializable;
+import models.Movie;
 import models.Movie.MovieType;
 import models.Pricing;
 import models.Showtime;
@@ -25,7 +26,6 @@ public class PricingCalculator {
 	}
 	
 	public double calculatePrice (int discountType, String cinemaID, int showtimeID) {
-		Pricing pricing = new Pricing();
 		ShowtimeManager sm = new ShowtimeManager();
 		HolidayManager hm = new HolidayManager();
 		CinemaManager cm = new CinemaManager();
@@ -33,10 +33,12 @@ public class PricingCalculator {
 		double ticketPrice = pricing.getBasePrice();
 		
 		Showtime s = sm.getShowtimeByID(showtimeID);
-		String mt = s.movie.getType().toString();
+		int movieID = s.getMovieID();
+		Movie movie = mm.getMovieByID(movieID);
+		String mt = movie.getType().toString();
 		Cinema c = cm.getCinemaByID(cinemaID);
-		DayOfWeek day = DayOfWeek.of(s.date.get(ChronoField.DAY_OF_WEEK));
-		if(day == DayOfWeek.SATURDAY || day == DayOfWeek.SUNDAY || hm.isHoliday(s.date)) {
+		DayOfWeek day = DayOfWeek.of(s.getDate().get(ChronoField.DAY_OF_WEEK));
+		if(day == DayOfWeek.SATURDAY || day == DayOfWeek.SUNDAY || hm.isHoliday(s.getDate())) {
 			ticketPrice += pricing.getWeekendPremium();
 		}
 		//cinema class?

@@ -42,7 +42,6 @@ public class Formatter {
 	
 	public static ArrayList<String> getStringArrayFromIntegerArray(ArrayList<Integer> intArray) {
 		if (intArray == null) {
-			System.out.println("lmao fuk u");
 			return null;
 		}
 		ArrayList<String> strArray = new ArrayList<String>();

@@ -4,8 +4,10 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Collections;   
-
+import java.util.Collections;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.TreeMap;
 
 import handlers.DatabaseHandler;
 import models.Booking;
@@ -48,7 +50,7 @@ public class BookingManager {
 		Showtime s = sm.getShowtimeByID(showtimeID);
 		Cinema c = cm.getCinemaByID(cinemaID);
 		String TID = cinemaID + bookingDate + bookingTime;
-		Booking booking = new Booking(TID, bookingDate, bookingTime, s, c, price);
+		Booking booking = new Booking(TID, today, now, s, c, price);
 		records.add(booking); // add to records
 		updateDatabase();
 		
@@ -67,24 +69,32 @@ public class BookingManager {
 		// TODO Auto-generated method stub
 		ShowtimeManager sm = new ShowtimeManager();
 		MovieManager mm = new MovieManager();
-		ArrayList<Movie> listOfMovie = null;
+		ArrayList<Integer> listOfMovie = null;
 		ArrayList<Integer> ticketSale = null;
 		for (Booking b: records) {
 			Showtime s = b.getShowtime();
-			for(Movie m: listOfMovie) {
-				if(s.getMovie() != m) {
-					listOfMovie.add(s.getMovie());
+			for(Integer m: listOfMovie) {
+				if(s.getMovieID() != m) {
+					listOfMovie.add(s.getMovieID());
 				}
 			}
 		}
 		for (Booking b: records) {
 			Showtime s = b.getShowtime();
-			int listMovieIndex = listOfMovie.indexOf(s.getMovie());
+			int listMovieIndex = listOfMovie.indexOf(s.getMovieID());
 			ticketSale.set(listMovieIndex, ticketSale.get(listMovieIndex)+1);
 		}
-		Collections.sort(ticketSale, Collections.reverseOrder()); 
-		for (int i=0; i<5; i++) {
-		System.out.println("(ID: " + ticketSale.get(i) + ") " + mm.getMovieByID(ticketSale.get(i)));
+	    TreeMap<Integer,Integer> map = new TreeMap<Integer,Integer>();  
+	    for (int i=0; i<listOfMovie.size(); i++) {
+	        map.put(ticketSale.get(i), listOfMovie.get(i));    
+	      }
+	    Collections.sort(ticketSale, Collections.reverseOrder());
+
+	    for (int i=0; i<5; i++) {
+	    int sale = ticketSale.get(i);
+	    int movieID = map.get(sale);
+	    Movie m = mm.getMovieByID(movieID);
+		System.out.println( "Title: " + m.getTitle() + ", Ticket Sales: "+ sale);
 		}
 		
 		

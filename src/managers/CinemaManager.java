@@ -45,8 +45,8 @@ public class CinemaManager {
 		ArrayList<Showtime> showtimes = cinema.getShowtimes();
 		
 		for (Showtime showtime: showtimes) {
-			Movie movie2 = showtime.getMovie();
-			if (movie2.getId() == movie.getId()) {
+			int movieId = showtime.getMovieID();
+			if (movieId == movie.getId()) {
 				System.out.println("CinemaID = " + cinema.getId());
 				System.out.println("Class: " + cinema.getCinemaClass());
 				System.out.println("ShowtimeId: " + showtime.getId());

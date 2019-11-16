@@ -170,7 +170,7 @@ public class UserApp {
 		int movieID = sc.nextInt();
 		Movie movie = mm.getMovieByID(movieID);
 		System.out.println("Which cineplex?");
-		cxm.listCineplexByMovie(movie);
+		cxm.listCineplexByMovie(movieID);
 
 		System.out.println("Choose a number option:");
 		String cineplexID = sc.next();
