@@ -36,12 +36,13 @@ public class CinemaStaffApp extends UserApp {
 		int choice = -1;
 		Scanner sc = new Scanner(System.in);
 				
-		System.out.println("================== Cinema Staff Menu ==================");
+		
 		int i;
 		int j;
 		
 		
 		do {
+			System.out.println("================== Cinema Staff Menu ==================");
 			for (i = 1; i <= menuOptions.length; i++) {
 				System.out.printf("(%d) %s \n", i, menuOptions[i-1]);
 			}

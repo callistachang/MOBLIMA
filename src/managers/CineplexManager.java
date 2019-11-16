@@ -59,18 +59,26 @@ public class CineplexManager {
 	
 	public void listAllMovies(String cineplexID) {
 		MovieManager mm = new MovieManager();
+		ArrayList <Integer> printedMovieID = null;
 		Cineplex cx = getCineplexByID(cineplexID);
-		Boolean printed = false;
-		
 		ArrayList<Cinema> cinemas = cx.getCinemas();
-		System.out.println("Cinemas: " + cinemas);
+		System.out.print("Cinemas: ");
+		for (Cinema c: cinemas) {
+			System.out.print(c.getId() + " ");
+		}
+		System.out.println();
+		System.out.println();
 		for (Cinema c: cinemas) {
 			ArrayList<Showtime> showtimes = c.getShowtimes();
 			for (Showtime s: showtimes) {
 				int movieID = s.getMovieID();
-				Movie movie = mm.getMovieByID(movieID);
-				Printer.printMovieInfo(movie);
-				printed = true;
+				if(!printedMovieID.contains(movieID)) {
+					Movie movie = mm.getMovieByID(movieID);
+					Printer.printMovieInfo(movie);
+					System.out.println();
+					printedMovieID.add(movieID);
+				}
+				
 			}
 		}
 	}

@@ -51,7 +51,8 @@ public class CinemaManager {
 				System.out.println("Class: " + cinema.getCinemaClass());
 				System.out.println("ShowtimeId: " + showtime.getId());
 				int availableSeats = cinema.getTotalNoSeats() - showtime.getNoSeatsTaken();
-				System.out.println(availableSeats + "are currently available");
+				System.out.println(availableSeats + " seats are currently available");
+				System.out.println("======================================================="); 
 			}
 		}
 	}
@@ -66,6 +67,7 @@ public class CinemaManager {
 			System.out.println("ShowtimeId: " + showtime.getId());
 			int availableSeats = cinema.getTotalNoSeats() - showtime.getNoSeatsTaken();
 			System.out.println(availableSeats + "are currently available");
+			System.out.println("=======================================================");
 			}
 		}
 	
