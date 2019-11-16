@@ -3,6 +3,7 @@ package models;
 import java.util.ArrayList;
 import java.util.EnumSet;
 
+import managers.Formatter;
 import managers.MovieManager;
 import managers.ReviewManager;
 import models.Movie.MovieType;
@@ -34,16 +35,37 @@ public class Movie implements ISerializable {
 	
 	public ArrayList<Object> getSerializableData() {
 		ArrayList<Object> data =  new ArrayList<Object>();
-		data.add(getId());
-		data.add(getTitle());
-		data.add(getStatus());
-		data.add(getSynopsis());
-		data.add(getDirector());
-		data.add(getCasts());
-		data.add(getDuration());
-		data.add(getReviewIDs()); // i need to get this as an arraylist of strings
-		data.add(getType());
+		data.add(Formatter.getStringFromInt(id));
+		data.add(title);
+		data.add(status.toString());
+		data.add(synopsis);
+		data.add(director);
+		data.add(casts);
+		data.add(Formatter.getStringFromInt(duration));
+		data.add(getReviewIDs()); // CHECK AGAIN for the null settings.
+		data.add(type.toString());
 		return data;
+	}
+	
+	public ArrayList<String> getReviewIDs() {
+		ArrayList<String> reviewIDs = new ArrayList<String>();
+		ArrayList<Review> reviews = getReviews();
+		
+		if (reviews == null)
+			reviewIDs.add("null");
+		else if (reviews.get(0) == null) {
+			if (reviews.size() == 1)
+				reviewIDs.add("null");
+			else {
+				reviews.remove(0);
+				for (Review r: reviews)
+					reviewIDs.add(r.toString());
+			}
+		} else {
+			for (Review r: reviews)
+				reviewIDs.add(r.toString());
+		}
+		return reviewIDs;
 	}
 	
 	public void setAttr(int attrNum, String attrVal) {
@@ -121,26 +143,7 @@ public class Movie implements ISerializable {
 		this.duration = duration;
 	}
 	
-	public ArrayList<String> getReviewIDs() {
-		ArrayList<String> reviewIDs = new ArrayList<String>();
-		ArrayList<Review> reviews = getReviews();
-		
-		if (reviews == null)
-			reviewIDs.add("null");
-		else if (reviews.get(0) == null) {
-			if (reviews.size() == 1)
-				reviewIDs.add("null");
-			else {
-				reviews.remove(0);
-				for (Review r: reviews)
-					reviewIDs.add(r.toString());
-			}
-		} else {
-			for (Review r: reviews)
-				reviewIDs.add(r.toString());
-		}
-		return reviewIDs;
-	}
+
 
 	public ArrayList<Review> getReviews() {
 		return reviews;

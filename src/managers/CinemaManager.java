@@ -83,11 +83,12 @@ public class CinemaManager {
 		DatabaseHandler.writeToDatabase(DATABASE_NAME, updatedRecords);
 	}
 
-	public void addShowtime(Cinema cinema, Showtime showtime) {
-		// TODO Auto-generated method stub
-		//error checking for collisions
+	public void addShowtime(String cinemaID, Showtime showtime) {
+		Cinema cinema = getCinemaByID(cinemaID);
+		int cinemaIndex = records.indexOf(cinema);
 		cinema.addShowtime(showtime);
-		
+		records.set(cinemaIndex, cinema);
+		updateDatabase();
 	}
 
 	public void removeShowtime(String cinemaID, int showtimeID) {

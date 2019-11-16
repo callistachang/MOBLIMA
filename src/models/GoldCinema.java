@@ -9,14 +9,6 @@ public class GoldCinema extends Cinema {
 	public GoldCinema(String id, ArrayList<Showtime> showtimes) {
 		super(id, showtimes);
 	}
-
-	public ArrayList<Object> getSerializableData() {
-		ArrayList<Object> data = new ArrayList<Object>();
-		data.add(getId());
-		data.add(getShowtimes());
-		data.add(getCinemaClass());
-		return data;
-	}
 	
 	public String getCinemaClass() {
 		return "Gold";

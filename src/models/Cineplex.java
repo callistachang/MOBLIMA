@@ -19,13 +19,11 @@ public class Cineplex implements ISerializable {
 	@Override
 	public ArrayList<Object> getSerializableData() {
 		ArrayList<Object> data = new ArrayList<Object>();
-		data.add(getId());
-		data.add(getName());
-		data.add(getCinemas());
-		// TODO Auto-generated method stub
-		return null;
+		data.add(id);
+		data.add(name);
+		data.add(getCinemaIDs());
+		return data;
 	}
-
 
 	public String getId() {
 		return id;
@@ -44,6 +42,14 @@ public class Cineplex implements ISerializable {
 	}
 	public void setCinemas(ArrayList<Cinema> cinemas) {
 		this.cinemas = cinemas;
+	}
+	
+	public ArrayList<String> getCinemaIDs() {
+		ArrayList<String> cinemasStr = new ArrayList<String>();
+		for (Cinema c: cinemas) {
+			cinemasStr.add(c.getId());
+		}
+		return cinemasStr;
 	}
 //	public ArrayList<Movie> getMovies() {
 //		return movies;

@@ -13,7 +13,7 @@ public class CineplexSerializer extends AbstractSerializer {
 	@Override
 	protected ISerializable deserialize(String data) {
 		String[] d = splitByAttribute(data);
-		ArrayList<String> cinemaIDs = parseArrayToStrings(d, 2);
+		ArrayList<String> cinemaIDs = splitArrayToStrings(d[2]);
 		ArrayList<Cinema> cinemas = parseIdArrayToCinemas(cinemaIDs);
 		
 		// TODO Auto-generated method stub

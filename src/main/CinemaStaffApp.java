@@ -10,6 +10,7 @@ import java.util.Set;
 
 import managers.CinemaManager;
 import managers.CineplexManager;
+import managers.Formatter;
 import managers.MovieManager;
 import managers.Printer;
 import managers.ShowtimeManager;
@@ -220,38 +221,37 @@ public class CinemaStaffApp extends UserApp {
 		mm.listAll();
 		System.out.println("Choose a number option:");
 		int movieID = sc.nextInt();
-		Movie movie = mm.getMovieByID(movieID);
+//		Movie movie = mm.getMovieByID(movieID);
 		System.out.println("Which cineplex?");
 		cxm.listAll();
-		System.out.println("Choose a number option:");
+		System.out.println("Choose by String ID:");
 		String cineplexID = sc.next();
-		Cineplex cineplex = cxm.getCineplexByID(cineplexID);
+//		Cineplex cineplex = cxm.getCineplexByID(cineplexID);
 		System.out.println("Which cinema?");
-		cxm.listAllCinemasByCineplex(cineplex);
-		System.out.println("Choose a number option:");
+		cxm.listAllCinemasByCineplex(cineplexID);
+		System.out.println("Choose by String ID:");
 		String cinemaID = sc.next();
-		Cinema cinema = cm.getCinemaByID(cinemaID);
-		System.out.println("Enter the date in DDMMYYYY format.");
-		String dateInput = sc.next();
-		LocalDate date = dateInput(dateInput);
-		System.out.println("Enter the time in 24-hour format.");
-		String timeInput = sc.next();
-		LocalTime time = timeInput(timeInput);
-		Showtime showtime = sm.createShowtime(date, time, movie);
-		cinema.addShowtime(showtime); //error checking?
-
+//		Cinema cinema = cm.getCinemaByID(cinemaID);
 		
-//		sm.create(movieID, cineplexID, cinemaID, showtimeDate, showtimeTime, mm.getduration(movieRow));
-// error checking handled by cinema manager? return different error messages
-// logic linking no. option to movie should be same for cineplex, cinema, showtime		
-//		
-//		 ask for movie (show list of movies)
-//		 ask for cineplex (show list of cineplexes)
-//		 create showtime. will return error if all halls already occupied.
-//		 must make sure it don't overlap with other movies. MUST STORE MOVIE DURATION.
-//		 update to movie showtime database
-//		
-//		update database twice.
+//		Cinema cinema = cm.getCinemaByID("AA");
+//		int movieID = 2;
+//		LocalDate date = Formatter.getLocalDateFromString("2019-10-10");
+//		LocalTime time = Formatter.getLocalTimeFromString("23:23:23");
+		
+		// TODO MOmentarily deleted
+		
+		System.out.println("Enter the date in yyyy-mm-dd format.");
+		String dateInput = sc.next();
+		LocalDate date = Formatter.getLocalDateFromString(dateInput);
+		
+		System.out.println("Enter the time in hh:mm:ss format.");
+		String timeInput = sc.next();
+		LocalTime time = Formatter.getLocalTimeFromString(timeInput);
+		
+		Showtime showtime = sm.create(date, time, movieID);
+		cm.addShowtime(cinemaID, showtime);
+		
+//		cinema.addShowtime(showtime); //error checking
 	}
 	
 	private void updateMovieShowtime() {

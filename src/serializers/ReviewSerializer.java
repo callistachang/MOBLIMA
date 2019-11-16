@@ -2,6 +2,8 @@ package serializers;
 
 import java.util.ArrayList;
 
+import managers.AccountManager;
+import managers.Formatter;
 import managers.ReviewManager;
 import models.Account;
 import models.ISerializable;
@@ -11,23 +13,14 @@ public class ReviewSerializer extends AbstractSerializer {
 
 	protected ISerializable deserialize(String data) {
 		String[] d = splitByAttribute(data);
-//		for (String str: d) {
-//			System.out.println("hi" + str);
-//		}
-		int id = parseInteger(d, 0);
-		int rating = parseInteger(d, 1);
-		Account account = null;
-//		Account account = (Account) deserialize(d[2]);
-		
-//		System.out.println(account);
-
-		
+		int id = Formatter.getIntFromString(d[0]);
+		int rating = Formatter.getIntFromString(d[1]);
+		AccountManager am = new AccountManager();
+		Account account = am.getAccountByUsername(d[2]);
 		return new Review(id, rating, account, d[3]);
 	}
-	
-	// reviewStrings is in the form of e.g. ["1", "2", "3"]
-	// returns actual review objects in an array.
-	public ArrayList<Review> parseIdArrayToReview(int[] reviewIDs) {
+
+	public ArrayList<Review> parseIdArrayToReview(ArrayList<Integer> reviewIDs) {
 		ArrayList<Review> reviews = new ArrayList<Review>();
 		ReviewManager rm = new ReviewManager();
 		for (int id: reviewIDs) {

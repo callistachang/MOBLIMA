@@ -50,6 +50,11 @@ public class Printer {
 		}
 	}
 	
+	public static void printCinemaInfo(Cinema cinema) {
+		System.out.println("ID: " + cinema.getId());
+		System.out.println("Cinema Class: " + cinema.getCinemaClass());
+	}
+	
 	public static void printShowtimeAttributes(Showtime showtime) {
 		System.out.println("ShowtimeID: " + showtime.getId());
 		System.out.println("(1) Movie: " + showtime.getMovie().getTitle());

@@ -2,6 +2,8 @@ package models;
 
 import java.util.ArrayList;
 
+import managers.Formatter;
+
 public class Review implements ISerializable {
 	private int id;
 	private int rating;
@@ -17,10 +19,10 @@ public class Review implements ISerializable {
 	
 	public ArrayList<Object> getSerializableData() {
 		ArrayList<Object> data = new ArrayList<Object>();
-		data.add(getId());
-		data.add(getRating());
-		data.add(getUser());
-		data.add(getContent());
+		data.add(Formatter.getStringFromInt(id));
+		data.add(Formatter.getStringFromInt(rating));
+		data.add(user.getUsername());
+		data.add(content);
 		return data;
 	}
 	

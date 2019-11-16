@@ -2,14 +2,25 @@ package models;
 
 import java.util.ArrayList;
 
+import managers.Formatter;
+
 public abstract class Cinema implements ISerializable {
-	private String id; // must be cinema code
-	private ArrayList<Showtime> showtimes;
+	protected String id; // must be cinema code
+	protected ArrayList<Showtime> showtimes;
 	
 	public Cinema(String id, ArrayList<Showtime> showtimes) {
 		this.id = id;
 		this.showtimes = showtimes;
 	}
+	
+	public ArrayList<Object> getSerializableData() {
+		ArrayList<Object> data = new ArrayList<Object>();
+		data.add(id);
+		data.add(getShowtimeIDs());
+		data.add(getCinemaClass());
+		return data;
+	}
+	
 	public String getId() {
 		return id;
 	}
@@ -22,6 +33,17 @@ public abstract class Cinema implements ISerializable {
 	public void setShowtimes(ArrayList<Showtime> showtimes) {
 		this.showtimes = showtimes;
 	}
+	public ArrayList<String> getShowtimeIDs() {
+		if (showtimes == null)
+			return null;
+		
+		ArrayList<String> showtimesStr = new ArrayList<String>();
+		for (Showtime s: showtimes) {
+			showtimesStr.add(Formatter.getStringFromInt(s.getId()));
+		}
+		return showtimesStr;
+	}
+	
 	public abstract String getCinemaClass();
 	
 	public abstract int getRows();
@@ -66,6 +88,9 @@ public abstract class Cinema implements ISerializable {
 	}
 	
 	public void addShowtime(Showtime showtime) {
+		if (showtimes == null) {
+			showtimes = new ArrayList<Showtime>();
+		}
 		showtimes.add(showtime);
 	}
 }

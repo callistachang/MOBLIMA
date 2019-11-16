@@ -1,8 +1,8 @@
-AAA,18:00,Gold
-AAB,13:00;18:00,Platinum
-AAC,11:00;14:00;18:00;22:00,Regular
-BBA,18:00,Regular
-BBB,13:00;18:00,Regular
-BBC,11:00;14:00;18:00;22:00,Gold
-CCC,11:00;18:00,Platinum
-CCD,14:00;22:00,Regular
+AAA,1;2,Gold
+AAB,1;2,Platinum
+AAC,1,Regular
+BBA,1;3,Regular
+BBB,1,Regular
+BBC,1,Gold
+CCC,1,Platinum
+CCD,1,Regular

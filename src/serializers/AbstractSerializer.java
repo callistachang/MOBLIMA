@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.stream.Stream;
 
+import managers.Formatter;
 import models.ISerializable;
 
 public abstract class AbstractSerializer {
@@ -58,24 +59,35 @@ public abstract class AbstractSerializer {
 		return data.split(",");
 	}
 	
-	protected ArrayList<String> parseArrayToStrings(String[] data, int index) {
-		String[] splitData = data[index].split(";");
-		for (String str: splitData) {
-			System.out.println(str);
-		}
-		return new ArrayList<String>(Arrays.asList(splitData));
+	protected ArrayList<String> splitArrayToStrings(String arr) {
+		String[] splitArr = arr.split(";");
+//		for (String str: splitArr) {
+//			System.out.println(str);
+//		}
+		return new ArrayList<String>(Arrays.asList(splitArr));
 	}
 	
-	protected int[] parseArrayToIntegers(String[] data, int index) {
-		String[] splitDataStr = data[index].split(";");
-		for (int i = 0; i < splitDataStr.length; i++) {
-			if (splitDataStr[i].equals("null"))
-				splitDataStr[i] = "0";
+	protected ArrayList<Integer> splitArrayToIntegers(String arr) {
+		String[] splitArr = arr.split(";");	// "2", "3", "4"
+		ArrayList<Integer> intArray = new ArrayList<Integer>();
+		for (String str: splitArr) {
+			intArray.add(Formatter.getIntFromString(str));
 		}
-	    return Stream.of(splitDataStr).mapToInt(Integer::parseInt).toArray();
+		return intArray;
 	}
 	
-	protected int parseInteger(String[] data, int index) {
-		return Integer.parseInt(data[index]);
-	}
+	
+	
+//	protected int[] parseArrayToIntegers(String[] data, int index) {
+//		String[] splitDataStr = data[index].split(";");
+//		for (int i = 0; i < splitDataStr.length; i++) {
+//			if (splitDataStr[i].equals("null"))
+//				splitDataStr[i] = "0";
+//		}
+//	    return Stream.of(splitDataStr).mapToInt(Integer::parseInt).toArray();
+//	}
+	
+//	protected int parseInteger(String[] data, int index) {
+//		return Integer.parseInt(data[index]);
+//	}
 }

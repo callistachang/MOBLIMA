@@ -2,6 +2,8 @@ package models;
 
 import java.util.ArrayList;
 
+import managers.Formatter;
+
 public class Account implements ISerializable {
 	private String username;
 	private int age;
@@ -23,12 +25,12 @@ public class Account implements ISerializable {
 	@Override
 	public ArrayList<Object> getSerializableData() {
 		ArrayList<Object> data =  new ArrayList<Object>();
-		data.add(getUsername());
-		data.add(getPassword());
-		data.add(getAge());
-		data.add(getMobileNumber());
-		data.add(getEmailAddress());
-		data.add(getBookings());
+		data.add(username);
+		data.add(Formatter.getStringFromInt(age));
+		data.add(mobileNumber);
+		data.add(emailAddress);
+		data.add(password);
+		data.add(getBookingIDs());
 		return data;
 	}
 
@@ -65,6 +67,14 @@ public class Account implements ISerializable {
 	public ArrayList<Booking> getBookings() {
 		return bookings;
 	}
+	public ArrayList<String> getBookingIDs() {
+		ArrayList<String> bookingsStr = new ArrayList<String>();
+		for (Booking b: bookings) {
+			bookingsStr.add(b.getTID());
+		}
+		return bookingsStr;
+	}
+	
 	public void setBookings(ArrayList<Booking> bookings) {
 		this.bookings = bookings;
 	}

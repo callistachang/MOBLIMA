@@ -1,30 +1,71 @@
 package models;
 
-public class Booking {
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.ArrayList;
+
+import managers.Formatter;
+
+public class Booking implements ISerializable {
 	private String TID;
-	private String bookingDate;
-	private String bookingTime;
+	private LocalDate bookingDate;
+	private LocalTime bookingTime;
+	private Showtime showtime;
+	private Cinema cinema;
+	private double price;
 	
-	public Booking(String TID, String bookingDate, String bookingTime, Showtime showtime, Cinema cinema, double price) {
-		this.TID = TID ;
+	public Booking(String TID, LocalDate bookingDate, LocalTime bookingTime, Showtime showtime, Cinema cinema,
+			double price) {
+		this.TID = TID;
 		this.bookingDate = bookingDate;
 		this.bookingTime = bookingTime;
 		this.showtime = showtime;
 		this.cinema = cinema;
 		this.price = price;
 	}
+	
+	public ArrayList<Object> getSerializableData() {
+		ArrayList<Object> data = new ArrayList<Object>();
+		data.add(TID);
+		data.add(Formatter.getStringFromLocalDate(bookingDate));
+		data.add(Formatter.getStringFromLocalTime(bookingTime));
+		data.add(Formatter.getStringFromInt(showtime.getId()));
+		data.add(cinema.getId());
+		data.add(Formatter.getStringFromDouble(price));
+		return data;
+	}
+	
 	public String getTID() {
 		return TID;
 	}
-	public void setTID(String tID) {
-		TID = tID;
+	public void setTID(String TID) {
+		this.TID = TID;
 	}
-	public String getBookingDate() {
+
+	public LocalDate getBookingDate() {
 		return bookingDate;
 	}
-	public void setBookingDate(String bookingDate) {
+
+
+
+	public void setBookingDate(LocalDate bookingDate) {
 		this.bookingDate = bookingDate;
 	}
+
+
+
+	public LocalTime getBookingTime() {
+		return bookingTime;
+	}
+
+
+
+	public void setBookingTime(LocalTime bookingTime) {
+		this.bookingTime = bookingTime;
+	}
+
+
+
 	public Showtime getShowtime() {
 		return showtime;
 	}
@@ -43,8 +84,6 @@ public class Booking {
 	public void setPrice(double price) {
 		this.price = price;
 	}
-	private Showtime showtime;
-	private Cinema cinema;
-	private double price;
+
 
 }

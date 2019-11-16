@@ -5,11 +5,13 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
+import managers.Formatter;
+
 public class Showtime implements ISerializable {
 	private int id;
 	private LocalDate date;
 	private LocalTime time;
-	private Movie movie;
+	private int movieID;
 	private ArrayList <Integer> seatsTaken; // HOW should i serialize this.
 
 	//	public Cinema cinema;
@@ -19,22 +21,24 @@ public class Showtime implements ISerializable {
 
 	public ArrayList<Object> getSerializableData() {
 		ArrayList<Object> data = new ArrayList<Object>();
-		data.add(getId());
-		data.add(getDateAsString());
-		data.add(getDateAsTime());
-		data.add(getMovie().getId());
-		data.add(getSeatsTaken());
-		return null;
+		data.add(Formatter.getStringFromInt(id));
+		data.add(Formatter.getStringFromLocalDate(date));
+		data.add(Formatter.getStringFromLocalTime(time));
+		data.add(Formatter.getStringFromInt(movieID));
+		data.add(Formatter.getStringArrayFromIntegerArray(seatsTaken));
+		return data;
 	}
 
-	public Showtime(int id, LocalDate date, LocalTime time, Movie movie, ArrayList<Integer> seatsTaken) {
+	public Showtime(int id, LocalDate date, LocalTime time, int movieID, ArrayList<Integer> seatsTaken) {
 		super();
 		this.id = id;
 		this.date = date;
 		this.time = time;
-		this.movie = movie;
+		this.movieID = movieID;
 		this.seatsTaken = seatsTaken;
 	}
+	
+	
 
 	public int getId() {
 		return id;
@@ -43,6 +47,16 @@ public class Showtime implements ISerializable {
 	public ArrayList<Integer> getSeatsTaken() {
 		return seatsTaken;
 	}
+	
+	public ArrayList<String> getSeatsTakenAsString() {
+		ArrayList<String> seatsTakenStrings = new ArrayList<String>();
+		
+		for (int i: this.seatsTaken) {
+			seatsTakenStrings.add(String.valueOf(i));
+		}
+		return seatsTakenStrings;
+	}
+	
 
 	public void setId(int id) {
 		this.id = id;
@@ -54,8 +68,8 @@ public class Showtime implements ISerializable {
 	}
 
 
-	public Showtime(Movie movie, Cinema cinema, LocalDate date, LocalTime time) {
-		this.movie = movie;
+	public Showtime(int movieID, Cinema cinema, LocalDate date, LocalTime time) {
+		this.movieID = movieID;
 //		this.cinema = cinema;
 		this.date = date;
 		this.time = time;
@@ -69,14 +83,14 @@ public class Showtime implements ISerializable {
 		return this.time.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
 	}
 
-	public Movie getMovie() {
-		return movie;
+
+	public int getMovieID() {
+		return movieID;
 	}
 
-	public void setMovie(Movie movie) {
-		this.movie = movie;
+	public void setMovieID(int movieID) {
+		this.movieID = movieID;
 	}
-
 
 	public LocalDate getDate() {
 		return date;
@@ -94,11 +108,10 @@ public class Showtime implements ISerializable {
 		this.time = time;
 	}
 
-
-
 	public int getNoSeatsTaken() {
 		return seatsTaken.size();
 	}
+	
 	public void bookSeat(int seatNo) {
 		seatsTaken.add(seatNo);
 	}

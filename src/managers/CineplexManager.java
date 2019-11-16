@@ -97,17 +97,34 @@ public class CineplexManager {
 }
 
 	public void listAll() {
-		// TODO Auto-generated method stub
+		for (Cineplex m: records) {
+			System.out.printf("(ID: %s) %s\n", m.getId(), m.getName());
+		}		
+	}
+	
+	public void listAllCinemasByCineplex(String cineplexID) {
+		Cineplex cineplex = getCineplexByID(cineplexID);
+		ArrayList<Cinema> cinemas = cineplex.getCinemas();
+		for (Cinema c: cinemas) {
+			Printer.printCinemaInfo(c);
+		}
 		
+//		CinemaManager cm = new CinemaManager();
+//		
+//		
+//		for (Cinema cinema: cinemas) {
+//			cm.listAllAvailabilities(cinema);
+//		}
 	}
 
-	public void listAllCinemasByCineplex(Cineplex cineplex) {
-		ArrayList<Cinema> cinemas = cineplex.getCinemas();
-		CinemaManager cm = new CinemaManager();
-		for (Cinema cinema: cinemas) {
-			cm.listAllAvailabilities(cinema);
-		}
-	}
+//	public void listAllCinemasByCineplex(String cineplexID) {
+//		Cineplex cineplex = getCineplexByID(cineplexID);
+//		ArrayList<Cinema> cinemas = cineplex.getCinemas();
+//		CinemaManager cm = new CinemaManager();
+//		for (Cinema cinema: cinemas) {
+//			cm.listAllAvailabilities(cinema);
+//		}
+//	}
 	
 	private static void initializeDatabase() {
 		ArrayList<String> data = DatabaseHandler.readDatabase(DATABASE_NAME);

@@ -1,6 +1,10 @@
 package models;
 
-public class Pricing {
+import java.util.ArrayList;
+
+import managers.Formatter;
+
+public class Pricing implements ISerializable {
 	private double basePrice;
 	private double weekendPremium;
 	private double studentDiscount;
@@ -9,9 +13,31 @@ public class Pricing {
 	private double platinumCinemaPremium;
 	private double goldCinemaPremium;
 	
-	public Pricing() {
+
+	public Pricing(double basePrice, double weekendPremium, double studentDiscount, double seniorCitizenDiscount,
+			double movieTypePremium, double platinumCinemaPremium, double goldCinemaPremium) {
 		this.basePrice = basePrice;
+		this.weekendPremium = weekendPremium;
+		this.studentDiscount = studentDiscount;
+		this.seniorCitizenDiscount = seniorCitizenDiscount;
+		this.movieTypePremium = movieTypePremium;
+		this.platinumCinemaPremium = platinumCinemaPremium;
+		this.goldCinemaPremium = goldCinemaPremium;
 	}
+
+	@Override
+	public ArrayList<Object> getSerializableData() {
+		ArrayList<Object> data = new ArrayList<Object>();
+		data.add(Formatter.getStringFromDouble(basePrice));
+		data.add(Formatter.getStringFromDouble(weekendPremium));
+		data.add(Formatter.getStringFromDouble(studentDiscount));
+		data.add(Formatter.getStringFromDouble(seniorCitizenDiscount));
+		data.add(Formatter.getStringFromDouble(movieTypePremium));
+		data.add(Formatter.getStringFromDouble(platinumCinemaPremium));
+		data.add(Formatter.getStringFromDouble(goldCinemaPremium));
+		return data;
+	}
+	
 	public double getBasePrice() {
 		return basePrice;
 	}
@@ -54,6 +80,7 @@ public class Pricing {
 	public void setGoldCinemaPremium(double goldCinemaPremium) {
 		this.goldCinemaPremium = goldCinemaPremium;
 	}
+
 	
 	
 	
