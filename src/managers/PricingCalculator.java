@@ -19,7 +19,7 @@ public class PricingCalculator {
 	private static final String DATABASE_NAME = "pricingdata";
 	private static Pricing pricing = null;
 	
-	public double calculatePrice (int discountType, int cinemaID, int showtimeID) {
+	public double calculatePrice (int discountType, String cinemaID, int showtimeID) {
 		Pricing pricing = new Pricing();
 		ShowtimeManager sm = new ShowtimeManager();
 		HolidayManager hm = new HolidayManager();

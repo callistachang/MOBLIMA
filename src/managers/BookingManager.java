@@ -32,7 +32,7 @@ public class BookingManager {
 		return null;
 	}
 
-	public void addReceipt(int cinemaID, int showtimeID, double price) {
+	public String addReceipt(String cinemaID, int showtimeID, double price) {
 		ShowtimeManager sm = new ShowtimeManager();
 		CinemaManager cm = new CinemaManager();
 		LocalDate today = LocalDate.now();
@@ -42,14 +42,19 @@ public class BookingManager {
 		String bookingTime = now.format(DateTimeFormatter.ofPattern("hhmm"));
 		Showtime s = sm.getShowtimeByID(showtimeID);
 		Cinema c = cm.getCinemaByID(cinemaID);
-		String TID = "XXX" + bookingDate + bookingTime;
+		String TID = cinemaID + bookingDate + bookingTime;
 		Booking booking = new Booking(TID, bookingDate, bookingTime, s, c, price);
 		records.add(booking); // add to records
 		updateDatabase();
 		
+		return TID;
 	} 
 	
-	public void printReceipt() {
+	public void printReceipt(String TID) {
+		System.out.println("BOOKING RECEIPT");
+		BookingManager bm = new BookingManager();
+		Booking b =bm.getBookingByID(TID);
+		System.out.println(b);
 		
 	}
 

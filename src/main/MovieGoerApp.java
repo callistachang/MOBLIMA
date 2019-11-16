@@ -136,7 +136,9 @@ public class MovieGoerApp extends UserApp {
 		
 		System.out.println("The total price is: " + price);
 		
-		bm.addReceipt(showtimeID, price);
+		
+		String TID = bm.addReceipt(c.getId(),showtimeID, price);
+		bm.printReceipt(TID);
 	}
 	
 	// (5) View booking history
