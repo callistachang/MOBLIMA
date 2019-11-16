@@ -11,8 +11,8 @@ import serializers.ShowtimeSerializer;
 public class AccountManager {
 	private static final String DATABASE_NAME = "accountdata";
 	private static ArrayList<Account> records = null;
-	private final String adminUsername = "adminuser";
-	private final String adminPassword = "adminpassword";
+	private final String adminUsername = "q";
+	private final String adminPassword = "q";
 	
 	public AccountManager() {
 		if (records == null) {

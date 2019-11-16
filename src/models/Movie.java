@@ -41,7 +41,7 @@ public class Movie implements ISerializable {
 		data.add(getDirector());
 		data.add(getCasts());
 		data.add(getDuration());
-		data.add(getReviews());
+		data.add(getReviewIDs()); // i need to get this as an arraylist of strings
 		data.add(getType());
 		return data;
 	}
@@ -50,16 +50,22 @@ public class Movie implements ISerializable {
 		switch (attrNum) {
 			case 1:
 				title = attrVal;
+				break;
 			case 2:
 				status = ShowingStatus.getByValue(attrVal);
+				break;
 			case 3:
 				synopsis = attrVal;
+				break;
 			case 4:
 				director = attrVal;
+				break;
 			case 5:
 				duration = Integer.parseInt(attrVal);
+				break;
 			case 6:
 				type = MovieType.getByValue(attrVal);
+				break;
 		}
 	}
 	
@@ -113,6 +119,27 @@ public class Movie implements ISerializable {
 
 	public void setDuration(int duration) {
 		this.duration = duration;
+	}
+	
+	public ArrayList<String> getReviewIDs() {
+		ArrayList<String> reviewIDs = new ArrayList<String>();
+		ArrayList<Review> reviews = getReviews();
+		
+		if (reviews == null)
+			reviewIDs.add("null");
+		else if (reviews.get(0) == null) {
+			if (reviews.size() == 1)
+				reviewIDs.add("null");
+			else {
+				reviews.remove(0);
+				for (Review r: reviews)
+					reviewIDs.add(r.toString());
+			}
+		} else {
+			for (Review r: reviews)
+				reviewIDs.add(r.toString());
+		}
+		return reviewIDs;
 	}
 
 	public ArrayList<Review> getReviews() {
@@ -175,10 +202,10 @@ public class Movie implements ISerializable {
 			return null;
 		}
 	}
-	public void createReview(int rating, Account user, String content) {
-		ReviewManager rm = new ReviewManager();
-		Review review = rm.createReview(rating, user, content);
-		//add review into reviews
-			
-	}
+//	public void createReview(int rating, Account user, String content) {
+//		ReviewManager rm = new ReviewManager();
+//		Review review = rm.createReview(rating, user, content);
+//		//add review into reviews
+//			
+//	}
 }

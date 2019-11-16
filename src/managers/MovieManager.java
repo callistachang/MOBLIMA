@@ -42,6 +42,7 @@ public class MovieManager {
 	public void update(int movieID, int attrNum, String attrVal) {
 		Movie movie = getMovieByID(movieID);
 		movie.setAttr(attrNum, attrVal);
+		System.out.println("======");
 		remove(movieID);
 		records.add(movie);
 		updateDatabase();
@@ -59,10 +60,10 @@ public class MovieManager {
 		}
 	}
 	
-//	public void printMovieInfo(int movieID) {
-//		Movie movie = getMovieByID(movieID);
-//		movie.printInfo();
-//	}
+	public void printMovieInfo(int movieID) {
+		Movie movie = getMovieByID(movieID);
+		Printer.printMovieInfo(movie);
+	}
 //	
 //	public void printMovieRatings(int movieID) {
 //		Movie movie = getMovieByID(movieID);
@@ -72,19 +73,19 @@ public class MovieManager {
 	// think should go to cineplex.
 	// it should call on mm to get the movies.
 	// FIND movie by id.
-	public void listAllByCineplex(String cineplexID) {
-		CineplexManager cxm = new CineplexManager();
-		cxm.getAllMovies(cineplexID);
-	}
+//	public void listAllByCineplex(String cineplexID) {
+//		CineplexManager cxm = new CineplexManager();
+//		cxm.getAllMovies(cineplexID);
+//	}
+//	
+//	public void listShowingByCineplex(String cineplexID) {
+//		CineplexManager cxm = new CineplexManager();
+//		cxm.getShowingMovies(cineplexID);
+//	}
 	
-	public void listShowingByCineplex(String cineplexID) {
-		CineplexManager cxm = new CineplexManager();
-		cxm.getShowingMovies(cineplexID);
-	}
-	
-	public void listAttributes() {
-		Movie.printAttributes();
-	}
+//	public void listAttributes() {
+//		Movie.printAttributes();
+//	}
 	
 	private static void initializeDatabase() {
 		ArrayList<String> data = DatabaseHandler.readDatabase(DATABASE_NAME);
@@ -113,6 +114,7 @@ public class MovieManager {
 		ArrayList<Review> reviews = movie.getReviews();
 		reviews.add(newReview);
 		movie.setReviews(reviews);
+		System.out.println(movie.getReviews());
 		int movieIndex = records.indexOf(movie);
 		records.set(movieIndex, movie);
 		

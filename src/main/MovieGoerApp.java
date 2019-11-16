@@ -55,6 +55,7 @@ public class MovieGoerApp extends UserApp {
 					break;
 				case 2:
 					rateMovie();
+					break;
 				case 3:
 					viewBookingHistory();
 					break;
@@ -79,7 +80,6 @@ public class MovieGoerApp extends UserApp {
 					break;
 				}
 		} while (choice != 8);
-		sc.close();
 	}
 	
 	// (1) Book and purchase a movie ticket
@@ -168,7 +168,7 @@ public class MovieGoerApp extends UserApp {
 		do {
 			System.out.println("Please give your rating (between 1-5): ");
 			rating = sc.nextInt();
-		} while (rating <0 || rating >5);
+		} while (rating < 0 || rating > 5);
 
 		System.out.println("Would you like to give a review?(Y/N)");
 		String reviewOption = sc.next();
@@ -176,8 +176,9 @@ public class MovieGoerApp extends UserApp {
 
 		if (reviewOption.compareToIgnoreCase("y") == 0) {
 			System.out.println("Please enter your review:");
-			reviewInput = sc.nextLine();
+			reviewInput = sc.next();
 		}
 		mm.addReviewToMovie(movieId, rating, account, reviewInput);
+		System.out.println("Review Added.");
 	}
 }

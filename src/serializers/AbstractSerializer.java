@@ -2,6 +2,7 @@ package serializers;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.stream.Stream;
 
 import models.ISerializable;
 
@@ -11,7 +12,8 @@ public abstract class AbstractSerializer {
 		ArrayList<String> dataArray = new ArrayList<String>();
 		
 		for (int i = 0; i < objectArray.size(); i++) {
-			dataArray.add(serialize((ISerializable) objectArray.get(i)));
+			ISerializable object = (ISerializable) objectArray.get(i);
+			dataArray.add(serialize(object));
 		}
 		
 		return dataArray;
@@ -35,7 +37,6 @@ public abstract class AbstractSerializer {
 		for (int i = 0; i < objectData.size(); i++) {
 			Object data = objectData.get(i);
 			
-			// if ArrayList, separate by semicolons
 			if (data instanceof ArrayList) {
 				String arraySerialized = "";
 				for (String el: (ArrayList<String>) data)
@@ -47,6 +48,7 @@ public abstract class AbstractSerializer {
 			
 			serializedData += objectData.get(i) + ",";
 		}		
+//		System.out.println(serializedData);
 		return serializedData;
 	}
 		
@@ -56,9 +58,18 @@ public abstract class AbstractSerializer {
 		return data.split(",");
 	}
 	
-	protected ArrayList<String> parseArrayToString(String[] data, int index) {
+	protected ArrayList<String> parseArrayToStrings(String[] data, int index) {
 		String[] splitData = data[index].split(";");
 		return new ArrayList<String>(Arrays.asList(splitData));
+	}
+	
+	protected int[] parseArrayToIntegers(String[] data, int index) {
+		String[] splitDataStr = data[index].split(";");
+		for (int i = 0; i < splitDataStr.length; i++) {
+			if (splitDataStr[i].equals("null"))
+				splitDataStr[i] = "0";
+		}
+	    return Stream.of(splitDataStr).mapToInt(Integer::parseInt).toArray();
 	}
 	
 	protected int parseInteger(String[] data, int index) {
