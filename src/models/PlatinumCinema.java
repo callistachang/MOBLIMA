@@ -7,7 +7,7 @@ public class PlatinumCinema extends Cinema {
 	private static final int NUM_ROWS = 5;
 	private static final int NUM_COLS = 10;
 	
-	public PlatinumCinema(int id, ArrayList<Showtime> showtimes) {
+	public PlatinumCinema(String id, ArrayList<Showtime> showtimes) {
 		super(id, showtimes);
 		// TODO Auto-generated constructor stub
 	}

@@ -72,12 +72,12 @@ public class MovieManager {
 	// think should go to cineplex.
 	// it should call on mm to get the movies.
 	// FIND movie by id.
-	public void listAllByCineplex(int cineplexID) {
+	public void listAllByCineplex(String cineplexID) {
 		CineplexManager cxm = new CineplexManager();
 		cxm.getAllMovies(cineplexID);
 	}
 	
-	public void listShowingByCineplex(int cineplexID) {
+	public void listShowingByCineplex(String cineplexID) {
 		CineplexManager cxm = new CineplexManager();
 		cxm.getShowingMovies(cineplexID);
 	}

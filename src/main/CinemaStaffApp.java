@@ -217,12 +217,12 @@ public class CinemaStaffApp extends UserApp {
 		System.out.println("Which cineplex?");
 		cxm.listAll();
 		System.out.println("Choose a number option:");
-		int cineplexID = sc.nextInt();
+		String cineplexID = sc.next();
 		
 		System.out.println("Which cinema?");
 		cxm.listAllCinemasByCineplex(cineplexID);
 		System.out.println("Choose a number option:");
-		int cinemaID = sc.nextInt();
+		String cinemaID = sc.next();
 		
 		System.out.println("Enter the date. Which year?");
 		int showtimeYear = sc.nextInt();
@@ -274,12 +274,12 @@ public class CinemaStaffApp extends UserApp {
 		System.out.println("Which cineplex?");
 		cxm.listAll();
 		System.out.println("Choose a number option:");
-		int cineplexID = sc.nextInt();		
+		String cineplexID = sc.next();		
 		
 		System.out.println("Which cinema?");
 		cxm.listAllCinemasByCineplex(cineplexID);
 		System.out.println("Choose a number option:");
-		int cinemaID = sc.nextInt();
+		String cinemaID = sc.next();
 		
 		System.out.println("List of showtimes in cinema:");
 		Cinema c = cm.getCinemaByID(cinemaID);
@@ -324,12 +324,12 @@ public class CinemaStaffApp extends UserApp {
 		System.out.println("Which cineplex?");
 		cxm.listAll();
 		System.out.println("Choose a number option:");
-		int cineplexID = sc.nextInt();		
+		String cineplexID = sc.next();		
 		
 		System.out.println("Which cinema?");
 		cxm.listAllCinemasByCineplex(cineplexID);
 		System.out.println("Choose a number option:");
-		int cinemaID = sc.nextInt();
+		String cinemaID = sc.next();
 		
 		System.out.println("List of showtimes in cinema:");
 		Cinema c = cm.getCinemaByID(cinemaID);

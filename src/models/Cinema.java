@@ -3,17 +3,17 @@ package models;
 import java.util.ArrayList;
 
 public abstract class Cinema implements ISerializable {
-	private int id; // must be cinema code
+	private String id; // must be cinema code
 	private ArrayList<Showtime> showtimes;
 	
-	public Cinema(int id, ArrayList<Showtime> showtimes) {
+	public Cinema(String id, ArrayList<Showtime> showtimes) {
 		this.id = id;
 		this.showtimes = showtimes;
 	}
-	public int getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public ArrayList<Showtime> getShowtimes() {

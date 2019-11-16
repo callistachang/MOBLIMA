@@ -17,7 +17,7 @@ public class CinemaManager {
 	
 	public Cinema getCinemaByID(String cinemaID) {
 		for (Cinema c: records) {
-			if (c.getId() == cinemaID) {
+			if (c.getId().equals(cinemaID)) {
 				return c;
 			}
 		}
@@ -42,10 +42,11 @@ public class CinemaManager {
 		for (Showtime showtime: showtimes) {
 			Movie movie = showtime.getMovie();
 			if (movie.getId() == movieID) {
-				System.out.println("CinemaId = " + cinema.getId());
+				System.out.println("CinemaID = " + cinema.getId());
 				System.out.println("Class: " + cinema.getCinemaClass());
 				System.out.println("ShowtimeId: " + showtime.getId());
-				cinema.getTotalNumSeats() - showtime.getTotalNumSeatsTaken();
+				int availableSeats = cinema.getTotalNoSeats() - showtime.getTotalNumSeatsTaken();
+				System.out.println(availableSeats + "are currently available");
 			}
 		}
 	}
@@ -78,7 +79,7 @@ public class CinemaManager {
 		DatabaseHandler.writeToDatabase(DATABASE_NAME, updatedRecords);
 	}
 
-	public void addShowtime(int cinemaID, Showtime showtime) {
+	public void addShowtime(String cinemaID, Showtime showtime) {
 		// TODO Auto-generated method stub
 		//error checking for collisions
 		CinemaManager cm = new CinemaManager();
@@ -87,7 +88,7 @@ public class CinemaManager {
 		
 	}
 
-	public void removeShowtime(int cinemaID, int showtimeID) {
+	public void removeShowtime(String cinemaID, int showtimeID) {
 		// TODO Auto-generated method stub
 		CinemaManager cm = new CinemaManager();
 		ShowtimeManager sm = new ShowtimeManager();

@@ -16,9 +16,9 @@ public class CineplexManager {
 	private static final String DATABASE_NAME = "cineplexdata";
 	private static ArrayList<Cineplex> records = null;
 	
-	public Cineplex getCineplexByID(int cineplexID) {
+	public Cineplex getCineplexByID(String cineplexID) {
 		for (Cineplex cx: records) {
-			if (cx.getId() == cineplexID) {
+			if (cx.getId().equals(cineplexID)) {
 				return cx;
 			}
 		}
@@ -75,7 +75,7 @@ public class CineplexManager {
 //		}
 //	}
 	
-	public void listAllSeatAvailabilitiesInCineplexByMovie(int cineplexID, int movieID) {
+	public void listAllSeatAvailabilitiesInCineplexByMovie(String cineplexID, int movieID) {
 		Cineplex cineplex = getCineplexByID(cineplexID);
 		ArrayList<Cinema> cinemas = cineplex.getCinemas();
 		CinemaManager cm = new CinemaManager();
@@ -90,7 +90,7 @@ public class CineplexManager {
 		
 	}
 
-	public void listAllCinemasByCineplex(int cineplexID) {
+	public void listAllCinemasByCineplex(String cineplexID) {
 		// TODO Auto-generated method stub
 		
 	}
