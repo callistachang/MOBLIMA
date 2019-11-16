@@ -162,6 +162,7 @@ public class CinemaStaffApp extends UserApp {
 		System.out.println("Insert new value for that attribute:");
 		String attrVal = sc.nextLine();
 		
+		System.out.println(attrNum + " " + attrVal);
 		mm.update(movieID, attrNum, attrVal);
 		System.out.println("Successfully updated");
 	}
@@ -193,7 +194,7 @@ public class CinemaStaffApp extends UserApp {
 			System.out.println("Please input a valid option.");
 			break;
 			}
-		} while (!(choice == 'Y' || choice == 'N'));	
+		} while (!(choice == 'Y' || choice == 'y' || choice == 'n' || choice == 'N'));	
 		
 		// ask staff which movie they want to delete (show list of movies)
 		// confirm?

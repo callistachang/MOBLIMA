@@ -50,16 +50,22 @@ public class Movie implements ISerializable {
 		switch (attrNum) {
 			case 1:
 				title = attrVal;
+				break;
 			case 2:
 				status = ShowingStatus.getByValue(attrVal);
+				break;
 			case 3:
 				synopsis = attrVal;
+				break;
 			case 4:
 				director = attrVal;
+				break;
 			case 5:
 				duration = Integer.parseInt(attrVal);
+				break;
 			case 6:
 				type = MovieType.getByValue(attrVal);
+				break;
 		}
 	}
 	
@@ -119,7 +125,9 @@ public class Movie implements ISerializable {
 		ArrayList<String> reviewIDs = new ArrayList<String>();
 		ArrayList<Review> reviews = getReviews();
 		
-		if (reviews.get(0) == null) {
+		if (reviews == null)
+			reviewIDs.add("null");
+		else if (reviews.get(0) == null) {
 			if (reviews.size() == 1)
 				reviewIDs.add("null");
 			else {
