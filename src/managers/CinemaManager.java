@@ -77,4 +77,33 @@ public class CinemaManager {
 		ArrayList<String> updatedRecords = serializer.serialize(records);
 		DatabaseHandler.writeToDatabase(DATABASE_NAME, updatedRecords);
 	}
+
+	public void addShowtime(int cinemaID, Showtime showtime) {
+		// TODO Auto-generated method stub
+		//error checking for collisions
+		CinemaManager cm = new CinemaManager();
+		Cinema cinema = cm.getCinemaByID(cinemaID);
+		cinema.getShowtimes().add(showtime);
+		
+	}
+
+	public void removeShowtime(int cinemaID, int showtimeID) {
+		// TODO Auto-generated method stub
+		CinemaManager cm = new CinemaManager();
+		ShowtimeManager sm = new ShowtimeManager();
+		Cinema cinema = cm.getCinemaByID(cinemaID);
+		Showtime showtime = sm.getShowtimeByID(showtimeID);
+		ArrayList<Showtime> showtimes = cinema.getShowtimes();
+		showtimes.remove(showtimes.indexOf(showtime));
+	}
+
+	public Cinema getCinemaByShowtimeID(int showtimeID) {
+		// TODO Auto-generated method stub
+		for(Cinema c: records) {
+			for (Showtime s: c.getShowtimes()) {
+				if(s.getId() == showtimeID) return c;
+			}
+		}
+		return null;
+	}
 }

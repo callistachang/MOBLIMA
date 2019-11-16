@@ -9,6 +9,7 @@ import models.Movie;
 import models.Showtime;
 import serializers.AbstractSerializer;
 import serializers.CinemaSerializer;
+import serializers.CineplexSerializer;
 import serializers.MovieSerializer;
 
 public class CineplexManager {

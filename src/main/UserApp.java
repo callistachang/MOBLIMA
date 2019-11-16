@@ -63,12 +63,12 @@ public class UserApp {
 		MovieManager mm = new MovieManager();
 		CineplexManager cxm = new CineplexManager();
 		
-		System.out.println("(1) List all movies");
-		System.out.println("(2) Filter by cineplex");
-		System.out.println("(3) Exit");
-		
 		int choice;
 		do {
+			System.out.println("(1) List all movies");
+			System.out.println("(2) Filter by cineplex");
+			System.out.println("(3) Exit");
+			
 			System.out.println("Choose a number option:");
 			choice = sc.nextInt();
 			switch (choice) {

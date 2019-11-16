@@ -88,7 +88,6 @@ public class MoblimaApp {
 		app.run();
 	}
 	
-	
 	public void createNewAccount() {
 		Scanner sc = new Scanner(System.in);
 		String username = null, password = null, confirmPassword = null, mobileNumber = null, emailAddress = null;
@@ -110,9 +109,10 @@ public class MoblimaApp {
 				case 4:
 					System.out.println("Enter Age:");
 					age = sc.nextInt();
+					sc.nextLine();
 				case 5:
 					System.out.println("Enter mobile number:");
-					mobileNumber = sc.next();
+					mobileNumber = sc.nextLine();
 				case 6:
 					System.out.println("Enter email address:");
 					emailAddress = sc.nextLine();
@@ -127,7 +127,7 @@ public class MoblimaApp {
 			}
 			
 			System.out.println("Press (Y) to retry, and any other key to exit:");
-			if (sc.next().compareToIgnoreCase("y") != 0)
+			if (sc.nextLine().compareToIgnoreCase("y") != 0)
 				break;
 		}
 	}

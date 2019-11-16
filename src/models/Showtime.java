@@ -8,7 +8,6 @@ import java.util.HashMap;
 
 public class Showtime implements ISerializable {
 	public int id;
-	public int cinemaId;
 	public LocalDate date;
 	public LocalTime time;
 	public Movie movie;
@@ -60,13 +59,13 @@ public class Showtime implements ISerializable {
 		this.movie = movie;
 	}
 
-	public Cinema getCinema() {
-		return cinema;
-	}
-
-	public void setCinema(Cinema cinema) {
-		this.cinema = cinema;
-	}
+//	public Cinema getCinema() {
+//		return cinema;
+//	}
+//
+//	public void setCinema(Cinema cinema) {
+//		this.cinema = cinema;
+//	}
 
 	public LocalDate getDate() {
 		return date;

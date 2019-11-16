@@ -54,19 +54,19 @@ public class MovieManager {
 	
 	public void listAll() {
 		for (Movie m: records) {
-			System.out.println("(ID: " + m.getId() + ") " + m.getTitle());
+			System.out.printf("(ID: %d) %s (%s)\n", m.getId(), m.getTitle(), m.getType().toString());
 		}
 	}
 	
-	public void printMovieInfo(int movieID) {
-		Movie movie = getMovieByID(movieID);
-		movie.printInfo();
-	}
-	
-	public void printMovieRatings(int movieID) {
-		Movie movie = getMovieByID(movieID);
-		movie.printReviews();
-	}
+//	public void printMovieInfo(int movieID) {
+//		Movie movie = getMovieByID(movieID);
+//		movie.printInfo();
+//	}
+//	
+//	public void printMovieRatings(int movieID) {
+//		Movie movie = getMovieByID(movieID);
+//		movie.printReviews();
+//	}
 	
 	// think should go to cineplex.
 	// it should call on mm to get the movies.
