@@ -23,6 +23,7 @@ public class MovieSerializer extends AbstractSerializer {
 		ReviewSerializer rs = new ReviewSerializer();
 		ArrayList<Review> reviews = rs.parseIdArrayToReview(parseArrayToIntegers(d, 7));
 		
+		
 		return new Movie(id, d[1], ShowingStatus.getByValue(d[2]), d[3], d[4], casts, 
 				duration, reviews, MovieType.getByValue(d[8]));
 	}

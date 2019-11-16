@@ -55,6 +55,7 @@ public class MovieGoerApp extends UserApp {
 					break;
 				case 2:
 					rateMovie();
+					break;
 				case 3:
 					viewBookingHistory();
 					break;
@@ -176,7 +177,7 @@ public class MovieGoerApp extends UserApp {
 
 		if (reviewOption.compareToIgnoreCase("y") == 0) {
 			System.out.println("Please enter your review:");
-			reviewInput = sc.nextLine();
+			reviewInput = sc.next();
 		}
 		mm.addReviewToMovie(movieId, rating, account, reviewInput);
 		System.out.println("Review Added.");

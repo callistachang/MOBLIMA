@@ -119,11 +119,17 @@ public class Movie implements ISerializable {
 		ArrayList<String> reviewIDs = new ArrayList<String>();
 		ArrayList<Review> reviews = getReviews();
 		
-		if (reviews.get(0) != null) {
-			for (Review r: reviews) {
-				String id = r.toString();
-				reviewIDs.add(r.toString());
+		if (reviews.get(0) == null) {
+			if (reviews.size() == 1)
+				reviewIDs.add("null");
+			else {
+				reviews.remove(0);
+				for (Review r: reviews)
+					reviewIDs.add(r.toString());
 			}
+		} else {
+			for (Review r: reviews)
+				reviewIDs.add(r.toString());
 		}
 		return reviewIDs;
 	}
@@ -188,10 +194,10 @@ public class Movie implements ISerializable {
 			return null;
 		}
 	}
-	public void createReview(int rating, Account user, String content) {
-		ReviewManager rm = new ReviewManager();
-		Review review = rm.createReview(rating, user, content);
-		//add review into reviews
-			
-	}
+//	public void createReview(int rating, Account user, String content) {
+//		ReviewManager rm = new ReviewManager();
+//		Review review = rm.createReview(rating, user, content);
+//		//add review into reviews
+//			
+//	}
 }

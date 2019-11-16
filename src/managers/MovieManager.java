@@ -113,6 +113,7 @@ public class MovieManager {
 		ArrayList<Review> reviews = movie.getReviews();
 		reviews.add(newReview);
 		movie.setReviews(reviews);
+		System.out.println(movie.getReviews());
 		int movieIndex = records.indexOf(movie);
 		records.set(movieIndex, movie);
 		
