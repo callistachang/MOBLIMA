@@ -12,14 +12,10 @@ import serializers.ShowtimeSerializer;
 public class ReviewManager {
 	private static final String DATABASE_NAME = "reviewdata";
 	private static ArrayList<Review> records = null;
-	public static ArrayList<Review> getRecords() {
-		return records;
-	}
-	public static void setRecords(ArrayList<Review> records) {
-		ReviewManager.records = records;
-	}
-	public static String getDatabaseName() {
-		return DATABASE_NAME;
+	
+	public ReviewManager() {
+		if (records == null)
+			initializeDatabase();
 	}
 	
 	public Review getReviewByID(int reviewID) {
@@ -31,14 +27,20 @@ public class ReviewManager {
 		return null;
 	}
 	
-	
-	public ArrayList<Review> getReviews(ArrayList<Integer> id){
-		int i;
-		for (i=0; i<id.size();i++) {
-			//get the reviews from database, which matches the id
-			//System.out.println(Review.getReview());
-		}
+	public Review create(int rating, Account account, String content) {
+		Review review = new Review(records.size()+1, rating, account, content);
+		records.add(review);
+		updateDatabase();
+		return review;
 	}
+	
+//	public ArrayList<Review> getReviews(ArrayList<Integer> id){
+//		int i;
+//		for (i=0; i<id.size();i++) {
+//			//get the reviews from database, which matches the id
+//			//System.out.println(Review.getReview());
+//		}
+//	}
 	
 	private static void initializeDatabase() {
 		ArrayList<String> data = DatabaseHandler.readDatabase(DATABASE_NAME);

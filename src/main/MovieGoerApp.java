@@ -154,7 +154,7 @@ public class MovieGoerApp extends UserApp {
 		
 		MovieManager mm = new MovieManager();
 		
-		System.out.println("Which movie would you like to watch?");
+		System.out.println("Which movie would you like to rate/review?");
 		mm.listAll();
 		System.out.println("Choose a number option:");
 		int movieId = sc.nextInt();
@@ -163,24 +163,16 @@ public class MovieGoerApp extends UserApp {
 		do {
 			System.out.println("Please give your rating (between 1-5): ");
 			rating = sc.nextInt();
-		}while (rating <0 || rating >5);
+		} while (rating <0 || rating >5);
 
 		System.out.println("Would you like to give a review?(Y/N)");
-		String review_option = sc.next();
-		do {
-			if (review_option.compareToIgnoreCase("y") == 0) {
-				System.out.println("Please enter your review");
-				String review_input = sc.next();
-				mm.createReview(movieId, rating, account, review_input);
-				break;
-			}
-			else if (review_option.compareToIgnoreCase("n") == 0) {
-				mm.createReview(movieId, rating, account, null);
-				break;
-			}
-			
-		} while (true);
-		
-		
+		String reviewOption = sc.next();
+		String reviewInput = null;
+
+		if (reviewOption.compareToIgnoreCase("y") == 0) {
+			System.out.println("Please enter your review:");
+			reviewInput = sc.nextLine();
+		}
+		mm.addReviewToMovie(movieId, rating, account, reviewInput);
 	}
 }
