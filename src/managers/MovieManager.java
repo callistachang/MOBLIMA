@@ -55,6 +55,7 @@ public class MovieManager {
 	}
 	
 	public void listAll() {
+		System.out.println("The list of all movies is as follows: ");
 		for (Movie m: records) {
 			System.out.printf("(ID: %d) %s (%s)\n", m.getId(), m.getTitle(), m.getType().toString());
 		}
