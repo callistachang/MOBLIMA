@@ -165,5 +165,9 @@ public abstract class Cinema implements ISerializable {
 			showtimes = new ArrayList<Showtime>();
 		}
 		showtimes.add(showtime);
+		
+	}
+	public void removeShowtime(Showtime showtime) {
+		showtimes.remove(showtime);
 	}
 }

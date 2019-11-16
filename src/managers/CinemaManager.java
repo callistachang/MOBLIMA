@@ -93,14 +93,14 @@ public class CinemaManager {
 		updateDatabase();
 	}
 
-	public void removeShowtime(String cinemaID, int showtimeID) {
-		// TODO Auto-generated method stub
-		CinemaManager cm = new CinemaManager();
-		ShowtimeManager sm = new ShowtimeManager();
-		Cinema cinema = cm.getCinemaByID(cinemaID);
-		Showtime showtime = sm.getShowtimeByID(showtimeID);
+	public void removeShowtime(Cinema cinema, Showtime showtime) {
+
 		ArrayList<Showtime> showtimes = cinema.getShowtimes();
-		showtimes.remove(showtimes.indexOf(showtime));
+		boolean removed = showtimes.remove(showtime);
+		if (!removed) {
+			System.out.println("Showtime not found!");
+		}
+		updateDatabase();
 	}
 
 	public Cinema getCinemaByShowtimeID(int showtimeID) {

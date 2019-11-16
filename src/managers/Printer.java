@@ -56,18 +56,26 @@ public class Printer {
 	}
 	
 	public static void printShowtimeAttributes(Showtime showtime) {
-//		System.out.println("ShowtimeID: " + showtime.getId());
-//		System.out.println("(1) Movie: " + showtime.getMovie().getTitle());
 		System.out.println("(1) Movie: ");
 		System.out.println("(2) Date: ");
 		System.out.println("(3) Time: ");
 	}
 	
+	public static void printShowtimeDetails(Showtime showtime) {
+		System.out.println("ShowtimeID: " + showtime.getId());
+		MovieManager mm = new MovieManager();
+		int movieID = showtime.getMovieID();
+		Movie movie = mm.getMovieByID(movieID);
+		System.out.println("(1) Movie: " + movie.getTitle());
+		System.out.println("(2) Date: " + showtime.getDate());
+		System.out.println("(3) Time: " + showtime.getTime());
+	}
+	
 
-	public static void printShowtimes(Cinema cinema) {
+	public static void printShowtimeDetails(Cinema cinema) {
 		System.out.println("Cinema ID: " + cinema.getId());
 		for(Showtime showtime : cinema.getShowtimes()) {
-			printShowtimeAttributes(showtime);
+			printShowtimeDetails(showtime);
 		}
 	}
 }
