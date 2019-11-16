@@ -36,20 +36,24 @@ public class CinemaStaffApp extends UserApp {
 		int choice = -1;
 		Scanner sc = new Scanner(System.in);
 				
-		System.out.println("================== Cinema Staff Menu ==================");
+		
 		int i;
-		for (i = 1; i <= menuOptions.length; i++) {
-			System.out.printf("(%d) %s \n", i, menuOptions[i-1]);
-		}
-		System.out.println("=======================================================");
-		String[] guestOptions = super.getMenuOptions();
-		for (int j = 1; j <= guestOptions.length; i++, j++) {
-			System.out.printf("(%d) %s \n", i, guestOptions[j-1]);
-		}
-		System.out.printf("(%d) %s \n", i, "Exit");
-		System.out.println("=======================================================");
+		int j;
+		
 		
 		do {
+			System.out.println("================== Cinema Staff Menu ==================");
+			for (i = 1; i <= menuOptions.length; i++) {
+				System.out.printf("(%d) %s \n", i, menuOptions[i-1]);
+			}
+			System.out.println("=======================================================");
+			String[] guestOptions = super.getMenuOptions();
+			for (j = 1; j <= guestOptions.length; i++, j++) {
+				System.out.printf("(%d) %s \n", i, guestOptions[j-1]);
+			}
+			System.out.printf("(%d) %s \n", i, "Exit");
+			System.out.println("=======================================================");
+			
 			System.out.print("\nChoose an option: ");
 			choice = sc.nextInt();
 			switch (choice) {
@@ -238,13 +242,12 @@ public class CinemaStaffApp extends UserApp {
 //		LocalDate date = Formatter.getLocalDateFromString("2019-10-10");
 //		LocalTime time = Formatter.getLocalTimeFromString("23:23:23");
 		
-		// TODO MOmentarily deleted
 		
-		System.out.println("Enter the date in yyyy-mm-dd format.");
+		System.out.println("Enter the date in yyyy-MM-dd format.");
 		String dateInput = sc.next();
 		LocalDate date = Formatter.getLocalDateFromString(dateInput);
 		
-		System.out.println("Enter the time in hh:mm:ss format.");
+		System.out.println("Enter the new time in HH:mm:ss format");
 		String timeInput = sc.next();
 		LocalTime time = Formatter.getLocalTimeFromString(timeInput);
 		
@@ -261,12 +264,16 @@ public class CinemaStaffApp extends UserApp {
 		CineplexManager cxm = new CineplexManager();
 		CinemaManager cm = new CinemaManager();
 		ShowtimeManager sm = new ShowtimeManager();
-
+		
+		// choose a movie i wanna update.
 		System.out.println("Choose a movie:");
 		mm.listAll();
 		System.out.println("Choose a number option:");
 		int movieID = sc.nextInt();
-		Movie movie = mm.getMovieByID(movieID);
+//		Movie movie = mm.getMovieByID(movieID);
+		
+		
+		// choose the cineplex.
 		System.out.println("Which cineplex?");
 		cxm.listAll();
 		System.out.println("Choose a number option:");
@@ -290,33 +297,26 @@ public class CinemaStaffApp extends UserApp {
 		case(1):{
 			mm.listAll();
 			System.out.println("Enter the new movie id:");
-			int movieIdInput = sc.nextInt();
-			showtime.setMovieID(movieIdInput);
 			break;
 		}
 		case(2):{
-			System.out.println("Enter the new date in DDMMYYYY format.");
-			String dateInput = sc.next();
-			LocalDate newDate = dateInput(dateInput);
-			showtime.setDate(newDate);
+			System.out.println("Enter the new date in yyyy-MM-dd format.");
 			break;
 		}
 		case(3):{
-			System.out.println("Enter the new time in 24-hour format.");
-			String timeInput = sc.next();
-			LocalTime newTime = timeInput(timeInput);
-			showtime.setTime(newTime);
+			System.out.println("Enter the new time in HH:mm:ss format.");
 			break;
 		}
-		
 		}
+		String updateInput = sc.next();
+		sm.update(showtime, choice, updateInput);
 		
 		
 		  
 	}
 	
 	private void removeMovieShowtime() {
-Scanner sc = new Scanner(System.in);
+		Scanner sc = new Scanner(System.in);
 		
 		MovieManager mm = new MovieManager();
 		CineplexManager cxm = new CineplexManager();
@@ -342,7 +342,7 @@ Scanner sc = new Scanner(System.in);
 		Printer.printShowtimes(cinema);
 		System.out.println("Choose a number option:"); // int showtimeRow =
 		int showtimeId = sc.nextInt();
-		Showtime showtime = sm.getShowtimeByID(showtimeId);
+//		Showtime showtime = sm.getShowtimeByID(showtimeId);
 		
 		
 		
@@ -415,23 +415,4 @@ Scanner sc = new Scanner(System.in);
 		// then update the prices in the prices csv file.
 	}
 	
-	public static LocalDate dateInput(String userInput) {
-
-	    DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-	    LocalDate date = LocalDate.parse(userInput, dateFormat);
-
-
-	    System.out.println(date);
-	    return date ;
-	}
-	
-	public static LocalTime timeInput(String userInput) {
-
-	    DateTimeFormatter timeFormat = DateTimeFormatter.ofPattern("HH-mm");
-	    LocalTime time = LocalTime.parse(userInput, timeFormat);
-
-
-	    System.out.println(time);
-	    return time;
-	}
 }

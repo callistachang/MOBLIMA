@@ -18,6 +18,8 @@ public class CinemaSerializer extends AbstractSerializer {
 		String[] d = splitByAttribute(data);
 		ArrayList<Integer> showtimesInt = splitArrayToIntegers(d[1]);
 		ArrayList<Showtime> showtimes = parseIdArrayToShowtime(showtimesInt);
+		System.out.println("CinemaSerializerShowtimes " + showtimesInt);
+		System.out.println("CinemaSerializerShowtimes " + showtimes);
 		
 		if (d[2].equals("Gold"))
 			return new GoldCinema(d[0], showtimes);

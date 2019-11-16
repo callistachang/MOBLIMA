@@ -79,5 +79,12 @@ public class ShowtimeManager {
 	}
 	public void removeShowtime(Showtime showtime) {
 		records.remove(showtime);
+		updateDatabase();
+	}
+	
+	public void update(Showtime showtime, int attrNum, String attrVal) {
+		showtime.setAttr(attrNum, attrVal);
+		System.out.println("======");
+		updateDatabase();
 	}
 }

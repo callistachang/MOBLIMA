@@ -138,7 +138,7 @@ public class MovieGoerApp extends UserApp {
 //		}
 //				
 //		
-//		System.out.println("The total price is: " + price);
+//		System.out.println("The1 total price is: " + price);
 		
 		
 //		String TID = bm.addReceipt(c.getId(),showtimeID, price);

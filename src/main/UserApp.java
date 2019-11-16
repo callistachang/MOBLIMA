@@ -172,7 +172,7 @@ public class UserApp {
 		System.out.println("Which cineplex?");
 		cxm.listCineplexByMovie(movieID);
 
-		System.out.println("Choose a number option:");
+		System.out.println("Enter cineplexID:");
 		String cineplexID = sc.next();
 		Cineplex cineplex = cxm.getCineplexByID(cineplexID);
 		
