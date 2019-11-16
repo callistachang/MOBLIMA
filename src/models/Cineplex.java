@@ -4,12 +4,29 @@ import java.util.ArrayList;
 
 import models.Movie.ShowingStatus;
 
-public class Cineplex {
+public class Cineplex implements ISerializable {
 	private String id;
 	private String name;
 	private ArrayList<Cinema> cinemas;
 //	private ArrayList<Integer> movieIDs;
 	
+	public Cineplex(String id, String name, ArrayList<Cinema> cinemas) {
+		this.id = id;
+		this.name = name;
+		this.cinemas = cinemas;
+	}
+	
+	@Override
+	public ArrayList<Object> getSerializableData() {
+		ArrayList<Object> data = new ArrayList<Object>();
+		data.add(getId());
+		data.add(getName());
+		data.add(getCinemas());
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
 	public String getId() {
 		return id;
 	}
@@ -44,6 +61,7 @@ public class Cineplex {
 //		}
 //		return showingMovies;
 //	}
+
 }
 
 

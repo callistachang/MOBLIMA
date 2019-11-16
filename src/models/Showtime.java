@@ -11,20 +11,31 @@ public class Showtime implements ISerializable {
 	private LocalTime time;
 	private Movie movie;
 	private ArrayList <Integer> seatsTaken; // HOW should i serialize this.
-	
+
 	//	public Cinema cinema;
 	// NOT SURE if we should do the conversion of date string to LocalDate in the constructor OR in the ShowtimeManager
 	// Since this is technically like the 'weak entity' between Movie and Cinema, should we include transactional details
 	// E.g. Whether the movie is 3D or something, lol
-	
-	public Showtime(int id, LocalDate date, LocalTime time, Movie movie) {
+
+	public ArrayList<Object> getSerializableData() {
+		ArrayList<Object> data = new ArrayList<Object>();
+		data.add(getId());
+		data.add(getDateAsString());
+		data.add(getDateAsTime());
+		data.add(getMovie().getId());
+		data.add(getSeatsTaken());
+		return null;
+	}
+
+	public Showtime(int id, LocalDate date, LocalTime time, Movie movie, ArrayList<Integer> seatsTaken) {
 		super();
 		this.id = id;
 		this.date = date;
 		this.time = time;
 		this.movie = movie;
-		this.seatsTaken = null;
+		this.seatsTaken = seatsTaken;
 	}
+
 	public int getId() {
 		return id;
 	}
@@ -49,12 +60,12 @@ public class Showtime implements ISerializable {
 		this.date = date;
 		this.time = time;
 	}
-	
-	public String formatDateToString() {
+
+	public String getDateAsString() {
 		return this.date.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 	}
-	
-	public String formatTimeToString() {
+
+	public String getDateAsTime() {
 		return this.time.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
 	}
 
@@ -83,10 +94,8 @@ public class Showtime implements ISerializable {
 		this.time = time;
 	}
 
-	public ArrayList<Object> getSerializableData() {
-		return null;
-	}
-	
+
+
 	public int getNoSeatsTaken() {
 		return seatsTaken.size();
 	}

@@ -23,6 +23,11 @@ public class BookingManager {
 	private static final String DATABASE_NAME = "bookingdata";
 	private static ArrayList<Booking> records = null;
 	
+	public BookingManager() {
+		if (records == null)
+			initializeDatabase();
+	}
+	
 	public Booking getBookingByID(String bookingTID) {
 		for (Booking b: records) {
 			if (b.getTID().equals(bookingTID)) {

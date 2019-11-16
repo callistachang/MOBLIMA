@@ -18,11 +18,11 @@ public class UserApp {
 		"Check seat availabilities",
 		"List top five movies"
 	};
-	
+
 	public void run() {
 		int choice = -1;
 		Scanner sc = new Scanner(System.in);
-		
+
 		do {
 			System.out.println("===================== Guest Menu ======================");
 			int i;
@@ -31,7 +31,7 @@ public class UserApp {
 			}
 			System.out.printf("(%d) %s \n", i, "Exit");
 			System.out.println("=======================================================");
-			
+
 			System.out.print("\nChoose an option: ");
 			choice = sc.nextInt();
 			switch (choice) {
@@ -58,19 +58,20 @@ public class UserApp {
 		} while (choice != 5);
 		sc.close();
 	}
-		
+
 	protected void listMovies() {
 		Scanner sc = new Scanner(System.in);
-		
+
 		MovieManager mm = new MovieManager();
 		CineplexManager cxm = new CineplexManager();
-		
+
 		int choice;
 		do {
+			System.out.println("==========Movie Listing Menu==========");
 			System.out.println("(1) List all movies");
 			System.out.println("(2) Filter by cineplex");
 			System.out.println("(3) Exit");
-			
+
 			System.out.println("Choose a number option:");
 			choice = sc.nextInt();
 			switch (choice) {
@@ -81,21 +82,23 @@ public class UserApp {
 					System.out.println("Choose a cineplex:");
 					cxm.listAllCineplexes();		// prints out all the cineplexes
 					String cineplexID = sc.next();	// user inputs chosen cineplex
-					Cineplex cineplex = cxm.getCineplexByID(cineplexID);
+
 					System.out.println("(1) Get all movies from the cineplex");
 					System.out.println("(2) Get only showing movies from the cineplex");
-					
-					int allOrShowingChoice;
+
+					int allOrShowingChoice = 0;
 					do {
 						System.out.println("Choose a number option:");
 						allOrShowingChoice = sc.nextInt();
-					} while (allOrShowingChoice != 1 || allOrShowingChoice != 2);
-					
+					} while (allOrShowingChoice != 1 && allOrShowingChoice != 2);
+
 					switch (allOrShowingChoice) {
 						case 1:
-							cxm.listAllByCineplex(cineplex);
+							cxm.listAllMovies(cineplexID);
+							System.out.println("Success!");
+							break;
 						case 2:
-							cxm.listShowingByCineplex(cineplex);
+//							cxm.listAllShowingMovies(cineplexID);
 					}
 					break;
 				case 3:
@@ -111,9 +114,9 @@ public class UserApp {
 // (3) View movie details (including reviews and ratings)
 	protected void viewMovieDetails() {
 		Scanner sc = new Scanner(System.in);
-		
+
 		MovieManager mm = new MovieManager();
-		
+
 		System.out.println("Which movie would you like to query?");
 		mm.listAll();
 		System.out.println("Type ID of movie:");
@@ -123,9 +126,9 @@ public class UserApp {
 		do {
 			System.out.println("Please select from the options below:");
 			System.out.println("(1) Movie Information");
-			System.out.println("(2) Movie Ratings and Reviews");	
+			System.out.println("(2) Movie Ratings and Reviews");
 			System.out.println("(3) Exit");
-			
+
 			System.out.println("Choose an option");
 			choice = sc.nextInt();
 			switch (choice) {
@@ -143,7 +146,7 @@ public class UserApp {
 					break;
 			}
 		} while (choice != 3);
-		
+
 		// Ask user which movie they want to query.
 
 		// Read from an external CSV file containing movie information, but find only
@@ -157,10 +160,10 @@ public class UserApp {
 // (4) Check seat availabilities
 	protected void checkSeatAvailabilities() {
 		Scanner sc = new Scanner(System.in);
-		
+
 		MovieManager mm = new MovieManager();
 		CineplexManager cxm = new CineplexManager();
-		
+
 		System.out.println("Which movie would you like to view?");
 		mm.listAll();
 		System.out.println("Choose a number option:");
@@ -168,17 +171,17 @@ public class UserApp {
 		Movie movie = mm.getMovieByID(movieID)
 		System.out.println("Which cineplex?");
 		cxm.listAllByMovie(movie);
-		
+
 		System.out.println("Choose a number option:");
 		int cineplexID = sc.nextInt();
 
 		System.out.println("Showtimes Available:");
 		cxm.listAllSeatAvailabilitiesInCineplexByMovie(cineplexID, movieID);
-		
+
 //		cxm.listAllShowtimesInCineplexByMovie(cineplexID, movieID);
-		
-		
-		
+
+
+
 //		  //// Scanner sc = new Scanner(System.in); //// //// MovieManager mm = new
 //		  MovieManager(); //// CineplexManager cxm = new CineplexManager(); //// ////
 //		  System.out.println("Which movie would you like to view?"); //// int
@@ -191,7 +194,7 @@ public class UserApp {
 //		  cxm.returnCineplexID(cineplexRow); // ////
 //		  System.out.println("Showtimes Available:"); //// int noOfShowtimes =
 //		  cm.listAll();
-		 
+
 
 		// ask user to pick cineplex
 		// then pick movie
@@ -213,7 +216,7 @@ public class UserApp {
 		System.out.println("(1) Ticket Sales");
 		System.out.println("(3) Reviewer Ratings");
 		System.out.println("Choose a number option:");
-		
+
 		int choice;
 		do {
 			System.out.println("Choose an option");

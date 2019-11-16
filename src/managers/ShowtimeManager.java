@@ -13,6 +13,11 @@ import serializers.ShowtimeSerializer;
 public class ShowtimeManager {
 	private static final String DATABASE_NAME = "showtimedata";
 	protected static ArrayList<Showtime> records = null;
+	
+	public ShowtimeManager() {
+		if (records == null)
+			initializeDatabase();
+	}
 
 	public int listAll() {
 		return 0; //to change the code accordingly 
