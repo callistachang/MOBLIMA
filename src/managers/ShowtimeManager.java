@@ -1,5 +1,7 @@
 package managers;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 
 import handlers.DatabaseHandler;
@@ -51,5 +53,21 @@ public class ShowtimeManager {
 	}
 	public void bookSeat(Showtime showtime, int seatNo) {
 		showtime.bookSeat(seatNo);
+	}
+	
+	public void createShowtime(LocalDate date, LocalTime time, Movie movie, ArrayList<Integer> seatsTaken) {
+		int i, id = 0;
+		Showtime showtimeCheck = records.get(0);
+		for(i=0; i<records.size(); i++) {
+			showtimeCheck = records.get(i);
+			if (showtimeCheck.getId() == i+1) {
+				id = showtimeCheck.getId();
+			}
+		}
+		if (id == 0){
+			id = records.size() + 1;
+		}
+		Showtime showtime = new Showtime(id, date, time, movie, seatsTaken);
+		records.add(showtime);
 	}
 }
