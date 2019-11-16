@@ -136,7 +136,7 @@ public class UserApp {
 					Printer.printMovieInfo(movie);
 					break;
 				case 2:
-					Printer.printMovieRatings(movie);
+					Printer.printMovieReviews(movie);
 					break;
 				case 3:
 					System.out.println("Exited from Movie Details Menu.");
@@ -168,15 +168,16 @@ public class UserApp {
 		mm.listAll();
 		System.out.println("Choose a number option:");
 		int movieID = sc.nextInt();
-		Movie movie = mm.getMovieByID(movieID)
+		Movie movie = mm.getMovieByID(movieID);
 		System.out.println("Which cineplex?");
-		cxm.listAllByMovie(movie);
+		cxm.listCineplexByMovie(movie);
 
 		System.out.println("Choose a number option:");
-		int cineplexID = sc.nextInt();
-
+		String cineplexID = sc.next();
+		Cineplex cineplex = cxm.getCineplexByID(cineplexID);
+		
 		System.out.println("Showtimes Available:");
-		cxm.listAllSeatAvailabilitiesInCineplexByMovie(cineplexID, movieID);
+		cxm.listAllSeatAvailabilitiesInCineplexByMovie(cineplex, movie);
 
 //		cxm.listAllShowtimesInCineplexByMovie(cineplexID, movieID);
 

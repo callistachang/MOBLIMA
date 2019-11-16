@@ -225,13 +225,12 @@ public class CinemaStaffApp extends UserApp {
 		cxm.listAll();
 		System.out.println("Choose a number option:");
 		String cineplexID = sc.next();
-		
+		Cineplex cineplex = cxm.getCineplexByID(cineplexID);
 		System.out.println("Which cinema?");
-		cxm.listAllCinemasByCineplex(cineplexID);
+		cxm.listAllCinemasByCineplex(cineplex);
 		System.out.println("Choose a number option:");
 		String cinemaID = sc.next();
 		Cinema cinema = cm.getCinemaByID(cinemaID);
-
 		System.out.println("Enter the date in DDMMYYYY format.");
 		String dateInput = sc.next();
 		LocalDate date = dateInput(dateInput);
@@ -285,66 +284,69 @@ public class CinemaStaffApp extends UserApp {
 		int showtimeId = sc.nextInt();
 		Showtime showtime = sm.getShowtimeByID(showtimeId);
 		
+		Printer.printShowtimeAttributes(showtime); //
+		System.out.println("Choose a number option:");
+		int choice = sc.nextInt();
+		switch(choice) {
+		case(1):{
+			mm.listAll();
+			System.out.println("Enter the new movie id:");
+			int movieIdInput = sc.nextInt();
+			Movie newMovie = mm.getMovieByID(movieIdInput);
+			showtime.setMovie(newMovie);
+			break;
+		}
+		case(2):{
+			System.out.println("Enter the new date in DDMMYYYY format.");
+			String dateInput = sc.next();
+			LocalDate newDate = dateInput(dateInput);
+			showtime.setDate(newDate);
+			break;
+		}
+		case(3):{
+			System.out.println("Enter the new time in 24-hour format.");
+			String timeInput = sc.next();
+			LocalTime newTime = timeInput(timeInput);
+			showtime.setTime(newTime);
+			break;
+		}
+		
+		}
 		
 		
-		System.out.println("Enter the new date in DDMMYYYY format.");
-		String dateInput = sc.next();
-		LocalDate date = dateInput(dateInput);
-		System.out.println("Enter the new time in 24-hour format.");
-		String timeInput = sc.next();
-		LocalTime time = timeInput(timeInput);
-		Showtime showtime = sm.createShowtime(date, time, movie);
-
-		println("Which attribute would you like to change about the movie?"); //
-		Printer.showShowtimeAttributes(showtime); //
-		  System.out.println("Choose a number option:");
-		
-		
-		  System.out.println("Which showtime would you like to update?"); // int
-		  noOfShowtimes = cam.listAll(); //
-		  System.out.println("Choose a number option:"); // int showtimeRow =
-		  sc.nextInt(); // int showtimeID = sm.returnShowtimeID(showtimeRow);
 		  
-		  
-		  // System.out.
-		  println("Which attribute would you like to change about the movie?"); //
-		  sm.showAttributes(showtimeID); //
-		  System.out.println("Choose a number option:"); // int attr = sc.nextInt();
-		  
-		  //sm.update(option);
-		  
-		  
-		  // ask for movie (show list of movies) // ask for cineplex (show list of
-		  cineplexes) // program will list out all the showtimes for that movie in that
-		  cineplex. // choose to update the timings. // update to movie showtime
-		  database
 	}
 	
 	private void removeMovieShowtime() {
-		Scanner sc = new Scanner(System.in);
+Scanner sc = new Scanner(System.in);
 		
+		MovieManager mm = new MovieManager();
 		CineplexManager cxm = new CineplexManager();
 		CinemaManager cm = new CinemaManager();
 		ShowtimeManager sm = new ShowtimeManager();
 
+		System.out.println("Choose a movie:");
+		mm.listAll();
+		System.out.println("Choose a number option:");
+		int movieID = sc.nextInt();
+		Movie movie = mm.getMovieByID(movieID);
 		System.out.println("Which cineplex?");
 		cxm.listAll();
 		System.out.println("Choose a number option:");
-		String cineplexID = sc.next();		
-		
+		String cineplexID = sc.next();
+		Cineplex cineplex = cxm.getCineplexByID(cineplexID);
 		System.out.println("Which cinema?");
-		cxm.listAllCinemasByCineplex(cineplexID);
+		cxm.listAllCinemasByCineplex(cineplex);
 		System.out.println("Choose a number option:");
 		String cinemaID = sc.next();
+		Cinema cinema = cm.getCinemaByID(cinemaID);
 		
-		System.out.println("List of showtimes in cinema:");
-		Cinema c = cm.getCinemaByID(cinemaID);
-		System.out.println(c.getShowtimes());
-		System.out.println("Enter a cinemaID:");
-		int showtimeID = sc.nextInt();
+		System.out.println("Which showtime would you like to remove?");
+		Printer.printShowtimes(cinema);
+		System.out.println("Choose a number option:"); // int showtimeRow =
+		int showtimeId = sc.nextInt();
+		Showtime showtime = sm.getShowtimeByID(showtimeId);
 		
-		sm.remove(showtimeID);
-		cm.removeShowtime(cinemaID, showtimeID);
 		
 		
 		

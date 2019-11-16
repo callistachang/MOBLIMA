@@ -37,10 +37,7 @@ public class CineplexManager {
 		}
 	}
 	
-	public void listCineplexByMovie(int movieID) {
-		MovieManager mm = new MovieManager();
-		Movie movie = mm.getMovieByID(movieID);
-
+	public void listCineplexByMovie(Movie movie) {
 		Boolean printed = false;
 		for (Cineplex cx: records) {
 			printed = false;
@@ -88,15 +85,7 @@ public class CineplexManager {
 //	}
 //
 //	
-//	public void listAllShowtimesInCineplexByMovie(int cineplexID, int movieID) {
-//		Cineplex cineplex = getCineplexByID(cineplexID);
-//		ArrayList<Cinema> cinemas = cineplex.getCinemas();
-//		CinemaManager cm = new CinemaManager();
-//		
-//		for (Cinema cinema: cinemas) {
-//			cm.getShowtimes(cinema, movieID);
-//		}
-//	}
+
 	
 	public void listAllSeatAvailabilitiesInCineplexByMovie(Cineplex cineplex, Movie movie) {
 		ArrayList<Cinema> cinemas = cineplex.getCinemas();
