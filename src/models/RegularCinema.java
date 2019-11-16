@@ -10,11 +10,6 @@ public class RegularCinema extends Cinema {
 		super(id, showtimes);
 		// TODO Auto-generated constructor stub
 	}
-
-	public ArrayList<Object> getSerializableData() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 	
 	public String getCinemaClass() {
 		return "Regular";

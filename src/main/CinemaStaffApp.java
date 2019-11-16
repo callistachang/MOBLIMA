@@ -238,7 +238,6 @@ public class CinemaStaffApp extends UserApp {
 //		LocalDate date = Formatter.getLocalDateFromString("2019-10-10");
 //		LocalTime time = Formatter.getLocalTimeFromString("23:23:23");
 		
-		// TODO MOmentarily deleted
 		
 		System.out.println("Enter the date in yyyy-mm-dd format.");
 		String dateInput = sc.next();
@@ -261,19 +260,23 @@ public class CinemaStaffApp extends UserApp {
 		CineplexManager cxm = new CineplexManager();
 		CinemaManager cm = new CinemaManager();
 		ShowtimeManager sm = new ShowtimeManager();
-
+		
+		// choose a movie i wanna update.
 		System.out.println("Choose a movie:");
 		mm.listAll();
 		System.out.println("Choose a number option:");
 		int movieID = sc.nextInt();
-		Movie movie = mm.getMovieByID(movieID);
+//		Movie movie = mm.getMovieByID(movieID);
+		
+		
+		// choose the cineplex.
 		System.out.println("Which cineplex?");
 		cxm.listAll();
 		System.out.println("Choose a number option:");
 		String cineplexID = sc.next();
-		Cineplex cineplex = cxm.getCineplexByID(cineplexID);
+//		Cineplex cineplex = cxm.getCineplexByID(cineplexID);
 		System.out.println("Which cinema?");
-		cxm.listAllCinemasByCineplex(cineplex);
+		cxm.listAllCinemasByCineplex(cineplexID);
 		System.out.println("Choose a number option:");
 		String cinemaID = sc.next();
 		Cinema cinema = cm.getCinemaByID(cinemaID);
@@ -288,29 +291,28 @@ public class CinemaStaffApp extends UserApp {
 		System.out.println("Choose a number option:");
 		int choice = sc.nextInt();
 		switch(choice) {
-		case(1):{
-			mm.listAll();
-			System.out.println("Enter the new movie id:");
-			int movieIdInput = sc.nextInt();
-			Movie newMovie = mm.getMovieByID(movieIdInput);
-			showtime.setMovie(newMovie);
-			break;
-		}
-		case(2):{
-			System.out.println("Enter the new date in DDMMYYYY format.");
-			String dateInput = sc.next();
-			LocalDate newDate = dateInput(dateInput);
-			showtime.setDate(newDate);
-			break;
-		}
-		case(3):{
-			System.out.println("Enter the new time in 24-hour format.");
-			String timeInput = sc.next();
-			LocalTime newTime = timeInput(timeInput);
-			showtime.setTime(newTime);
-			break;
-		}
-		
+			case(1):{
+				mm.listAll();
+				System.out.println("Enter the new movie id:");
+				int movieIdInput = sc.nextInt();
+	//			Movie newMovie = mm.getMovieByID(movieIdInput);
+				showtime.setMovieID(movieIdInput);
+				break;
+			}
+			case(2):{
+				System.out.println("Enter the new date in DDMMYYYY format.");
+				String dateInput = sc.next();
+				LocalDate newDate = dateInput(dateInput);
+				showtime.setDate(newDate);
+				break;
+			}
+			case(3):{
+				System.out.println("Enter the new time in 24-hour format.");
+				String timeInput = sc.next();
+				LocalTime newTime = timeInput(timeInput);
+				showtime.setTime(newTime);
+				break;
+			}
 		}
 		
 		
@@ -318,7 +320,7 @@ public class CinemaStaffApp extends UserApp {
 	}
 	
 	private void removeMovieShowtime() {
-Scanner sc = new Scanner(System.in);
+		Scanner sc = new Scanner(System.in);
 		
 		MovieManager mm = new MovieManager();
 		CineplexManager cxm = new CineplexManager();
@@ -334,9 +336,9 @@ Scanner sc = new Scanner(System.in);
 		cxm.listAll();
 		System.out.println("Choose a number option:");
 		String cineplexID = sc.next();
-		Cineplex cineplex = cxm.getCineplexByID(cineplexID);
+//		Cineplex cineplex = cxm.getCineplexByID(cineplexID);
 		System.out.println("Which cinema?");
-		cxm.listAllCinemasByCineplex(cineplex);
+		cxm.listAllCinemasByCineplex(cineplexID);
 		System.out.println("Choose a number option:");
 		String cinemaID = sc.next();
 		Cinema cinema = cm.getCinemaByID(cinemaID);
@@ -345,7 +347,7 @@ Scanner sc = new Scanner(System.in);
 		Printer.printShowtimes(cinema);
 		System.out.println("Choose a number option:"); // int showtimeRow =
 		int showtimeId = sc.nextInt();
-		Showtime showtime = sm.getShowtimeByID(showtimeId);
+//		Showtime showtime = sm.getShowtimeByID(showtimeId);
 		
 		
 		

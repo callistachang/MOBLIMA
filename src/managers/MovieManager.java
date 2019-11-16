@@ -43,8 +43,8 @@ public class MovieManager {
 		Movie movie = getMovieByID(movieID);
 		movie.setAttr(attrNum, attrVal);
 		System.out.println("======");
-		remove(movieID);
-		records.add(movie);
+//		remove(movieID);
+//		records.add(movie);
 		updateDatabase();
 	}
 	

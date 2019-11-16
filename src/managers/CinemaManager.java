@@ -102,7 +102,6 @@ public class CinemaManager {
 	}
 
 	public Cinema getCinemaByShowtimeID(int showtimeID) {
-		// TODO Auto-generated method stub
 		for(Cinema c: records) {
 			for (Showtime s: c.getShowtimes()) {
 				if(s.getId() == showtimeID) return c;
