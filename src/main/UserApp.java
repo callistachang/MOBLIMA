@@ -121,10 +121,10 @@ public class UserApp {
 		mm.listAll();
 		System.out.println("Type ID of movie:");
 		int movieID = sc.nextInt();
-		Movie movie = mm.getMovieByID(movieID);
+//		Movie movie = mm.getMovieByID(movieID);
 		int choice;
 		do {
-			System.out.println("Please select from the options below:");
+			System.out.println("\nPlease select from the options below:");
 			System.out.println("(1) Movie Information");
 			System.out.println("(2) Movie Ratings and Reviews");
 			System.out.println("(3) Exit");
@@ -133,10 +133,10 @@ public class UserApp {
 			choice = sc.nextInt();
 			switch (choice) {
 				case 1:
-					Printer.printMovieInfo(movie);
+					mm.printMovieInfo(movieID);
 					break;
 				case 2:
-					Printer.printMovieReviews(movie);
+					mm.printMovieReviews(movieID);
 					break;
 				case 3:
 					System.out.println("Exited from Movie Details Menu.");

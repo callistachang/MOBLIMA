@@ -44,10 +44,14 @@ public class Printer {
 			System.out.printf("(%d)\n", i+1);
 			System.out.println("User: " + review.getUser());
 			System.out.println("Rating: " + review.getRating());
-			if (review.getContent() != null) {
+			if (!review.getContent().equals("null")) {
 				System.out.println("Review: " + review.getContent());
 			}
 		}
+	}
+	
+	public static void printMovieListing(int id, String title, String type) {
+		System.out.printf("(ID: %d) %s (%s)\n", id, title, type);
 	}
 	
 	public static void printCinemaInfo(Cinema cinema) {
