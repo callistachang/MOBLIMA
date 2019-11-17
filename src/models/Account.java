@@ -15,7 +15,7 @@ import managers.Formatter;
 public class Account implements ISerializable {
 	
 	/**
-	 * The first and last name of the user.
+	 * The unique account name of the user.
 	 */
 	private String username;
 	/**
@@ -41,8 +41,7 @@ public class Account implements ISerializable {
 	private ArrayList<Booking> bookings;
 	
 	/**
-	 * Creates a new account with the given personal details. 
-	 * The username should contain both first and last name.
+	 * Creates a new account with the given personal details.
 	 * @param username This user's username.
 	 * @param age This user's age.
 	 * @param mobileNumber This user's mobile number.
