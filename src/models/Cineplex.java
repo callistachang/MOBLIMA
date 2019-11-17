@@ -101,6 +101,6 @@ public class Cineplex implements ISerializable {
 		}
 		return cinemasStr;
 	}
-
+}
 
 
