@@ -116,9 +116,8 @@ public class ShowtimeManager {
 	/**
 	 * Updates a showtime's information.
 	 * A user chosen attribute of the showtime will be updated.
+	 * @param movieID Unique identification number of movie.
 	 * @param showtime Showtime selected by user.
-	 * @param attrNum Attribute selected by user from a given list of options.
-	 * @param attrVal Changed value of attribute given by user.
 	 */
 	public void updateMovie(Showtime showtime, int movieID) {
 		showtime.setMovieID(movieID);

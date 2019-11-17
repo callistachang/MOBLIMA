@@ -260,7 +260,7 @@ public class Movie implements ISerializable {
 	}
 	/**
 	 * Type of movie to set.
-	 * @param type
+	 * @param type This movie's type.
 	 */
 	public void setType(MovieType type) {
 		this.type = type;
@@ -313,6 +313,9 @@ public class Movie implements ISerializable {
 		}
 	}
 	
+	/**
+	 * A list of strings that show the movie type.
+	 */
 	public enum MovieType {
 		/**
 		 * Movie screened in 2D.

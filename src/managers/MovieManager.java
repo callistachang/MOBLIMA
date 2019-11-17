@@ -84,7 +84,7 @@ public class MovieManager {
 	}
 	/**
 	 * Updates the title of a movie.
-	 * @param Movie ID of movie to be updated.
+	 * @param movieID ID of movie to be updated.
 	 * @param title New title of the movie.
 	 */
 	public void updateTitle(int movieID, String title) {
@@ -259,6 +259,7 @@ public class MovieManager {
 	 * @param rating The rating left by the user.
 	 * @param account The account of the user that is reviewing.
 	 * @param content The content of the review left by the user.
+	 * @return The new review object that is created.
 	 */
 	public Review addReviewToMovie(int movieId, int rating, Account account, String content) {
 		Movie movie = getMovieByID(movieId);

@@ -204,7 +204,7 @@ public class InputBoundary {
 	 * @param cinema Cinema of the show time for the seat chosen
 	 * @param showtime Show time for the seat chosen
 	 * @param prompt Print line prompting user to type in a seat number
-	 * @return
+	 * @return Seat number in integer form
 	 */
 	public static int getSeatNumberInput(Cinema cinema,Showtime showtime, String prompt) {
 		Scanner sc = new Scanner(System.in);

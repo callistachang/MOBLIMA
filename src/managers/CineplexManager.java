@@ -65,6 +65,7 @@ public class CineplexManager {
 	/**
 	 * Prints the list of all cineplexes that contain a specific movie.
 	 * @param movieID Unique identification number of a movie.
+	 * @return Boolean value representing whether the cineplex exists.
 	 */
 	public boolean listCineplexByMovie(int movieID) {
 		Boolean printed = false;

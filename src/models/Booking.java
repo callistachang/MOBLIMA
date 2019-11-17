@@ -111,7 +111,7 @@ public class Booking implements ISerializable {
 	}
 	/**
 	 * Booking time to set.
-	 * @param bookingTime
+	 * @param bookingTime Time at which booking is done. 
 	 */
 	public void setBookingTime(LocalTime bookingTime) {
 		this.bookingTime = bookingTime;
