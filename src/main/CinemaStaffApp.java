@@ -212,8 +212,49 @@ public class CinemaStaffApp extends UserApp {
 		System.out.println("What attribute would you like to change about the movie?");
 		Printer.printMovieAttributes();
 		
-		int case = GetInput.getIntInput("Choose number option:");
-		switch
+		int choice = GetInput.getIntInput("Choose number option:");
+		switch(choice) {
+		case(1):{
+			String newTitle = GetInput.getStringInput("Enter the new title: ");
+			sm.updateTitle(movieID, newTitle);
+			break;
+		}
+		case(2):{
+			String newStatus;
+			do {
+				System.out.println();
+				int choice2 = GetInput.getIntInput("Insert movie showing status ((1)Coming Soon, (2)Now Showing, (3)No Longer Showing): ");
+				switch(choice2) {
+				case 1:
+					newStatus = "Coming Soon";
+					break;
+				case 2:
+					newStatus = "Now Showing";
+					break;
+				case 3:
+					newStatus = "No Longer Showing";
+					break;
+				default:
+					newStatus = "";
+					System.out.println("Please input a valid option.");
+					break;
+				}
+			}
+			while (!(newStatus.equals("Coming Soon") || newStatus.equals("Now Showing") || newStatus.equals("No Longer Showing")));
+			mm.updateShowingStatus(movieID, ShowingStatus.getByValue(newStatus));
+		}
+		case(3):{
+			String newSynopsis = GetInput.getStringInput("Enter the new Synopsis: ");
+			sm.updateTitle(movieID, newSynopsis);
+			break;
+		}
+		System.out.println("(1) Title");
+		System.out.println("(2) Showing Status");
+		System.out.println("(3) Synopsis");
+		System.out.println("(4) Director");
+		System.out.println("(5) Duration");
+		System.out.println("(6) Type");
+		}
 		String attrVal = sc.nextLine();
 		
 		System.out.println(attrNum + " " + attrVal);
@@ -292,7 +333,7 @@ public class CinemaStaffApp extends UserApp {
 		
 		
 		LocalDate date = GetInput.getDateInput("Enter the date in yyyy-MM-dd format.");
-		LocalTime time = GetInput.getTimeInput("Enter the new time in HH:mm:ss format.");
+		LocalTime time = GetInput.getTimeInput("Enter the new time in HH:mm:ss format");
 		
 		Showtime showtime = sm.create(date, time, movieID);
 		cm.addShowtime(cinemaID, showtime);
