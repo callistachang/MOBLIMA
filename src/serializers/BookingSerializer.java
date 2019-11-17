@@ -33,7 +33,7 @@ public class BookingSerializer extends AbstractSerializer {
 		ShowtimeManager sm = new ShowtimeManager();
 		Showtime showtime = sm.getShowtimeByID(Formatter.getIntFromString(d[3]));
 		CinemaManager cm = new CinemaManager();
-		Cinema cinema = cm.getCinemaByID(d[5]);
+		Cinema cinema = cm.getCinemaByID(d[4]);
 		double price = Formatter.getDoubleFromString(d[5]);
 		
 		return new Booking(d[0], localdate, localtime, showtime, cinema, price);

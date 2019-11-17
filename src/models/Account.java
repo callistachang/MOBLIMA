@@ -168,6 +168,8 @@ public class Account implements ISerializable {
 	*/
 	public ArrayList<String> getBookingIDs() {
 		ArrayList<String> bookingsStr = new ArrayList<String>();
+		if (bookings == null)
+			return null;
 		for (Booking b: bookings) {
 			bookingsStr.add(b.getTID());
 		}
@@ -189,6 +191,14 @@ public class Account implements ISerializable {
 	 */
 	public String toString() {
 		return username;
+	}
+	
+	public void addBooking(Booking booking) {
+		if (bookings == null) {
+			bookings = new ArrayList<Booking>();
+		}
+		bookings.add(booking);
+		
 	}
 	
 }

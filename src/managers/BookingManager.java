@@ -4,7 +4,10 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.TreeMap;
@@ -14,6 +17,7 @@ import models.Booking;
 import models.Cinema;
 import models.Cineplex;
 import models.Movie;
+import models.Review;
 import models.Showtime;
 import models.Movie.MovieType;
 import models.Movie.ShowingStatus;
@@ -67,14 +71,16 @@ public class BookingManager {
 	 * @param price Total price of the tickets bought by the user.
 	 * @return Transaction ID of the booking that was completed.
 	 */
-	public String addReceipt(String cinemaID, int showtimeID, double price) {
+	public Booking addReceipt(String cinemaID, int showtimeID, double price) {
 		ShowtimeManager sm = new ShowtimeManager();
 		CinemaManager cm = new CinemaManager();
 		LocalDate today = LocalDate.now();
 	    LocalTime now = LocalTime.now();
+	    System.out.println(today);
+	    System.out.println("===" + now);
 
-		String bookingDate = today.format(DateTimeFormatter.ofPattern("YYYYMMDD"));
-		String bookingTime = now.format(DateTimeFormatter.ofPattern("hhmm"));
+		String bookingDate = today.format(DateTimeFormatter.ofPattern("yyyyMMdd"));
+		String bookingTime = now.format(DateTimeFormatter.ofPattern("HHmm"));
 		Showtime s = sm.getShowtimeByID(showtimeID);
 		Cinema c = cm.getCinemaByID(cinemaID);
 		String TID = cinemaID + bookingDate + bookingTime;
@@ -82,7 +88,7 @@ public class BookingManager {
 		records.add(booking); // add to records
 		updateDatabase();
 		
-		return TID;
+		return booking;
 	} 
 	
 	/**
@@ -93,44 +99,72 @@ public class BookingManager {
 		System.out.println("BOOKING RECEIPT");
 		BookingManager bm = new BookingManager();
 		Booking b =bm.getBookingByID(TID);
-		System.out.println(b);
-		
+		Printer.printBookingInfo(b);
 	}
 	/**
 	 * Prints out the top 5 movies in terms of the number of tickets sold.
 	 */
 	public void listTop5ByTicketSales() {
-		// TODO Auto-generated method stub
-		ShowtimeManager sm = new ShowtimeManager();
-		MovieManager mm = new MovieManager();
-		ArrayList<Integer> listOfMovie = null;
-		ArrayList<Integer> ticketSale = null;
+		
+		HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+		ArrayList<Integer> movieIDs = new ArrayList<Integer>();
+		ArrayList<Integer> ticketSales = new ArrayList<Integer>();
 		for (Booking b: records) {
-			Showtime s = b.getShowtime();
-			for(Integer m: listOfMovie) {
-				if(s.getMovieID() != m) {
-					listOfMovie.add(s.getMovieID());
-				}
+			int movieID = b.getShowtime().getMovieID();	// movie id of this booking.
+
+			if (!movieIDs.contains(movieID)) {
+				movieIDs.add(movieID);
+				ticketSales.add(0);
 			}
 		}
+		
 		for (Booking b: records) {
-			Showtime s = b.getShowtime();
-			int listMovieIndex = listOfMovie.indexOf(s.getMovieID());
-			ticketSale.set(listMovieIndex, ticketSale.get(listMovieIndex)+1);
-		}
-	    TreeMap<Integer,Integer> map = new TreeMap<Integer,Integer>();  
-	    for (int i=0; i<listOfMovie.size(); i++) {
-	        map.put(ticketSale.get(i), listOfMovie.get(i));    
-	      }
-	    Collections.sort(ticketSale, Collections.reverseOrder());
-
-	    for (int i=0; i<5; i++) {
-	    int sale = ticketSale.get(i);
-	    int movieID = map.get(sale);
-	    Movie m = mm.getMovieByID(movieID);
-		System.out.println( "Title: " + m.getTitle() + ", Ticket Sales: "+ sale);
+			int movieID = b.getShowtime().getMovieID();	// movie id of this booking.
+			int movieIDIndex = movieIDs.indexOf(movieID);
+			ticketSales.set(movieIDIndex, ticketSales.get(movieIDIndex) + 1);
 		}
 		
+
+
+		for (int i = 0; i < movieIDs.size(); i++) {
+			map.put(movieIDs.get(i), ticketSales.get(i));
+		}
+		
+			
+//			
+//			
+//			if(!)
+//			
+//			int ticketCount = 0;
+//			
+//			
+//			ArrayList<Review> reviews = m.getReviews();
+//			if (reviews.get(0) != null || reviews == null ) {
+//				for (Review r: reviews) {
+////					System.out.println(r.getRating());
+//					movieRating += r.getRating();
+//				}
+//			map.put(m.getTitle(), movieRating/reviews.size());
+
+		Object[] a = map.entrySet().toArray();
+		Arrays.sort(a, new Comparator<Object>() {
+			public int compare(Object o1, Object o2) {
+		        return ((Map.Entry<Integer, Integer>) o2).getValue().compareTo(
+		               ((Map.Entry<Integer, Integer>) o1).getValue());
+		    }
+		});
+		
+		MovieManager mm = new MovieManager();
+//		String title = mm.getMovieByID(movieID).getTitle();
+		
+		for (int i = 0; i < a.length; i++) {
+			String title = mm.getMovieByID(((Map.Entry<Integer, Integer>) a[i]).getKey()).getTitle();
+			
+		    System.out.println((i+1) + ". " + title + ": "
+                    + ((Map.Entry<Integer, Integer>) a[i]).getValue() + " tickets");
+		    
+		    if (i == 4) break;
+		}
 		
 	}
 	/**
@@ -150,4 +184,6 @@ public class BookingManager {
 		ArrayList<String> updatedRecords = serializer.serialize(records);
 		DatabaseHandler.writeToDatabase(DATABASE_NAME, updatedRecords);
 	}
+	
+	
 }

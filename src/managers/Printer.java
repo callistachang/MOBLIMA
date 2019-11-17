@@ -2,6 +2,7 @@ package managers;
 
 import java.util.ArrayList;
 
+import models.Booking;
 import models.Cinema;
 import models.Movie;
 import models.Review;
@@ -24,6 +25,21 @@ public class Printer {
 		System.out.println("(4) Director");
 		System.out.println("(5) Duration");
 		System.out.println("(6) Type");
+	}
+	
+	public static void printBookingInfo(Booking b) {
+		MovieManager mm = new MovieManager();
+		Movie m = mm.getMovieByID(b.getShowtime().getMovieID());
+		
+		System.out.println("==========================");
+		System.out.println("+ TID: " + b.getTID());
+		System.out.println("+ Movie: " + m.getTitle() + " (" + m.getType().toString() + ")");
+		System.out.println("+ Showtime Date: " + Formatter.getStringFromLocalDate(b.getShowtime().getDate()));
+		System.out.println("+ Showtime Time: " + Formatter.getStringFromLocalTime(b.getShowtime().getTime()));
+		System.out.println("+ Showtime ID: " + b.getShowtime().getId());
+		System.out.println("+ Cinema: " + b.getCinema().getId());
+		System.out.println("==========================");
+
 	}
 	
 	/**
@@ -52,7 +68,8 @@ public class Printer {
 	 * @param m The movie object whose reviews need to be printed.
 	 */
 	public static void printMovieReviews(Movie m) {
-		int i, totalRating = 0;
+		int i;
+		double totalRating = 0;
 		ArrayList<Review> reviews = m.getReviews();
 		for (i = 0; i < reviews.size(); i++) {
 			Review review = reviews.get(i);
@@ -97,13 +114,13 @@ public class Printer {
 	 * @param showtime The showtime object whose details need to be printed.
 	 */
 	public static void printShowtimeDetails(Showtime showtime) {
-		System.out.println("ShowtimeID: " + showtime.getId());
+		System.out.println("ShowtimeID: (" + showtime.getId() + ")");
 		MovieManager mm = new MovieManager();
 		int movieID = showtime.getMovieID();
 		Movie movie = mm.getMovieByID(movieID);
-		System.out.println("(1) Movie: " + movie.getTitle());
-		System.out.println("(2) Date: " + showtime.getDate());
-		System.out.println("(3) Time: " + showtime.getTime());
+		System.out.println("Movie: " + movie.getTitle());
+		System.out.println("Date: " + showtime.getDate());
+		System.out.println("Time: " + showtime.getTime());
 	}
 	
 	/**

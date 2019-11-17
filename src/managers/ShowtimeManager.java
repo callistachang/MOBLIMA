@@ -55,6 +55,13 @@ public class ShowtimeManager {
 		return null;
 	}
 	
+	public boolean isEmpty() {
+		if(records == null) {
+			return true;
+		}
+		else
+			return false;
+	}
 	
 	/**
 	 * Retrieve information from external csv file and converts it into an array of Showtime objects.

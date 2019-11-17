@@ -54,6 +54,14 @@ public class MovieManager {
 		}
 		return null;
 	}
+	
+	public boolean isEmpty() {
+		if(records == null) {
+			return true;
+		}
+		else
+			return false;
+	}
 	/**
 	 * Creates a single movie given the movie information by the staff.
 	 * @param title The title of the movie.
@@ -218,9 +226,9 @@ public class MovieManager {
 	@SuppressWarnings("unchecked")
 	public void listTop5ByRatings() {
 
-		HashMap<String, Integer> map = new HashMap<String, Integer>();
+		HashMap<String, Double> map = new HashMap<String, Double>();
 		for (Movie m: records) {
-			int movieRating = 0;
+			double movieRating = 0;
 			ArrayList<Review> reviews = m.getReviews();
 			if (reviews.get(0) != null || reviews == null ) {
 				for (Review r: reviews) {
@@ -234,13 +242,14 @@ public class MovieManager {
 		Object[] a = map.entrySet().toArray();
 		Arrays.sort(a, new Comparator<Object>() {
 			public int compare(Object o1, Object o2) {
-		        return ((Map.Entry<String, Integer>) o2).getValue().compareTo(
-		               ((Map.Entry<String, Integer>) o1).getValue());
+		        return ((Map.Entry<String, Double>) o2).getValue().compareTo(
+		               ((Map.Entry<String, Double>) o1).getValue());
 		    }
 		});
-		for (int i = 0; i < 5; i++) {
-		    System.out.println(i + ". " + ((Map.Entry<String, Integer>) a[i]).getKey() + " : "
-                    + ((Map.Entry<String, Integer>) a[i]).getValue());
+		for (int i = 0; i < a.length; i++) {
+		    System.out.println((i+1) + ". " + ((Map.Entry<String, Integer>) a[i]).getKey() + ": "
+                    + ((Map.Entry<String, Integer>) a[i]).getValue() + "/5");
+		    if (i == 4) break;
 		}
 	}
 	/**
