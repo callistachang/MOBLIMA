@@ -27,15 +27,6 @@ public class PlatinumCinema extends Cinema {
 		// TODO Auto-generated constructor stub
 	}
 	/**
-	 * Retrieves data from entity for serializing.
-	 * @return Array of required details.
-	 */
-	@Override
-	public ArrayList<Object> getSerializableData() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	/**
 	 * Gets the class of this cinema as a string.
 	 * @return This cinema's class, Platinum.
 	 */

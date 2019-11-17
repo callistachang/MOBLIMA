@@ -131,9 +131,7 @@ public class CinemaManager {
 	 */
 	public void addShowtime(String cinemaID, Showtime showtime) {
 		Cinema cinema = getCinemaByID(cinemaID);
-		int cinemaIndex = records.indexOf(cinema);
 		cinema.addShowtime(showtime);
-		records.set(cinemaIndex, cinema);
 		updateDatabase();
 	}
 	/**
@@ -142,12 +140,7 @@ public class CinemaManager {
 	 * @param showtime Particular showtime that is being removed.
 	 */
 	public void removeShowtime(Cinema cinema, Showtime showtime) {
-
-		ArrayList<Showtime> showtimes = cinema.getShowtimes();
-		boolean removed = showtimes.remove(showtime);
-		if (!removed) {
-			System.out.println("Showtime not found!");
-		}
+		cinema.removeShowtime(showtime);
 		updateDatabase();
 	}
 	/**

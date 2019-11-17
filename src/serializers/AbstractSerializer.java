@@ -34,7 +34,7 @@ public abstract class AbstractSerializer {
 		ArrayList<Object> objectData = object.getSerializableData();
 		
 		String serializedData = "";
-		
+		System.out.println(objectData);
 		for (int i = 0; i < objectData.size(); i++) {
 			Object data = objectData.get(i);
 			
@@ -49,7 +49,7 @@ public abstract class AbstractSerializer {
 			
 			serializedData += objectData.get(i) + ",";
 		}		
-//		System.out.println(serializedData);
+		System.out.println(serializedData);
 		return serializedData;
 	}
 		

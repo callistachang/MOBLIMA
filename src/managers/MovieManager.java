@@ -1,7 +1,12 @@
 package managers;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
+import java.util.TreeMap;
 
 import handlers.DatabaseHandler;
 import models.Account;
@@ -36,6 +41,9 @@ public class MovieManager {
 		Movie movie = new Movie(records.size()+1, title, ShowingStatus.getByValue(status), director, 
 				synopsis, casts, duration, null, MovieType.getByValue(type));
 		records.add(movie); // add to records
+		System.out.println("===Movie Created!===");
+		Printer.printMovieInfo(movie);
+		System.out.println("====================\n");
 		updateDatabase();
 	}
 	
@@ -110,9 +118,33 @@ public class MovieManager {
 		DatabaseHandler.writeToDatabase(DATABASE_NAME, updatedRecords);
 	}
 
+	@SuppressWarnings("unchecked")
 	public void listTop5ByRatings() {
-		// TODO Auto-generated method stub
 		
+		HashMap<String, Integer> map = new HashMap<String, Integer>();
+		for (Movie m: records) {
+			int movieRating = 0;
+			ArrayList<Review> reviews = m.getReviews();
+			if (reviews.get(0) != null || reviews == null ) {
+				for (Review r: reviews) {
+//					System.out.println(r.getRating());
+					movieRating += r.getRating();
+				}
+			map.put(m.getTitle(), movieRating/reviews.size());
+			}
+		}
+		
+		Object[] a = map.entrySet().toArray();
+		Arrays.sort(a, new Comparator<Object>() {
+			public int compare(Object o1, Object o2) {
+		        return ((Map.Entry<String, Integer>) o2).getValue().compareTo(
+		               ((Map.Entry<String, Integer>) o1).getValue());
+		    }
+		});
+		for (int i = 0; i < 5; i++) {
+		    System.out.println(i + ". " + ((Map.Entry<String, Integer>) a[i]).getKey() + " : "
+                    + ((Map.Entry<String, Integer>) a[i]).getValue());
+		}	
 	}
 	
 	public void addReviewToMovie(int movieId, int rating, Account account, String content) {
@@ -124,10 +156,10 @@ public class MovieManager {
 		// append the review to the current movie
 		ArrayList<Review> reviews = movie.getReviews();
 		reviews.add(newReview);
-		movie.setReviews(reviews);
+//		movie.setReviews(reviews);
 		System.out.println(movie.getReviews());
-		int movieIndex = records.indexOf(movie);
-		records.set(movieIndex, movie);
+//		int movieIndex = records.indexOf(movie);
+//		records.set(movieIndex, movie);
 		
 		updateDatabase();
 	}
