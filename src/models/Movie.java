@@ -353,6 +353,7 @@ public class Movie implements ISerializable {
 			return null;
 		}
 	}
+	
 //	public void createReview(int rating, Account user, String content) {
 //		ReviewManager rm = new ReviewManager();
 //		Review review = rm.createReview(rating, user, content);

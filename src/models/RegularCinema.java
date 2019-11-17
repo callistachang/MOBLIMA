@@ -26,14 +26,7 @@ public class RegularCinema extends Cinema {
 		super(id, showtimes);
 		// TODO Auto-generated constructor stub
 	}
-	/**
-	 * Retrieves data from entity for serializing.
-	 * @return Array of required details.
-	 */
-	public ArrayList<Object> getSerializableData() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
 	/**
 	 * Gets the class of this cinema as a string.
 	 * @return This cinema's class, Regular.
