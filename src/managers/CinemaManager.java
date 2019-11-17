@@ -87,9 +87,7 @@ public class CinemaManager {
 
 	public void addShowtime(String cinemaID, Showtime showtime) {
 		Cinema cinema = getCinemaByID(cinemaID);
-		int cinemaIndex = records.indexOf(cinema);
 		cinema.addShowtime(showtime);
-		records.set(cinemaIndex, cinema);
 		updateDatabase();
 	}
 
