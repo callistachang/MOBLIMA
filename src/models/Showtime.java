@@ -211,18 +211,6 @@ public class Showtime implements ISerializable {
 	 * @param attrNum This showtime's attributes that are of the data type integer.
 	 * @param attrVal This showtime's attributes that are of the data type string.
 	 */
-	public void setAttr(int attrNum, String attrVal) {
-		switch (attrNum) {
-			case 1:
-				movieID = Integer.parseInt(attrVal);
-				break;
-			case 2:
-				date = Formatter.getLocalDateFromString(attrVal);
-				break;
-			case 3:
-				time = Formatter.getLocalTimeFromString(attrVal);
-				break;
-			
-		}
-	}	
+
+	
 }

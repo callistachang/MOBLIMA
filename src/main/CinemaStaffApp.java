@@ -212,12 +212,60 @@ public class CinemaStaffApp extends UserApp {
 		System.out.println("What attribute would you like to change about the movie?");
 		Printer.printMovieAttributes();
 		
-		int case = GetInput.getIntInput("Choose number option:");
-		switch
-		String attrVal = sc.nextLine();
-		
-		System.out.println(attrNum + " " + attrVal);
-		mm.update(movieID, attrNum, attrVal);
+		int choice = GetInput.getIntInputWithinRange("Choose number option:",1,6);
+		switch(choice) {
+		case(1):{
+			String newTitle = GetInput.getStringInput("Enter the new title: ");
+			mm.updateTitle(movieID, newTitle);
+			break;
+		}
+		case(2):{
+			String newStatus;
+			do {
+				System.out.println();
+				int choice2 = GetInput.getIntInput("Insert movie showing status ((1)Coming Soon, (2)Now Showing, (3)No Longer Showing): ");
+				switch(choice2) {
+				case 1:
+					newStatus = "Coming Soon";
+					break;
+				case 2:
+					newStatus = "Now Showing";
+					break;
+				case 3:
+					newStatus = "No Longer Showing";
+					break;
+				default:
+					newStatus = "";
+					System.out.println("Please input a valid option.");
+					break;
+				}
+			}
+			while (!(newStatus.equals("Coming Soon") || newStatus.equals("Now Showing") || newStatus.equals("No Longer Showing")));
+			mm.updateShowingStatus(movieID, ShowingStatus.getByValue(newStatus));
+		}
+		case(3):{
+			String newSynopsis = GetInput.getStringInput("Enter the new Synopsis: ");
+			mm.updateTitle(movieID, newSynopsis);
+			break;
+		}
+		case(4):{
+			String newDirector = GetInput.getStringInput("Enter the new Director name: ");
+			mm.updateDirector(movieID, newDirector);
+			break;
+		}
+		case(5):{
+			int newDuration = GetInput.getIntInput("Enter the new duration: ");
+			mm.updateDuration(movieID, newDuration);
+		}
+		case(6):{
+			String newType;
+			do {
+				newType = GetInput.getStringInput("Enter the new movie type: ");
+			} while (!(newType.equals("2D") || newType.equals("3D")));
+			mm.updateType(movieID, MovieType.getByValue(newType));
+		}
+		}
+
 		System.out.println("Successfully updated");
 	}
 	/**
@@ -292,7 +340,7 @@ public class CinemaStaffApp extends UserApp {
 		
 		
 		LocalDate date = GetInput.getDateInput("Enter the date in yyyy-MM-dd format.");
-		LocalTime time = GetInput.getTimeInput("Enter the new time in HH:mm:ss format.");
+		LocalTime time = GetInput.getTimeInput("Enter the new time in HH:mm:ss format");
 		
 		Showtime showtime = sm.create(date, time, movieID);
 		cm.addShowtime(cinemaID, showtime);

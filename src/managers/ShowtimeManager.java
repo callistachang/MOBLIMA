@@ -141,7 +141,7 @@ public class ShowtimeManager {
 	 * @param attrVal Changed value of attribute given by user.
 	 */
 	public void updateMovie(Showtime showtime, int movieID) {
-		showtime.setMovieID(movieID);;
+		showtime.setMovieID(movieID);
 		System.out.println("======");
 		updateDatabase();
 	}
@@ -152,7 +152,7 @@ public class ShowtimeManager {
 	 * @param date Indicates the new date of the showtime.
 	 */
 	public void updateDate(Showtime showtime, LocalDate date) {
-		showtime.setDate(date);;
+		showtime.setDate(date);
 		System.out.println("======");
 		updateDatabase();
 	}
@@ -163,7 +163,7 @@ public class ShowtimeManager {
 	 * @param time Indicates the new timing for the showtime.
 	 */
 	public void updateTime(Showtime showtime, LocalTime time) {
-		showtime.setTime(time);;
+		showtime.setTime(time);
 		System.out.println("======");
 		updateDatabase();
 	}
