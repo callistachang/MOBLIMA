@@ -15,7 +15,7 @@ public class GetInput {
 		        return Formatter.getIntFromString(input);
 		    } 
 			else {
-		        System.out.println("The input is not an integer!");
+		        System.out.println("Enter an integer!");
 		    }
 		}
 	}
@@ -92,6 +92,22 @@ public class GetInput {
 		    } 
 			else {
 		        System.out.println("Enter a valid time!");
+		    }
+		}
+	}
+	
+	public static char getCharInput(String prompt) {
+		Scanner sc = new Scanner(System.in);
+		String input;
+		while(true) {
+			System.out.println(prompt);
+			input = sc.next();
+			input.toUpperCase();
+			if (ValidityChecker.isChar(input)) {
+		        return input.charAt(0);
+		    }
+			else {
+		        System.out.println("Enter is a valid Choice!");
 		    }
 		}
 	}

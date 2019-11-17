@@ -72,8 +72,7 @@ public class MovieGoerApp extends UserApp {
 			}
 			System.out.printf("(%d) %s \n", i, "Exit");
 			System.out.println("======================================================");
-			System.out.print("\nChoose an option: ");
-			choice = sc.nextInt();
+			choice = GetInput.getIntInput("Choose an option");
 			switch (choice) {
 				case 1:
 					bookTicket();
@@ -127,8 +126,7 @@ public class MovieGoerApp extends UserApp {
 		// choose movie out of all movies
 		System.out.println("Which movie would you like to watch?");
 		mm.listAll();
-		System.out.println("Choose a number option:");
-		int movieID = sc.nextInt();
+		int movieID = GetInput.getIntInput("Choose an option");
 		
 		// choose cineplex
 		System.out.println("Which cineplex would you like to watch the movie from?");
@@ -142,28 +140,26 @@ public class MovieGoerApp extends UserApp {
 		System.out.println("Which showtime would you like to watch?");
 		cxm.listAllSeatAvailabilitiesInCineplexByMovie(cineplex, movie);
 		System.out.println("Choose a number option:");
-		int showtimeID = sc.nextInt();
+		int showtimeID = GetInput.getIntInput("Choose an option");
 		
 		int noOfTickets;
 		Showtime showtime = sm.getShowtimeByID(showtimeID);
 		Cinema c = cm.getCinemaByShowtimeID(showtimeID);
 		do {
-		System.out.println("How many tickets would you like to purchase?");
-		noOfTickets = sc.nextInt();
+		noOfTickets= GetInput.getIntInput("How many tickets would you like to purchase?");
 		} while (noOfTickets > c.getNoSeatsAvailable(showtime));
 		
 		c.printSeatingPlan(showtime);
 		double price = 0;
 		for(int i=0;i<noOfTickets;i++)
 		{
-			System.out.println("Please select your seat number");
-			int seatChosen =sc.nextInt();
+			int seatChosen = GetInput.getIntInput("Please select your seat number");
 			sm.bookSeat(showtime,seatChosen);
 			System.out.println("Any discounts applicable?");
-			System.out.println("0: None");
-			System.out.println("1: Student");
-			System.out.println("2: Senior Citizen");
-			int discountType = sc.nextInt();
+			System.out.println("(0) None");
+			System.out.println("(1) Student");
+			System.out.println("(2) Senior Citizen");
+			int discountType = GetInput.getIntInput("Choose an option: ");
 	//		price+=pm.calculatePrice(discountType, c.getId(), showtimeID);
 		}
 				
@@ -197,13 +193,11 @@ public class MovieGoerApp extends UserApp {
 		
 		System.out.println("Which movie would you like to rate/review?");
 		mm.listAll();
-		System.out.println("Choose a number option:");
-		int movieId = sc.nextInt();
+		int movieID = GetInput.getIntInput("Choose an option");
 		
 		int rating;
 		do {
-			System.out.println("Please give your rating (between 1-5): ");
-			rating = sc.nextInt();
+			rating = GetInput.getIntInput("Please give your rating (between 1-5)");
 		} while (rating < 0 || rating > 5);
 
 		System.out.println("Would you like to give a review?(Y/N)");
@@ -214,7 +208,7 @@ public class MovieGoerApp extends UserApp {
 			System.out.println("Please enter your review:");
 			reviewInput = sc.next();
 		}
-		mm.addReviewToMovie(movieId, rating, account, reviewInput);
+		mm.addReviewToMovie(movieID, rating, account, reviewInput);
 		System.out.println("Review Added.");
 	}
 }

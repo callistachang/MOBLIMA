@@ -11,6 +11,7 @@ import java.util.Set;
 import managers.CinemaManager;
 import managers.CineplexManager;
 import managers.Formatter;
+import managers.GetInput;
 import managers.MovieManager;
 import managers.Printer;
 import managers.ShowtimeManager;
@@ -76,8 +77,7 @@ public class CinemaStaffApp extends UserApp {
 			System.out.printf("(%d) %s \n", i, "Exit");
 			System.out.println("=======================================================");
 			
-			System.out.print("\nChoose an option: ");
-			choice = sc.nextInt();
+			choice = GetInput.getIntInput("Choose an option");
 			switch (choice) {
 				case 1:
 					createMovieListing();

@@ -5,6 +5,7 @@ import java.util.Scanner;
 import managers.AccountManager;
 import managers.BookingManager;
 import managers.CineplexManager;
+import managers.GetInput;
 import managers.MovieManager;
 import managers.Printer;
 import managers.ShowtimeManager;
@@ -50,8 +51,7 @@ public class UserApp {
 			System.out.printf("(%d) %s \n", i, "Exit");
 			System.out.println("=======================================================");
 
-			System.out.print("\nChoose an option: ");
-			choice = sc.nextInt();
+			choice = GetInput.getIntInput("Choose an option");
 			switch (choice) {
 			case 1:
 				listMovies();
@@ -94,9 +94,7 @@ public class UserApp {
 			System.out.println("(1) List all movies");
 			System.out.println("(2) Filter by cineplex");
 			System.out.println("(3) Exit");
-
-			System.out.println("Choose a number option:");
-			choice = sc.nextInt();
+			choice = GetInput.getIntInput("Choose an option");
 			switch (choice) {
 				case 1:
 					mm.listAll();
@@ -111,8 +109,7 @@ public class UserApp {
 
 					int allOrShowingChoice = 0;
 					do {
-						System.out.println("Choose a number option:");
-						allOrShowingChoice = sc.nextInt();
+						choice = GetInput.getIntInput("Choose an option");
 					} while (allOrShowingChoice != 1 && allOrShowingChoice != 2);
 
 					switch (allOrShowingChoice) {
@@ -149,8 +146,7 @@ public class UserApp {
 
 		System.out.println("Which movie would you like to query?");
 		mm.listAll();
-		System.out.println("Type ID of movie:");
-		int movieID = sc.nextInt();
+		int movieID = GetInput.getIntInput("Type ID of movie:");
 //		Movie movie = mm.getMovieByID(movieID);
 		int choice;
 		do {
@@ -158,9 +154,7 @@ public class UserApp {
 			System.out.println("(1) Movie Information");
 			System.out.println("(2) Movie Ratings and Reviews");
 			System.out.println("(3) Exit");
-
-			System.out.println("Choose an option");
-			choice = sc.nextInt();
+			choice = GetInput.getIntInput("Choose an option");
 			switch (choice) {
 				case 1:
 					mm.printMovieInfo(movieID);
