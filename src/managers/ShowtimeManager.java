@@ -140,9 +140,22 @@ public class ShowtimeManager {
 	 * @param attrNum Attribute selected by user from a given list of options.
 	 * @param attrVal Changed value of attribute given by user.
 	 */
-	public void update(Showtime showtime, int attrNum, String attrVal) {
-		showtime.setAttr(attrNum, attrVal);
+	public void updateMovie(Showtime showtime, int movieID) {
+		showtime.setMovieID(movieID);;
 		System.out.println("======");
 		updateDatabase();
 	}
+	
+	public void updateDate(Showtime showtime, LocalDate date) {
+		showtime.setDate(date);;
+		System.out.println("======");
+		updateDatabase();
+	}
+	
+	public void updateTime(Showtime showtime, LocalTime time) {
+		showtime.setTime(time);;
+		System.out.println("======");
+		updateDatabase();
+	}
+	
 }

@@ -212,9 +212,8 @@ public class CinemaStaffApp extends UserApp {
 		System.out.println("What attribute would you like to change about the movie?");
 		Printer.printMovieAttributes();
 		
-		int attrNum = GetInput.getIntInput("Choose number option:");
-		
-		System.out.println("Insert new value for that attribute:");
+		int case = GetInput.getIntInput("Choose number option:");
+		switch
 		String attrVal = sc.nextLine();
 		
 		System.out.println(attrNum + " " + attrVal);
@@ -317,10 +316,7 @@ public class CinemaStaffApp extends UserApp {
 		System.out.println("Choose a movie:");
 		mm.listAll();
 		int movieID = GetInput.getIntInput("Choose an option");
-//		Movie movie = mm.getMovieByID(movieID);
-		
-		
-		// choose the cineplex.
+
 		System.out.println("Which cineplex?");
 		cxm.listAll();
 		System.out.println("Choose a number option:");
@@ -336,27 +332,28 @@ public class CinemaStaffApp extends UserApp {
 		Showtime showtime = sm.getShowtimeByID(showtimeID);
 		
 		Printer.printShowtimeDetails(showtime); //
-		int choice = GetInput.getIntInput("Choose an option");
+		int choice = GetInput.getIntInputWithinRange("Choose an option",1,3);
 		switch(choice) {
-		case(1):{
-			mm.listAll();
-			System.out.println("Enter the new movie id:");
-			break;
+			case(1):{
+				mm.listAll();
+				int newMovieID = GetInput.getIntInput("Enter the new movieID");
+				sm.updateMovie(showtime, newMovieID);
+				break;
+			}
+			case(2):{
+				LocalDate newDate = GetInput.getDateInput("Enter the new date in yyyy-MM-dd format.");
+				sm.updateDate(showtime, newDate);
+				break;
+			}
+			case(3):{
+				LocalTime newTime = GetInput.getTimeInput("Enter the new time in HH:mm:ss format.");
+				sm.updateTime(showtime, newTime);
+				break;
+			}
 		}
-		case(2):{
-			System.out.println("Enter the new date in yyyy-MM-dd format.");
-			break;
-		}
-		case(3):{
-			System.out.println("Enter the new time in HH:mm:ss format.");
-			break;
-		}
-		}
-		String updateInput = sc.next();
-		sm.update(showtime, choice, updateInput);
+		System.out.println("Showtime have been updated!");
 		
-		
-		  
+		 
 	}
 	/**
 	 * Removes a showtime from the showtime database. 
