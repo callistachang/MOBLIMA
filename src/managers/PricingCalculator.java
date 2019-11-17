@@ -15,16 +15,36 @@ import serializers.MovieSerializer;
 import serializers.PricingSerializer;
 
 import java.time.LocalDate;
-
+/**
+ * Calculates price of a ticket based on user type and booking conditions.
+ * @author penel
+ * @version 1.0
+ * @since 2019-11-17
+ */
 public class PricingCalculator {
+	/**
+	 * The name of the csv file used.
+	 */
 	private static final String DATABASE_NAME = "pricingdata";
+	/**
+	 * Initializes Pricing object.
+	 */
 	private static Pricing pricing = null;
-	
+	/**
+	 * Checks if pricing object is null.
+	 * If null, data from the csv file is written to the list.
+	 */
 	public PricingCalculator() {
 		if (pricing == null)
 			initializeDatabase();
 	}
-	
+	/**
+	 * Calculates the price of a ticket based on booking conditions and user type.
+	 * @param discountType Applicable discount of user. 1: Student, 2: Senior Citizen.
+	 * @param cinemaID Unique identification number of cinema selected by user.
+	 * @param showtimeID Unique identification number of showtime selected by user.
+	 * @return The final price of the ticket.
+	 */
 	public double calculatePrice (int discountType, String cinemaID, int showtimeID) {
 		ShowtimeManager sm = new ShowtimeManager();
 		HolidayManager hm = new HolidayManager();
@@ -57,7 +77,9 @@ public class PricingCalculator {
 		}
 		return ticketPrice;
 	}
-	
+	/**
+	 * Retrieve information from external csv file and converts it into a Pricing object.
+	 */
 	private static void initializeDatabase() {
 		ArrayList<String> data = DatabaseHandler.readDatabase(DATABASE_NAME);
 		AbstractSerializer serializer = new MovieSerializer();

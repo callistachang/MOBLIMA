@@ -193,8 +193,10 @@ public class Showtime implements ISerializable {
 	 *Includes the new seat booked to the already present list of booked seats. 
 	 * @param seatNo The seat number of the new seat that is booked. 
 	 */
-	public void bookSeat(int seatNo) {
-		seatsTaken.add(seatNo);
+	public void addSeat(int seatNo) {
+		if (seatsTaken.contains(seatNo)) {
+			seatsTaken.add(seatNo);
+		}
 	}
 	
 	/**

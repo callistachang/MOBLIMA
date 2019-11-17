@@ -7,7 +7,12 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-
+/**
+ * Handles all the functions for editing the database csv file from a String array.
+ * @author penel
+ * @version 1.0
+ * @since 2019-11-17
+ */
 public class DatabaseHandler {
 	
 //	// testing lol
@@ -32,7 +37,11 @@ public class DatabaseHandler {
 //		// write the array back into the database
 //		return writeToDatabase(databaseName, dataArray);
 //	}
-	
+	/**
+	 * Converts information in external csv file to an ArrayList of strings.
+	 * @param databaseName The name of the csv file used.
+	 * @return ArrayList of database information in string form.
+	 */
 	public static ArrayList<String> readDatabase(String databaseName) {
 		try {
 			File f = new File("database/" + databaseName + ".csv");
@@ -65,7 +74,13 @@ public class DatabaseHandler {
             return null;
         }
 	}
-	
+	/**
+	 * Records information about the database to the external csv file.
+	 * Information read is in the form of an ArrayList of Strings.
+	 * @param databaseName The name of the csv file used.
+	 * @param dataArray The String array that stores the information to be added to the csv file.
+	 * @return
+	 */
 	public static boolean writeToDatabase(String databaseName, ArrayList<String> dataArray) {
 		
 		PrintWriter out = null;

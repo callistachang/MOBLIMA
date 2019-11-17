@@ -10,15 +10,33 @@ import managers.Printer;
 import managers.ShowtimeManager;
 import models.Cineplex;
 import models.Movie;
-
+/**
+ * The most basic access privileges a user can have. Accessed by guests.
+ * Contains common functions shared by customer and cinema staff that do 
+ * not need to be user specific.
+ * @author penel
+ * @version 1.0
+ * @since 2019-11-17
+ */
 public class UserApp {
+	/**
+	 * An array of strings with the options for the menu choices.
+	 */
 	private final String menuOptions[] = {
 		"List movies",
 		"View movie details and reviews",
 		"Check seat availabilities",
 		"List top five movies"
 	};
-
+	/**
+	 * Runs the main logic of this app.
+	 * Displays menu options for guests.
+	 * (1) List movies based on user preference.
+	 * (2) Provide movie information.
+	 * (3) Shows availability of seats for user-specified showtimes.
+	 * (4) Ranks movies based on user preference.
+	 * (5) Exits Guest Menu and UserApp, enters Main Menu in MoblimaApp again.
+	 */
 	public void run() {
 		int choice = -1;
 		Scanner sc = new Scanner(System.in);
@@ -58,7 +76,12 @@ public class UserApp {
 		} while (choice != 5);
 		sc.close();
 	}
-
+	/**
+	 * Lists relevant movies user wants to know about.
+	 * (1) List all movies recorded in the movie database
+	 * (2) Takes in user choice for cineplex, and lists movies that are associated with that cineplex.
+	 * (3) Exits List Movies Menu and enters Guest Menu again.
+	 */
 	protected void listMovies() {
 		Scanner sc = new Scanner(System.in);
 
@@ -112,6 +135,13 @@ public class UserApp {
 	}
 
 // (3) View movie details (including reviews and ratings)
+	/**
+	 * Provides details about movie chosen by user via movie ID.
+	 * (1) Prints information of selected movie (e.g. title, duration, director etc.).
+	 * (2) Prints all the reviews of selected movie, along with the associated
+	 * user and rating given.
+	 * (3) Exits Movie Details Menu and enters List Movies Menu again.
+	 */
 	protected void viewMovieDetails() {
 		Scanner sc = new Scanner(System.in);
 
@@ -158,6 +188,10 @@ public class UserApp {
 	}
 
 // (4) Check seat availabilities
+	/**
+	 * Shows availability of seats at a specific showtime.
+	 * Users choose movie and cineplex to choose desired showtime for query.
+	 */
 	protected void checkSeatAvailabilities() {
 		Scanner sc = new Scanner(System.in);
 
@@ -207,6 +241,11 @@ public class UserApp {
 	}
 
 // (6) List top five movies
+	/**
+	 * Lists the top 5 movies based on user's requirements.
+	 * (1) Lists top 5 movies by number of ticket sales.
+	 * (2) Lists top 5 movies by average rating from all user ratings.
+	 */
 	protected void listTop5Movies() {
 		Scanner sc = new Scanner(System.in);
 
@@ -243,7 +282,10 @@ public class UserApp {
 
 		// If 2, look at the ratings database and do the math.
 	}
-
+	/**
+	 * Gets all the menu options for the common functions in a String Array.
+	 * @return String array of menu options.
+	 */
 	public String[] getMenuOptions() {
 		return menuOptions;
 	}

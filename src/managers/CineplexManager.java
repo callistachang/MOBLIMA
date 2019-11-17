@@ -14,7 +14,7 @@ import serializers.MovieSerializer;
 
 /**
  * Controller for the entity labelled Cineplex.
- * Contains the logic to link CIneplex to other classes. 
+ * Contains the logic to link CIneplex to other classes.
  * @author balad
  * @version 1.0
  * @since 2019-11-17
@@ -22,14 +22,14 @@ import serializers.MovieSerializer;
 
 public class CineplexManager {
 	/**
-	 * The name of the csv file used. 
+	 * The name of the csv file used.
 	 */
 	private static final String DATABASE_NAME = "cineplexdata";
 	/**
 	 * Initialises empty array of Cineplex objects.
 	 */
 	private static ArrayList<Cineplex> records = null;
-	
+
 	/**
 	 * Checks if array list of Cineplex objects is null.
 	 * If null, data fom the csv file is written to the list.
@@ -38,7 +38,7 @@ public class CineplexManager {
 		if (records == null)
 			initializeDatabase();
 	}
-	
+
 	/**
 	 * Iterates through records to compare given cineplex ID against list of cineplex ID already present.
 	 * @param cineplexID Unique identification number of a cineplex.
@@ -61,7 +61,7 @@ public class CineplexManager {
 			System.out.println("(ID: " + cx.getId() + ") " + cx.getName());
 		}
 	}
-	
+
 	/**
 	 * Prints the list of all cineplexes that contain a specific movie.
 	 * @param movieID Unique identification number of a movie.
@@ -85,7 +85,7 @@ public class CineplexManager {
 			}
 		}
 	}
-	
+
 	/**
 	 * Prints the list of all movies that is being shown at a particular cineplex, regardless of showing status.
 	 * @param cineplexID Unique identification number of a specific cineplex.
@@ -114,11 +114,11 @@ public class CineplexManager {
 					System.out.println();
 					printedMovieID.add(movieID);
 				}
-				
+
 			}
 		}
 	}
-	
+
 	/**
 	 * Prints the list of movies that is currently showing at a particular cineplex.
 	 * @param cineplexID Unique identification number of a specific cineplex.
@@ -146,25 +146,25 @@ public class CineplexManager {
 					}
 					printedMovieID.add(movieID);
 				}
-				
+
 			}
 		}
 	}
-	
-	
+
+
 //	// gets movies by cineplex
 //	public ArrayList<Movie> getAllMovies(int cineplexID) {
 //		Cineplex cineplex = getCineplexByID(cineplexID);
 //		return cineplex.getMovies();
 //	}
-//	
+//
 //	// gets showing movies by cineplex
 //	public ArrayList<Movie> getShowingMovies(int cineplexID) {
 //		Cineplex cineplex = getCineplexByID(cineplexID);
 //		return cineplex.getShowingMovies();
 //	}
 //
-//	
+//
 
 	/**
 	 * Prints the number of seats available and showtime for all cinemas in a particular cineplex for a particular movie.
@@ -174,7 +174,7 @@ public class CineplexManager {
 	public void listAllSeatAvailabilitiesInCineplexByMovie(Cineplex cineplex, Movie movie) {
 		ArrayList<Cinema> cinemas = cineplex.getCinemas();
 		CinemaManager cm = new CinemaManager();
-		
+
 		for (Cinema cinema: cinemas) {
 			cm.listAvailabilitiesForMovie(cinema, movie);
 	}
@@ -186,12 +186,12 @@ public class CineplexManager {
 	public void listAll() {
 		for (Cineplex m: records) {
 			System.out.printf("(ID: %s) %s\n", m.getId(), m.getName());
-		}		
+		}
 	}
-	
+
 	/**
 	 * Prints the details of all cinemeas within a particular cineplex.
-	 * @param cineplexID Unique identification number of a cineplex. 
+	 * @param cineplexID Unique identification number of a cineplex.
 	 */
 	public void listAllCinemasByCineplex(String cineplexID) {
 		Cineplex cineplex = getCineplexByID(cineplexID);
@@ -199,10 +199,10 @@ public class CineplexManager {
 		for (Cinema c: cinemas) {
 			Printer.printCinemaInfo(c);
 		}
-		
+
 //		CinemaManager cm = new CinemaManager();
-//		
-//		
+//
+//
 //		for (Cinema cinema: cinemas) {
 //			cm.listAllAvailabilities(cinema);
 //		}
@@ -225,9 +225,9 @@ public class CineplexManager {
 		records = serializer.deserialize(data);
 		System.out.println("CineplexManager " + records.get(0).getCinemas());
 	}
-	
+
 	/**
-	 * Converts current array of Cineplex objects into string to be stored in external csv file. 
+	 * Converts current array of Cineplex objects into string to be stored in external csv file.
 	 */
 	private void updateDatabase() {
 		AbstractSerializer serializer = new CineplexSerializer();
@@ -235,7 +235,3 @@ public class CineplexManager {
 		DatabaseHandler.writeToDatabase(DATABASE_NAME, updatedRecords);
 	}
 }
-
-
-
-
