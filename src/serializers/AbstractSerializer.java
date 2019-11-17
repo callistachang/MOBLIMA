@@ -71,7 +71,8 @@ public abstract class AbstractSerializer {
 		String[] splitArr = arr.split(";");	// "2", "3", "4"
 		ArrayList<Integer> intArray = new ArrayList<Integer>();
 		for (String str: splitArr) {
-			if (Formatter.getIntFromString(str) != 0)
+			System.out.println(str);
+//			if (Formatter.getIntFromString(str) != 0)
 				intArray.add(Formatter.getIntFromString(str));
 		}
 		return intArray;

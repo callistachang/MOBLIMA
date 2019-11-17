@@ -96,6 +96,7 @@ public class ShowtimeManager {
 	 * @param seatNo Seat number selected by the user.
 	 */
 	public void bookSeat(Showtime showtime, int seatNo) {
+		System.out.println("seatno: " + seatNo);
 		showtime.addSeat(seatNo);
 		updateDatabase();
 	}

@@ -91,7 +91,7 @@ public class MovieGoerApp extends UserApp {
 		ShowtimeManager sm = new ShowtimeManager();
 		CinemaManager cm = new CinemaManager();
 		BookingManager bm  = new BookingManager();
-//		PricingCalculator pm = new PricingCalculator();
+		PricingCalculator pm = new PricingCalculator();
 		
 		// choose movie out of all movies
 		System.out.println("Which movie would you like to watch?");
@@ -101,7 +101,11 @@ public class MovieGoerApp extends UserApp {
 		
 		// choose cineplex
 		System.out.println("Which cineplex would you like to watch the movie from?");
-		cxm.listCineplexByMovie(movieID);
+		boolean cineplexExists = cxm.listCineplexByMovie(movieID);
+		if (!cineplexExists) {
+			System.out.println("No cineplex is currently playing the movie.");
+			bookTicket();
+		} else {
 		System.out.println("Choose a number option:");
 		Movie movie = mm.getMovieByID(movieID);
 		String cineplexID = sc.next();
@@ -110,7 +114,7 @@ public class MovieGoerApp extends UserApp {
 		
 		System.out.println("Which showtime would you like to watch?");
 		cxm.listAllSeatAvailabilitiesInCineplexByMovie(cineplex, movie);
-		System.out.println("Choose a number option:");
+		System.out.println("Choose ShowtimeID:");
 		int showtimeID = sc.nextInt();
 		
 		int noOfTickets;
@@ -133,15 +137,16 @@ public class MovieGoerApp extends UserApp {
 			System.out.println("1: Student");
 			System.out.println("2: Senior Citizen");
 			int discountType = sc.nextInt();
-	//		price+=pm.calculatePrice(discountType, c.getId(), showtimeID);
+			price+=pm.calculatePrice(discountType, c.getId(), showtimeID);
 		}
 				
 		
-		System.out.println("The1 total price is: " + price);
+		System.out.println("Thet total price is: " + price);
 		
 		
-//		String TID = bm.addReceipt(c.getId(),showtimeID, price);
-//		bm.printReceipt(TID);
+		String TID = bm.addReceipt(c.getId(),showtimeID, price);
+		bm.printReceipt(TID);
+		}
 	}
 	
 	// (5) View booking history

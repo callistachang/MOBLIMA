@@ -310,9 +310,6 @@ public class CinemaStaffApp extends UserApp {
 		}
 		String updateInput = sc.next();
 		sm.update(showtime, choice, updateInput);
-		
-		
-		  
 	}
 	
 	private void removeMovieShowtime() {
@@ -354,9 +351,7 @@ public class CinemaStaffApp extends UserApp {
 			System.out.println("Please input a valid option.");
 			break;
 			}
-		} while (choice != 'Y' && choice != 'N');	
-		
-
+		} while (choice != 'Y' && choice != 'N');
 	}
 	
 	private void configureSettings() {

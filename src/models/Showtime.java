@@ -183,9 +183,14 @@ public class Showtime implements ISerializable {
 	
 	/**
 	 * Gets the total number of seats booked during the showtime.
+	 * 0 removed as it is the placeholder in the CSV database when no seats are taken.
 	 * @return This showtime's count of seats taken.
 	 */
 	public int getNoSeatsTaken() {
+		if (seatsTaken.contains(0)) {
+			seatsTaken.remove(0);
+
+		}
 		return seatsTaken.size();
 	}
 	
@@ -194,7 +199,7 @@ public class Showtime implements ISerializable {
 	 * @param seatNo The seat number of the new seat that is booked. 
 	 */
 	public void addSeat(int seatNo) {
-		if (seatsTaken.contains(seatNo)) {
+		if (!seatsTaken.contains(seatNo)) {
 			seatsTaken.add(seatNo);
 		}
 	}

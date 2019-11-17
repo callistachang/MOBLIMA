@@ -66,24 +66,30 @@ public class CineplexManager {
 	 * Prints the list of all cineplexes that contain a specific movie.
 	 * @param movieID Unique identification number of a movie.
 	 */
-	public void listCineplexByMovie(int movieID) {
+	public boolean listCineplexByMovie(int movieID) {
 		Boolean printed = false;
 		MovieManager mm = new MovieManager();
-		System.out.println("Cineplex that contain the movie:");
+		boolean cineplexExist = false;
+		System.out.println("\nCineplex that contain the movie:");
+//		System.out.println("...." + records);
 		for (Cineplex cx: records) {
 			printed = false;
 			ArrayList<Cinema> cinemas = cx.getCinemas();
+//			System.out.println("####" + cinemas);
 			for (Cinema c: cinemas) {
 				ArrayList<Showtime> showtimes = c.getShowtimes();
+//				System.out.println("?????" + showtimes);
 				for (Showtime s: showtimes) {
 					if (movieID == s.getMovieID() & !printed) {
 						Movie movie = mm.getMovieByID(movieID);
-						System.out.println("CineplexID: " + cx.getId());;
+						System.out.println("CineplexID: " + cx.getId());
+						cineplexExist = true;
 						printed = true;
 					}
 				}
 			}
 		}
+		return cineplexExist;
 	}
 
 	/**

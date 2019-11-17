@@ -15,7 +15,7 @@ public class BookingSerializer extends AbstractSerializer {
 
 	protected ISerializable deserialize(String data) {
 		String[] d = splitByAttribute(data);
-		System.out.println(d[1]);
+//		System.out.println(d[1]);
 		LocalDate localdate = Formatter.getLocalDateFromString(d[1]);
 		LocalTime localtime = Formatter.getLocalTimeFromString(d[2]);
 		ShowtimeSerializer ss = new ShowtimeSerializer();

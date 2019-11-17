@@ -57,8 +57,10 @@ public class PricingCalculator {
 		Movie movie = mm.getMovieByID(movieID);
 		String mt = movie.getType().toString();
 		Cinema c = cm.getCinemaByID(cinemaID);
+		
 		DayOfWeek day = DayOfWeek.of(s.getDate().get(ChronoField.DAY_OF_WEEK));
 		if(day == DayOfWeek.SATURDAY || day == DayOfWeek.SUNDAY || hm.isHoliday(s.getDate())) {
+			System.out.println("Weekend premium added.");
 			ticketPrice += pricing.getWeekendPremium();
 		}
 		//cinema class?
@@ -66,15 +68,31 @@ public class PricingCalculator {
 		case 0:
 			break;
 		case 1:
-			ticketPrice += pricing.getStudentDiscount();
+			System.out.println("Student discount applied.");
+			ticketPrice -= pricing.getStudentDiscount();
 			break;
 		case 2:
-			ticketPrice += pricing.getSeniorCitizenDiscount();
+			System.out.println("Senior citizen discount added.");
+			ticketPrice -= pricing.getSeniorCitizenDiscount();
+			break;
 	}
 		
 		if(mt.equals("3D")) {
+			System.out.println("3D movie premium added.");
 			ticketPrice += pricing.getMovieTypePremium();
 		}
+		
+		if (c.getCinemaClass().equals("Gold")) {
+			System.out.println("Gold premium added.");
+			ticketPrice += pricing.getGoldCinemaPremium();
+		}
+		
+		if (c.getCinemaClass().equals("Platinum")) {
+			System.out.println("Platinum premium added.");
+			ticketPrice += pricing.getPlatinumCinemaPremium();
+		}
+		System.out.println("Ticket Price: " + ticketPrice);
+		
 		return ticketPrice;
 	}
 	/**
@@ -82,7 +100,7 @@ public class PricingCalculator {
 	 */
 	private static void initializeDatabase() {
 		ArrayList<String> data = DatabaseHandler.readDatabase(DATABASE_NAME);
-		AbstractSerializer serializer = new MovieSerializer();
+		AbstractSerializer serializer = new PricingSerializer();
 		pricing = (Pricing) serializer.deserialize(data).get(0);
 	}
 	
