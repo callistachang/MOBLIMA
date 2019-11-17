@@ -338,10 +338,10 @@ public class CinemaStaffApp extends UserApp {
 		System.out.println("Choose a number option:");
 		int showtimeId = sc.nextInt();
 		Showtime showtime = sm.getShowtimeByID(showtimeId);
-		
+		char choice;
 		do {
 		System.out.println("Confirm? Y/N");
-		char choice = sc.next().toUpperCase().charAt(0);
+		choice = sc.next().toUpperCase().charAt(0);
 		switch (choice) {
 		case 'Y':
 			cm.removeShowtime(cinema, showtime);
@@ -354,7 +354,7 @@ public class CinemaStaffApp extends UserApp {
 			System.out.println("Please input a valid option.");
 			break;
 			}
-		} while (true);	
+		} while (choice != 'Y' && choice != 'N');	
 		
 
 	}

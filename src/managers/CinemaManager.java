@@ -92,12 +92,7 @@ public class CinemaManager {
 	}
 
 	public void removeShowtime(Cinema cinema, Showtime showtime) {
-
-		ArrayList<Showtime> showtimes = cinema.getShowtimes();
-		boolean removed = showtimes.remove(showtime);
-		if (!removed) {
-			System.out.println("Showtime not found!");
-		}
+		cinema.removeShowtime(showtime);
 		updateDatabase();
 	}
 
