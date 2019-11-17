@@ -1,8 +1,10 @@
-package managers;
+package boundaries;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Scanner;
 
+import managers.Formatter;
+import managers.ValidityChecker;
 import models.Cinema;
 import models.Showtime;
 /**
@@ -12,7 +14,7 @@ import models.Showtime;
  * @since 2019-11-17
  *
  */
-public class GetInput {
+public class InputBoundary {
 
 	/**
 	 * Ensures that the input is integer.

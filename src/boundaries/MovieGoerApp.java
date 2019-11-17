@@ -1,4 +1,4 @@
-package main;
+package boundaries;
 import java.util.Scanner;
 import models.Account;
 import models.Booking;
@@ -73,7 +73,7 @@ public class MovieGoerApp extends UserApp {
 			}
 			System.out.printf("(%d) %s \n", i, "Exit");
 			System.out.println("======================================================");
-			choice = GetInput.getIntInput("Choose an option");
+			choice = InputBoundary.getIntInput("Choose an option");
 			switch (choice) {
 				case 1:
 					bookTicket();
@@ -126,7 +126,7 @@ public class MovieGoerApp extends UserApp {
 		// choose movie out of all movies
 		System.out.println("Which movie would you like to watch?");
 		mm.listAll();
-		int movieID = GetInput.getIntInput("Choose an option");
+		int movieID = InputBoundary.getIntInput("Choose an option");
 
 		// choose cineplex
 		System.out.println("Which cineplex would you like to watch the movie from?");
@@ -136,20 +136,20 @@ public class MovieGoerApp extends UserApp {
 			bookTicket();
 		}
 		else {
-		String cineplexID = GetInput.getCineplexIDInput("Choose a cineplex:");
+		String cineplexID = InputBoundary.getCineplexIDInput("Choose a cineplex:");
 		Movie movie = mm.getMovieByID(movieID);
 		Cineplex cineplex = cxm.getCineplexByID(cineplexID);
 		// which movie type?
 
 		System.out.println("Which showtime would you like to watch?");
 		cxm.listAllSeatAvailabilitiesInCineplexByMovie(cineplex, movie);
-		int showtimeID = GetInput.getIntInput("Choose an option");
+		int showtimeID = InputBoundary.getIntInput("Choose an option");
 		Cinema cinema = cm.getCinemaByShowtimeID(showtimeID);
 		int noOfTickets;
 		Showtime showtime = sm.getShowtimeByID(showtimeID);
 		Cinema c = cm.getCinemaByShowtimeID(showtimeID);
 		do {
-		noOfTickets= GetInput.getIntInput("How many tickets would you like to purchase?");
+		noOfTickets= InputBoundary.getIntInput("How many tickets would you like to purchase?");
 		} while (noOfTickets > c.getNoSeatsAvailable(showtime));
 
 		c.printSeatingPlan(showtime);
@@ -157,13 +157,13 @@ public class MovieGoerApp extends UserApp {
 		for(int i=0;i<noOfTickets;i++)
 		{
 			//int seatChosen = GetInput.getIntInput("Please select your seat number");
-			int seatChosen = GetInput.getSeatNumberInput(cinema, showtime, "Please select your seat number");
+			int seatChosen = InputBoundary.getSeatNumberInput(cinema, showtime, "Please select your seat number");
 			sm.bookSeat(showtime,seatChosen);
 			System.out.println("Any discounts applicable?");
 			System.out.println("(0) None");
 			System.out.println("(1) Student");
 			System.out.println("(2) Senior Citizen");
-			int discountType = GetInput.getIntInput("Choose an option: ");
+			int discountType = InputBoundary.getIntInput("Choose an option: ");
 			price+=pm.calculatePrice(discountType, c.getId(), showtimeID);
 	//		price+=pm.calculatePrice(discountType, c.getId(), showtimeID);
 		}
@@ -205,11 +205,11 @@ public class MovieGoerApp extends UserApp {
 
 		System.out.println("Which movie would you like to rate/review?");
 		mm.listAll();
-		int movieID = GetInput.getIntInput("Choose an option");
+		int movieID = InputBoundary.getIntInput("Choose an option");
 
 		int rating;
 		do {
-			rating = GetInput.getIntInput("Please give your rating (between 1-5)");
+			rating = InputBoundary.getIntInput("Please give your rating (between 1-5)");
 		} while (rating < 0 || rating > 5);
 
 		System.out.println("Would you like to give a review?(Y/N)");
