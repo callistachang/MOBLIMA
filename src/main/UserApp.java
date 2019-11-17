@@ -1,4 +1,4 @@
-package main;
+ package main;
 
 import java.util.Scanner;
 
@@ -78,7 +78,7 @@ public class UserApp {
 	 * Lists relevant movies user wants to know about.
 	 * (1) List all movies recorded in the movie database
 	 * (2) Takes in user choice for cineplex, and lists movies that are associated with that cineplex.
-	 * (3) Exits List Movies Menu and enters Guest Menu again.
+	 * (3) Exits List Movies Menu.
 	 */
 	protected void listMovies() {
 		Scanner sc = new Scanner(System.in);

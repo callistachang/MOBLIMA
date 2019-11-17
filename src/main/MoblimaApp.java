@@ -6,7 +6,7 @@ import managers.GetInput;
 import models.Account;
 /**
  * The main function for the entire application. 
- * Contains the shallowest overview of the entire flow of the application.
+ * Contains the preliminary overview of the entire flow of the application.
  * Determines access privileges of user.
  * @author penel
  * @version 1.0
@@ -113,7 +113,7 @@ public class MoblimaApp {
 	 * Creates a new customer account for users to access customer privileges.
 	 * All customers need an account to book tickets or leave reviews.
 	 */
-	
+
 	public void createNewAccount() {
 		Scanner sc = new Scanner(System.in);
 		String username = null, password = null, confirmPassword = null, mobileNumber = null, emailAddress = null;

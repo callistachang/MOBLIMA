@@ -293,7 +293,7 @@ public class CinemaStaffApp extends UserApp {
 		
 		
 		LocalDate date = GetInput.getDateInput("Enter the date in yyyy-MM-dd format.");
-		LocalTime time = GetInput.getTimeInput("Enter the new time in HH:mm:ss format");
+		LocalTime time = GetInput.getTimeInput("Enter the new time in HH:mm:ss format.");
 		
 		Showtime showtime = sm.create(date, time, movieID);
 		cm.addShowtime(cinemaID, showtime);
