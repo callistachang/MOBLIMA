@@ -78,9 +78,10 @@ public class CinemaManager {
 		for (Showtime showtime: showtimes) {
 			int movieId = showtime.getMovieID();
 			if (movieId == movie.getId()) {
-				System.out.println("CinemaID = " + cinema.getId());
-				System.out.println("Class: " + cinema.getCinemaClass());
-				System.out.println("ShowtimeId: " + showtime.getId());
+				Printer.printShowtimeDetails(showtime);
+				// System.out.println("CinemaID = " + cinema.getId());
+				// System.out.println("Class: " + cinema.getCinemaClass());
+				// System.out.println("ShowtimeId: " + showtime.getId());
 				int availableSeats = cinema.getTotalNoSeats() - showtime.getNoSeatsTaken();
 				System.out.println(availableSeats + " seats are currently available");
 				System.out.println("======================================================="); 
@@ -96,9 +97,10 @@ public class CinemaManager {
 		ArrayList<Showtime> showtimes = cinema.getShowtimes();
 		
 		for (Showtime showtime: showtimes) {
-			System.out.println("CinemaID = " + cinema.getId());
-			System.out.println("Class: " + cinema.getCinemaClass());
-			System.out.println("ShowtimeId: " + showtime.getId());
+			Printer.printShowtimeDetails(showtime);
+			// System.out.println("CinemaID = " + cinema.getId());
+			// System.out.println("Class: " + cinema.getCinemaClass());
+			// System.out.println("ShowtimeId: " + showtime.getId());
 			int availableSeats = cinema.getTotalNoSeats() - showtime.getNoSeatsTaken();
 			System.out.println(availableSeats + "are currently available");
 			System.out.println("=======================================================");

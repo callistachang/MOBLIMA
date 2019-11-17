@@ -291,7 +291,7 @@ public class CinemaStaffApp extends UserApp {
 		
 		
 		mm.listAll();	// list of all movies with their IDs
-		int movieID = GetInput.getIntInput("Which movie would you like to update? Enter movie ID:");
+		int movieID = GetInput.getIntInput("Which movie would you like to remove? Enter movie ID:");
 		System.out.println();
 		char choice;
 		do {
