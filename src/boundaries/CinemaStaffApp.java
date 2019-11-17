@@ -388,8 +388,8 @@ public class CinemaStaffApp extends UserApp {
 		}
 		while(showtime == null);
 		
-		Printer.printShowtimeDetails(showtime); //
-		
+		Printer.printShowtimeAttributes();
+				
 		int choice = InputBoundary.getIntInputWithinRange("Choose an option",1,3);
 		switch(choice) {
 			case(1):{
@@ -482,12 +482,13 @@ public class CinemaStaffApp extends UserApp {
 					System.out.println("(1) Create holiday");
 					System.out.println("(2) Delete holiday");
 					int actionChoice = sc.nextInt();
+					sc.nextLine();
 					HolidayManager hm = new HolidayManager();
 					
 					switch (actionChoice) {
 						case 1:
 							System.out.println("What would be the name of this holiday?");
-							String createdHolidayName = sc.next();
+							String createdHolidayName = sc.nextLine();
 							System.out.println("What date is this holiday? (Write it in YYYY-MM-DD)");
 							LocalDate holidayDate = Formatter.getLocalDateFromString(sc.next());
 							hm.create(createdHolidayName, holidayDate);

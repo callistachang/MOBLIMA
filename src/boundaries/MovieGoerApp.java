@@ -201,12 +201,12 @@ public class MovieGoerApp extends UserApp {
 		} while (rating < 0 || rating > 5);
 
 		System.out.println("Would you like to give a review?(Y/N)");
-		String reviewOption = sc.next();
+		String reviewOption = sc.nextLine();
 		String reviewInput = null;
 
 		if (reviewOption.compareToIgnoreCase("y") == 0) {
 			System.out.println("Please enter your review:");
-			reviewInput = sc.next();
+			reviewInput = sc.nextLine();
 		}
 		Review r = mm.addReviewToMovie(movieID, rating, account, reviewInput);
 		System.out.println("Review Added.");
