@@ -250,7 +250,7 @@ public class UserApp {
 		Scanner sc = new Scanner(System.in);
 
 		MovieManager mm = new MovieManager();
-//		BookingManager bm = new BookingManager();
+		BookingManager bm = new BookingManager();
 
 		int choice;
 		do {
@@ -262,7 +262,7 @@ public class UserApp {
 			choice = sc.nextInt();
 			switch (choice) {
 			case 1:
-//				bm.listTop5ByTicketSales();
+				bm.listTop5ByTicketSales();
 				break;
 			case 2:
 				mm.listTop5ByRatings();

@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import handlers.DatabaseHandler;
 import main.CinemaStaffApp;
 import models.Account;
+import models.Booking;
+import models.Cinema;
+import models.Showtime;
 import serializers.AbstractSerializer;
 import serializers.AccountSerializer;
 import serializers.ShowtimeSerializer;
@@ -41,6 +44,12 @@ public class AccountManager {
 			initializeDatabase();
 		}
 	}
+	
+	public void addBooking(Account account, Booking booking) {
+		account.addBooking(booking);
+		updateDatabase();
+	}
+	
 	/**
 	 * Iterates through records to compare given username against list of usernames for an account.
 	 * @param username Unique identification name of the user.

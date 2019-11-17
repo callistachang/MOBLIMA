@@ -175,8 +175,10 @@ public class MovieGoerApp extends UserApp {
 		System.out.println("Thet total price is: " + price);
 		
 		
-		String TID = bm.addReceipt(c.getId(),showtimeID, price);
-		bm.printReceipt(TID);
+		Booking booking = bm.addReceipt(c.getId(),showtimeID, price);
+//		bm.printReceipt(TID);
+		AccountManager am = new AccountManager();
+		am.addBooking(account, booking);
 		}
 	}
 		/**
@@ -185,8 +187,12 @@ public class MovieGoerApp extends UserApp {
 		private void viewBookingHistory() {
 //		AccountManager am = new AccountManager();
 
-		ArrayList<Booking> BookingHistory = account.getBookings();
-		System.out.println("Your booking history is as follows:"+ BookingHistory);		
+		ArrayList<Booking> bookings = account.getBookings();
+		System.out.println("Your booking history is as follows:");
+		for (Booking b: bookings) {
+			Printer.printBookingInfo(b);
+		}
+		
 	}
 	
 	/**
