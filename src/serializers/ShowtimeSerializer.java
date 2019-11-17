@@ -8,8 +8,18 @@ import managers.Formatter;
 import models.ISerializable;
 import models.Showtime;
 
+/**
+ * Handles the deserialization for Showtime class.
+ * @version 1.0
+ * @since 2019-11-17
+ * @author balad
+ *
+ */
 public class ShowtimeSerializer extends AbstractSerializer {
 	
+	/**
+	 * Converts data of string type to Showtime type.
+	 */
 	@Override
 	protected ISerializable deserialize(String data) {
 		String[] d = splitByAttribute(data);
