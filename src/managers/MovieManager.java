@@ -41,6 +41,9 @@ public class MovieManager {
 		Movie movie = new Movie(records.size()+1, title, ShowingStatus.getByValue(status), director, 
 				synopsis, casts, duration, null, MovieType.getByValue(type));
 		records.add(movie); // add to records
+		System.out.println("===Movie Created!===");
+		Printer.printMovieInfo(movie);
+		System.out.println("====================\n");
 		updateDatabase();
 	}
 	
@@ -115,50 +118,33 @@ public class MovieManager {
 		DatabaseHandler.writeToDatabase(DATABASE_NAME, updatedRecords);
 	}
 
+	@SuppressWarnings("unchecked")
 	public void listTop5ByRatings() {
 		
 		HashMap<String, Integer> map = new HashMap<String, Integer>();
 		for (Movie m: records) {
 			int movieRating = 0;
-			for (Review r: m.getReviews()) {
-				movieRating += r.getRating();
+			ArrayList<Review> reviews = m.getReviews();
+			if (reviews.get(0) != null || reviews == null ) {
+				for (Review r: reviews) {
+//					System.out.println(r.getRating());
+					movieRating += r.getRating();
+				}
+			map.put(m.getTitle(), movieRating/reviews.size());
 			}
-			map.put(m.getTitle(), movieRating/m.getReviews().size());
 		}
 		
 		Object[] a = map.entrySet().toArray();
-		Arrays.sort(a, new Comparator() {
-		    public int compare(Object o1, Object o2) {
+		Arrays.sort(a, new Comparator<Object>() {
+			public int compare(Object o1, Object o2) {
 		        return ((Map.Entry<String, Integer>) o2).getValue().compareTo(
 		               ((Map.Entry<String, Integer>) o1).getValue());
 		    }
 		});
-		for (Object e : a) {
-		    System.out.println(((Map.Entry<String, Integer>) e).getKey() + " : "
-		                     + ((Map.Entry<String, Integer>) e).getValue());
-		}      
-		
-		
-//		System.out.println(map.entrySet().stream().sorted((o1, o2) -> {
-//	        return o2.getValue().compareTo(o1.getValue());
-//	    }).f
-//				
-//				.findFirst());
-		
-//		int i, totalRating = 0;
-//		ArrayList<Review> reviews = m.getReviews();
-//		for (i = 0; i < reviews.size(); i++) {
-//			Review review = reviews.get(i);
-//			System.out.printf("(%d)\n", i+1);
-//			System.out.println("User: " + review.getUser());
-//			System.out.println("Rating: " + review.getRating());
-//			totalRating += review.getRating();
-//			if (!review.getContent().equals("null")) {
-//				System.out.println("Review: " + review.getContent());
-//			}
-//		}
-//		System.out.println("\nAverage Rating: " + totalRating/reviews.size());
-//		
+		for (int i = 0; i < 5; i++) {
+		    System.out.println(i + ". " + ((Map.Entry<String, Integer>) a[i]).getKey() + " : "
+                    + ((Map.Entry<String, Integer>) a[i]).getValue());
+		}	
 	}
 	
 	public void addReviewToMovie(int movieId, int rating, Account account, String content) {
