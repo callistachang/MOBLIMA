@@ -79,7 +79,7 @@ public class DatabaseHandler {
 	 * Information read is in the form of an ArrayList of Strings.
 	 * @param databaseName The name of the csv file used.
 	 * @param dataArray The String array that stores the information to be added to the csv file.
-	 * @return
+	 * @return Boolean value to indicate whether the process is complete. 
 	 */
 	public static boolean writeToDatabase(String databaseName, ArrayList<String> dataArray) {
 		
