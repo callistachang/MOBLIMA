@@ -311,9 +311,7 @@ public class CinemaStaffApp extends UserApp {
 				}
 		} while (!(choice == 'Y' || choice == 'y' || choice == 'n' || choice == 'N'));	
 		
-		// ask staff which movie they want to delete (show list of movies)
-		// confirm?
-		// will delete from movie list csv file.
+		
 	}
 	/**
 	 * Adds a new showtime into the showtime database. 
@@ -332,21 +330,14 @@ public class CinemaStaffApp extends UserApp {
 		System.out.println("Choose a movie:");
 		mm.listAll();
 		int movieID = InputBoundary.getIntInput("Choose a number option:");
-//		Movie movie = mm.getMovieByID(movieID);
 		System.out.println("Which cineplex?");
 		cxm.listAll();
 		System.out.println("Choose by String ID:");
 		String cineplexID = sc.next();
-//		Cineplex cineplex = cxm.getCineplexByID(cineplexID);
 		System.out.println("Which cinema?");
 		cxm.listAllCinemasByCineplex(cineplexID);
 		String cinemaID = InputBoundary.getCinemaIDInput("Enter cinemaID:");
-//		Cinema cinema = cm.getCinemaByID(cinemaID);
-		
-//		Cinema cinema = cm.getCinemaByID("AA");
-//		int movieID = 2;
-//		LocalDate date = Formatter.getLocalDateFromString("2019-10-10");
-//		LocalTime time = Formatter.getLocalTimeFromString("23:23:23");
+
 		
 		
 		LocalDate date = InputBoundary.getDateInput("Enter the date in yyyy-MM-dd format.");
@@ -355,8 +346,8 @@ public class CinemaStaffApp extends UserApp {
 		Showtime showtime = sm.create(date, time, movieID);
 		cm.addShowtime(cinemaID, showtime);
 		
-//		cinema.addShowtime(showtime); //error checking
 	}
+	
 	/**
 	 * Updates a showtime currently in the showtime database. 
 	 * Cinema staff can choose which attribute of the showtime they want to edit, before
@@ -373,7 +364,7 @@ public class CinemaStaffApp extends UserApp {
 			System.out.println("There are no showtimes to update!");
 			return;
 		}
-		// choose a movie i wanna update.
+	
 		System.out.println("Choose a movie:");
 		mm.listAll();
 		int movieID = InputBoundary.getIntInput("Choose an option");
@@ -472,7 +463,7 @@ public class CinemaStaffApp extends UserApp {
 	 * Generates the menu to configure settings
 	 * (1) Create or delete holidays timings
 	 * (2) Update the prices for tickets
-	 * (3) exit form the function
+	 * (3) Exit from the function
 	 */
 	private void configureSettings() {
 		Scanner sc = new Scanner(System.in);

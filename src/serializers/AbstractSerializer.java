@@ -72,7 +72,7 @@ public abstract class AbstractSerializer {
 	}
 		
 	/**
-	 * Deserialises CSV data to its data type.
+	 * Deserializes CSV data to its data type.
 	 * Extended in sub-classes.
 	 * @param data Data whose data type needs to be converted.
 	 * @return 
@@ -107,24 +107,11 @@ public abstract class AbstractSerializer {
 		String[] splitArr = arr.split(";");	// "2", "3", "4"
 		ArrayList<Integer> intArray = new ArrayList<Integer>();
 		for (String str: splitArr) {
-//			if (Formatter.getIntFromString(str) != 0)
 				intArray.add(Formatter.getIntFromString(str));
 		}
 		return intArray;
 	}
 	
 	
-	
-//	protected int[] parseArrayToIntegers(String[] data, int index) {
-//		String[] splitDataStr = data[index].split(";");
-//		for (int i = 0; i < splitDataStr.length; i++) {
-//			if (splitDataStr[i].equals("null"))
-//				splitDataStr[i] = "0";
-//		}
-//	    return Stream.of(splitDataStr).mapToInt(Integer::parseInt).toArray();
-//	}
-	
-//	protected int parseInteger(String[] data, int index) {
-//		return Integer.parseInt(data[index]);
-//	}
+
 }

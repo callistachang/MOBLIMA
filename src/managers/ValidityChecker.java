@@ -113,7 +113,6 @@ public class ValidityChecker {
 	 * @return Returns a boolean value to indicate validity of the String as an available seat number in that cinema's showtime
 	 */
 	public static boolean isAvailableSeatNumber(Cinema cinema, Showtime showtime,String seatNumber) {
-		//convert to seat number
 		int seatInt;
 		if(seatNumber.length() != 3) {
 			return false;

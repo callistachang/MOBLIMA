@@ -37,7 +37,7 @@ public class AccountManager {
 	
 	/**
 	 * Checks if array list of Account objects is null.
-	 * If null, data fom the csv file is written to the list.
+	 * If null, data from the csv file is written to the list.
 	 */
 	public AccountManager() {
 		if (records == null) {
@@ -190,7 +190,7 @@ public class AccountManager {
 		
 		else {
 			Account account = new Account(username, age, mobileNumber, emailAddress, password, null);
-			records.add(account); // add to records
+			records.add(account); 
 			updateDatabase();
 			return 0;
 		}

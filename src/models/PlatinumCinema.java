@@ -24,7 +24,6 @@ public class PlatinumCinema extends Cinema {
 	 */
 	public PlatinumCinema(String id, ArrayList<Showtime> showtimes) {
 		super(id, showtimes);
-		// TODO Auto-generated constructor stub
 	}
 	/**
 	 * Gets the class of this cinema as a string.

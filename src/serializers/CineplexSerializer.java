@@ -27,7 +27,6 @@ public class CineplexSerializer extends AbstractSerializer {
 		ArrayList<String> cinemaIDs = splitArrayToStrings(d[2]);
 		ArrayList<Cinema> cinemas = parseIdArrayToCinemas(cinemaIDs);
 		
-		// TODO Auto-generated method stub
 		return new Cineplex(d[0], d[1], cinemas);
 	}
 	/**

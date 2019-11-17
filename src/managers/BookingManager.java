@@ -83,7 +83,7 @@ public class BookingManager {
 		Cinema c = cm.getCinemaByID(cinemaID);
 		String TID = cinemaID + bookingDate + bookingTime;
 		Booking booking = new Booking(TID, today, now, s, c, price);
-		records.add(booking); // add to records
+		records.add(booking); 
 		updateDatabase();
 		
 		return booking;
@@ -108,7 +108,7 @@ public class BookingManager {
 		ArrayList<Integer> movieIDs = new ArrayList<Integer>();
 		ArrayList<Integer> ticketSales = new ArrayList<Integer>();
 		for (Booking b: records) {
-			int movieID = b.getShowtime().getMovieID();	// movie id of this booking.
+			int movieID = b.getShowtime().getMovieID();	
 
 			if (!movieIDs.contains(movieID)) {
 				movieIDs.add(movieID);
@@ -117,7 +117,7 @@ public class BookingManager {
 		}
 		
 		for (Booking b: records) {
-			int movieID = b.getShowtime().getMovieID();	// movie id of this booking.
+			int movieID = b.getShowtime().getMovieID();	
 			int movieIDIndex = movieIDs.indexOf(movieID);
 			ticketSales.set(movieIDIndex, ticketSales.get(movieIDIndex) + 1);
 		}

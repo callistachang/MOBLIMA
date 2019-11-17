@@ -24,7 +24,7 @@ public class Cineplex implements ISerializable {
 	 * The list of cinemas housed in this cineplex.
 	 */
 	private ArrayList<Cinema> cinemas;
-//	private ArrayList<Integer> movieIDs;
+
 	/**
 	 * Creates a new cineplex with a list of cinemas.
 	 * @param id This cineplex's ID.

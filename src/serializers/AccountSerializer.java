@@ -32,6 +32,11 @@ public class AccountSerializer extends AbstractSerializer {
 		return new Account(d[0], age, d[2], d[3], d[4], bookings);
 	}
 	
+	/**
+	 * Array of bookingTID converted into array of booking objects.
+	 * @param bookingTIDs Array of unique transaction identification to be converted.
+	 * @return Array of booking objects.
+	 */
 	public ArrayList<Booking> parseIdArrayToBookings(ArrayList<String> bookingTIDs) {
 		ArrayList<Booking> bookings = new ArrayList<Booking>();
 		BookingManager bm = new BookingManager();

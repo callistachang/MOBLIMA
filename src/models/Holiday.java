@@ -7,7 +7,7 @@ import managers.Formatter;
 
 //configure settings, pricing manager 
 /**
- * The list of recognised holidays by MOBLIMA.
+ * The list of recognized holidays by MOBLIMA.
  * Holidays will have higher ticket prices.
  * @author balad
  *

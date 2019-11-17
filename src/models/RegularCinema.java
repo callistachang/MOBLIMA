@@ -24,7 +24,6 @@ public class RegularCinema extends Cinema {
 	 */
 	public RegularCinema(String id, ArrayList<Showtime> showtimes) {
 		super(id, showtimes);
-		// TODO Auto-generated constructor stub
 	}
 
 	/**

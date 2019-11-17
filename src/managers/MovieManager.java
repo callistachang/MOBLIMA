@@ -76,16 +76,16 @@ public class MovieManager {
 			ArrayList<String> casts, int duration, String type) {
 		Movie movie = new Movie(records.size()+1, title, ShowingStatus.getByValue(status), director,
 				synopsis, casts, duration, null, MovieType.getByValue(type));
-		records.add(movie); // add to records
+		records.add(movie); 
 		System.out.println("===Movie Created!===");
 		Printer.printMovieInfo(movie);
 		System.out.println("====================\n");
 		updateDatabase();
 	}
 	/**
-	 * Updates the title of a movie
-	 * @param Movie ID of movie to be updated
-	 * @param title New title of the movie
+	 * Updates the title of a movie.
+	 * @param Movie ID of movie to be updated.
+	 * @param title New title of the movie.
 	 */
 	public void updateTitle(int movieID, String title) {
 		Movie movie = getMovieByID(movieID);
@@ -94,9 +94,9 @@ public class MovieManager {
 		updateDatabase();
 	}
 	/**
-	 * Updates the showing status of the movie
-	 * @param movieID Movie ID of movie to be updated
-	 * @param showingStatus New showing status of the movie
+	 * Updates the showing status of the movie.
+	 * @param movieID Movie ID of movie to be updated.
+	 * @param showingStatus New showing status of the movie.
 	 */
 	
 	public void updateShowingStatus(int movieID, ShowingStatus showingStatus) {
@@ -106,9 +106,9 @@ public class MovieManager {
 		updateDatabase();
 	}
 	/**
-	 * Updates the synopsis of the movie
-	 * @param movieID Movie ID of movie to be updated
-	 * @param synopsis New synopsis of the movie
+	 * Updates the synopsis of the movie.
+	 * @param movieID Movie ID of movie to be updated.
+	 * @param synopsis New synopsis of the movie.
 	 */
 
 	public void updateSynopsis(int movieID, String synopsis) {
@@ -119,9 +119,9 @@ public class MovieManager {
 	}
 	
 	/**
-	 * Updates the director name of the movie
-	 * @param movieID Movie ID of movie to be updated
-	 * @param director New director name of the director of the movie
+	 * Updates the director name of the movie.
+	 * @param movieID Movie ID of movie to be updated.
+	 * @param director New director name of the director of the movie.
 	 */
 	public void updateDirector(int movieID, String director) {
 		Movie movie = getMovieByID(movieID);
@@ -130,9 +130,9 @@ public class MovieManager {
 		updateDatabase();
 	}
 	/**
-	 * Updates the duration of the movie
-	 * @param movieID Movie ID of movie to be updated
-	 * @param duration The new duration of the movie
+	 * Updates the duration of the movie.
+	 * @param movieID Movie ID of movie to be updated.
+	 * @param duration The new duration of the movie.
 	 */
 	
 	public void updateDuration(int movieID, int duration) {
@@ -143,9 +143,9 @@ public class MovieManager {
 	}
 	
 	/**
-	 * Updates the type of the movie
-	 * @param movieID Movie ID of movie to be updated
-	 * @param movieType The new type of the movie
+	 * Updates the type of the movie.
+	 * @param movieID Movie ID of movie to be updated.
+	 * @param movieType The new type of the movie.
 	 */
 	public void updateType(int movieID, MovieType movieType) {
 		Movie movie = getMovieByID(movieID);
@@ -263,10 +263,8 @@ public class MovieManager {
 	public Review addReviewToMovie(int movieId, int rating, Account account, String content) {
 		Movie movie = getMovieByID(movieId);
 		ReviewManager rm = new ReviewManager();
-		// create review in the review manager side
 		Review newReview = rm.create(rating, account, content);
 
-		// append the review to the current movie
 		ArrayList<Review> reviews = movie.getReviews();
 		reviews.add(newReview);
 		updateDatabase();

@@ -15,28 +15,7 @@ import java.util.ArrayList;
  */
 public class DatabaseHandler {
 	
-//	// testing lol
-//	public static void main(String[] args) {
-//		ArrayList<String> dataToAdd = new ArrayList<String>();
-////		dataToAdd.add("hi,yes,yeet");
-////		dataToAdd.add("hi,more yeet");
-//		addDataToDatabase("moviedata", dataToAdd);
-//		ArrayList<String> d = readDatabase("moviedata");
-//		System.out.println(Arrays.toString(d.get(1).split(",")));
-//		
-//	}
-	
-//	public static boolean addDataToDatabase(String databaseName, ArrayList<String> dataToAdd) {
-//		// reads database into an array
-//		ArrayList<String> dataArray = new ArrayList<String>();
-//		dataArray = readDatabase(databaseName);
-//		
-//		// appends the data we wish to add into that array
-//		dataArray.addAll(dataToAdd);
-//		
-//		// write the array back into the database
-//		return writeToDatabase(databaseName, dataArray);
-//	}
+
 	/**
 	 * Converts information in external csv file to an ArrayList of strings.
 	 * @param databaseName The name of the csv file used.
@@ -49,18 +28,16 @@ public class DatabaseHandler {
 				throw new FileNotFoundException();
 			}
 			
-			// scan CSV file into an array
             Scanner sc = new Scanner(f);
             ArrayList<String> dataArray = new ArrayList<String>();
             while (sc.hasNextLine()) {
             	String row = sc.nextLine();
-            	if (row.charAt(0) != '#') { // I use this symbol to signify column names
+            	if (row.charAt(0) != '#') { 
             		dataArray.add(row);
             	}
             }
             sc.close();
             
-            // nothing read from the CSV file
             if (dataArray.size() == 0) {
             	System.out.println("The database " + databaseName + " currently has no data.");
             	return null;
@@ -86,7 +63,6 @@ public class DatabaseHandler {
 		PrintWriter out = null;
 		
 		try {
-			// create a new file if it doesn't exist yet
 			File file = new File("database/" + databaseName + ".csv");
 			file.createNewFile();
 			

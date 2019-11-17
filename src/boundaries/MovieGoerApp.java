@@ -54,10 +54,6 @@ public class MovieGoerApp extends UserApp {
 		int choice = -1;
 		Scanner sc = new Scanner(System.in);
 
-		// Should add a function to let moviegoer create account or login to their account.
-		// Name, age, mobile number, email address.
-		// Hence we create a new MovieGoer object here.
-
 		System.out.println("\nWelcome to MOBLIMA, " + account.getUsername() + "!");
 
 		do {
@@ -110,7 +106,7 @@ public class MovieGoerApp extends UserApp {
 	 * (1) Lists all movies recorded in the database.
 	 * (2) Takes in user choice of movie, cineplex and showtime.
 	 * (3) Takes in the number of tickets to be purchased and user's seat selection.
-	 * (4) Caclulates the total price for a single booking transaction.
+	 * (4) Calculates the total price for a single booking transaction.
 	 */
 
 		private void bookTicket() {
@@ -123,12 +119,10 @@ public class MovieGoerApp extends UserApp {
 		BookingManager bm  = new BookingManager();
 		PricingCalculator pm = new PricingCalculator();
 
-		// choose movie out of all movies
 		System.out.println("Which movie would you like to watch?");
 		mm.listAll();
 		int movieID = InputBoundary.getIntInput("Choose an option");
 
-		// choose cineplex
 		System.out.println("Which cineplex would you like to watch the movie from?");
 		boolean cineplexExists = cxm.listCineplexByMovie(movieID);
 		if (!cineplexExists) {
@@ -139,7 +133,6 @@ public class MovieGoerApp extends UserApp {
 		String cineplexID = InputBoundary.getCineplexIDInput("Choose a cineplex:");
 		Movie movie = mm.getMovieByID(movieID);
 		Cineplex cineplex = cxm.getCineplexByID(cineplexID);
-		// which movie type?
 
 		System.out.println("Which showtime would you like to watch?");
 		cxm.listAllSeatAvailabilitiesInCineplexByMovie(cineplex, movie);
@@ -156,7 +149,6 @@ public class MovieGoerApp extends UserApp {
 		double price = 0;
 		for(int i=0;i<noOfTickets;i++)
 		{
-			//int seatChosen = GetInput.getIntInput("Please select your seat number");
 			int seatChosen = InputBoundary.getSeatNumberInput(cinema, showtime, "Please select your seat number");
 			sm.bookSeat(showtime,seatChosen);
 			System.out.println("Any discounts applicable?");
@@ -165,7 +157,6 @@ public class MovieGoerApp extends UserApp {
 			System.out.println("(2) Senior Citizen");
 			int discountType = InputBoundary.getIntInput("Choose an option: ");
 			price+=pm.calculatePrice(discountType, c.getId(), showtimeID);
-	//		price+=pm.calculatePrice(discountType, c.getId(), showtimeID);
 		}
 
 
@@ -173,7 +164,6 @@ public class MovieGoerApp extends UserApp {
 		
 		
 		Booking booking = bm.addReceipt(c.getId(),showtimeID, price);
-//		bm.printReceipt(TID);
 		AccountManager am = new AccountManager();
 		am.addBooking(account, booking);
 		}
@@ -182,8 +172,6 @@ public class MovieGoerApp extends UserApp {
 		 * Allows users to view their past bookings stored in the database.
 		 */
 		private void viewBookingHistory() {
-//		AccountManager am = new AccountManager();
-
 		ArrayList<Booking> bookings = account.getBookings();
 		System.out.println("Your booking history is as follows:");
 		for (Booking b: bookings) {

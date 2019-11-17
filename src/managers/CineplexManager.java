@@ -32,7 +32,7 @@ public class CineplexManager {
 
 	/**
 	 * Checks if array list of Cineplex objects is null.
-	 * If null, data fom the csv file is written to the list.
+	 * If null, data from the csv file is written to the list.
 	 */
 	public CineplexManager() {
 		if (records == null)
@@ -164,19 +164,6 @@ public class CineplexManager {
 	}
 
 
-//	// gets movies by cineplex
-//	public ArrayList<Movie> getAllMovies(int cineplexID) {
-//		Cineplex cineplex = getCineplexByID(cineplexID);
-//		return cineplex.getMovies();
-//	}
-//
-//	// gets showing movies by cineplex
-//	public ArrayList<Movie> getShowingMovies(int cineplexID) {
-//		Cineplex cineplex = getCineplexByID(cineplexID);
-//		return cineplex.getShowingMovies();
-//	}
-//
-//
 
 	/**
 	 * Prints the number of seats available and showtime for all cinemas in a particular cineplex for a particular movie.
@@ -202,7 +189,7 @@ public class CineplexManager {
 	}
 
 	/**
-	 * Prints the details of all cinemeas within a particular cineplex.
+	 * Prints the details of all cinemas within a particular cineplex.
 	 * @param cineplexID Unique identification number of a cineplex.
 	 */
 	public void listAllCinemasByCineplex(String cineplexID) {
@@ -211,23 +198,8 @@ public class CineplexManager {
 		for (Cinema c: cinemas) {
 			Printer.printCinemaInfo(c);
 		}
-
-//		CinemaManager cm = new CinemaManager();
-//
-//
-//		for (Cinema cinema: cinemas) {
-//			cm.listAllAvailabilities(cinema);
-//		}
 	}
 
-//	public void listAllCinemasByCineplex(String cineplexID) {
-//		Cineplex cineplex = getCineplexByID(cineplexID);
-//		ArrayList<Cinema> cinemas = cineplex.getCinemas();
-//		CinemaManager cm = new CinemaManager();
-//		for (Cinema cinema: cinemas) {
-//			cm.listAllAvailabilities(cinema);
-//		}
-//	}
 	/**
 	 * Retrieves information from external csv file and converts it into an array of Cineplex objects.
 	 */

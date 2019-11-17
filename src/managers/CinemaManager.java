@@ -40,7 +40,7 @@ public class CinemaManager {
 	
 	/**
 	 * Iterates through records to compare given cinema ID against list of cinema ID already present.
-	 * @param cinemaID Unique transaction ID of each cinema.
+	 * @param cinemaID Unique transaction number of each cinema.
 	 * @return Cinema that is present in the records.
 	 */
 	public Cinema getCinemaByID(String cinemaID) {
@@ -60,12 +60,6 @@ public class CinemaManager {
 	}	
 	
 	
-//	public ArrayList<Showtime> getShowtimesInCinema(Cinema cinema) {
-//		for (Cinema c: records) {
-//			
-//		}
-//	}
-	
 	/**
 	 * Prints the number of seats available and showtime for a particular cinema and movie.
 	 * @param cinema The chosen cinema for the query.
@@ -79,9 +73,6 @@ public class CinemaManager {
 			int movieId = showtime.getMovieID();
 			if (movieId == movie.getId()) {
 				Printer.printShowtimeDetails(showtime);
-				// System.out.println("CinemaID = " + cinema.getId());
-				// System.out.println("Class: " + cinema.getCinemaClass());
-				// System.out.println("ShowtimeId: " + showtime.getId());
 				int availableSeats = cinema.getTotalNoSeats() - showtime.getNoSeatsTaken();
 				System.out.println(availableSeats + " seats are currently available");
 				System.out.println("======================================================="); 
@@ -98,9 +89,6 @@ public class CinemaManager {
 		
 		for (Showtime showtime: showtimes) {
 			Printer.printShowtimeDetails(showtime);
-			// System.out.println("CinemaID = " + cinema.getId());
-			// System.out.println("Class: " + cinema.getCinemaClass());
-			// System.out.println("ShowtimeId: " + showtime.getId());
 			int availableSeats = cinema.getTotalNoSeats() - showtime.getNoSeatsTaken();
 			System.out.println(availableSeats + "are currently available");
 			System.out.println("=======================================================");
@@ -149,7 +137,7 @@ public class CinemaManager {
 	
 	/**
 	 * Iterate through records to compare given showtimeID against the list of showtimeID already present.
-	 * @param showtimeID Unique identication number of a particular showtime.
+	 * @param showtimeID Unique identification number of a particular showtime.
 	 * @return Cinema that contains the given showtimeID.
 	 */
 	public Cinema getCinemaByShowtimeID(int showtimeID) {

@@ -44,7 +44,7 @@ public class Formatter {
 		return LocalTime.parse(time);
 	}
 	/**
-	 * Converts int to String data type.
+	 * Converts integer to String data type.
 	 * @param integer Integer variable to be converted to String.
 	 * @return String converted from Integer.
 	 */
@@ -52,8 +52,8 @@ public class Formatter {
 		return String.valueOf(integer);
 	}
 	/**
-	 * Converts String to int data type.
-	 * @param str String variable to be converted to int.
+	 * Converts String to integer data type.
+	 * @param str String variable to be converted to integer.
 	 * @return Integer converted from String.
 	 */
 	public static int getIntFromString(String str) {

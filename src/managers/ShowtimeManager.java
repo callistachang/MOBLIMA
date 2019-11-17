@@ -34,13 +34,6 @@ public class ShowtimeManager {
 			initializeDatabase();
 	}
 	/**
-	 * 
-	 * @return
-	 */
-	public int listAll() {
-		return 0; //to change the code accordingly 
-	}
-	/**
 	 * Iterates through records to compare given ID against list of IDs for a showtime.
 	 * @param showtimeID Unique identification number given to a showtime.
 	 * @return Showtime that is present in records. 
@@ -55,6 +48,10 @@ public class ShowtimeManager {
 		return null;
 	}
 	
+	/**
+	 * Checks if the result is empty.
+	 * @return Boolean value representing whether the result is empty.
+	 */
 	public boolean isEmpty() {
 		if(records == null) {
 			return true;
@@ -79,23 +76,9 @@ public class ShowtimeManager {
 		ArrayList<String> updatedRecords = serializer.serialize(records);
 		DatabaseHandler.writeToDatabase(DATABASE_NAME, updatedRecords);
 	}
-	/**
-	 * 
-	 * @param showtimeID
-	 * @param attrNum
-	 */
-	public void updateShowtime(int showtimeID, int attrNum) {
-		// TODO Auto-generated method stub
+	
 		
-	}
-	/**
-	 * 
-	 * @param showtimeID
-	 */
-	public void remove(int showtimeID) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 	/**
 	 * Takes in user input on which seat to be booked.
 	 * Adds booked seat to chosen showtime.

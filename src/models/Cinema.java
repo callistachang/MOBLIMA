@@ -21,7 +21,7 @@ public abstract class Cinema implements ISerializable {
 	 * - B refers to Gold Cinema
 	 * - Any other letter refers to Regular Cinema
 	 */
-	protected String id; // must be cinema code
+	protected String id; 
 	/**
 	 * The list of showtimes shown in this cinema.
 	 */

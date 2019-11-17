@@ -89,7 +89,7 @@ public class Movie implements ISerializable {
 		data.add(director);
 		data.add(casts);
 		data.add(Formatter.getStringFromInt(duration));
-		data.add(getReviewIDs()); // CHECK AGAIN for the null settings.
+		data.add(getReviewIDs()); 
 		data.add(type.toString());
 		return data;
 	}

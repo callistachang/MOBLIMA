@@ -127,7 +127,6 @@ public class UserApp {
 		} while (choice != 3);
 	}
 
-// (3) View movie details (including reviews and ratings)
 	/**
 	 * Provides details about movie chosen by user via movie ID.
 	 * (1) Prints information of selected movie (e.g. title, duration, director etc.).
@@ -143,7 +142,6 @@ public class UserApp {
 		System.out.println("Which movie would you like to query?");
 		mm.listAll();
 		int movieID = InputBoundary.getIntInput("Type ID of movie:");
-//		Movie movie = mm.getMovieByID(movieID);
 		int choice;
 		do {
 			System.out.println("\nPlease select from the options below:");
@@ -167,17 +165,8 @@ public class UserApp {
 			}
 		} while (choice != 3);
 
-		// Ask user which movie they want to query.
-
-		// Read from an external CSV file containing movie information, but find only
-		// the specific movie
-		// Read from an external CSV file containing review information, but find it for
-		// that movie only
-		// Read from an external CSV file containing ratings information, but find it
-		// for that movie only
 	}
 
-// (4) Check seat availabilities
 	/**
 	 * Shows availability of seats at a specific showtime.
 	 * Users choose movie and cineplex to choose desired showtime for query.
@@ -202,7 +191,6 @@ public class UserApp {
 		cxm.listAllSeatAvailabilitiesInCineplexByMovie(cineplex, movie);
 	}
 
-// (6) List top five movies
 	/**
 	 * Lists the top 5 movies based on user's requirements.
 	 * (1) Lists top 5 movies by number of ticket sales.
@@ -237,11 +225,6 @@ public class UserApp {
 			}
 		} while (choice != 3);
 
-		// Ask user if they want to filter by 1. ticket sales, or 2. reviewer ratings.
-
-		// If 1, look at the booking receipts database and do the math.
-
-		// If 2, look at the ratings database and do the math.
 	}
 	/**
 	 * Gets all the menu options for the common functions in a String Array.
