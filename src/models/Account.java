@@ -193,6 +193,10 @@ public class Account implements ISerializable {
 		return username;
 	}
 	
+	/**
+	 * Add a booking object into the list of bookings the account made
+	 * @param booking The booking object to be added
+	 */
 	public void addBooking(Booking booking) {
 		if (bookings == null) {
 			bookings = new ArrayList<Booking>();

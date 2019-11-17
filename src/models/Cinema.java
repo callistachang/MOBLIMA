@@ -171,6 +171,11 @@ public abstract class Cinema implements ISerializable {
 		showtimes.add(showtime);
 		
 	}
+	
+	/**
+	 * Removes a showtime object from the list of showtimes
+	 * @param showtime the showtime to be removed
+	 */
 	public void removeShowtime(Showtime showtime) {
 		showtimes.remove(showtime);
 	}

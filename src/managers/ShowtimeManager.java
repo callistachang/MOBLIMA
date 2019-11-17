@@ -115,17 +115,7 @@ public class ShowtimeManager {
 	 * @return The new showtime created.
 	 */
 	public Showtime create(LocalDate date, LocalTime time, int movieID) {
-//		int i, id = 0;
-//		Showtime showtimeCheck = records.get(0);
-//		for(i=0; i<records.size(); i++) {
-//			showtimeCheck = records.get(i);
-//			if (showtimeCheck.getId() == i+1) {
-//				id = showtimeCheck.getId();
-//			}
-//		}
-//		if (id == 0){
-//			id = records.size() + 1;
-//		}
+
 		Showtime showtime = new Showtime(records.size()+1, date, time, movieID, null);
 		records.add(showtime);
 		updateDatabase();

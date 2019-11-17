@@ -203,29 +203,7 @@ public class MovieManager {
 		Movie movie = getMovieByID(movieID);
 		Printer.printMovieReviews(movie);
 	}
-//
-//	public void printMovieRatings(int movieID) {
-//		Movie movie = getMovieByID(movieID);
-//		movie.printReviews();
-//	}
 
-	// think should go to cineplex.
-	// it should call on mm to get the movies.
-	// FIND movie by id.
-//	public void listAllByCineplex(String cineplexID) {
-//		CineplexManager cxm = new CineplexManager();
-//		cxm.getAllMovies(cineplexID);
-//	}
-//
-//	public void listShowingByCineplex(String cineplexID) {
-//		CineplexManager cxm = new CineplexManager();
-//		cxm.getShowingMovies(cineplexID);
-
-//	}
-
-//	public void listAttributes() {
-//		Movie.printAttributes();
-//	}
 	/**
 	 * Retrieve information from external csv file and converts it into an array of Movie objects.
 	 */
@@ -291,11 +269,6 @@ public class MovieManager {
 		// append the review to the current movie
 		ArrayList<Review> reviews = movie.getReviews();
 		reviews.add(newReview);
-//		movie.setReviews(reviews);
-		// System.out.println(movie.getReviews());
-//		int movieIndex = records.indexOf(movie);
-//		records.set(movieIndex, movie);
-
 		updateDatabase();
 		return newReview;
 	}

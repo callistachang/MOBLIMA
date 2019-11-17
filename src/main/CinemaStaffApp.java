@@ -469,7 +469,12 @@ public class CinemaStaffApp extends UserApp {
 		
 
 	}
-	
+	/**
+	 * Generates the menu to configure settings
+	 * (1) Create or delete holidays timings
+	 * (2) Update the prices for tickets
+	 * (3) exit form the function
+	 */
 	private void configureSettings() {
 		Scanner sc = new Scanner(System.in);
 		

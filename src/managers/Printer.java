@@ -39,6 +39,10 @@ public class Printer {
 		System.out.println("(6) Type");
 	}
 	
+	/**
+	 * Prints the details of the movie booking
+	 * @param b Movie booking to have its details printed
+	 */
 	public static void printBookingInfo(Booking b) {
 		MovieManager mm = new MovieManager();
 		Movie m = mm.getMovieByID(b.getShowtime().getMovieID());
@@ -95,7 +99,10 @@ public class Printer {
 				System.out.println("Review: " + review.getContent());
 			}
 		}
-		System.out.println("\nAverage Rating: " + totalRating/reviews.size());
+		if(reviews.size()>1) {
+			System.out.println("\nAverage Rating: " + totalRating/reviews.size());
+		}
+		System.out.println("\nAverage Rating: NA");
 	}
 	
 	/**
@@ -147,6 +154,10 @@ public class Printer {
 			printShowtimeDetails(showtime);
 		}
 	}
+	/**
+	 * Prints the details of a review
+	 * @param review Review to be printed
+	 */
 	
 	public static void printReviewInfo(Review review) {
 		System.out.println("Review info:");
