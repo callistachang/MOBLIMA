@@ -3,14 +3,32 @@ import java.util.Scanner;
 
 import managers.AccountManager;
 import models.Account;
-
+/**
+ * The main function for the entire application. 
+ * Contains the shallowest overview of the entire flow of the application.
+ * Determines access privileges of user.
+ * @author penel
+ * @version 1.0
+ * @since 2019-11-17
+ */
 public class MoblimaApp {
-	
+	/**
+	 * Establishing the main function.
+	 * @param args No arguments were passed.
+	 */
 	public static void main(String[] args) {
 		MoblimaApp mApp = new MoblimaApp();
 		mApp.run();
 	}
-	
+	/**
+	 * Runs the main logic of this app.
+	 * Displays startup menu for app.
+	 * (1) Allows users to log into their account.
+	 * (2) Allows user to access app as guest and use common 
+	 * functions without having to log in.
+	 * (3) Allows new users to make a customer account.
+	 * (4) Exits Main Menu and terminates the application.
+	 */
 	public void run() {
 		int choice = -1;
 		Scanner sc = new Scanner(System.in);
@@ -51,7 +69,10 @@ public class MoblimaApp {
 		} while (choice != 4);
 	}
 	
-	// TODO
+	/**
+	 * Prompts user for access credentials.
+	 * Determines which access privilege user should have.
+	 */
 	public void login() {
 		Scanner sc = new Scanner(System.in);
 		UserApp app = null;
@@ -88,6 +109,10 @@ public class MoblimaApp {
 		
 		app.run();
 	}
+	/**
+	 * Creates a new customer account for users to access customer privileges.
+	 * All customers need an account to book tickets or leave reviews.
+	 */
 	
 	public void createNewAccount() {
 		Scanner sc = new Scanner(System.in);

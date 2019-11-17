@@ -15,7 +15,7 @@ import models.Showtime;
  */
 public class Printer {
 	/**
-	 * Prints details of a movie.
+	 * Prints attributes of a movie that can be modified.
 	 */
 	public static void printMovieAttributes() {
 		System.out.println("(1) Title");

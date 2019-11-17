@@ -4,8 +4,19 @@ import managers.Formatter;
 import models.ISerializable;
 import models.Pricing;
 
+
+/**
+ * Handles the deserialization for Pricing class.
+ * @version 1.0
+ * @since 2019-11-17
+ * @author balad
+ *
+ */
 public class PricingSerializer extends AbstractSerializer {
 	
+	/**
+	 * Converts data of string type to Pricing type.
+	 */
 	@Override
 	protected ISerializable deserialize(String data) {
 		String[] d = splitByAttribute(data);

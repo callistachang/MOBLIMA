@@ -11,18 +11,44 @@ import java.util.ArrayList;
 
 import managers.*;
 
+/**
+ * Subclass of UserApp. Allows access to function for customers with an account.
+ * Accessed via user-specific username and password. 
+ * @author balad
+ * @version 1.0
+ * @since 2019-11-17
+ */
 public class MovieGoerApp extends UserApp {
+	/**
+	 * Account of the user who accesses the menu.
+	 */
 	private Account account;
+	/**
+	 * An array of strings with the options for menu choices.
+	 */
 	private final String menuOptions[] = {
 		"Book and purchase a movie ticket",
 		"Leave a rating and review on a movie",
 		"View booking history"
 	};
 	
+	/**
+	 * Creates a new account object.
+	 * @param account This user's account. 
+	 */
 	public MovieGoerApp(Account account) {
 		this.account = account;
 	}
 	
+	/**
+	 * Runs the main logic of this app.
+	 * Displays menu options for the users. 
+	 * (1) Book movie tickets.
+	 * (2) Give rating for a movie.
+	 * (3) View past bookings.
+	 * (4)-(7) Extended from UserApp.
+	 * (8) Exits from user menu and MovieGoerApp. 
+	 */
 	public void run() {
 		int choice = -1;
 		Scanner sc = new Scanner(System.in);
@@ -80,10 +106,15 @@ public class MovieGoerApp extends UserApp {
 				}
 		} while (choice != 8);
 	}
+	/**
+	 * Main function to book movie tickets.
+	 * (1) Lists all movies recorded in the database.
+	 * (2) Takes in user choice of movie, cineplex and showtime.
+	 * (3) Takes in the number of tickets to be purchased and user's seat selection. 
+	 * (4) Caclulates the total price for a single booking transaction. 
+	 */
 	
-	// (1) Book and purchase a movie ticket
-	// should create like some TicketManager etc
-	private void bookTicket() {
+		private void bookTicket() {
 		Scanner sc= new Scanner(System.in);
 		
 		MovieManager mm = new MovieManager();
@@ -148,18 +179,23 @@ public class MovieGoerApp extends UserApp {
 		bm.printReceipt(TID);
 		}
 	}
-	
-	// (5) View booking history
-	private void viewBookingHistory() {
+		/**
+		 * Allows users to view their past bookings stored in the database. 
+		 */
+		private void viewBookingHistory() {
 //		AccountManager am = new AccountManager();
 
 		ArrayList<Booking> BookingHistory = account.getBookings();
 		System.out.println("Your booking history is as follows:"+ BookingHistory);		
 	}
 	
-	
-	// (7) Leave a review or rating on a movie
-	private void rateMovie() {
+	/**
+	 * Allows users to leave a review for a movie they have watched. 
+	 * (1) Select the movie and give a rating between 1-5.
+	 * (2) Give a review for the same movie (optional).
+	 * (3) Review added to the movie object throuh movie manager. 
+	 */
+		private void rateMovie() {
 		Scanner sc= new Scanner(System.in);
 		
 		MovieManager mm = new MovieManager();
