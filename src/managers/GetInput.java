@@ -167,6 +167,20 @@ public class GetInput {
 		}
 	}
 	
+	public static int getExistingMovieIDInput(String prompt){
+		Scanner sc = new Scanner(System.in);
+		int movieID;
+		while(true) {
+			movieID = getIntInput(prompt);
+			if (ValidityChecker.isExistingMovieID(movieID)) {
+		        return movieID;
+		    } 
+			else {
+		        System.out.println("Enter is a valid movieID!");
+		    }
+		}
+		
+	}
 	
 //	public static void main(String[] args) {
 //		String time;

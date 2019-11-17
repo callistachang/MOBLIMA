@@ -201,10 +201,16 @@ public class CinemaStaffApp extends UserApp {
 	private void updateMovieListing() {
 		Scanner sc = new Scanner(System.in);
 		MovieManager mm = new MovieManager();
+		//if no movies
+		if(mm.isEmpty()) {
+			System.out.println("There are no movies to update!");
+			return;
+		}
 		
 		System.out.println("");
 		mm.listAll();
-		int movieID = GetInput.getIntInput("Which movie would you like to update? Enter the movie ID:");
+		System.out.println("Which movie would you like to update?");
+		int movieID = GetInput.getExistingMovieIDInput("Enter the movie ID:");
 		
 		// Print movie info after choosing the movie
 		mm.printMovieInfo(movieID);
@@ -242,6 +248,7 @@ public class CinemaStaffApp extends UserApp {
 			}
 			while (!(newStatus.equals("Coming Soon") || newStatus.equals("Now Showing") || newStatus.equals("No Longer Showing")));
 			mm.updateShowingStatus(movieID, ShowingStatus.getByValue(newStatus));
+			break;
 		}
 		case(3):{
 			String newSynopsis = GetInput.getStringInput("Enter the new Synopsis: ");
@@ -256,6 +263,7 @@ public class CinemaStaffApp extends UserApp {
 		case(5):{
 			int newDuration = GetInput.getIntInput("Enter the new duration: ");
 			mm.updateDuration(movieID, newDuration);
+			break;
 		}
 		case(6):{
 			String newType;
@@ -263,6 +271,7 @@ public class CinemaStaffApp extends UserApp {
 				newType = GetInput.getStringInput("Enter the new movie type: ");
 			} while (!(newType.equals("2D") || newType.equals("3D")));
 			mm.updateType(movieID, MovieType.getByValue(newType));
+			break;
 		}
 		}
 
@@ -359,7 +368,10 @@ public class CinemaStaffApp extends UserApp {
 		CineplexManager cxm = new CineplexManager();
 		CinemaManager cm = new CinemaManager();
 		ShowtimeManager sm = new ShowtimeManager();
-		
+		if(sm.isEmpty()) {
+			System.out.println("There are no showtimes to update!");
+			return;
+		}
 		// choose a movie i wanna update.
 		System.out.println("Choose a movie:");
 		mm.listAll();
@@ -376,10 +388,16 @@ public class CinemaStaffApp extends UserApp {
 		
 		System.out.println("Which showtime would you like to update?");
 		Printer.printShowtimeDetails(cinema);
-		int showtimeID = GetInput.getIntInput("Choose an option");
-		Showtime showtime = sm.getShowtimeByID(showtimeID);
+		int showtimeID;
+		Showtime showtime;
+		do {
+			showtimeID = GetInput.getIntInput("Choose an option");
+			showtime = sm.getShowtimeByID(showtimeID);
+		}
+		while(showtime == null);
 		
 		Printer.printShowtimeDetails(showtime); //
+		
 		int choice = GetInput.getIntInputWithinRange("Choose an option",1,3);
 		switch(choice) {
 			case(1):{

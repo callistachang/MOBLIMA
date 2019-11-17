@@ -54,6 +54,14 @@ public class MovieManager {
 		}
 		return null;
 	}
+	
+	public boolean isEmpty() {
+		if(records == null) {
+			return true;
+		}
+		else
+			return false;
+	}
 	/**
 	 * Creates a single movie given the movie information by the staff.
 	 * @param title The title of the movie.
