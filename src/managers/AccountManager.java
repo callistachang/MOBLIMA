@@ -29,11 +29,11 @@ public class AccountManager {
 	/**
 	 * The staff username used to login.
 	 */
-	private final String adminUsername = "q";
+	private final String adminUsername = "adminuser";
 	/**
 	 * The staff password used to login. 
 	 */
-	private final String adminPassword = "q";
+	private final String adminPassword = "adminpass";
 	
 	/**
 	 * Checks if array list of Account objects is null.
