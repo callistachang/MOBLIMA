@@ -50,8 +50,8 @@ public class Printer {
 		}
 	}
 	
-	public static void printMovieListing(int id, String title, String type) {
-		System.out.printf("(ID: %d) %s (%s)\n", id, title, type);
+	public static void printMovieListing(Movie m) {
+		System.out.printf("(ID: %d) %s (%s)\n", m.getId(), m.getTitle(), m.getType());
 	}
 	
 	public static void printCinemaInfo(Cinema cinema) {

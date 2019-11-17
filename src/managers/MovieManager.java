@@ -57,10 +57,11 @@ public class MovieManager {
 	public void listAll() {
 		System.out.println("The list of all movies is as follows: ");
 		for (Movie m: records) {
-			int id = m.getId();
-			String title = m.getTitle();
-			String type = m.getType().toString();
-			Printer.printMovieListing(id, title, type);
+			Printer.printMovieListing(m);
+//			int id = m.getId();
+//			String title = m.getTitle();
+//			String type = m.getType().toString();
+//			Printer.printMovieListing(id, title, type);
 		}
 	}
 	
