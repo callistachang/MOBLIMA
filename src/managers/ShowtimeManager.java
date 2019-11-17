@@ -32,9 +32,9 @@ public class ShowtimeManager {
 		return null;
 	}
 	
-	public int chooseAttributes(int showtimeID) {
-		// TODO Auto-generated method stub
-	}
+//	public int chooseAttributes(int showtimeID) {
+//		// TODO Auto-generated method stub
+//	}
 	private static void initializeDatabase() {
 		ArrayList<String> data = DatabaseHandler.readDatabase(DATABASE_NAME);
 		AbstractSerializer serializer = new ShowtimeSerializer();
@@ -57,7 +57,8 @@ public class ShowtimeManager {
 		
 	}
 	public void bookSeat(Showtime showtime, int seatNo) {
-		showtime.bookSeat(seatNo);
+		showtime.addSeat(seatNo);
+		updateDatabase();
 	}
 	
 	public Showtime create(LocalDate date, LocalTime time, int movieID) {
