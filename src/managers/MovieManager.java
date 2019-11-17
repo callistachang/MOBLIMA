@@ -81,14 +81,48 @@ public class MovieManager {
 	 * @param attrNum Attribute selected by user from a given list of options
 	 * @param attrVal
 	 */
-	public void update(int movieID, int attrNum, String attrVal) {
+	public void updateTitle(int movieID, String title) {
 		Movie movie = getMovieByID(movieID);
-		movie.setAttr(attrNum, attrVal);
+		movie.setTitle(title);
 		System.out.println("======");
-//		remove(movieID);
-//		records.add(movie);
 		updateDatabase();
 	}
+	
+	public void updateShowingStatus(int movieID, ShowingStatus showingStatus) {
+		Movie movie = getMovieByID(movieID);
+		movie.setStatus(showingStatus);
+		System.out.println("======");
+		updateDatabase();
+	}
+
+	public void updateSynopsis(int movieID, String synopsis) {
+		Movie movie = getMovieByID(movieID);
+		movie.setSynopsis(synopsis);
+		System.out.println("======");
+		updateDatabase();
+	}
+	
+	public void updateDirector(int movieID, String director) {
+		Movie movie = getMovieByID(movieID);
+		movie.setDirector(director);
+		System.out.println("======");
+		updateDatabase();
+	}
+	
+	public void updateDuration(int movieID, int duration) {
+		Movie movie = getMovieByID(movieID);
+		movie.setDuration(duration);
+		System.out.println("======");
+		updateDatabase();
+	}
+	
+	public void updateType(int movieID, MovieType movieType) {
+		Movie movie = getMovieByID(movieID);
+		movie.setType(movieType);
+		System.out.println("======");
+		updateDatabase();
+	}
+	
 	/**
 	 * Removes a single movie from the database given the ID of the movie.
 	 * @param movieID

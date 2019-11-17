@@ -212,11 +212,11 @@ public class CinemaStaffApp extends UserApp {
 		System.out.println("What attribute would you like to change about the movie?");
 		Printer.printMovieAttributes();
 		
-		int choice = GetInput.getIntInput("Choose number option:");
+		int choice = GetInput.getIntInputWithinRange("Choose number option:",1,6);
 		switch(choice) {
 		case(1):{
 			String newTitle = GetInput.getStringInput("Enter the new title: ");
-			sm.updateTitle(movieID, newTitle);
+			mm.updateTitle(movieID, newTitle);
 			break;
 		}
 		case(2):{
@@ -245,20 +245,27 @@ public class CinemaStaffApp extends UserApp {
 		}
 		case(3):{
 			String newSynopsis = GetInput.getStringInput("Enter the new Synopsis: ");
-			sm.updateTitle(movieID, newSynopsis);
+			mm.updateTitle(movieID, newSynopsis);
 			break;
 		}
-		System.out.println("(1) Title");
-		System.out.println("(2) Showing Status");
-		System.out.println("(3) Synopsis");
-		System.out.println("(4) Director");
-		System.out.println("(5) Duration");
-		System.out.println("(6) Type");
+		case(4):{
+			String newDirector = GetInput.getStringInput("Enter the new Director name: ");
+			mm.updateDirector(movieID, newDirector);
+			break;
 		}
-		String attrVal = sc.nextLine();
-		
-		System.out.println(attrNum + " " + attrVal);
-		mm.update(movieID, attrNum, attrVal);
+		case(5):{
+			int newDuration = GetInput.getIntInput("Enter the new duration: ");
+			mm.updateDuration(movieID, newDuration);
+		}
+		case(6):{
+			String newType;
+			do {
+				newType = GetInput.getStringInput("Enter the new movie type: ");
+			} while (!(newType.equals("2D") || newType.equals("3D")));
+			mm.updateType(movieID, MovieType.getByValue(newType));
+		}
+		}
+
 		System.out.println("Successfully updated");
 	}
 	/**

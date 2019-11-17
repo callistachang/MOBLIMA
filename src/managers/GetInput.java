@@ -152,6 +152,20 @@ public class GetInput {
 		    }
 		}
 	}
+	public static String getStringInput(String prompt) {
+		Scanner sc = new Scanner(System.in);
+		String input;
+		while(true) {
+			System.out.println(prompt);
+			input = sc.nextLine();
+			if (!input.isEmpty()) {
+		        return input;
+		    }
+			else {
+		        System.out.println("Enter item!");
+		    }
+		}
+	}
 	
 	
 //	public static void main(String[] args) {
