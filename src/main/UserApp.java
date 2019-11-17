@@ -211,11 +211,11 @@ public class UserApp {
 		Scanner sc = new Scanner(System.in);
 
 		MovieManager mm = new MovieManager();
-		BookingManager bm = new BookingManager();
+//		BookingManager bm = new BookingManager();
 
 		System.out.println("Would you like to filter by:");
 		System.out.println("(1) Ticket Sales");
-		System.out.println("(3) Reviewer Ratings");
+		System.out.println("(2) Reviewer Ratings");
 		System.out.println("Choose a number option:");
 
 		int choice;
@@ -224,7 +224,7 @@ public class UserApp {
 			choice = sc.nextInt();
 			switch (choice) {
 			case 1:
-				bm.listTop5ByTicketSales();
+//				bm.listTop5ByTicketSales();
 				break;
 			case 2:
 				mm.listTop5ByRatings();

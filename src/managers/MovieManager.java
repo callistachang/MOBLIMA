@@ -1,7 +1,12 @@
 package managers;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
+import java.util.TreeMap;
 
 import handlers.DatabaseHandler;
 import models.Account;
@@ -111,8 +116,49 @@ public class MovieManager {
 	}
 
 	public void listTop5ByRatings() {
-		// TODO Auto-generated method stub
 		
+		HashMap<String, Integer> map = new HashMap<String, Integer>();
+		for (Movie m: records) {
+			int movieRating = 0;
+			for (Review r: m.getReviews()) {
+				movieRating += r.getRating();
+			}
+			map.put(m.getTitle(), movieRating/m.getReviews().size());
+		}
+		
+		Object[] a = map.entrySet().toArray();
+		Arrays.sort(a, new Comparator() {
+		    public int compare(Object o1, Object o2) {
+		        return ((Map.Entry<String, Integer>) o2).getValue().compareTo(
+		               ((Map.Entry<String, Integer>) o1).getValue());
+		    }
+		});
+		for (Object e : a) {
+		    System.out.println(((Map.Entry<String, Integer>) e).getKey() + " : "
+		                     + ((Map.Entry<String, Integer>) e).getValue());
+		}      
+		
+		
+//		System.out.println(map.entrySet().stream().sorted((o1, o2) -> {
+//	        return o2.getValue().compareTo(o1.getValue());
+//	    }).f
+//				
+//				.findFirst());
+		
+//		int i, totalRating = 0;
+//		ArrayList<Review> reviews = m.getReviews();
+//		for (i = 0; i < reviews.size(); i++) {
+//			Review review = reviews.get(i);
+//			System.out.printf("(%d)\n", i+1);
+//			System.out.println("User: " + review.getUser());
+//			System.out.println("Rating: " + review.getRating());
+//			totalRating += review.getRating();
+//			if (!review.getContent().equals("null")) {
+//				System.out.println("Review: " + review.getContent());
+//			}
+//		}
+//		System.out.println("\nAverage Rating: " + totalRating/reviews.size());
+//		
 	}
 	
 	public void addReviewToMovie(int movieId, int rating, Account account, String content) {
@@ -124,10 +170,10 @@ public class MovieManager {
 		// append the review to the current movie
 		ArrayList<Review> reviews = movie.getReviews();
 		reviews.add(newReview);
-		movie.setReviews(reviews);
+//		movie.setReviews(reviews);
 		System.out.println(movie.getReviews());
-		int movieIndex = records.indexOf(movie);
-		records.set(movieIndex, movie);
+//		int movieIndex = records.indexOf(movie);
+//		records.set(movieIndex, movie);
 		
 		updateDatabase();
 	}

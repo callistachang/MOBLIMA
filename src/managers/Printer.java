@@ -37,17 +37,19 @@ public class Printer {
 	}
 	
 	public static void printMovieReviews(Movie m) {
-		int i;
+		int i, totalRating = 0;
 		ArrayList<Review> reviews = m.getReviews();
 		for (i = 0; i < reviews.size(); i++) {
 			Review review = reviews.get(i);
 			System.out.printf("(%d)\n", i+1);
 			System.out.println("User: " + review.getUser());
 			System.out.println("Rating: " + review.getRating());
+			totalRating += review.getRating();
 			if (!review.getContent().equals("null")) {
 				System.out.println("Review: " + review.getContent());
 			}
 		}
+		System.out.println("\nAverage Rating: " + totalRating/reviews.size());
 	}
 	
 	public static void printMovieListing(Movie m) {
