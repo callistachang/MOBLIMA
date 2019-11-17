@@ -104,7 +104,7 @@ public class CinemaStaffApp extends UserApp {
 		Scanner sc = new Scanner(System.in);
 		String title, status, synopsis, director, cast, type;
 		ArrayList<String> casts = new ArrayList<String>();
-		int duration;
+		int duration,choice;
 
 		MovieManager mm = new MovieManager();
 		
@@ -115,8 +115,23 @@ public class CinemaStaffApp extends UserApp {
 		} while (title == null);
 		
 		do {
-			System.out.println("\nInsert movie showing status (Coming Soon, Now Showing, No Longer Showing): ");
-			status = sc.nextLine();
+			System.out.println("\nInsert movie showing status ((1)Coming Soon, (2)Now Showing, (3)No Longer Showing): ");
+			
+			choice = sc.nextInt();
+			switch(choice) {
+			case 1:
+				status = "Coming Soon";
+				break;
+			case 2:
+				status = "Now Showing";
+				break;
+			case 3:
+				status = "No Longer Showing";
+				break;
+			default:
+				status = "";
+				break;
+			}
 		} while (!(status.equals("Coming Soon") || status.equals("Now Showing") || status.equals("No Longer Showing")));
 		
 		do {
