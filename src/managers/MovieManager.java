@@ -79,7 +79,7 @@ public class MovieManager {
 	 * A user chosen attribute of the movie will be updated.
 	 * @param movieID Unique identification number of the movie chosen.
 	 * @param attrNum Attribute selected by user from a given list of options
-	 * @param attrVal
+	 * @param attrVal Value of the attributed as stated by user.
 	 */
 	public void update(int movieID, int attrNum, String attrVal) {
 		Movie movie = getMovieByID(movieID);
@@ -91,7 +91,7 @@ public class MovieManager {
 	}
 	/**
 	 * Removes a single movie from the database given the ID of the movie.
-	 * @param movieID
+	 * @param movieID Unique identification number of the movie to be removed. 
 	 */
 	public void remove(int movieID) {
 		Movie movie = getMovieByID(movieID);
@@ -99,7 +99,7 @@ public class MovieManager {
 		updateDatabase();
 	}
 	/**
-	 * Lists all the movies in the database.
+	 * Prints list of all the movies in the database.
 	 * Prints the ID, Title and Type of movies.
 	 */
 	public void listAll() {
@@ -109,6 +109,9 @@ public class MovieManager {
 		}
 	}
 
+	/**
+	 * Prints the list of all movies that are current showing from the database.
+	 */
 	public void listAllShowing() {
 		System.out.println("The list of all movies is as follows: ");
 		for (Movie m: records) {
@@ -119,14 +122,17 @@ public class MovieManager {
 		}
 	}
 
-
+	/**
+	 * Prints the details of a specific movie.
+	 * @param movieID Unique identification number of the movie selected.
+	 */
 	public void printMovieInfo(int movieID) {
 		Movie movie = getMovieByID(movieID);
 		Printer.printMovieInfo(movie);
 	}
 	/**
 	 * Prints the reviews stored in the database for the chosen movie.
-	 * @param movieID
+	 * @param movieID Unique identification number of the movie selected. 
 	 */
 	public void printMovieReviews(int movieID) {
 		Movie movie = getMovieByID(movieID);
@@ -172,6 +178,9 @@ public class MovieManager {
 		DatabaseHandler.writeToDatabase(DATABASE_NAME, updatedRecords);
 	}
 
+	/**
+	 * Prints the list of top 5 movies, using ratings as the criterion.
+	 */
 	@SuppressWarnings("unchecked")
 	public void listTop5ByRatings() {
 
