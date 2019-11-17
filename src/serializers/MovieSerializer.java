@@ -10,8 +10,18 @@ import models.Movie.MovieType;
 import models.Movie.ShowingStatus;
 import models.ISerializable;
 
+/**
+ * Handles the deserialization for Movie class.
+ * @version 1.0
+ * @since 2019-11-17
+ * @author balad
+ *
+ */
 public class MovieSerializer extends AbstractSerializer {
 		
+	/**
+	 * Converts data of string type to Movie type.
+	 */
 	protected ISerializable deserialize(String data) {	
 		String[] d = splitByAttribute(data);
 		int id = Formatter.getIntFromString(d[0]);
