@@ -144,7 +144,7 @@ public class MovieGoerApp extends UserApp {
 		System.out.println("Which showtime would you like to watch?");
 		cxm.listAllSeatAvailabilitiesInCineplexByMovie(cineplex, movie);
 		int showtimeID = GetInput.getIntInput("Choose an option");
-
+		Cinema cinema = cm.getCinemaByShowtimeID(showtimeID);
 		int noOfTickets;
 		Showtime showtime = sm.getShowtimeByID(showtimeID);
 		Cinema c = cm.getCinemaByShowtimeID(showtimeID);
@@ -156,7 +156,8 @@ public class MovieGoerApp extends UserApp {
 		double price = 0;
 		for(int i=0;i<noOfTickets;i++)
 		{
-			int seatChosen = GetInput.getIntInput("Please select your seat number");
+			//int seatChosen = GetInput.getIntInput("Please select your seat number");
+			int seatChosen = GetInput.getSeatNumberInput(cinema, showtime, "Please select your seat number");
 			sm.bookSeat(showtime,seatChosen);
 			System.out.println("Any discounts applicable?");
 			System.out.println("(0) None");

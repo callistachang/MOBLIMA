@@ -2,6 +2,9 @@ package managers;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Scanner;
+
+import models.Cinema;
+import models.Showtime;
 /**
  * Controller to ensure the inputs are valid.
  * @author balad
@@ -182,6 +185,20 @@ public class GetInput {
 		
 	}
 	
+	public static int getSeatNumberInput(Cinema cinema,Showtime showtime, String prompt) {
+		Scanner sc = new Scanner(System.in);
+		String seatNo;
+		while(true) {
+			System.out.println(prompt);
+			seatNo = sc.next();
+			if (ValidityChecker.isAvailableSeatNumber(cinema, showtime, seatNo)) {
+		        return (seatNo.charAt(0)-'A') * cinema.getCols() + Formatter.getIntFromString(seatNo.substring(1));
+		    } 
+			else {
+		        System.out.println("Enter an untaken valid seatID!");
+		    }
+		}
+	}
 //	public static void main(String[] args) {
 //		String time;
 //		do {

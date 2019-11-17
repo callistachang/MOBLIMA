@@ -3,6 +3,9 @@ import java.time.LocalTime;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import models.Cinema;
+import models.Showtime;
 public class ValidityChecker {
 
 	public static boolean dateValid(String date) {
@@ -67,6 +70,24 @@ public class ValidityChecker {
 			return true;
 	}
 	
+	public static boolean isAvailableSeatNumber(Cinema cinema, Showtime showtime,String seatNumber) {
+		//convert to seat number
+		int seatInt;
+		if(seatNumber.length() != 3) {
+			return false;
+		}
+		if(! isNumeric(seatNumber.substring(1))){
+			return false;
+		}
+		if(Formatter.getIntFromString(seatNumber.substring(1)) == 0){
+			return false;
+		}
+		seatInt = (seatNumber.charAt(0)-'A') * cinema.getCols() + Formatter.getIntFromString(seatNumber.substring(1));
+		if(showtime.getSeatsTaken().contains(seatInt) || seatInt > cinema.getTotalNoSeats() || seatInt <= 0) {
+			return false;
+		}
+		return true;
+	}
 /*
  * public static void main(String[] args) { String date; Scanner sc = new
  * Scanner(System.in); do {
