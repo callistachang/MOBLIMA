@@ -201,32 +201,6 @@ public class UserApp {
 		
 		System.out.println("Showtimes Available:");
 		cxm.listAllSeatAvailabilitiesInCineplexByMovie(cineplex, movie);
-
-//		cxm.listAllShowtimesInCineplexByMovie(cineplexID, movieID);
-
-
-
-//		  //// Scanner sc = new Scanner(System.in); //// //// MovieManager mm = new
-//		  MovieManager(); //// CineplexManager cxm = new CineplexManager(); //// ////
-//		  System.out.println("Which movie would you like to view?"); //// int
-//		  noOfMovies = mm.listAll(); ////
-//		  System.out.println("Choose a number option:"); //// int movieRow =
-//		  sc.nextInt(); //// int movieID = mm.returnMovieID(movieRow); // // ////
-//		  System.out.println("Which cineplex?"); //// int noOfCineplexes =
-//		  cxm.listAll(); //// System.out.println("Choose a number option:"); //// int
-//		  cineplexRow = sc.nextInt(); //// int cineplexID =
-//		  cxm.returnCineplexID(cineplexRow); // ////
-//		  System.out.println("Showtimes Available:"); //// int noOfShowtimes =
-//		  cm.listAll();
-
-
-		// ask user to pick cineplex
-		// then pick movie
-		// then show the number of available seats per showtime for that movie remaining
-		// in the day.
-		// maybe can do that 'selling fast' 'available' 'fully booked' stuff.
-		// listAll function for showtime will include seat availability beside each
-		// movie
 	}
 
 // (6) List top five movies
@@ -246,8 +220,8 @@ public class UserApp {
 			System.out.println("Would you like to filter by:");
 			System.out.println("(1) Ticket Sales");
 			System.out.println("(2) Reviewer Ratings");
-			System.out.println("Choose a number option:");
-			choice = GetInput.getIntInput("Choose an option");
+			System.out.println("(3) Exit");
+			choice = GetInput.getIntInput("Choose an option:");
 			switch (choice) {
 			case 1:
 				bm.listTop5ByTicketSales();

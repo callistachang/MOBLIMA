@@ -161,7 +161,6 @@ public abstract class Cinema implements ISerializable {
 	 * @param showtime Showtime object to be created.
 	 */
 	public void addShowtime(Showtime showtime) {
-		System.out.println(showtimes);
 		if (showtimes.size() == 0) {
 			showtimes = new ArrayList<Showtime>();
 		}

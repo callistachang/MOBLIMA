@@ -71,14 +71,11 @@ public class CineplexManager {
 		MovieManager mm = new MovieManager();
 		boolean cineplexExist = false;
 		System.out.println("\nCineplex that contain the movie:");
-//		System.out.println("...." + records);
 		for (Cineplex cx: records) {
 			printed = false;
 			ArrayList<Cinema> cinemas = cx.getCinemas();
-//			System.out.println("####" + cinemas);
 			for (Cinema c: cinemas) {
 				ArrayList<Showtime> showtimes = c.getShowtimes();
-//				System.out.println("?????" + showtimes);
 				for (Showtime s: showtimes) {
 					if (movieID == s.getMovieID() & !printed) {
 						Movie movie = mm.getMovieByID(movieID);
@@ -101,14 +98,15 @@ public class CineplexManager {
 		ArrayList <Integer> printedMovieID = new ArrayList<Integer>();
 		Cineplex cx = getCineplexByID(cineplexID);
 		ArrayList<Cinema> cinemas = cx.getCinemas();
+		System.out.println("==================");
 		System.out.print("Cinemas: ");
 		for (Cinema c: cinemas) {
 			System.out.print(c.getId() + " ");
 		}
 		System.out.println();
 		System.out.println();
+		boolean movieExist = false;
 		for (Cinema c: cinemas) {
-			System.out.println(c);
 			ArrayList<Showtime> showtimes = c.getShowtimes();
 			if (showtimes == null)
 				return;
@@ -119,10 +117,12 @@ public class CineplexManager {
 					Printer.printMovieInfo(movie);
 					System.out.println();
 					printedMovieID.add(movieID);
+					movieExist = true;
 				}
 
 			}
 		}
+
 	}
 
 	/**
@@ -140,6 +140,8 @@ public class CineplexManager {
 		}
 		System.out.println();
 		System.out.println();
+		boolean movieExist = false;
+
 		for (Cinema c: cinemas) {
 			ArrayList<Showtime> showtimes = c.getShowtimes();
 			for (Showtime s: showtimes) {
@@ -149,11 +151,15 @@ public class CineplexManager {
 					if (movie.getStatus().toString().equals("Now Showing")) {
 						Printer.printMovieInfo(movie);
 						System.out.println();
+						movieExist = true;
 					}
 					printedMovieID.add(movieID);
 				}
 
 			}
+		}
+		if (!movieExist) {
+			System.out.println("There are no showing movies.");
 		}
 	}
 
@@ -229,7 +235,6 @@ public class CineplexManager {
 		ArrayList<String> data = DatabaseHandler.readDatabase(DATABASE_NAME);
 		AbstractSerializer serializer = new CineplexSerializer();
 		records = serializer.deserialize(data);
-		System.out.println("CineplexManager " + records.get(0).getCinemas());
 	}
 
 	/**

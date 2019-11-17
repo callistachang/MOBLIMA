@@ -76,8 +76,6 @@ public class BookingManager {
 		CinemaManager cm = new CinemaManager();
 		LocalDate today = LocalDate.now();
 	    LocalTime now = LocalTime.now();
-	    System.out.println(today);
-	    System.out.println("===" + now);
 
 		String bookingDate = today.format(DateTimeFormatter.ofPattern("yyyyMMdd"));
 		String bookingTime = now.format(DateTimeFormatter.ofPattern("HHmm"));
@@ -129,22 +127,6 @@ public class BookingManager {
 		for (int i = 0; i < movieIDs.size(); i++) {
 			map.put(movieIDs.get(i), ticketSales.get(i));
 		}
-		
-			
-//			
-//			
-//			if(!)
-//			
-//			int ticketCount = 0;
-//			
-//			
-//			ArrayList<Review> reviews = m.getReviews();
-//			if (reviews.get(0) != null || reviews == null ) {
-//				for (Review r: reviews) {
-////					System.out.println(r.getRating());
-//					movieRating += r.getRating();
-//				}
-//			map.put(m.getTitle(), movieRating/reviews.size());
 
 		Object[] a = map.entrySet().toArray();
 		Arrays.sort(a, new Comparator<Object>() {
@@ -155,7 +137,6 @@ public class BookingManager {
 		});
 		
 		MovieManager mm = new MovieManager();
-//		String title = mm.getMovieByID(movieID).getTitle();
 		
 		for (int i = 0; i < a.length; i++) {
 			String title = mm.getMovieByID(((Map.Entry<Integer, Integer>) a[i]).getKey()).getTitle();

@@ -516,9 +516,6 @@ public class CinemaStaffApp extends UserApp {
 					System.out.println("What would the new value be?");
 					double newVal = sc.nextDouble();
 					pc.update(pricingChoice, newVal);
-					
-					
-					// change pricings
 					break;
 				case 3:
 					System.out.println("Exited from configure settings menu.");

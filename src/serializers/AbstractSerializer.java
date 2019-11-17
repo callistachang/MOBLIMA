@@ -54,7 +54,6 @@ public abstract class AbstractSerializer {
 		ArrayList<Object> objectData = object.getSerializableData();
 		
 		String serializedData = "";
-		System.out.println(objectData);
 		for (int i = 0; i < objectData.size(); i++) {
 			Object data = objectData.get(i);
 			
@@ -69,7 +68,6 @@ public abstract class AbstractSerializer {
 			
 			serializedData += objectData.get(i) + ",";
 		}		
-		System.out.println(serializedData);
 		return serializedData;
 	}
 		
@@ -97,9 +95,6 @@ public abstract class AbstractSerializer {
 	 */
 	protected ArrayList<String> splitArrayToStrings(String arr) {
 		String[] splitArr = arr.split(";");
-//		for (String str: splitArr) {
-//			System.out.println(str);
-//		}
 		return new ArrayList<String>(Arrays.asList(splitArr));
 	}
 	
@@ -112,7 +107,6 @@ public abstract class AbstractSerializer {
 		String[] splitArr = arr.split(";");	// "2", "3", "4"
 		ArrayList<Integer> intArray = new ArrayList<Integer>();
 		for (String str: splitArr) {
-			System.out.println(str);
 //			if (Formatter.getIntFromString(str) != 0)
 				intArray.add(Formatter.getIntFromString(str));
 		}

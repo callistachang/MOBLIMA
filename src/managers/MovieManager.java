@@ -232,7 +232,6 @@ public class MovieManager {
 			ArrayList<Review> reviews = m.getReviews();
 			if (reviews.get(0) != null || reviews == null ) {
 				for (Review r: reviews) {
-//					System.out.println(r.getRating());
 					movieRating += r.getRating();
 				}
 			map.put(m.getTitle(), movieRating/reviews.size());
@@ -260,7 +259,7 @@ public class MovieManager {
 	 * @param account The account of the user that is reviewing.
 	 * @param content The content of the review left by the user.
 	 */
-	public void addReviewToMovie(int movieId, int rating, Account account, String content) {
+	public Review addReviewToMovie(int movieId, int rating, Account account, String content) {
 		Movie movie = getMovieByID(movieId);
 		ReviewManager rm = new ReviewManager();
 		// create review in the review manager side
@@ -270,10 +269,11 @@ public class MovieManager {
 		ArrayList<Review> reviews = movie.getReviews();
 		reviews.add(newReview);
 //		movie.setReviews(reviews);
-		System.out.println(movie.getReviews());
+		// System.out.println(movie.getReviews());
 //		int movieIndex = records.indexOf(movie);
 //		records.set(movieIndex, movie);
 
 		updateDatabase();
+		return newReview;
 	}
 }

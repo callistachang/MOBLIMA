@@ -59,6 +59,7 @@ public class Printer {
 	 * @param m The movie object whose details need to be printed.
 	 */
 	public static void printMovieInfo(Movie m) {
+		System.out.println("===");
 		System.out.println("ID: " + m.getId());
 		System.out.println("Title: " + m.getTitle());
 		System.out.println("Showing Status: " + m.getStatus().toString());
@@ -74,6 +75,7 @@ public class Printer {
 			System.out.printf(casts.get(i) + ", ");
 		}
 		System.out.println(casts.get(i));
+		System.out.println("===");
 	}
 	/**
 	 * Prints reviews of the specific movie.
@@ -143,6 +145,15 @@ public class Printer {
 		System.out.println("Cinema ID: " + cinema.getId());
 		for(Showtime showtime : cinema.getShowtimes()) {
 			printShowtimeDetails(showtime);
+		}
+	}
+	
+	public static void printReviewInfo(Review review) {
+		System.out.println("Review info:");
+		System.out.println("User: " + review.getUser());
+		System.out.println("Rating: " + review.getRating());
+		if (!review.getContent().equals("null")) {
+			System.out.println("Review: " + review.getContent());
 		}
 	}
 }

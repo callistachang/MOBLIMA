@@ -5,6 +5,7 @@ import models.Booking;
 import models.Cinema;
 import models.Cineplex;
 import models.Movie;
+import models.Review;
 import models.Showtime;
 
 import java.util.ArrayList;
@@ -135,7 +136,7 @@ public class MovieGoerApp extends UserApp {
 			bookTicket();
 		}
 		else {
-		String cineplexID = GetInput.getCinemaIDInput("Choose a cineplex:");
+		String cineplexID = GetInput.getCineplexIDInput("Choose a cineplex:");
 		Movie movie = mm.getMovieByID(movieID);
 		Cineplex cineplex = cxm.getCineplexByID(cineplexID);
 		// which movie type?
@@ -167,7 +168,7 @@ public class MovieGoerApp extends UserApp {
 		}
 
 
-		System.out.println("Thet total price is: " + price);
+		System.out.println("The total price is: " + price);
 		
 		
 		Booking booking = bm.addReceipt(c.getId(),showtimeID, price);
@@ -194,7 +195,7 @@ public class MovieGoerApp extends UserApp {
 	 * Allows users to leave a review for a movie they have watched.
 	 * (1) Select the movie and give a rating between 1-5.
 	 * (2) Give a review for the same movie (optional).
-	 * (3) Review added to the movie object throuh movie manager.
+	 * (3) Review added to the movie object through movie manager.
 	 */
 		private void rateMovie() {
 		Scanner sc= new Scanner(System.in);
@@ -218,7 +219,8 @@ public class MovieGoerApp extends UserApp {
 			System.out.println("Please enter your review:");
 			reviewInput = sc.next();
 		}
-		mm.addReviewToMovie(movieID, rating, account, reviewInput);
+		Review r = mm.addReviewToMovie(movieID, rating, account, reviewInput);
 		System.out.println("Review Added.");
+		Printer.printReviewInfo(r);
 	}
 }

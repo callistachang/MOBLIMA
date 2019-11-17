@@ -59,13 +59,6 @@ public class ReviewManager {
 		return review;
 	}
 	
-//	public ArrayList<Review> getReviews(ArrayList<Integer> id){
-//		int i;
-//		for (i=0; i<id.size();i++) {
-//			//get the reviews from database, which matches the id
-//			//System.out.println(Review.getReview());
-//		}
-//	}
 	/**
 	 * Retrieve information from external csv file and converts it into an array of Review objects.
 	 */
