@@ -54,14 +54,6 @@ public class ShowtimeManager {
 		}
 		return null;
 	}
-	/**
-	 * 
-	 * @param showtimeID
-	 * @return
-	 */
-	public int chooseAttributes(int showtimeID) {
-		// TODO Auto-generated method stub
-	}
 	
 	
 	/**
@@ -104,7 +96,8 @@ public class ShowtimeManager {
 	 * @param seatNo Seat number selected by the user.
 	 */
 	public void bookSeat(Showtime showtime, int seatNo) {
-		showtime.bookSeat(seatNo);
+		showtime.addSeat(seatNo);
+		updateDatabase();
 	}
 	/**
 	 * Creates a single showtime given the date, time and movie that will be screened.

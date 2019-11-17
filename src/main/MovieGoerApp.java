@@ -91,11 +91,11 @@ public class MovieGoerApp extends UserApp {
 		ShowtimeManager sm = new ShowtimeManager();
 		CinemaManager cm = new CinemaManager();
 		BookingManager bm  = new BookingManager();
-		PricingCalculator pm = new PricingCalculator();
+//		PricingCalculator pm = new PricingCalculator();
 		
 		// choose movie out of all movies
 		System.out.println("Which movie would you like to watch?");
-		mm.listAllShowing();
+		mm.listAll();
 		System.out.println("Choose a number option:");
 		int movieID = sc.nextInt();
 		
@@ -125,15 +125,15 @@ public class MovieGoerApp extends UserApp {
 		double price = 0;
 		for(int i=0;i<noOfTickets;i++)
 		{
-		System.out.println("Please select your seat number");
-		int seatChosen =sc.nextInt();
-		sm.bookSeat(showtime,seatChosen);
-		System.out.println("Any discounts applicable?");
-		System.out.println("0: None");
-		System.out.println("1: Student");
-		System.out.println("2: Senior Citizen");
-		int discountType = sc.nextInt();
-		price+=pm.calculatePrice(discountType, c.getId(), showtimeID);
+			System.out.println("Please select your seat number");
+			int seatChosen =sc.nextInt();
+			sm.bookSeat(showtime,seatChosen);
+			System.out.println("Any discounts applicable?");
+			System.out.println("0: None");
+			System.out.println("1: Student");
+			System.out.println("2: Senior Citizen");
+			int discountType = sc.nextInt();
+	//		price+=pm.calculatePrice(discountType, c.getId(), showtimeID);
 		}
 				
 		
