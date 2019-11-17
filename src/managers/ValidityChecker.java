@@ -78,6 +78,24 @@ public class ValidityChecker {
 		
 	}
 	
+	public static boolean cineplexIDValid(String cineplexID) {
+		CineplexManager cxm = new CineplexManager();
+		if(cxm.getCineplexByID(cineplexID) == null) {
+			return false;
+		}
+		else
+			return true;
+	}
+	
+	public static boolean cinemaIDValid(String cinemaID) {
+		CinemaManager cm = new CinemaManager();
+		if(cm.getCinemaByID(cinemaID) == null) {
+			return false;
+		}
+		else
+			return true;
+	}
+	
 	public static boolean isNumeric(String strNum) {
 	    try {
 	        int i = Integer.parseInt(strNum);
@@ -95,6 +113,6 @@ public class ValidityChecker {
 		date = sc.nextLine();
 		System.out.println(DateValid(date));
 		}
-		while(date.charAt(0) != '#');
+		while(!date.contains("#"));
 	}
 }
