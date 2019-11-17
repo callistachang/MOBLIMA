@@ -25,6 +25,11 @@ public class Holiday implements ISerializable {
 	 * Date of the holiday.
 	 */
 	private LocalDate date;
+	public Holiday(int id, String name, LocalDate date) {
+		this.id = id;
+		this.name = name;
+		this.date = date;
+	}
 	/**
 	 * Retrieves data from entity for serializing.
 	 * @return Array of required details.

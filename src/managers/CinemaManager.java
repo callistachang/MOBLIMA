@@ -134,6 +134,7 @@ public class CinemaManager {
 		cinema.addShowtime(showtime);
 		updateDatabase();
 	}
+	
 	/**
 	 * Removes the showtime details from the records and updates the external csv file.
 	 * @param cinema Cinema from which the showtime is removed.
@@ -143,6 +144,7 @@ public class CinemaManager {
 		cinema.removeShowtime(showtime);
 		updateDatabase();
 	}
+	
 	/**
 	 * Iterate through records to compare given showtimeID against the list of showtimeID already present.
 	 * @param showtimeID Unique identication number of a particular showtime.
