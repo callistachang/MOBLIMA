@@ -12,7 +12,9 @@ import managers.CinemaManager;
 import managers.CineplexManager;
 import managers.Formatter;
 import managers.GetInput;
+import managers.HolidayManager;
 import managers.MovieManager;
+import managers.PricingCalculator;
 import managers.Printer;
 import managers.ShowtimeManager;
 import models.Cinema;
@@ -469,19 +471,65 @@ public class CinemaStaffApp extends UserApp {
 	}
 	
 	private void configureSettings() {
-		// settings menu:
-		// 1. staff can choose to change holiday timings.
-		// 2. or change pricings.
-		// 3. any more ideas?
+		Scanner sc = new Scanner(System.in);
 		
-		// 1.
-		// name the holiday
-		// name the date
-		// update to holiday csv file.
-		
-		// 2.
-		// choose which type of pricing they wanna change. e.g. senior citizen wanna change from 6 to 7.
-		// then update the prices in the prices csv file.
+		int choice;
+		do {
+			System.out.println("What settings would you like to configure?");
+			System.out.println("(1) Holiday Timings");
+			System.out.println("(2) Pricings");
+			System.out.println("(3) Exit");
+			choice = sc.nextInt();
+			
+			switch (choice) {
+				case 1:
+					System.out.println("What action would you like to do?");
+					System.out.println("(1) Create holiday");
+					System.out.println("(2) Delete holiday");
+					int actionChoice = sc.nextInt();
+					HolidayManager hm = new HolidayManager();
+					
+					switch (actionChoice) {
+						case 1:
+							System.out.println("What would be the name of this holiday?");
+							String createdHolidayName = sc.next();
+							System.out.println("What date is this holiday? (Write it in YYYY-MM-DD)");
+							LocalDate holidayDate = Formatter.getLocalDateFromString(sc.next());
+							hm.create(createdHolidayName, holidayDate);
+							break;
+						case 2:
+							System.out.println("Which holiday would you like to delete? Write its name:");
+							hm.listAll();
+							String removedHolidayName = sc.next();
+							hm.remove(removedHolidayName);
+							break;
+						default:
+							break;
+					}
+					break;
+				case 2:
+					System.out.println("Which pricing would you like to update?");
+					PricingCalculator pc = new PricingCalculator();
+					pc.printPricing();
+					System.out.println("Choose a number option: ");
+					int pricingChoice = sc.nextInt();
+					System.out.println("What would the new value be?");
+					double newVal = sc.nextDouble();
+					pc.update(pricingChoice, newVal);
+					
+					
+					// change pricings
+					break;
+				case 3:
+					System.out.println("Exited from configure settings menu.");
+					break;
+				default:
+					System.out.println("Please input a valid value.");
+					break;
+			}
+		} while (choice != 3);
 	}
-	
 }
+
+
+

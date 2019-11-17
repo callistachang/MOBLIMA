@@ -37,10 +37,27 @@ public class HolidayManager {
 	 */
 	public void listAll() {
 		for (Holiday h: records) {
-			System.out.println("Name: " + h.getHolidayName() + " Date: " + h.getHolidayDate());
+			System.out.println("Name: " + h.getHolidayName() + " Date: " + Formatter.getStringFromLocalDate(h.getHolidayDate()));
 		}
-		
 	}
+	
+	public void create(String name, LocalDate date) {
+		Holiday h = new Holiday(records.size()+1, name, date);
+		records.add(h);
+		updateDatabase();
+	}
+	
+	public void remove(String name) {
+		for (Holiday h: records) {
+			if (h.getHolidayName().equals(name)) {
+				records.remove(h);
+				updateDatabase();
+				return;
+			}
+		}
+	}
+	
+	
 	/**
 	 * Checks if given movie date falls on a recognised holiday in the records.
 	 * @param movieDate Date of the chosen movie.

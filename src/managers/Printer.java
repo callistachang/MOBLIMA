@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import models.Booking;
 import models.Cinema;
 import models.Movie;
+import models.Pricing;
 import models.Review;
 import models.Showtime;
 
@@ -15,6 +16,17 @@ import models.Showtime;
  * @since 2019-11-17
  */
 public class Printer {
+	
+	public static void printPricingInfo(Pricing pricing) {
+		System.out.println("(1) Base Price: $" + pricing.getBasePrice());
+		System.out.println("(2) Weekend Premium: +$" + pricing.getWeekendPremium());
+		System.out.println("(3) 3D Premium: +$" + pricing.getMovieTypePremium());
+		System.out.println("(4) Platinum Cinema Premium: +$" + pricing.getPlatinumCinemaPremium());
+		System.out.println("(5) Gold Cinema Premium: +$" + pricing.getGoldCinemaPremium());
+		System.out.println("(6) Student Discount: -$" + pricing.getStudentDiscount());
+		System.out.println("(7) Senior Citizen Discount: -$" + pricing.getSeniorCitizenDiscount());
+	}
+	
 	/**
 	 * Prints attributes of a movie that can be modified.
 	 */

@@ -38,6 +38,38 @@ public class PricingCalculator {
 		if (pricing == null)
 			initializeDatabase();
 	}
+	
+	public void printPricing() {
+		Printer.printPricingInfo(pricing);
+	}
+	
+	public void update(int choice, double newVal) {
+		switch (choice) {
+		case 1:
+			pricing.setBasePrice(newVal);
+			break;
+		case 2:
+			pricing.setWeekendPremium(newVal);
+			break;
+		case 3:
+			pricing.setMovieTypePremium(newVal);
+			break;
+		case 4:
+			pricing.setPlatinumCinemaPremium(newVal);
+			break;
+		case 5:
+			pricing.setGoldCinemaPremium(newVal);
+			break;
+		case 6:
+			pricing.setStudentDiscount(newVal);
+			break;
+		case 7:
+			pricing.setSeniorCitizenDiscount(newVal);
+			break;
+		}
+		updateDatabase();
+	}
+	
 	/**
 	 * Calculates the price of a ticket based on booking conditions and user type.
 	 * @param discountType Applicable discount of user. 1: Student, 2: Senior Citizen.
@@ -104,10 +136,12 @@ public class PricingCalculator {
 		pricing = (Pricing) serializer.deserialize(data).get(0);
 	}
 	
-//	private void updateDatabase() {
-//		AbstractSerializer serializer = new PricingSerializer();
-//		ArrayList<String> updatedRecords = serializer.serialize(pricing);
-//		DatabaseHandler.writeToDatabase(DATABASE_NAME, updatedRecords);
-//	}
+	private void updateDatabase() {
+		ArrayList<Pricing> pricings = new ArrayList<Pricing>();
+		pricings.add(pricing);
+		AbstractSerializer serializer = new PricingSerializer();
+		ArrayList<String> updatedRecords = serializer.serialize(pricings);
+		DatabaseHandler.writeToDatabase(DATABASE_NAME, updatedRecords);
+	}
 }
 
