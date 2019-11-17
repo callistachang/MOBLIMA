@@ -20,8 +20,17 @@ import models.Movie;
 import models.Movie.MovieType;
 import models.Movie.ShowingStatus;
 import models.Showtime;
-
+/**
+ * Subclass of UserApp. Allows access to functions for cinema staff.
+ * Accessed via a general admin username and password.
+ * @author penel
+ * @version 1.0
+ * @since 2019-11-17
+ */
 public class CinemaStaffApp extends UserApp {
+	/**
+	 * An array of strings with the options for the menu choices for cinema staff.
+	 */
 	private final String menuOptions[] = {
 		"Create movie listing",
 		"Update movie listing",
@@ -31,7 +40,20 @@ public class CinemaStaffApp extends UserApp {
 		"Remove movie showtime",
 		"Configure system settings"
 	};
-	
+	/**
+	 * Runs the main logic of this app.
+	 * Displays menu options for cinema staff.
+	 * (1) Add a movie to the database.
+	 * (2) Update a movie in the database.
+	 * (3) Remove a movie in the database.
+	 * (4) Add a showtime for a movie in the database.
+	 * (5) Update a showtime for a movie in the database.
+	 * (6) Remove a showtime for a movie in the database.
+	 * (7) Admin controls for cinema staff such as changes in price, holiday dates, etc.
+	 * (8-11) Same menu options extended from UserApp.
+	 * (12) Exits Cinema Staff Menu and CinemaStaffApp, enters Main Menu in MoblimaApp again.
+	 */
+
 	public void run() {
 		int choice = -1;
 		Scanner sc = new Scanner(System.in);
@@ -99,7 +121,11 @@ public class CinemaStaffApp extends UserApp {
 			}
 		} while (choice != 12);
 	}
-	
+	/**
+	 * Adds a new movie into the movie database. 
+	 * Takes in the necessary details from cinema staff and stores it 
+	 * in external movie csv.
+	 */
 	private void createMovieListing() {
 		Scanner sc = new Scanner(System.in);
 		String title, status, synopsis, director, cast, type;
@@ -151,7 +177,11 @@ public class CinemaStaffApp extends UserApp {
 		
 		mm.create(title, status, director, synopsis, casts, duration, type);
 	}
-	
+	/**
+	 * Updates a movie currently in the movie database. 
+	 * Cinema staff can choose which attribute of the movie they want to edit, before
+	 * updating the external movie csv.
+	 */
 	private void updateMovieListing() {
 		Scanner sc = new Scanner(System.in);
 		MovieManager mm = new MovieManager();
@@ -177,7 +207,11 @@ public class CinemaStaffApp extends UserApp {
 		mm.update(movieID, attrNum, attrVal);
 		System.out.println("Successfully updated");
 	}
-	
+	/**
+	 * Removes a movie from the movie database. 
+	 * Determines movie to be removed via movieID from cinema staff and removes it 
+	 * from external movie csv.
+	 */
 	private void removeMovieListing() {
 		Scanner sc = new Scanner(System.in);
 		
@@ -211,7 +245,11 @@ public class CinemaStaffApp extends UserApp {
 		// confirm?
 		// will delete from movie list csv file.
 	}
-	
+	/**
+	 * Adds a new showtime into the showtime database. 
+	 * Takes in the necessary details from cinema staff and stores it 
+	 * in external showtime csv.
+	 */
 	private void createMovieShowtime() {
 		
 		Scanner sc = new Scanner(System.in);
@@ -256,7 +294,11 @@ public class CinemaStaffApp extends UserApp {
 		
 //		cinema.addShowtime(showtime); //error checking
 	}
-	
+	/**
+	 * Updates a showtime currently in the showtime database. 
+	 * Cinema staff can choose which attribute of the showtime they want to edit, before
+	 * updating the external showtime csv.
+	 */
 	private void updateMovieShowtime() {
 		Scanner sc = new Scanner(System.in);
 		
@@ -314,7 +356,11 @@ public class CinemaStaffApp extends UserApp {
 		
 		  
 	}
-	
+	/**
+	 * Removes a showtime from the showtime database. 
+	 * Determines showtime to be removed via showtime from cinema staff and removes it 
+	 * from external showtime csv.
+	 */
 	private void removeMovieShowtime() {
 		Scanner sc = new Scanner(System.in);
 		
