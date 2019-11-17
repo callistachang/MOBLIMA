@@ -98,8 +98,8 @@ public class CineplexManager {
 			ArrayList<Showtime> showtimes = c.getShowtimes();
 			for (Showtime s: showtimes) {
 				int movieID = s.getMovieID();
-				if(!printedMovieID.contains(movieID)) {
-					Movie movie = mm.getMovieByID(movieID);
+				Movie movie = mm.getMovieByID(movieID);
+				if(!printedMovieID.contains(movieID) && movie.getStatus().toString().compareTo("Now Showing") == 0) {
 					Printer.printMovieInfo(movie);
 					System.out.println();
 					printedMovieID.add(movieID);

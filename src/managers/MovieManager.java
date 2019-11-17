@@ -58,12 +58,19 @@ public class MovieManager {
 		System.out.println("The list of all movies is as follows: ");
 		for (Movie m: records) {
 			Printer.printMovieListing(m);
-//			int id = m.getId();
-//			String title = m.getTitle();
-//			String type = m.getType().toString();
-//			Printer.printMovieListing(id, title, type);
 		}
 	}
+	
+	public void listAllShowing() {
+		System.out.println("The list of all movies is as follows: ");
+		for (Movie m: records) {
+			if (m.getStatus().toString().compareTo("Now Showing") == 0) {
+				Printer.printMovieListing(m);
+			}
+			
+		}
+	}
+	
 	
 	public void printMovieInfo(int movieID) {
 		Movie movie = getMovieByID(movieID);
