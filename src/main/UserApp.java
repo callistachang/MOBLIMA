@@ -98,7 +98,7 @@ public class UserApp {
 							System.out.println("Success!");
 							break;
 						case 2:
-//							cxm.listAllShowingMovies(cineplexID);
+							cxm.listAllShowingMovies(cineplexID);
 					}
 					break;
 				case 3:
