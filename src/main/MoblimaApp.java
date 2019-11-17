@@ -133,8 +133,7 @@ public class MoblimaApp {
 					System.out.println("Confirm Password:");
 					confirmPassword = sc.nextLine();
 				case 4:
-					System.out.println("Enter Age:");
-					age = sc.nextInt();
+					age = GetInput.getIntInput("Enter Age:");
 					sc.nextLine();
 				case 5:
 					System.out.println("Enter mobile number:");

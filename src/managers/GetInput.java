@@ -56,7 +56,7 @@ public class GetInput {
 		while(true) {
 			System.out.println(prompt);
 			cineplexID = sc.next();
-			if (ValidityChecker.cinemaIDValid(cineplexID)) {
+			if (ValidityChecker.cineplexIDValid(cineplexID)) {
 		        return cineplexID;
 		    } 
 			else {

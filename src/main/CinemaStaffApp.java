@@ -141,9 +141,8 @@ public class CinemaStaffApp extends UserApp {
 		} while (title == null);
 		
 		do {
-			System.out.println("\nInsert movie showing status ((1)Coming Soon, (2)Now Showing, (3)No Longer Showing): ");
-			
-			choice = sc.nextInt();
+			System.out.println();
+			choice = GetInput.getIntInput("Insert movie showing status ((1)Coming Soon, (2)Now Showing, (3)No Longer Showing): ");
 			switch(choice) {
 			case 1:
 				status = "Coming Soon";
@@ -156,9 +155,12 @@ public class CinemaStaffApp extends UserApp {
 				break;
 			default:
 				status = "";
+				System.out.println("Please input a valid option.");
 				break;
 			}
-		} while (!(status.equals("Coming Soon") || status.equals("Now Showing") || status.equals("No Longer Showing")));
+		}
+		
+		while (!(status.equals("Coming Soon") || status.equals("Now Showing") || status.equals("No Longer Showing")));
 		
 		do {
 			System.out.print("\nInsert movie synopsis: ");
@@ -181,8 +183,7 @@ public class CinemaStaffApp extends UserApp {
 		}
 		
 		do {
-			System.out.print("\nInsert duration of movie: ");
-			duration = sc.nextInt();
+			duration = GetInput.getIntInput("\nInsert duration of movie:");
 		} while (duration == 0);
 		
 		do {
@@ -203,17 +204,15 @@ public class CinemaStaffApp extends UserApp {
 		
 		System.out.println("");
 		mm.listAll();
-		System.out.println("Which movie would you like to update? Type the movie ID:");
-		int movieID = sc.nextInt();
+		int movieID = GetInput.getIntInput("Which movie would you like to update? Enter the movie ID:");
 		
 		// Print movie info after choosing the movie
 		mm.printMovieInfo(movieID);
 		
-		System.out.println("What attribute would you like to change about the movie? Choose number option:");
+		System.out.println("What attribute would you like to change about the movie?");
 		Printer.printMovieAttributes();
 		
-		int attrNum = sc.nextInt();
-		sc.nextLine();
+		int attrNum = GetInput.getIntInput("Choose number option:");
 		
 		System.out.println("Insert new value for that attribute:");
 		String attrVal = sc.nextLine();
@@ -232,28 +231,27 @@ public class CinemaStaffApp extends UserApp {
 		
 		MovieManager mm = new MovieManager();
 		
-		System.out.println("Which movie would you like to update? Type the movie ID:");
-		mm.listAll();	// list of all movies with their IDs
-		int movieID = sc.nextInt();
 		
+		mm.listAll();	// list of all movies with their IDs
+		int movieID = GetInput.getIntInput("Which movie would you like to update? Enter movie ID:");
+		System.out.println();
 		char choice;
 		do {
-		System.out.println("Confirm? Y/N");
-		choice = sc.next().charAt(0);
-		switch (choice) {
-		case 'y':
-		case 'Y':
-			mm.remove(movieID);
-			System.out.println("Movie has been removed.");
-			break;
-		case 'n':
-		case 'N':
-			System.out.println("Transaction cancelled. No movies removed.");
-			break;
-		default:
-			System.out.println("Please input a valid option.");
-			break;
-			}
+			choice = GetInput.getCharInput("Confirm? (Y)/(N)");
+			switch (choice) {
+			case 'y':
+			case 'Y':
+				mm.remove(movieID);
+				System.out.println("Movie has been removed.");
+				break;
+			case 'n':
+			case 'N':
+				System.out.println("Transaction cancelled. No movies removed.");
+				break;
+			default:
+				System.out.println("Please input a valid option.");
+				break;
+				}
 		} while (!(choice == 'Y' || choice == 'y' || choice == 'n' || choice == 'N'));	
 		
 		// ask staff which movie they want to delete (show list of movies)
@@ -276,8 +274,7 @@ public class CinemaStaffApp extends UserApp {
 
 		System.out.println("Choose a movie:");
 		mm.listAll();
-		System.out.println("Choose a number option:");
-		int movieID = sc.nextInt();
+		int movieID = GetInput.getIntInput("Choose a number option:");
 //		Movie movie = mm.getMovieByID(movieID);
 		System.out.println("Which cineplex?");
 		cxm.listAll();
@@ -286,8 +283,7 @@ public class CinemaStaffApp extends UserApp {
 //		Cineplex cineplex = cxm.getCineplexByID(cineplexID);
 		System.out.println("Which cinema?");
 		cxm.listAllCinemasByCineplex(cineplexID);
-		System.out.println("Choose by String ID:");
-		String cinemaID = sc.next();
+		String cinemaID = GetInput.getCinemaIDInput("Enter cinemaID:");
 //		Cinema cinema = cm.getCinemaByID(cinemaID);
 		
 //		Cinema cinema = cm.getCinemaByID("AA");
@@ -296,13 +292,8 @@ public class CinemaStaffApp extends UserApp {
 //		LocalTime time = Formatter.getLocalTimeFromString("23:23:23");
 		
 		
-		System.out.println("Enter the date in yyyy-MM-dd format.");
-		String dateInput = sc.next();
-		LocalDate date = Formatter.getLocalDateFromString(dateInput);
-		
-		System.out.println("Enter the new time in HH:mm:ss format");
-		String timeInput = sc.next();
-		LocalTime time = Formatter.getLocalTimeFromString(timeInput);
+		LocalDate date = GetInput.getDateInput("Enter the date in yyyy-MM-dd format.");
+		LocalTime time = GetInput.getTimeInput("Enter the new time in HH:mm:ss format");
 		
 		Showtime showtime = sm.create(date, time, movieID);
 		cm.addShowtime(cinemaID, showtime);
@@ -325,8 +316,7 @@ public class CinemaStaffApp extends UserApp {
 		// choose a movie i wanna update.
 		System.out.println("Choose a movie:");
 		mm.listAll();
-		System.out.println("Choose a number option:");
-		int movieID = sc.nextInt();
+		int movieID = GetInput.getIntInput("Choose an option");
 //		Movie movie = mm.getMovieByID(movieID);
 		
 		
@@ -337,19 +327,16 @@ public class CinemaStaffApp extends UserApp {
 		String cineplexID = sc.next();
 		System.out.println("Which cinema?");
 		cxm.listAllCinemasByCineplex(cineplexID);
-		System.out.println("Choose a number option:");
-		String cinemaID = sc.next();
+		String cinemaID = GetInput.getCinemaIDInput("Enter cinemaID:");
 		Cinema cinema = cm.getCinemaByID(cinemaID);
 		
 		System.out.println("Which showtime would you like to update?");
 		Printer.printShowtimeDetails(cinema);
-		System.out.println("Choose a number option:"); // int showtimeRow =
-		int showtimeId = sc.nextInt();
-		Showtime showtime = sm.getShowtimeByID(showtimeId);
+		int showtimeID = GetInput.getIntInput("Choose an option");
+		Showtime showtime = sm.getShowtimeByID(showtimeID);
 		
 		Printer.printShowtimeDetails(showtime); //
-		System.out.println("Choose a number option:");
-		int choice = sc.nextInt();
+		int choice = GetInput.getIntInput("Choose an option");
 		switch(choice) {
 		case(1):{
 			mm.listAll();
@@ -367,6 +354,9 @@ public class CinemaStaffApp extends UserApp {
 		}
 		String updateInput = sc.next();
 		sm.update(showtime, choice, updateInput);
+		
+		
+		  
 	}
 	/**
 	 * Removes a showtime from the showtime database. 
@@ -388,14 +378,12 @@ public class CinemaStaffApp extends UserApp {
 		String cineplexID = sc.next();
 		System.out.println("Which cinema?");
 		cxm.listAllCinemasByCineplex(cineplexID);
-		System.out.println("Choose a number option:");
-		String cinemaID = sc.next();
+		String cinemaID = GetInput.getCinemaIDInput("Enter cinemaID:");
 		Cinema cinema = cm.getCinemaByID(cinemaID);
 		System.out.println("Which showtime would you like to remove?");
 		Printer.printShowtimeDetails(cinema);
-		System.out.println("Choose a number option:");
-		int showtimeId = sc.nextInt();
-		Showtime showtime = sm.getShowtimeByID(showtimeId);
+		int showtimeID = GetInput.getIntInput("Choose an option");
+		Showtime showtime = sm.getShowtimeByID(showtimeID);
 		char choice;
 		do {
 		System.out.println("Confirm? Y/N");
@@ -412,7 +400,9 @@ public class CinemaStaffApp extends UserApp {
 			System.out.println("Please input a valid option.");
 			break;
 			}
-		} while (choice != 'Y' && choice != 'N');
+		} while (choice != 'Y' && choice != 'N');	
+		
+
 	}
 	
 	private void configureSettings() {

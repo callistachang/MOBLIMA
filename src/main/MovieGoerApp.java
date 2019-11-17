@@ -97,7 +97,6 @@ public class MovieGoerApp extends UserApp {
 					break;
 				case 8:
 					System.out.println("Exited from the movie-goer menu.");
-					sc.nextLine();
 					break;
 				default:
 					System.out.println("Please input a valid option.");
@@ -134,10 +133,10 @@ public class MovieGoerApp extends UserApp {
 		if (!cineplexExists) {
 			System.out.println("No cineplex is currently playing the movie.");
 			bookTicket();
-		} else {
-		System.out.println("Choose a number option:");
+		}
+		else {
+		String cineplexID = GetInput.getCinemaIDInput("Choose a cineplex:");
 		Movie movie = mm.getMovieByID(movieID);
-		String cineplexID = sc.next();
 		Cineplex cineplex = cxm.getCineplexByID(cineplexID);
 		// which movie type?
 
