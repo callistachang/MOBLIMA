@@ -20,7 +20,7 @@ import models.Movie;
  */
 public class UserApp {
 	/**
-	 * An array of strings with the options for the menu choices.
+	 * An array of strings with the options for the menu choices for any user.
 	 */
 	private final String menuOptions[] = {
 		"List movies",
