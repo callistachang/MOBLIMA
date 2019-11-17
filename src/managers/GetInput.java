@@ -54,6 +54,8 @@ public class GetInput {
 		}
 		
 	}
+	
+	
 	/**
 	 * Ensures that the input of cinemaID is valid. 
 	 * @param prompt Print line prompting user to enter a cinema ID. 
@@ -155,6 +157,11 @@ public class GetInput {
 		    }
 		}
 	}
+	/**
+	 * Ensures that user do not enter an empty string
+	 * @param prompt Print line prompting user to type in a string
+	 * @return Non-empty String
+	 */
 	public static String getStringInput(String prompt) {
 		Scanner sc = new Scanner(System.in);
 		String input;
@@ -170,6 +177,11 @@ public class GetInput {
 		}
 	}
 	
+	/**
+	 * Ensures that user enters an integer that corresponds to an existing movieID
+	 * @param prompt Print line prompting user to type in a string
+	 * @return Integer that correspond to an existing MovieID
+	 */
 	public static int getExistingMovieIDInput(String prompt){
 		Scanner sc = new Scanner(System.in);
 		int movieID;
@@ -185,6 +197,13 @@ public class GetInput {
 		
 	}
 	
+	/**
+	 * Ensure that user enter a seat number that is Valid and not taken
+	 * @param cinema Cinema of the show time for the seat chosen
+	 * @param showtime Show time for the seat chosen
+	 * @param prompt Print line prompting user to type in a seat number
+	 * @return
+	 */
 	public static int getSeatNumberInput(Cinema cinema,Showtime showtime, String prompt) {
 		Scanner sc = new Scanner(System.in);
 		String seatNo;
@@ -199,12 +218,5 @@ public class GetInput {
 		    }
 		}
 	}
-//	public static void main(String[] args) {
-//		String time;
-//		do {
-//		time = getCinemaIDInput("Please enter cinema");
-//		System.out.println(time + " is valid!");
-//		}
-//		while(true);
-//	}
+
 }

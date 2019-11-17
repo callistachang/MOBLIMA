@@ -119,7 +119,11 @@ public abstract class Cinema implements ISerializable {
 	 * @return This cinema's number of unbooked seats at a showtime.
 	 */
 	public int getNoSeatsAvailable(Showtime showtime) {
-		return getTotalNoSeats() - showtime.getNoSeatsTaken();
+		if(showtime.getSeatsTaken().contains(0)) {
+			return getTotalNoSeats() - showtime.getNoSeatsTaken() + 1;
+		}
+		else
+			return getTotalNoSeats() - showtime.getNoSeatsTaken();
 	}
 	/**
 	 * Prints the current seating plan of a cinema at a given showtime. 

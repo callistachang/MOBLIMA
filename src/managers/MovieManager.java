@@ -83,11 +83,9 @@ public class MovieManager {
 		updateDatabase();
 	}
 	/**
-	 * Updates a movie's information.
-	 * A user chosen attribute of the movie will be updated.
-	 * @param movieID Unique identification number of the movie chosen.
-	 * @param attrNum Attribute selected by user from a given list of options
-	 * @param attrVal Value of the attributed as stated by user.
+	 * Updates the title of a movie
+	 * @param Movie ID of movie to be updated
+	 * @param title New title of the movie
 	 */
 	public void updateTitle(int movieID, String title) {
 		Movie movie = getMovieByID(movieID);
@@ -95,6 +93,11 @@ public class MovieManager {
 		System.out.println("======");
 		updateDatabase();
 	}
+	/**
+	 * Updates the showing status of the movie
+	 * @param movieID Movie ID of movie to be updated
+	 * @param showingStatus New showing status of the movie
+	 */
 	
 	public void updateShowingStatus(int movieID, ShowingStatus showingStatus) {
 		Movie movie = getMovieByID(movieID);
@@ -102,6 +105,11 @@ public class MovieManager {
 		System.out.println("======");
 		updateDatabase();
 	}
+	/**
+	 * Updates the synopsis of the movie
+	 * @param movieID Movie ID of movie to be updated
+	 * @param synopsis New synopsis of the movie
+	 */
 
 	public void updateSynopsis(int movieID, String synopsis) {
 		Movie movie = getMovieByID(movieID);
@@ -110,12 +118,22 @@ public class MovieManager {
 		updateDatabase();
 	}
 	
+	/**
+	 * Updates the director name of the movie
+	 * @param movieID Movie ID of movie to be updated
+	 * @param director New director name of the director of the movie
+	 */
 	public void updateDirector(int movieID, String director) {
 		Movie movie = getMovieByID(movieID);
 		movie.setDirector(director);
 		System.out.println("======");
 		updateDatabase();
 	}
+	/**
+	 * Updates the duration of the movie
+	 * @param movieID Movie ID of movie to be updated
+	 * @param duration The new duration of the movie
+	 */
 	
 	public void updateDuration(int movieID, int duration) {
 		Movie movie = getMovieByID(movieID);
@@ -124,6 +142,11 @@ public class MovieManager {
 		updateDatabase();
 	}
 	
+	/**
+	 * Updates the type of the movie
+	 * @param movieID Movie ID of movie to be updated
+	 * @param movieType The new type of the movie
+	 */
 	public void updateType(int movieID, MovieType movieType) {
 		Movie movie = getMovieByID(movieID);
 		movie.setType(movieType);
