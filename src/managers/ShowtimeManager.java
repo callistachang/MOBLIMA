@@ -153,12 +153,22 @@ public class ShowtimeManager {
 		updateDatabase();
 	}
 	
+	/**
+	 * Updates the date attribute under showtime.
+	 * @param showtime Indicates the specific showtime, whose date needs to be changed. 
+	 * @param date Indicates the new date of the showtime.
+	 */
 	public void updateDate(Showtime showtime, LocalDate date) {
 		showtime.setDate(date);
 		System.out.println("======");
 		updateDatabase();
 	}
 	
+	/**
+	 * Updates the time attribute under showtime. 
+	 * @param showtime Indicates the specific showtime, whose timing needs to be changed. 
+	 * @param time Indicates the new timing for the showtime.
+	 */
 	public void updateTime(Showtime showtime, LocalTime time) {
 		showtime.setTime(time);
 		System.out.println("======");
