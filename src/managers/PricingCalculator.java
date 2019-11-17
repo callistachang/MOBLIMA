@@ -38,10 +38,25 @@ public class PricingCalculator {
 		if (pricing == null)
 			initializeDatabase();
 	}
+	/**
+	 * Prints the pricing details
+	 */
 	
 	public void printPricing() {
 		Printer.printPricingInfo(pricing);
 	}
+	/**
+	 * Updates the pricing attributes and update the database
+	 * (1) Updates the base price
+	 * (2) Updates the weekend premium
+	 * (3) Updates the movie type premium
+	 * (4) Updates the premium for a platinum class cinema
+	 * (5) Updates the premium for a gold class cinema
+	 * (6) Updates the discount for students
+	 * (7) Updates the discount for senior citizens
+	 * @param choice Choice of which pricing attribute to update
+	 * @param newVal The new value of the attribute updated
+	 */
 	
 	public void update(int choice, double newVal) {
 		switch (choice) {
@@ -136,6 +151,9 @@ public class PricingCalculator {
 		pricing = (Pricing) serializer.deserialize(data).get(0);
 	}
 	
+	/**
+	 * Converts current array of Cineplex objects into string to be stored in external csv file.
+	 */
 	private void updateDatabase() {
 		ArrayList<Pricing> pricings = new ArrayList<Pricing>();
 		pricings.add(pricing);

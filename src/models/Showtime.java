@@ -204,13 +204,4 @@ public class Showtime implements ISerializable {
 		}
 	}
 	
-//	/**
-//	 * Allows values of different data type to be accepted for the different
-//	 * attributes of the showtime.
-//	 * Based on the attribute type, value of attribute will be formatted and set.
-//	 * @param attrNum This showtime's attributes that are of the data type integer.
-//	 * @param attrVal This showtime's attributes that are of the data type string.
-//	 */
-
-	
 }

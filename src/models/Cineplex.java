@@ -101,26 +101,6 @@ public class Cineplex implements ISerializable {
 		}
 		return cinemasStr;
 	}
-//	public ArrayList<Movie> getMovies() {
-//		return movies;
-//	}
-//	public void setMovies(ArrayList<Movie> movies) {
-//		this.movies = movies;
-//	}
-//	
-//	public ArrayList<Movie> getShowingMovies() {
-//		ArrayList<Movie> showingMovies = new ArrayList<Movie>();
-//		for (Movie m: movies) {
-//			if (m.getStatus() == ShowingStatus.NOW_SHOWING) {
-//				showingMovies.add(m);
-//			}
-//		}
-//		return showingMovies;
-//	}
-
-}
-
-
 
 
 

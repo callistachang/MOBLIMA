@@ -1,8 +1,7 @@
-package main;
+package boundaries;
 import java.util.Scanner;
 
 import managers.AccountManager;
-import managers.GetInput;
 import models.Account;
 /**
  * The main function for the entire application. 
@@ -43,7 +42,7 @@ public class MoblimaApp {
 			System.out.println("(3) Create an account");
 			System.out.println("(4) Exit");
 			System.out.println("=======================================================");
-			choice = GetInput.getIntInput("\nChoose an option: ");
+			choice = InputBoundary.getIntInput("\nChoose an option: ");
 			System.out.println();
 			
 			
@@ -133,7 +132,7 @@ public class MoblimaApp {
 					System.out.println("Confirm Password:");
 					confirmPassword = sc.nextLine();
 				case 4:
-					age = GetInput.getIntInput("Enter Age:");
+					age = InputBoundary.getIntInput("Enter Age:");
 //					sc.nextLine();
 				case 5:
 					System.out.println("Enter mobile number:");

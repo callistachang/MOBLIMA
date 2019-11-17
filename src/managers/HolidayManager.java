@@ -41,12 +41,20 @@ public class HolidayManager {
 		}
 	}
 	
+	/**
+	 * This creates a holiday and updates the database.
+	 * @param name The name of the holiday to be added.
+	 * @param date The date of the holiday to be added.
+	 */
 	public void create(String name, LocalDate date) {
 		Holiday h = new Holiday(records.size()+1, name, date);
 		records.add(h);
 		updateDatabase();
 	}
-	
+	/**
+	 * This removes a holiday from the database.
+	 * @param name The name of the holiday to be removed
+	 */
 	public void remove(String name) {
 		for (Holiday h: records) {
 			if (h.getHolidayName().equals(name)) {

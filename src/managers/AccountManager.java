@@ -1,8 +1,8 @@
 package managers;
 import java.util.ArrayList;
 
+import boundaries.CinemaStaffApp;
 import handlers.DatabaseHandler;
-import main.CinemaStaffApp;
 import models.Account;
 import models.Booking;
 import models.Cinema;

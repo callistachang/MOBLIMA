@@ -1,7 +1,12 @@
-package managers;
+package boundaries;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Scanner;
+
+import managers.Formatter;
+import managers.ValidityChecker;
+import models.Cinema;
+import models.Showtime;
 /**
  * Controller to ensure the inputs are valid.
  * @author balad
@@ -9,7 +14,7 @@ import java.util.Scanner;
  * @since 2019-11-17
  *
  */
-public class GetInput {
+public class InputBoundary {
 
 	/**
 	 * Ensures that the input is integer.
@@ -51,6 +56,8 @@ public class GetInput {
 		}
 		
 	}
+	
+	
 	/**
 	 * Ensures that the input of cinemaID is valid. 
 	 * @param prompt Print line prompting user to enter a cinema ID. 
@@ -152,6 +159,11 @@ public class GetInput {
 		    }
 		}
 	}
+	/**
+	 * Ensures that user do not enter an empty string
+	 * @param prompt Print line prompting user to type in a string
+	 * @return Non-empty String
+	 */
 	public static String getStringInput(String prompt) {
 		Scanner sc = new Scanner(System.in);
 		String input;
@@ -167,6 +179,11 @@ public class GetInput {
 		}
 	}
 	
+	/**
+	 * Ensures that user enters an integer that corresponds to an existing movieID
+	 * @param prompt Print line prompting user to type in a string
+	 * @return Integer that correspond to an existing MovieID
+	 */
 	public static int getExistingMovieIDInput(String prompt){
 		Scanner sc = new Scanner(System.in);
 		int movieID;
@@ -182,12 +199,26 @@ public class GetInput {
 		
 	}
 	
-//	public static void main(String[] args) {
-//		String time;
-//		do {
-//		time = getCinemaIDInput("Please enter cinema");
-//		System.out.println(time + " is valid!");
-//		}
-//		while(true);
-//	}
+	/**
+	 * Ensure that user enter a seat number that is Valid and not taken
+	 * @param cinema Cinema of the show time for the seat chosen
+	 * @param showtime Show time for the seat chosen
+	 * @param prompt Print line prompting user to type in a seat number
+	 * @return
+	 */
+	public static int getSeatNumberInput(Cinema cinema,Showtime showtime, String prompt) {
+		Scanner sc = new Scanner(System.in);
+		String seatNo;
+		while(true) {
+			System.out.println(prompt);
+			seatNo = sc.next();
+			if (ValidityChecker.isAvailableSeatNumber(cinema, showtime, seatNo)) {
+		        return (seatNo.charAt(0)-'A') * cinema.getCols() + Formatter.getIntFromString(seatNo.substring(1));
+		    } 
+			else {
+		        System.out.println("Enter an untaken valid seatID!");
+		    }
+		}
+	}
+
 }

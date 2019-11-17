@@ -1,11 +1,10 @@
- package main;
+ package boundaries;
 
 import java.util.Scanner;
 
 import managers.AccountManager;
 import managers.BookingManager;
 import managers.CineplexManager;
-import managers.GetInput;
 import managers.MovieManager;
 import managers.Printer;
 import managers.ShowtimeManager;
@@ -51,7 +50,7 @@ public class UserApp {
 			System.out.printf("(%d) %s \n", i, "Exit");
 			System.out.println("=======================================================");
 
-			choice = GetInput.getIntInput("Choose an option");
+			choice = InputBoundary.getIntInput("Choose an option");
 			switch (choice) {
 			case 1:
 				listMovies();
@@ -92,21 +91,21 @@ public class UserApp {
 			System.out.println("(1) List all movies");
 			System.out.println("(2) Filter by cineplex");
 			System.out.println("(3) Exit");
-			choice = GetInput.getIntInput("Choose an option");
+			choice = InputBoundary.getIntInput("Choose an option");
 			switch (choice) {
 				case 1:
 					mm.listAll();
 					break;
 				case 2:
 					cxm.listAllCineplexes();		// prints out all the cineplexes
-					String cineplexID = GetInput.getCineplexIDInput("Enter cineplexID:");	// user inputs chosen cineplex
+					String cineplexID = InputBoundary.getCineplexIDInput("Enter cineplexID:");	// user inputs chosen cineplex
 
 					System.out.println("(1) Get all movies from the cineplex");
 					System.out.println("(2) Get only showing movies from the cineplex");
 
 					int allOrShowingChoice = 0;
 					do {
-						allOrShowingChoice = GetInput.getIntInput("Choose an option");
+						allOrShowingChoice = InputBoundary.getIntInput("Choose an option");
 					} while (allOrShowingChoice != 1 && allOrShowingChoice != 2);
 
 					switch (allOrShowingChoice) {
@@ -143,7 +142,7 @@ public class UserApp {
 
 		System.out.println("Which movie would you like to query?");
 		mm.listAll();
-		int movieID = GetInput.getIntInput("Type ID of movie:");
+		int movieID = InputBoundary.getIntInput("Type ID of movie:");
 //		Movie movie = mm.getMovieByID(movieID);
 		int choice;
 		do {
@@ -151,7 +150,7 @@ public class UserApp {
 			System.out.println("(1) Movie Information");
 			System.out.println("(2) Movie Ratings and Reviews");
 			System.out.println("(3) Exit");
-			choice = GetInput.getIntInput("Choose an option");
+			choice = InputBoundary.getIntInput("Choose an option");
 			switch (choice) {
 				case 1:
 					mm.printMovieInfo(movieID);
@@ -191,12 +190,12 @@ public class UserApp {
 
 		System.out.println("Which movie would you like to view?");
 		mm.listAll();
-		int movieID = GetInput.getIntInput("Choose an option");
+		int movieID = InputBoundary.getIntInput("Choose an option");
 		Movie movie = mm.getMovieByID(movieID);
 		System.out.println("Which cineplex?");
 		cxm.listCineplexByMovie(movieID);
 
-		String cineplexID = GetInput.getCineplexIDInput("Enter cineplexID:");
+		String cineplexID = InputBoundary.getCineplexIDInput("Enter cineplexID:");
 		Cineplex cineplex = cxm.getCineplexByID(cineplexID);
 		
 		System.out.println("Showtimes Available:");
@@ -221,7 +220,7 @@ public class UserApp {
 			System.out.println("(1) Ticket Sales");
 			System.out.println("(2) Reviewer Ratings");
 			System.out.println("(3) Exit");
-			choice = GetInput.getIntInput("Choose an option:");
+			choice = InputBoundary.getIntInput("Choose an option:");
 			switch (choice) {
 			case 1:
 				bm.listTop5ByTicketSales();
