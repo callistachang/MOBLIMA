@@ -76,17 +76,15 @@ public class Account implements ISerializable {
 		return data;
 	}
 	/**
-	* Gets the first and last name of this user. 
-	* @return This user's name.
+	* Gets the username of this user. 
+	* @return This user's username.
 	*/
 	public String getUsername() {
 		return username;
 	}
 	/**
 	 * Username to set.
-	 * @param username This user's name. 
-	 * 					Should include first and
-	 * 					last name.
+	 * @param username This user's username. Should be unique.
 	 */
 	public void setUsername(String username) {
 		this.username = username;
@@ -185,6 +183,13 @@ public class Account implements ISerializable {
 	public void setBookings(ArrayList<Booking> bookings) {
 		this.bookings = bookings;
 	}
-
+	
+	/**
+	 * Gets the username of this user as its string representation.
+	 * @return This user's username.
+	 */
+	public String toString() {
+		return username;
+	}
 	
 }

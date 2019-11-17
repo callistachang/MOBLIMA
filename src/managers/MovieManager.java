@@ -57,13 +57,22 @@ public class MovieManager {
 	public void listAll() {
 		System.out.println("The list of all movies is as follows: ");
 		for (Movie m: records) {
-			System.out.printf("(ID: %d) %s (%s)\n", m.getId(), m.getTitle(), m.getType().toString());
+			Printer.printMovieListing(m);
+//			int id = m.getId();
+//			String title = m.getTitle();
+//			String type = m.getType().toString();
+//			Printer.printMovieListing(id, title, type);
 		}
 	}
 	
 	public void printMovieInfo(int movieID) {
 		Movie movie = getMovieByID(movieID);
 		Printer.printMovieInfo(movie);
+	}
+	
+	public void printMovieReviews(int movieID) {
+		Movie movie = getMovieByID(movieID);
+		Printer.printMovieReviews(movie);
 	}
 //	
 //	public void printMovieRatings(int movieID) {
