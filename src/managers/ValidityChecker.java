@@ -117,6 +117,21 @@ public class ValidityChecker {
 	    return true;
 	}
 	
+	public static boolean isChar(String strChar) {
+		if(strChar.length() != 1)
+			return false;
+	    return true;
+	}
+	
+	public static boolean isExistingMovieID(int movieID) {
+		MovieManager mm = new MovieManager();
+		if(mm.getMovieByID(movieID) == null) {
+			return false;
+		}
+		else
+			return true;
+	}
+	
 /*
  * public static void main(String[] args) { String date; Scanner sc = new
  * Scanner(System.in); do {

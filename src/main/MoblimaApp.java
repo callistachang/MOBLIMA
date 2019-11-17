@@ -2,10 +2,11 @@ package main;
 import java.util.Scanner;
 
 import managers.AccountManager;
+import managers.GetInput;
 import models.Account;
 /**
  * The main function for the entire application. 
- * Contains the shallowest overview of the entire flow of the application.
+ * Contains the preliminary overview of the entire flow of the application.
  * Determines access privileges of user.
  * @author penel
  * @version 1.0
@@ -42,8 +43,7 @@ public class MoblimaApp {
 			System.out.println("(3) Create an account");
 			System.out.println("(4) Exit");
 			System.out.println("=======================================================");
-			System.out.print("\nChoose an option: ");
-			choice = sc.nextInt();
+			choice = GetInput.getIntInput("\nChoose an option: ");
 			System.out.println();
 			
 			
@@ -113,7 +113,7 @@ public class MoblimaApp {
 	 * Creates a new customer account for users to access customer privileges.
 	 * All customers need an account to book tickets or leave reviews.
 	 */
-	
+
 	public void createNewAccount() {
 		Scanner sc = new Scanner(System.in);
 		String username = null, password = null, confirmPassword = null, mobileNumber = null, emailAddress = null;
@@ -133,8 +133,7 @@ public class MoblimaApp {
 					System.out.println("Confirm Password:");
 					confirmPassword = sc.nextLine();
 				case 4:
-					System.out.println("Enter Age:");
-					age = sc.nextInt();
+					age = GetInput.getIntInput("Enter Age:");
 					sc.nextLine();
 				case 5:
 					System.out.println("Enter mobile number:");

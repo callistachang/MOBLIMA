@@ -171,4 +171,5 @@ public abstract class Cinema implements ISerializable {
 	public void removeShowtime(Showtime showtime) {
 		showtimes.remove(showtime);
 	}
+	
 }

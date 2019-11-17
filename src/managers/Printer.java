@@ -114,13 +114,13 @@ public class Printer {
 	 * @param showtime The showtime object whose details need to be printed.
 	 */
 	public static void printShowtimeDetails(Showtime showtime) {
-		System.out.println("ShowtimeID: " + showtime.getId());
+		System.out.println("ShowtimeID: (" + showtime.getId() + ")");
 		MovieManager mm = new MovieManager();
 		int movieID = showtime.getMovieID();
 		Movie movie = mm.getMovieByID(movieID);
-		System.out.println("(1) Movie: " + movie.getTitle());
-		System.out.println("(2) Date: " + showtime.getDate());
-		System.out.println("(3) Time: " + showtime.getTime());
+		System.out.println("Movie: " + movie.getTitle());
+		System.out.println("Date: " + showtime.getDate());
+		System.out.println("Time: " + showtime.getTime());
 	}
 	
 	/**

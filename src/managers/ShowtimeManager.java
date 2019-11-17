@@ -55,6 +55,13 @@ public class ShowtimeManager {
 		return null;
 	}
 	
+	public boolean isEmpty() {
+		if(records == null) {
+			return true;
+		}
+		else
+			return false;
+	}
 	
 	/**
 	 * Retrieve information from external csv file and converts it into an array of Showtime objects.
@@ -140,9 +147,32 @@ public class ShowtimeManager {
 	 * @param attrNum Attribute selected by user from a given list of options.
 	 * @param attrVal Changed value of attribute given by user.
 	 */
-	public void update(Showtime showtime, int attrNum, String attrVal) {
-		showtime.setAttr(attrNum, attrVal);
+	public void updateMovie(Showtime showtime, int movieID) {
+		showtime.setMovieID(movieID);
 		System.out.println("======");
 		updateDatabase();
 	}
+	
+	/**
+	 * Updates the date attribute under showtime.
+	 * @param showtime Indicates the specific showtime, whose date needs to be changed. 
+	 * @param date Indicates the new date of the showtime.
+	 */
+	public void updateDate(Showtime showtime, LocalDate date) {
+		showtime.setDate(date);
+		System.out.println("======");
+		updateDatabase();
+	}
+	
+	/**
+	 * Updates the time attribute under showtime. 
+	 * @param showtime Indicates the specific showtime, whose timing needs to be changed. 
+	 * @param time Indicates the new timing for the showtime.
+	 */
+	public void updateTime(Showtime showtime, LocalTime time) {
+		showtime.setTime(time);
+		System.out.println("======");
+		updateDatabase();
+	}
+	
 }

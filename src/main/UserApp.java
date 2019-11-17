@@ -1,10 +1,11 @@
-package main;
+ package main;
 
 import java.util.Scanner;
 
 import managers.AccountManager;
 import managers.BookingManager;
 import managers.CineplexManager;
+import managers.GetInput;
 import managers.MovieManager;
 import managers.Printer;
 import managers.ShowtimeManager;
@@ -50,8 +51,7 @@ public class UserApp {
 			System.out.printf("(%d) %s \n", i, "Exit");
 			System.out.println("=======================================================");
 
-			System.out.print("\nChoose an option: ");
-			choice = sc.nextInt();
+			choice = GetInput.getIntInput("Choose an option");
 			switch (choice) {
 			case 1:
 				listMovies();
@@ -67,20 +67,18 @@ public class UserApp {
 				break;
 			case 5:
 				System.out.println("Exited from the Guest menu.");
-				sc.nextLine();
 				break;
 			default:
 				System.out.println("Please input a valid option.");
 				break;
 			}
 		} while (choice != 5);
-		sc.close();
 	}
 	/**
 	 * Lists relevant movies user wants to know about.
 	 * (1) List all movies recorded in the movie database
 	 * (2) Takes in user choice for cineplex, and lists movies that are associated with that cineplex.
-	 * (3) Exits List Movies Menu and enters Guest Menu again.
+	 * (3) Exits List Movies Menu.
 	 */
 	protected void listMovies() {
 		Scanner sc = new Scanner(System.in);
@@ -94,25 +92,21 @@ public class UserApp {
 			System.out.println("(1) List all movies");
 			System.out.println("(2) Filter by cineplex");
 			System.out.println("(3) Exit");
-
-			System.out.println("Choose a number option:");
-			choice = sc.nextInt();
+			choice = GetInput.getIntInput("Choose an option");
 			switch (choice) {
 				case 1:
 					mm.listAll();
 					break;
 				case 2:
-					System.out.println("Choose a cineplex:");
 					cxm.listAllCineplexes();		// prints out all the cineplexes
-					String cineplexID = sc.next();	// user inputs chosen cineplex
+					String cineplexID = GetInput.getCineplexIDInput("Enter cineplexID:");	// user inputs chosen cineplex
 
 					System.out.println("(1) Get all movies from the cineplex");
 					System.out.println("(2) Get only showing movies from the cineplex");
 
 					int allOrShowingChoice = 0;
 					do {
-						System.out.println("Choose a number option:");
-						allOrShowingChoice = sc.nextInt();
+						allOrShowingChoice = GetInput.getIntInput("Choose an option");
 					} while (allOrShowingChoice != 1 && allOrShowingChoice != 2);
 
 					switch (allOrShowingChoice) {
@@ -149,8 +143,7 @@ public class UserApp {
 
 		System.out.println("Which movie would you like to query?");
 		mm.listAll();
-		System.out.println("Type ID of movie:");
-		int movieID = sc.nextInt();
+		int movieID = GetInput.getIntInput("Type ID of movie:");
 //		Movie movie = mm.getMovieByID(movieID);
 		int choice;
 		do {
@@ -158,9 +151,7 @@ public class UserApp {
 			System.out.println("(1) Movie Information");
 			System.out.println("(2) Movie Ratings and Reviews");
 			System.out.println("(3) Exit");
-
-			System.out.println("Choose an option");
-			choice = sc.nextInt();
+			choice = GetInput.getIntInput("Choose an option");
 			switch (choice) {
 				case 1:
 					mm.printMovieInfo(movieID);
@@ -200,14 +191,12 @@ public class UserApp {
 
 		System.out.println("Which movie would you like to view?");
 		mm.listAll();
-		System.out.println("Choose a number option:");
-		int movieID = sc.nextInt();
+		int movieID = GetInput.getIntInput("Choose an option");
 		Movie movie = mm.getMovieByID(movieID);
 		System.out.println("Which cineplex?");
 		cxm.listCineplexByMovie(movieID);
 
-		System.out.println("Enter cineplexID:");
-		String cineplexID = sc.next();
+		String cineplexID = GetInput.getCineplexIDInput("Enter cineplexID:");
 		Cineplex cineplex = cxm.getCineplexByID(cineplexID);
 		
 		System.out.println("Showtimes Available:");
@@ -258,8 +247,7 @@ public class UserApp {
 			System.out.println("(1) Ticket Sales");
 			System.out.println("(2) Reviewer Ratings");
 			System.out.println("Choose a number option:");
-			System.out.println("Choose an option");
-			choice = sc.nextInt();
+			choice = GetInput.getIntInput("Choose an option");
 			switch (choice) {
 			case 1:
 				bm.listTop5ByTicketSales();

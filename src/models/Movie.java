@@ -31,7 +31,7 @@ public class Movie implements ISerializable {
 	 * A short summary of a movie's contents.
 	 */
 	private String synopsis;
-	/*
+	/**
 	 * The name of the person who directed the movie.
 	 */
 	private String director;

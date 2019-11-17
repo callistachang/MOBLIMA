@@ -20,11 +20,11 @@ public class Pricing implements ISerializable {
 	 */
 	private double weekendPremium;
 	/**
-	 * Value of decrease in cost of buying movie ticket for a student.
+	 * The decrease in cost of buying movie ticket for a student.
 	 */
 	private double studentDiscount;
 	/**
-	 * Value of decrease in cost of buying movie ticket for a senior citizen.
+	 * The decrease in cost of buying movie ticket for a senior citizen.
 	 */
 	private double seniorCitizenDiscount;
 	/**
