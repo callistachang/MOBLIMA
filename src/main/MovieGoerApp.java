@@ -31,22 +31,21 @@ public class MovieGoerApp extends UserApp {
 		// Name, age, mobile number, email address.
 		// Hence we create a new MovieGoer object here.
 		
-		System.out.println("Welcome to MOBLIMA, " + account.getUsername() + "!");
-		
-		System.out.println("=================== Movie-Goer Menu ===================");
-		int i;
-		for (i = 1; i <= menuOptions.length; i++) {
-			System.out.printf("(%d) %s \n", i, menuOptions[i-1]);
-		}
-		System.out.println("======================================================");
-		String[] guestOptions = super.getMenuOptions();
-		for (int j = 1; j <= guestOptions.length; i++, j++) {
-			System.out.printf("(%d) %s \n", i, guestOptions[j-1]);
-		}
-		System.out.printf("(%d) %s \n", i, "Exit");
-		System.out.println("======================================================");
+		System.out.println("\nWelcome to MOBLIMA, " + account.getUsername() + "!");
 		
 		do {
+			System.out.println("=================== Movie-Goer Menu ===================");
+			int i;
+			for (i = 1; i <= menuOptions.length; i++) {
+				System.out.printf("(%d) %s \n", i, menuOptions[i-1]);
+			}
+			System.out.println("======================================================");
+			String[] guestOptions = super.getMenuOptions();
+			for (int j = 1; j <= guestOptions.length; i++, j++) {
+				System.out.printf("(%d) %s \n", i, guestOptions[j-1]);
+			}
+			System.out.printf("(%d) %s \n", i, "Exit");
+			System.out.println("======================================================");
 			System.out.print("\nChoose an option: ");
 			choice = sc.nextInt();
 			switch (choice) {
