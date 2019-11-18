@@ -1,0 +1,1445 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.3" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="boundaries.MoblimaApp" project="MOBLIMA" 
+    file="/MOBLIMA/src/boundaries/MoblimaApp.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1543" y="1171"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="boundaries.MovieGoerApp" project="MOBLIMA" 
+    file="/MOBLIMA/src/boundaries/MovieGoerApp.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1556" y="1424"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="boundaries.UserApp" project="MOBLIMA" file="/MOBLIMA/src/boundaries/UserApp.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1874" y="1424"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="boundaries.InputBoundary" project="MOBLIMA" 
+    file="/MOBLIMA/src/boundaries/InputBoundary.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1204" y="1201"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="boundaries.CinemaStaffApp" project="MOBLIMA" 
+    file="/MOBLIMA/src/boundaries/CinemaStaffApp.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1874" y="1164"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="managers.CineplexManager" project="MOBLIMA" 
+    file="/MOBLIMA/src/managers/CineplexManager.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="-330" y="3400"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="managers.BookingManager" project="MOBLIMA" 
+    file="/MOBLIMA/src/managers/BookingManager.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="985" y="3395"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="managers.HolidayManager" project="MOBLIMA" 
+    file="/MOBLIMA/src/managers/HolidayManager.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="207" width="115" x="3204" y="3300"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="managers.ValidityChecker" project="MOBLIMA" 
+    file="/MOBLIMA/src/managers/ValidityChecker.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="4137" y="1987"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="managers.AccountManager" project="MOBLIMA" 
+    file="/MOBLIMA/src/managers/AccountManager.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1548" y="3395"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="managers.Formatter" project="MOBLIMA" file="/MOBLIMA/src/managers/Formatter.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="4138" y="2368"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="managers.PricingCalculator" project="MOBLIMA" 
+    file="/MOBLIMA/src/managers/PricingCalculator.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3713" y="3427"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="managers.Printer" project="MOBLIMA" file="/MOBLIMA/src/managers/Printer.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="4138" y="2685"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="managers.CinemaManager" project="MOBLIMA" 
+    file="/MOBLIMA/src/managers/CinemaManager.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="149" y="3395"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="15" language="java" name="managers.ShowtimeManager" project="MOBLIMA" 
+    file="/MOBLIMA/src/managers/ShowtimeManager.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="550" y="3413"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="16" language="java" name="managers.MovieManager" project="MOBLIMA" 
+    file="/MOBLIMA/src/managers/MovieManager.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2629" y="3395"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="17" language="java" name="managers.ReviewManager" project="MOBLIMA" 
+    file="/MOBLIMA/src/managers/ReviewManager.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2072" y="3395"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="18" language="java" name="models.Pricing" project="MOBLIMA" file="/MOBLIMA/src/models/Pricing.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3717" y="2025"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="19" language="java" name="models.Account" project="MOBLIMA" file="/MOBLIMA/src/models/Account.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1549" y="2309"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="20" language="java" name="models.Cinema" project="MOBLIMA" file="/MOBLIMA/src/models/Cinema.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="144" y="2309"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="21" language="java" name="models.Movie" project="MOBLIMA" file="/MOBLIMA/src/models/Movie.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2629" y="2309"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="22" language="java" name="models.Cineplex" project="MOBLIMA" file="/MOBLIMA/src/models/Cineplex.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="-329" y="2309"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="23" language="java" name="models.GoldCinema" project="MOBLIMA" file="/MOBLIMA/src/models/GoldCinema.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="-10" y="1851"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="24" language="java" name="models.Showtime" project="MOBLIMA" file="/MOBLIMA/src/models/Showtime.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="550" y="2733"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <enumeration id="25" language="java" name="models.Movie.MovieType" project="MOBLIMA" 
+    file="/MOBLIMA/src/models/Movie.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2461" y="1797"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <class id="26" language="java" name="models.Holiday" project="MOBLIMA" file="/MOBLIMA/src/models/Holiday.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3265" y="2077"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="27" language="java" name="models.RegularCinema" project="MOBLIMA" 
+    file="/MOBLIMA/src/models/RegularCinema.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="-279" y="1847"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="28" language="java" name="models.Booking" project="MOBLIMA" file="/MOBLIMA/src/models/Booking.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="985" y="2309"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="29" language="java" name="models.Review" project="MOBLIMA" file="/MOBLIMA/src/models/Review.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2072" y="2309"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="30" language="java" name="models.PlatinumCinema" project="MOBLIMA" 
+    file="/MOBLIMA/src/models/PlatinumCinema.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="-551" y="1843"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <enumeration id="31" language="java" name="models.Movie.ShowingStatus" project="MOBLIMA" 
+    file="/MOBLIMA/src/models/Movie.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2860" y="1798"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <interface id="32" language="java" name="models.ISerializable" project="MOBLIMA" 
+    file="/MOBLIMA/src/models/ISerializable.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="664" y="1762"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="33" language="java" name="handlers.DatabaseHandler" project="MOBLIMA" 
+    file="/MOBLIMA/src/handlers/DatabaseHandler.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="-352" y="1172"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="34" language="java" name="serializers.ShowtimeSerializer" project="MOBLIMA" 
+    file="/MOBLIMA/src/serializers/ShowtimeSerializer.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="392" y="3872"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="35" language="java" name="serializers.AbstractSerializer" project="MOBLIMA" 
+    file="/MOBLIMA/src/serializers/AbstractSerializer.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1569" y="4510"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="36" language="java" name="serializers.AccountSerializer" project="MOBLIMA" 
+    file="/MOBLIMA/src/serializers/AccountSerializer.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="687" y="3872"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="37" language="java" name="serializers.HolidaySerializer" project="MOBLIMA" 
+    file="/MOBLIMA/src/serializers/HolidaySerializer.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="982" y="3872"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="38" language="java" name="serializers.ReviewSerializer" project="MOBLIMA" 
+    file="/MOBLIMA/src/serializers/ReviewSerializer.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1275" y="3872"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="39" language="java" name="serializers.BookingSerializer" project="MOBLIMA" 
+    file="/MOBLIMA/src/serializers/BookingSerializer.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1569" y="3872"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="40" language="java" name="serializers.CineplexSerializer" project="MOBLIMA" 
+    file="/MOBLIMA/src/serializers/CineplexSerializer.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1861" y="3872"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="41" language="java" name="serializers.MovieSerializer" project="MOBLIMA" 
+    file="/MOBLIMA/src/serializers/MovieSerializer.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2153" y="3872"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="42" language="java" name="serializers.CinemaSerializer" project="MOBLIMA" 
+    file="/MOBLIMA/src/serializers/CinemaSerializer.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2457" y="3872"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="43" language="java" name="serializers.PricingSerializer" project="MOBLIMA" 
+    file="/MOBLIMA/src/serializers/PricingSerializer.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2762" y="3872"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <dependency id="44">    
+    <end type="SOURCE" refId="41"/>    
+    <end type="TARGET" refId="21"/>  
+  </dependency>  
+  <association id="45">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="46" name="account">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="47" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="19" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="48">    
+    <end type="SOURCE" refId="42"/>    
+    <end type="TARGET" refId="23"/>  
+  </dependency>  
+  <dependency id="49">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="31"/>  
+  </dependency>  
+  <dependency id="50">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="28"/>  
+  </dependency>  
+  <dependency id="51">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="35"/>  
+  </dependency>  
+  <dependency id="52">    
+    <end type="SOURCE" refId="39"/>    
+    <end type="TARGET" refId="11"/>  
+  </dependency>  
+  <association id="53">    
+    <end type="SOURCE" refId="28" navigable="false">      
+      <attribute id="54" name="cinema">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="55" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="56">    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="11"/>  
+  </dependency>  
+  <dependency id="57">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="43"/>  
+  </dependency>  
+  <dependency id="58">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="21"/>  
+  </dependency>  
+  <dependency id="59">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="19"/>  
+  </dependency>  
+  <dependency id="60">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="20"/>  
+  </dependency>  
+  <dependency id="61">    
+    <end type="SOURCE" refId="36"/>    
+    <end type="TARGET" refId="28"/>  
+  </dependency>  
+  <dependency id="62">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="28"/>  
+  </dependency>  
+  <dependency id="63">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="6"/>  
+  </dependency>  
+  <dependency id="64">    
+    <end type="SOURCE" refId="26"/>    
+    <end type="TARGET" refId="11"/>  
+  </dependency>  
+  <dependency id="65">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="12"/>  
+  </dependency>  
+  <dependency id="66">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="33"/>  
+  </dependency>  
+  <realization id="67">    
+    <end type="SOURCE" refId="21"/>    
+    <end type="TARGET" refId="32"/>  
+  </realization>  
+  <dependency id="68">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="22"/>  
+  </dependency>  
+  <dependency id="69">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="35"/>  
+  </dependency>  
+  <generalization id="70">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
+  <generalization id="71">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
+  <generalization id="72">    
+    <end type="SOURCE" refId="42"/>    
+    <end type="TARGET" refId="35"/>  
+  </generalization>  
+  <dependency id="73">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="35"/>  
+  </dependency>  
+  <dependency id="74">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="14"/>  
+  </dependency>  
+  <dependency id="75">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="15"/>  
+  </dependency>  
+  <dependency id="76">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="5"/>  
+  </dependency>  
+  <dependency id="77">    
+    <end type="SOURCE" refId="41"/>    
+    <end type="TARGET" refId="38"/>  
+  </dependency>  
+  <dependency id="78">    
+    <end type="SOURCE" refId="40"/>    
+    <end type="TARGET" refId="22"/>  
+  </dependency>  
+  <dependency id="79">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="29"/>  
+  </dependency>  
+  <dependency id="80">    
+    <end type="SOURCE" refId="42"/>    
+    <end type="TARGET" refId="32"/>  
+  </dependency>  
+  <realization id="81">    
+    <end type="SOURCE" refId="24"/>    
+    <end type="TARGET" refId="32"/>  
+  </realization>  
+  <dependency id="82">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="14"/>  
+  </dependency>  
+  <dependency id="83">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="20"/>  
+  </dependency>  
+  <dependency id="84">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="25"/>  
+  </dependency>  
+  <dependency id="85">    
+    <end type="SOURCE" refId="38"/>    
+    <end type="TARGET" refId="11"/>  
+  </dependency>  
+  <dependency id="86">    
+    <end type="SOURCE" refId="28"/>    
+    <end type="TARGET" refId="11"/>  
+  </dependency>  
+  <dependency id="87">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="25"/>  
+  </dependency>  
+  <realization id="88">    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="32"/>  
+  </realization>  
+  <dependency id="89">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="24"/>  
+  </dependency>  
+  <dependency id="90">    
+    <end type="SOURCE" refId="41"/>    
+    <end type="TARGET" refId="31"/>  
+  </dependency>  
+  <dependency id="91">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="11"/>  
+  </dependency>  
+  <dependency id="92">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="33"/>  
+  </dependency>  
+  <dependency id="93">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="21"/>  
+  </dependency>  
+  <dependency id="94">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </dependency>  
+  <dependency id="95">    
+    <end type="SOURCE" refId="21"/>    
+    <end type="TARGET" refId="11"/>  
+  </dependency>  
+  <dependency id="96">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="39"/>  
+  </dependency>  
+  <association id="97">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="98" name="records">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="99" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="19" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="100">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="13"/>  
+  </dependency>  
+  <dependency id="101">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="18"/>  
+  </dependency>  
+  <generalization id="102">    
+    <end type="SOURCE" refId="43"/>    
+    <end type="TARGET" refId="35"/>  
+  </generalization>  
+  <dependency id="103">    
+    <end type="SOURCE" refId="34"/>    
+    <end type="TARGET" refId="24"/>  
+  </dependency>  
+  <realization id="104">    
+    <end type="SOURCE" refId="26"/>    
+    <end type="TARGET" refId="32"/>  
+  </realization>  
+  <dependency id="105">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="12"/>  
+  </dependency>  
+  <realization id="106">    
+    <end type="SOURCE" refId="22"/>    
+    <end type="TARGET" refId="32"/>  
+  </realization>  
+  <dependency id="107">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="15"/>  
+  </dependency>  
+  <dependency id="108">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="40"/>  
+  </dependency>  
+  <generalization id="109">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="20"/>  
+  </generalization>  
+  <dependency id="110">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="17"/>  
+  </dependency>  
+  <dependency id="111">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="35"/>  
+  </dependency>  
+  <dependency id="112">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="24"/>  
+  </dependency>  
+  <dependency id="113">    
+    <end type="SOURCE" refId="27"/>    
+    <end type="TARGET" refId="24"/>  
+  </dependency>  
+  <dependency id="114">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="24"/>  
+  </dependency>  
+  <dependency id="115">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="16"/>  
+  </dependency>  
+  <realization id="116">    
+    <end type="SOURCE" refId="29"/>    
+    <end type="TARGET" refId="32"/>  
+  </realization>  
+  <generalization id="117">    
+    <end type="SOURCE" refId="39"/>    
+    <end type="TARGET" refId="35"/>  
+  </generalization>  
+  <dependency id="118">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="29"/>  
+  </dependency>  
+  <dependency id="119">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="28"/>  
+  </dependency>  
+  <generalization id="120">    
+    <end type="SOURCE" refId="34"/>    
+    <end type="TARGET" refId="35"/>  
+  </generalization>  
+  <dependency id="121">    
+    <end type="SOURCE" refId="41"/>    
+    <end type="TARGET" refId="32"/>  
+  </dependency>  
+  <association id="122">    
+    <end type="SOURCE" refId="22" navigable="false">      
+      <attribute id="123" name="cinemas">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="124" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="125">    
+    <end type="SOURCE" refId="41"/>    
+    <end type="TARGET" refId="29"/>  
+  </dependency>  
+  <association id="126">    
+    <end type="SOURCE" refId="28" navigable="false">      
+      <attribute id="127" name="showtime">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="128" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="24" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="129">    
+    <end type="SOURCE" refId="36"/>    
+    <end type="TARGET" refId="32"/>  
+  </dependency>  
+  <dependency id="130">    
+    <end type="SOURCE" refId="34"/>    
+    <end type="TARGET" refId="11"/>  
+  </dependency>  
+  <dependency id="131">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="7"/>  
+  </dependency>  
+  <dependency id="132">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="24"/>  
+  </dependency>  
+  <dependency id="133">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="20"/>  
+  </dependency>  
+  <dependency id="134">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="4"/>  
+  </dependency>  
+  <dependency id="135">    
+    <end type="SOURCE" refId="40"/>    
+    <end type="TARGET" refId="32"/>  
+  </dependency>  
+  <dependency id="136">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="11"/>  
+  </dependency>  
+  <dependency id="137">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="11"/>  
+  </dependency>  
+  <dependency id="138">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="31"/>  
+  </dependency>  
+  <dependency id="139">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="9"/>  
+  </dependency>  
+  <dependency id="140">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="41"/>  
+  </dependency>  
+  <dependency id="141">    
+    <end type="SOURCE" refId="42"/>    
+    <end type="TARGET" refId="27"/>  
+  </dependency>  
+  <association id="142">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="143" name="records">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="144" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="28" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="145">    
+    <end type="SOURCE" refId="38"/>    
+    <end type="TARGET" refId="10"/>  
+  </dependency>  
+  <dependency id="146">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="21"/>  
+  </dependency>  
+  <dependency id="147">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="24"/>  
+  </dependency>  
+  <dependency id="148">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="20"/>  
+  </dependency>  
+  <dependency id="149">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="14"/>  
+  </dependency>  
+  <dependency id="150">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="6"/>  
+  </dependency>  
+  <dependency id="151">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="35"/>  
+  </dependency>  
+  <dependency id="152">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="21"/>  
+  </dependency>  
+  <dependency id="153">    
+    <end type="SOURCE" refId="42"/>    
+    <end type="TARGET" refId="24"/>  
+  </dependency>  
+  <dependency id="154">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="35"/>  
+  </dependency>  
+  <dependency id="155">    
+    <end type="SOURCE" refId="41"/>    
+    <end type="TARGET" refId="25"/>  
+  </dependency>  
+  <dependency id="156">    
+    <end type="SOURCE" refId="36"/>    
+    <end type="TARGET" refId="11"/>  
+  </dependency>  
+  <dependency id="157">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="36"/>  
+  </dependency>  
+  <dependency id="158">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="33"/>  
+  </dependency>  
+  <association id="159">    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="160" name="status">        
+        <position height="0" width="0" x="11" y="389"/>      
+      </attribute>      
+      <multiplicity id="161" minimum="0" maximum="1">        
+        <position height="0" width="0" x="11" y="389"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="31" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="162">    
+    <end type="SOURCE" refId="38"/>    
+    <end type="TARGET" refId="35"/>  
+  </generalization>  
+  <association id="163">    
+    <end type="SOURCE" refId="20" navigable="false">      
+      <attribute id="164" name="showtimes">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="165" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="24" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="166">    
+    <end type="SOURCE" refId="28"/>    
+    <end type="TARGET" refId="32"/>  
+  </realization>  
+  <association id="167">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="168" name="records">        
+        <position height="0" width="0" x="4" y="-40"/>      
+      </attribute>      
+      <multiplicity id="169" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="4" y="-40"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="26" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="170">    
+    <end type="SOURCE" refId="39"/>    
+    <end type="TARGET" refId="24"/>  
+  </dependency>  
+  <generalization id="171">    
+    <end type="SOURCE" refId="36"/>    
+    <end type="TARGET" refId="35"/>  
+  </generalization>  
+  <dependency id="172">    
+    <end type="SOURCE" refId="39"/>    
+    <end type="TARGET" refId="14"/>  
+  </dependency>  
+  <dependency id="173">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="19"/>  
+  </dependency>  
+  <dependency id="174">    
+    <end type="SOURCE" refId="40"/>    
+    <end type="TARGET" refId="20"/>  
+  </dependency>  
+  <dependency id="175">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="24"/>  
+  </dependency>  
+  <dependency id="176">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="20"/>  
+  </dependency>  
+  <dependency id="177">    
+    <end type="SOURCE" refId="43"/>    
+    <end type="TARGET" refId="18"/>  
+  </dependency>  
+  <dependency id="178">    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="11"/>  
+  </dependency>  
+  <association id="179">    
+    <end type="SOURCE" refId="29" navigable="false">      
+      <attribute id="180" name="user">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="181" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="19" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="182">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="6"/>  
+  </dependency>  
+  <dependency id="183">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="16"/>  
+  </dependency>  
+  <generalization id="184">    
+    <end type="SOURCE" refId="41"/>    
+    <end type="TARGET" refId="35"/>  
+  </generalization>  
+  <dependency id="185">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="2"/>  
+  </dependency>  
+  <dependency id="186">    
+    <end type="SOURCE" refId="38"/>    
+    <end type="TARGET" refId="19"/>  
+  </dependency>  
+  <dependency id="187">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="22"/>  
+  </dependency>  
+  <dependency id="188">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="13"/>  
+  </dependency>  
+  <dependency id="189">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="13"/>  
+  </dependency>  
+  <dependency id="190">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="20"/>  
+  </dependency>  
+  <association id="191">    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="192" name="bookings">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="193" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="28" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="194">    
+    <end type="SOURCE" refId="39"/>    
+    <end type="TARGET" refId="32"/>  
+  </dependency>  
+  <dependency id="195">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="21"/>  
+  </dependency>  
+  <dependency id="196">    
+    <end type="SOURCE" refId="42"/>    
+    <end type="TARGET" refId="15"/>  
+  </dependency>  
+  <dependency id="197">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="33"/>  
+  </dependency>  
+  <dependency id="198">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="8"/>  
+  </dependency>  
+  <dependency id="199">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="14"/>  
+  </dependency>  
+  <dependency id="200">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="11"/>  
+  </dependency>  
+  <association id="201">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="202" name="pricing">        
+        <position height="0" width="0" x="4" y="48"/>      
+      </attribute>      
+      <multiplicity id="203" minimum="0" maximum="1">        
+        <position height="0" width="0" x="4" y="48"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="18" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="204">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="37"/>  
+  </dependency>  
+  <dependency id="205">    
+    <end type="SOURCE" refId="23"/>    
+    <end type="TARGET" refId="24"/>  
+  </dependency>  
+  <dependency id="206">    
+    <end type="SOURCE" refId="41"/>    
+    <end type="TARGET" refId="11"/>  
+  </dependency>  
+  <dependency id="207">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="21"/>  
+  </dependency>  
+  <dependency id="208">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="24"/>  
+  </dependency>  
+  <dependency id="209">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="35"/>  
+  </dependency>  
+  <dependency id="210">    
+    <end type="SOURCE" refId="43"/>    
+    <end type="TARGET" refId="32"/>  
+  </dependency>  
+  <dependency id="211">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="20"/>  
+  </dependency>  
+  <dependency id="212">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="21"/>  
+  </dependency>  
+  <dependency id="213">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="34"/>  
+  </dependency>  
+  <association id="214">    
+    <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="215" name="records">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="216" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="21" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="217">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="13"/>  
+  </dependency>  
+  <dependency id="218">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="4"/>  
+  </dependency>  
+  <dependency id="219">    
+    <end type="SOURCE" refId="34"/>    
+    <end type="TARGET" refId="32"/>  
+  </dependency>  
+  <dependency id="220">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="35"/>  
+  </dependency>  
+  <dependency id="221">    
+    <end type="SOURCE" refId="43"/>    
+    <end type="TARGET" refId="11"/>  
+  </dependency>  
+  <dependency id="222">    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="35"/>  
+  </dependency>  
+  <dependency id="223">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="16"/>  
+  </dependency>  
+  <dependency id="224">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="33"/>  
+  </dependency>  
+  <dependency id="225">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="13"/>  
+  </dependency>  
+  <association id="226">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="227" name="records">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="228" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="229">    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="230" name="reviews">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="231" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="29" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="232">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="16"/>  
+  </dependency>  
+  <dependency id="233">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="25"/>  
+  </dependency>  
+  <dependency id="234">    
+    <end type="SOURCE" refId="39"/>    
+    <end type="TARGET" refId="15"/>  
+  </dependency>  
+  <realization id="235">    
+    <end type="SOURCE" refId="20"/>    
+    <end type="TARGET" refId="32"/>  
+  </realization>  
+  <dependency id="236">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="24"/>  
+  </dependency>  
+  <dependency id="237">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="42"/>  
+  </dependency>  
+  <dependency id="238">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="7"/>  
+  </dependency>  
+  <generalization id="239">    
+    <end type="SOURCE" refId="27"/>    
+    <end type="TARGET" refId="20"/>  
+  </generalization>  
+  <dependency id="240">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="24"/>  
+  </dependency>  
+  <generalization id="241">    
+    <end type="SOURCE" refId="23"/>    
+    <end type="TARGET" refId="20"/>  
+  </generalization>  
+  <association id="242">    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="243" name="type">        
+        <position height="0" width="0" x="11" y="389"/>      
+      </attribute>      
+      <multiplicity id="244" minimum="0" maximum="1">        
+        <position height="0" width="0" x="11" y="389"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="25" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="245">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="15"/>  
+  </dependency>  
+  <dependency id="246">    
+    <end type="SOURCE" refId="35"/>    
+    <end type="TARGET" refId="32"/>  
+  </dependency>  
+  <generalization id="247">    
+    <end type="SOURCE" refId="40"/>    
+    <end type="TARGET" refId="35"/>  
+  </generalization>  
+  <dependency id="248">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="14"/>  
+  </dependency>  
+  <dependency id="249">    
+    <end type="SOURCE" refId="40"/>    
+    <end type="TARGET" refId="14"/>  
+  </dependency>  
+  <generalization id="250">    
+    <end type="SOURCE" refId="37"/>    
+    <end type="TARGET" refId="35"/>  
+  </generalization>  
+  <dependency id="251">    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="33"/>  
+  </dependency>  
+  <dependency id="252">    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="19"/>  
+  </dependency>  
+  <association id="253">    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="254" name="records">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="255" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="24" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="256">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="33"/>  
+  </dependency>  
+  <dependency id="257">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="24"/>  
+  </dependency>  
+  <dependency id="258">    
+    <end type="SOURCE" refId="20"/>    
+    <end type="TARGET" refId="11"/>  
+  </dependency>  
+  <dependency id="259">    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="38"/>  
+  </dependency>  
+  <dependency id="260">    
+    <end type="SOURCE" refId="29"/>    
+    <end type="TARGET" refId="11"/>  
+  </dependency>  
+  <dependency id="261">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="20"/>  
+  </dependency>  
+  <dependency id="262">    
+    <end type="SOURCE" refId="42"/>    
+    <end type="TARGET" refId="30"/>  
+  </dependency>  
+  <dependency id="263">    
+    <end type="SOURCE" refId="35"/>    
+    <end type="TARGET" refId="11"/>  
+  </dependency>  
+  <dependency id="264">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="15"/>  
+  </dependency>  
+  <dependency id="265">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="8"/>  
+  </dependency>  
+  <dependency id="266">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="4"/>  
+  </dependency>  
+  <dependency id="267">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="10"/>  
+  </dependency>  
+  <dependency id="268">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="16"/>  
+  </dependency>  
+  <dependency id="269">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="21"/>  
+  </dependency>  
+  <realization id="270">    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="32"/>  
+  </realization>  
+  <dependency id="271">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="31"/>  
+  </dependency>  
+  <dependency id="272">    
+    <end type="SOURCE" refId="37"/>    
+    <end type="TARGET" refId="11"/>  
+  </dependency>  
+  <dependency id="273">    
+    <end type="SOURCE" refId="39"/>    
+    <end type="TARGET" refId="34"/>  
+  </dependency>  
+  <dependency id="274">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="29"/>  
+  </dependency>  
+  <dependency id="275">    
+    <end type="SOURCE" refId="38"/>    
+    <end type="TARGET" refId="29"/>  
+  </dependency>  
+  <dependency id="276">    
+    <end type="SOURCE" refId="36"/>    
+    <end type="TARGET" refId="19"/>  
+  </dependency>  
+  <dependency id="277">    
+    <end type="SOURCE" refId="24"/>    
+    <end type="TARGET" refId="11"/>  
+  </dependency>  
+  <dependency id="278">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="16"/>  
+  </dependency>  
+  <dependency id="279">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="10"/>  
+  </dependency>  
+  <dependency id="280">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="16"/>  
+  </dependency>  
+  <dependency id="281">    
+    <end type="SOURCE" refId="36"/>    
+    <end type="TARGET" refId="7"/>  
+  </dependency>  
+  <dependency id="282">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="22"/>  
+  </dependency>  
+  <dependency id="283">    
+    <end type="SOURCE" refId="38"/>    
+    <end type="TARGET" refId="32"/>  
+  </dependency>  
+  <dependency id="284">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="13"/>  
+  </dependency>  
+  <dependency id="285">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="11"/>  
+  </dependency>  
+  <dependency id="286">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="14"/>  
+  </dependency>  
+  <dependency id="287">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="33"/>  
+  </dependency>  
+  <association id="288">    
+    <end type="SOURCE" refId="17" navigable="false">      
+      <attribute id="289" name="records">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="290" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="29" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="291">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="16"/>  
+  </dependency>  
+  <dependency id="292">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="15"/>  
+  </dependency>  
+  <dependency id="293">    
+    <end type="SOURCE" refId="37"/>    
+    <end type="TARGET" refId="32"/>  
+  </dependency>  
+  <dependency id="294">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="25"/>  
+  </dependency>  
+  <dependency id="295">    
+    <end type="SOURCE" refId="39"/>    
+    <end type="TARGET" refId="28"/>  
+  </dependency>  
+  <dependency id="296">    
+    <end type="SOURCE" refId="39"/>    
+    <end type="TARGET" refId="20"/>  
+  </dependency>  
+  <dependency id="297">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="6"/>  
+  </dependency>  
+  <dependency id="298">    
+    <end type="SOURCE" refId="37"/>    
+    <end type="TARGET" refId="26"/>  
+  </dependency>  
+  <association id="299">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="300" name="records">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="301" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="22" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="302">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="33"/>  
+  </dependency>  
+  <dependency id="303">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="3"/>  
+  </dependency>  
+  <dependency id="304">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="19"/>  
+  </dependency>  
+  <dependency id="305">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="31"/>  
+  </dependency>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>
