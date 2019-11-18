@@ -64,7 +64,7 @@ public class Holiday implements ISerializable {
 	}
 	/**
 	 * Date of holiday to set.
-	 * @param holidayDate
+	 * @param holidayDate Date of the holiday to be inputted. 
 	 */
 	public void setHolidayDate(LocalDate holidayDate) {
 		this.date = holidayDate;

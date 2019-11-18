@@ -132,7 +132,7 @@ public class Pricing implements ISerializable {
 	}
 	/**
 	 * Movie discount value for senior citizen to be set.
-	 * @param studentDiscount This pricing's movie ticket discount value for senior citizen.
+	 * @param seniorCitizenDiscount This pricing's movie ticket discount value for senior citizen.
 	 */
 	public void setSeniorCitizenDiscount(double seniorCitizenDiscount) {
 		this.seniorCitizenDiscount = seniorCitizenDiscount;
@@ -147,7 +147,7 @@ public class Pricing implements ISerializable {
 	
 	/**
 	 * Additional cost of movie type to be set.
-	 * @param weekendPremium This pricing's additional cost for movie type.
+	 * @param movieTypePremium This pricing's additional cost for movie type.
 	 */
 	public void setMovieTypePremium(double movieTypePremium) {
 		this.movieTypePremium = movieTypePremium;
@@ -163,7 +163,7 @@ public class Pricing implements ISerializable {
 	
 	/**
 	 * Additional cost of watching movie in platinum cinema to be set.
-	 * @param weekendPremium This pricing's additional cost for platinum cinema.
+	 * @param platinumCinemaPremium This pricing's additional cost for platinum cinema.
 	 */
 	public void setPlatinumCinemaPremium(double platinumCinemaPremium) {
 		this.platinumCinemaPremium = platinumCinemaPremium;
@@ -179,7 +179,7 @@ public class Pricing implements ISerializable {
 	
 	/**
 	 * Additional cost of watching movie in gold cinema to be set.
-	 * @param weekendPremium This pricing's additional cost for gold cinema.
+	 * @param goldCinemaPremium This pricing's additional cost for gold cinema.
 	 */
 	public void setGoldCinemaPremium(double goldCinemaPremium) {
 		this.goldCinemaPremium = goldCinemaPremium;

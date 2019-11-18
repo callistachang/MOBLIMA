@@ -101,8 +101,9 @@ public class Printer {
 		}
 		if(reviews.size()>1) {
 			System.out.println("\nAverage Rating: " + totalRating/reviews.size());
-		}
+		} else {
 		System.out.println("\nAverage Rating: NA");
+		}
 	}
 	
 	/**
@@ -126,9 +127,9 @@ public class Printer {
 	 * Prints the attributes of showtime object.
 	 */
 	public static void printShowtimeAttributes() {
-		System.out.println("(1) Movie: ");
-		System.out.println("(2) Date: ");
-		System.out.println("(3) Time: ");
+		System.out.println("(1) Movie");
+		System.out.println("(2) Date");
+		System.out.println("(3) Time");
 	}
 	/**
 	 * Prints the details of a particular showtime.

@@ -1,11 +1,20 @@
 package managers;
 import java.time.LocalTime;
+
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 import models.Cinema;
 import models.Showtime;
+
+/**
+ * Chekcs the validation of variables.
+ * @author balad
+ * @version 1.0
+ * @since 2019-11-17
+ *
+ */
 public class ValidityChecker {
 	
 	/**

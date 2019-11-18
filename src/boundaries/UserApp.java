@@ -182,13 +182,17 @@ public class UserApp {
 		int movieID = InputBoundary.getIntInput("Choose an option");
 		Movie movie = mm.getMovieByID(movieID);
 		System.out.println("Which cineplex?");
-		cxm.listCineplexByMovie(movieID);
-
+		boolean cineplexExist=cxm.listCineplexByMovie(movieID);
+		if (cineplexExist)
+		{
 		String cineplexID = InputBoundary.getCineplexIDInput("Enter cineplexID:");
 		Cineplex cineplex = cxm.getCineplexByID(cineplexID);
 		
 		System.out.println("Showtimes Available:");
 		cxm.listAllSeatAvailabilitiesInCineplexByMovie(cineplex, movie);
+		} else {
+			System.out.println("Cineplex isn't playing movie.");
+		}
 	}
 
 	/**
